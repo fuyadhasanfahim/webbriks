@@ -78,7 +78,11 @@ export default function HowWeWork() {
                             key={step.id}
                             className={`w-full min-w-[269px] h-auto ${step.bg} rounded-2xl border ${step.borderColor} p-6`}
                         >
-                            <div className="text-end text-black/10 text-[32px] font-bold">
+                            <div
+                                className={`text-end text-black/10 text-[32px] font-bold ${
+                                    step.number === '03' && 'text-white/60'
+                                }`}
+                            >
                                 {step.number}
                             </div>
                             <div className="flex flex-col justify-start items-start gap-8">

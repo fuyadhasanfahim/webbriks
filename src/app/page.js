@@ -6,6 +6,7 @@ import FrequentlyAskedQuestions from '@/components/home/FrequentlyAskedQuestions
 import FunFact from '@/components/home/FunFact';
 import HowWeWork from '@/components/home/HowWeWork';
 import ServicesHome from '@/components/home/ServicesHome';
+import WhatMakesUsDifferent from '@/components/home/WhatMakesUsDifferent';
 import WhoWeAre from '@/components/home/WhoWeAre';
 import aos from 'aos';
 import React, { useEffect } from 'react';
@@ -40,6 +41,9 @@ const Home = () => {
             </section>
             <section className="lg:py-10 py-5">
                 <FrequentlyAskedQuestions />
+            </section>
+            <section className="lg:py-10 py-5">
+                <WhatMakesUsDifferent />
             </section>
         </div>
     );

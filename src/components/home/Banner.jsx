@@ -87,14 +87,13 @@ export default function Banner() {
                                 width={50}
                                 className=" absolute top-0 right-0 w-auto h-auto"
                             />
-                            <Image
+                            {/* <Image
                                 src="https://iili.io/2u0fZkG.png"
                                 alt=""
                                 height={34}
                                 width={180}
                                 className=" absolute top-1/3 -right-[35%] z-20 w-auto h-auto "
-                            />
-
+                            /> */}
                             <Image
                                 src="https://iili.io/2u0oeDb.png"
                                 alt=""
