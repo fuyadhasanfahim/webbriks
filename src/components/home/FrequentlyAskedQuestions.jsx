@@ -7,15 +7,38 @@ import { FiArrowUpRight, FiPlus, FiMinus } from 'react-icons/fi';
 const FAQ_DATA = [
     {
         question: 'What services does your web agency offer?',
-        answer: 'Our web agency provides services like web design, development, SEO, and maintenance for businesses of all sizes.',
+        answer: (
+            <ul className="list-disc ml-6">
+                <li>
+                    <strong>Web Design and Development:</strong> Creating
+                    modern, responsive websites with React/Next.js.
+                </li>
+                <li>
+                    <strong>WordPress Web Design:</strong> Fully customized
+                    WordPress web design with fast page loading speed.
+                </li>
+                <li>
+                    <strong>Graphic Design:</strong> Crafting visually appealing
+                    designs to enhance your brand.
+                </li>
+                <li>
+                    <strong>Photo Editing:</strong> Providing professional
+                    editing services for flawless images.
+                </li>
+                <li>
+                    <strong>Video Editing:</strong> Producing polished videos
+                    that captivate your audience.
+                </li>
+            </ul>
+        ),
     },
     {
         question: 'Can you help with redesigning an existing website?',
-        answer: 'Yes, we specialize in redesigning websites to improve performance, usability, and aesthetics.',
+        answer: `Yes, we can absolutely help with redesigning an existing website. Our team specializes in creating modern, user-friendly, and visually appealing designs customized to your brand's goals. We’ll work closely with you to understand your needs, improve functionality, and enhance user experience. With our expertise, we’ll make sure your redesigned website looks great and works perfectly. Let us bring your vision to life!`,
     },
     {
         question: 'Do you offer mobile app development services?',
-        answer: 'We offer mobile app development for both Android and iOS platforms, tailored to your specific needs.',
+        answer: `No, we don’t offer mobile app development services at the moment. However, we specialize in web design, development, graphic design, photo editing, and video editing to support your business needs. `,
     },
     {
         question: 'Do you offer fixed pricing or hourly rates?',
@@ -48,7 +71,7 @@ export default function FrequentlyAskedQuestions() {
                                 key={index}
                                 className={`p-4 bg-white rounded-lg border ${
                                     openIndex === index
-                                        ? 'border-[#ffa726]'
+                                        ? 'border-[#ffa726] shadow-md'
                                         : 'border-[#ebebeb]'
                                 } transition-transform duration-300 ease-linear`}
                             >
