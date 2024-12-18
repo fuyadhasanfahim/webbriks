@@ -2,7 +2,9 @@
 
 import Banner from '@/components/home/Banner';
 import FeaturedWork from '@/components/home/FeaturedWork';
+import FrequentlyAskedQuestions from '@/components/home/FrequentlyAskedQuestions';
 import FunFact from '@/components/home/FunFact';
+import HowWeWork from '@/components/home/HowWeWork';
 import ServicesHome from '@/components/home/ServicesHome';
 import WhoWeAre from '@/components/home/WhoWeAre';
 import aos from 'aos';
@@ -32,6 +34,12 @@ const Home = () => {
             </section>
             <section className="lg:py-10 py-5">
                 <FeaturedWork />
+            </section>
+            <section className="lg:py-10 py-5">
+                <HowWeWork />
+            </section>
+            <section className="lg:py-10 py-5">
+                <FrequentlyAskedQuestions />
             </section>
         </div>
     );
