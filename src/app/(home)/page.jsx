@@ -4,14 +4,14 @@ import Banner from '@/components/home/Banner';
 import FeaturedWork from '@/components/home/FeaturedWork';
 import FrequentlyAskedQuestions from '@/components/home/FrequentlyAskedQuestions';
 import FunFact from '@/components/home/FunFact';
-import HowWeWork from '@/components/shared/HowWeWork';
 import MeetOurTeamMate from '@/components/home/MeetOurTeamMate';
 import ServicesHome from '@/components/home/ServicesHome';
 import WhatClientThinkAboutUS from '@/components/home/WhatClientThinkAboutUS';
 import WhatMakesUsDifferent from '@/components/home/WhatMakesUsDifferent';
 import WhoWeAre from '@/components/home/WhoWeAre';
+import HowWeWork from '@/components/shared/HowWeWork';
 import aos from 'aos';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 const Home = () => {
     useEffect(() => {
