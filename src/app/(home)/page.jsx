@@ -4,7 +4,7 @@ import Banner from '@/components/home/Banner';
 import FeaturedWork from '@/components/home/FeaturedWork';
 import FrequentlyAskedQuestions from '@/components/home/FrequentlyAskedQuestions';
 import FunFact from '@/components/home/FunFact';
-import HowWeWork from '@/components/home/HowWeWork';
+import HowWeWork from '@/components/shared/HowWeWork';
 import MeetOurTeamMate from '@/components/home/MeetOurTeamMate';
 import ServicesHome from '@/components/home/ServicesHome';
 import WhatClientThinkAboutUS from '@/components/home/WhatClientThinkAboutUS';

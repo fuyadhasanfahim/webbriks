@@ -17,18 +17,24 @@ export default function FooterGlobal() {
                             <div className="self-stretch text-white text-base font-normal leading-tight">{`Reach out to our team of experts, and we'll get back to you promptly with personalized solutions.`}</div>
                         </div>
                         <div className="self-stretch justify-start items-center gap-6 inline-flex">
-                            <div className="pl-8 pr-6 py-4 bg-[#2b2121] rounded-lg justify-start items-center gap-4 flex">
+                            <Link
+                                href={'/get-quote'}
+                                className="pl-8 pr-6 py-4 bg-[#2b2121] rounded-lg justify-start items-center gap-4 flex"
+                            >
                                 <div className="text-white text-base font-normal leading-tight">
                                     Request a Quote
                                 </div>
                                 <ArrowRightIcon className="text-white w-6 h-6 overflow-hidden" />
-                            </div>
-                            <div className="pl-6 pr-8 py-4 bg-white/20 rounded-lg border border-white backdrop-blur-[9.80px] justify-start items-center gap-4 flex">
+                            </Link>
+                            <Link
+                                href="tel:+17185771232"
+                                className="pl-6 pr-8 py-4 bg-white/20 rounded-lg border border-white backdrop-blur-[9.80px] justify-start items-center gap-4 flex"
+                            >
                                 <PhoneIcon className="text-white w-6 h-6 overflow-hidden" />
                                 <div className="text-white text-base font-normal leading-tight">
                                     +1 718 577 1232
                                 </div>
-                            </div>
+                            </Link>
                         </div>
                     </div>
                     <Image
