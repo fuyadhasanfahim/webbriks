@@ -1,6 +1,6 @@
 'use client';
-import FooterGlobal from '@/components/home/FooterGlobal';
-import { NavigationbarWithDropdownMultilevelMenu } from '@/components/home/Navbar';
+import FooterGlobal from '@/components/shared/FooterGlobal';
+import { NavigationbarWithDropdownMultilevelMenu } from '@/components/shared/Navbar';
 import store from '@/redux/store';
 import React from 'react';
 import { Provider } from 'react-redux';

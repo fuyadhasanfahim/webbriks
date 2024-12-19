@@ -7,7 +7,7 @@ export default function FeaturedWork() {
         <div
             className="w-full bg-[#FFFBF4]"
             data-aos="fade-up"
-            data-aos-duration="2000"
+            data-aos-duration="1000"
         >
             <div className="w-[90%] mx-auto max-w-screen-2xl">
                 <div className="flex flex-col items-center justify-center gap-10">

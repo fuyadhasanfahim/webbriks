@@ -40,7 +40,11 @@ const services = [
 
 export default function ServicesHome() {
     return (
-        <div className="w-full bg-[#FFFBF4]">
+        <div
+            className="w-full bg-[#FFFBF4]"
+            data-aos="fade-up"
+            data-aos-duration="1000"
+        >
             <div className="w-[90%] mx-auto max-w-screen-2xl">
                 <div className="space-y-12 w-full mx-auto">
                     <div className="flex flex-col gap-5 lg:flex-row items-center justify-between">

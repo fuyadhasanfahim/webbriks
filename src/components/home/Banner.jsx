@@ -6,7 +6,11 @@ import { FiArrowUpRight } from 'react-icons/fi';
 
 export default function Banner() {
     return (
-        <div className='w-full bg-[#FFFBF4] lg:bg-[url("https://iili.io/2uar8rJ.png")] bg-[length:100%_98%] bg-no-repeat bg-right-top relative'>
+        <div
+            className='w-full bg-[#FFFBF4] lg:bg-[url("https://iili.io/2uar8rJ.png")] bg-[length:100%_98%] bg-no-repeat bg-right-top relative'
+            data-aos="fade-up"
+            data-aos-duration="1000"
+        >
             <Image
                 src="https://iili.io/2ubyQbR.png"
                 width={80}
