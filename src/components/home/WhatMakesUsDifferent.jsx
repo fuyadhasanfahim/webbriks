@@ -27,20 +27,6 @@ const features = [
         description:
             'We use the latest tools and techniques to stay ahead of the curve.',
     },
-    {
-        id: 4,
-        icon: '/icons/innovation.svg',
-        title: 'Customer Focus',
-        description:
-            'We prioritize understanding and meeting customer needs at every step.',
-    },
-    {
-        id: 5,
-        icon: '/icons/innovation.svg',
-        title: 'Efficiency',
-        description:
-            'We deliver projects in a timely manner without compromising on quality.',
-    },
 ];
 
 export default function WhatMakesUsDifferent() {
@@ -53,7 +39,7 @@ export default function WhatMakesUsDifferent() {
             <div className="w-[90%] mx-auto max-w-screen-2xl">
                 <div className="flex flex-col lg:flex-row justify-between items-start gap-10">
                     <div className="lg:w-1/3">
-                        <h2 className="text-[#444444] text-3xl sm:text-5xl font-semibold leading-snug">
+                        <h2 className="lg:text-5xl text-4xl text-[#2B2121] lg:leading-[58px] font-semibold lg:my-5 my-3">
                             What makes us different?
                         </h2>
                         <p className="text-[#444444] text-base font-normal mt-4 leading-relaxed">
@@ -62,7 +48,7 @@ export default function WhatMakesUsDifferent() {
                             procedures. No contracts. Just your work getting
                             done!
                         </p>
-                        <div className="flex items-center gap-4 mt-6">
+                        <div className="flex items-center justify-center lg:justify-start gap-4 mt-6">
                             <button
                                 id="prev-button"
                                 className="p-2 rounded-full border border-[#2b2121] flex items-center justify-center"
@@ -102,7 +88,7 @@ export default function WhatMakesUsDifferent() {
                         >
                             {features.map((feature) => (
                                 <SwiperSlide key={feature.id}>
-                                    <div className="w-full h-auto px-6 py-10 bg-white rounded-2xl border border-[#f1f1f1] shadow-sm flex flex-col items-center text-center">
+                                    <div className="w-full h-[314px] px-6 py-10 bg-white rounded-2xl border border-[#f1f1f1] shadow-sm flex flex-col items-center text-center">
                                         <div className="w-16 h-16 p-3 bg-[#fff7ec] rounded-full flex items-center justify-center mb-4">
                                             <Image
                                                 src={feature.icon}
@@ -114,13 +100,13 @@ export default function WhatMakesUsDifferent() {
                                         <h3 className="text-black text-2xl font-medium mb-4">
                                             {feature.title}
                                         </h3>
-                                        <p className="text-black text-lg font-normal leading-relaxed mb-4">
+                                        <p className="text-black font-normal leading-relaxed mb-4 self-stretch">
                                             {feature.description}
                                         </p>
-                                        <button className="text-[#444444] text-lg font-medium flex items-center gap-2">
+                                        {/* <button className="text-[#444444] text-lg font-medium flex items-center gap-2">
                                             Learn More
                                             <FiArrowRight />
-                                        </button>
+                                        </button> */}
                                     </div>
                                 </SwiperSlide>
                             ))}

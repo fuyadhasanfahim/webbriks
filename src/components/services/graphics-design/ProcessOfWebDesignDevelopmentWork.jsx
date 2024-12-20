@@ -41,7 +41,7 @@ export default function ProcessOfWebDesignDevelopmentWork() {
                                             insights.
                                         </div>
                                     </div>
-                                    <Link
+                                    {/* <Link
                                         href={''}
                                         className="justify-start items-center gap-1 inline-flex"
                                     >
@@ -49,7 +49,7 @@ export default function ProcessOfWebDesignDevelopmentWork() {
                                             Explore More
                                         </div>
                                         <FiArrowUpRight />
-                                    </Link>
+                                    </Link> */}
                                 </div>
                             </div>
 
@@ -69,7 +69,7 @@ export default function ProcessOfWebDesignDevelopmentWork() {
                                             project brief.
                                         </div>
                                     </div>
-                                    <Link
+                                    {/* <Link
                                         href={''}
                                         className="justify-start items-center gap-1 inline-flex"
                                     >
@@ -77,7 +77,7 @@ export default function ProcessOfWebDesignDevelopmentWork() {
                                             Explore More
                                         </div>
                                         <FiArrowUpRight />
-                                    </Link>
+                                    </Link> */}
                                 </div>
                             </div>
                         </div>
@@ -99,7 +99,7 @@ export default function ProcessOfWebDesignDevelopmentWork() {
                                         designs that bring the initial.
                                     </div>
                                 </div>
-                                <Link
+                                {/* <Link
                                     href={''}
                                     className="justify-start items-center gap-1 inline-flex"
                                 >
@@ -107,7 +107,7 @@ export default function ProcessOfWebDesignDevelopmentWork() {
                                         Explore More
                                     </div>
                                     <FiArrowUpRight />
-                                </Link>
+                                </Link> */}
                             </div>
                         </div>
                         <div className="w-full lg:w-[268px] h-[305px] p-6 bg-white rounded-lg flex-col justify-start items-start gap-4 inline-flex">
@@ -126,7 +126,7 @@ export default function ProcessOfWebDesignDevelopmentWork() {
                                         approved.
                                     </div>
                                 </div>
-                                <Link
+                                {/* <Link
                                     href={''}
                                     className="justify-start items-center gap-1 inline-flex"
                                 >
@@ -134,7 +134,7 @@ export default function ProcessOfWebDesignDevelopmentWork() {
                                         Explore More
                                     </div>
                                     <FiArrowUpRight />
-                                </Link>
+                                </Link> */}
                             </div>
                         </div>
                         <div className="w-full lg:w-[268px] h-[305px] p-6 bg-white rounded-lg flex-col justify-start items-start gap-4 inline-flex">
@@ -152,7 +152,7 @@ export default function ProcessOfWebDesignDevelopmentWork() {
                                         deliver the files to the client.
                                     </div>
                                 </div>
-                                <Link
+                                {/* <Link
                                     href={''}
                                     className="justify-start items-center gap-1 inline-flex"
                                 >
@@ -160,7 +160,7 @@ export default function ProcessOfWebDesignDevelopmentWork() {
                                         Explore More
                                     </div>
                                     <FiArrowUpRight />
-                                </Link>
+                                </Link> */}
                             </div>
                         </div>
                         <div className="w-full lg:w-[268px] text-[#444444] text-lg font-normal leading-snug">

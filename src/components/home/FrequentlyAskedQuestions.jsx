@@ -64,7 +64,7 @@ export default function FrequentlyAskedQuestions() {
             data-aos-duration="1000"
         >
             <div className="w-[90%] mx-auto max-w-screen-2xl">
-                <div className="flex flex-col lg:flex-row items-center justify-between gap-14">
+                <div className="flex flex-col lg:flex-row items-start justify-between gap-14">
                     <div className="w-full lg:w-[50%] flex flex-col gap-8">
                         {FAQ_DATA.map((item, index) => (
                             <div
@@ -95,10 +95,10 @@ export default function FrequentlyAskedQuestions() {
                                 )}
                             </div>
                         ))}
-                        <button className="h-14 px-6 py-3.5 bg-[#ffa726] rounded-lg text-[#2b2121] text-xl font-medium inline-flex items-center gap-2 self-start">
+                        {/* <button className="h-14 px-6 py-3.5 bg-[#ffa726] rounded-lg text-[#2b2121] text-xl font-medium inline-flex items-center gap-2 self-start">
                             Learn More
                             <FiArrowUpRight />
-                        </button>
+                        </button> */}
                     </div>
 
                     <div className="w-[552px] h-[520px] relative hidden lg:block">

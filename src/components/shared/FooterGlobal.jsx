@@ -6,7 +6,7 @@ import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 
 export default function FooterGlobal() {
     return (
-        <div className="bg-[#2B2121] lg:mt-[250px] mt-5 relative lg:pt-32 mx-auto">
+        <div className="bg-[#2B2121] lg:mt-[250px] relative lg:pt-32 mx-auto">
             <div className='hidden lg:block lg:h-[381px] h-[100px] lg:bg-[url("https://iili.io/2u9QXRe.png")] bg-no-repeat bg-center bg-cover rounded-2xl lg:w-[90%] absolute lg:left-[5%] lg:-top-[200px]'>
                 <div className="relative">
                     <div className="w-[570px] h-[198px] flex-col justify-start items-start gap-10 inline-flex py-[91.5px] pl-[73px]">

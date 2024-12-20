@@ -1,32 +1,27 @@
 import Image from 'next/image';
+import { AnimatedTestimonials } from '../ui/animated-testimonials';
 
 const testimonials = [
     {
         id: 1,
-        name: 'Madam Khadija',
-        feedback:
-            'Expert Designer exceeded my expectations with outstanding logo design work.',
-        image: '/images/ceo-asad.jpg',
-        borderColor: '#ff8f20',
-        barColor: '#ffa726',
+        name: 'Sarah Thompson',
+        position: 'CEO, TrendyWear',
+        feedback: `Webbriks LLC has been a game-changer for our e-commerce business. Their photo editing services are second to none—flawless background removals, perfect color corrections, and timely delivery every single.`,
+        image: '/avatar/avatar-1.png',
     },
     {
         id: 2,
-        name: 'Sad Ibn Muaz',
-        feedback:
-            'Expert Designer exceeded my expectations with outstanding logo design work.',
-        image: '/images/ceo-asad.jpg',
-        borderColor: '#ebebeb',
-        barColor: '#ffa726',
+        name: 'David Brown',
+        position: 'Marketing Director, CreativeHive',
+        feedback: `The graphic design team at Webbriks LLC exceeded our expectations! They brought our ideas to life with creative designs that truly captured our brand identity. Their attention to detail and quick turnaround time have made them our go-to partner for all design needs.`,
+        image: '/avatar/avatar-2.jpeg',
     },
     {
         id: 3,
-        name: 'John Wick',
-        feedback:
-            'Expert Designer exceeded my expectations with outstanding logo design work.',
-        image: '/images/ceo-asad.jpg',
-        borderColor: '#ebebeb',
-        barColor: '#ebebeb',
+        name: 'Emily Johnson',
+        position: 'Founder, Wellness Bloom',
+        feedback: `Working with Webbriks LLC on our website redesign was an absolute pleasure. Their team created a stunning, user-friendly website that perfectly reflects our brand. We’ve seen a significant increase in customer engagement since the launch. Highly recommend their web design and development services!`,
+        image: '/avatar/avatar-3.png',
     },
 ];
 
@@ -38,19 +33,19 @@ export default function WhatClientThinkAboutUS() {
             data-aos-duration="1000"
         >
             <div className="w-[90%] mx-auto max-w-screen-2xl">
-                <div className="h-auto lg:h-[489px] flex flex-col lg:flex-row justify-center items-center gap-[57px]">
-                    <div className="w-full lg:w-[562px] flex-col justify-start items-start gap-12 inline-flex overflow-hidden">
+                <div className="h-auto overflow-hidden flex flex-col xl:flex-row justify-between items-start gap-10">
+                    <div className="w-full xl:w-[562px] flex-col justify-start items-start gap-12 inline-flex overflow-hidden ">
                         <div className="self-stretch flex-col justify-start items-start gap-8 flex">
                             <div className="w-full h-auto flex-col justify-start items-start gap-4 flex">
-                                <h2 className="self-stretch text-[#2b2121] text-5xl font-semibold leading-[57.60px]">
-                                    What Client <br /> Think about US
+                                <h2 className="lg:text-5xl text-4xl text-[#2B2121] lg:leading-[58px] font-semibold lg:my-5 my-3">
+                                    What Our Clients Say About Webbriks LLC
                                 </h2>
                             </div>
                             <p className="self-stretch text-[#2b2121] text-base font-normal leading-tight">
-                                Our team of specialists helps businesses
-                                navigate the complex landscape of modern
-                                technology, ensuring they stay compliant,
-                                innovative, and competitive.
+                                Discover why businesses worldwide trust Webbriks
+                                LLC for photo editing, graphic design, and
+                                website solutions. Read their experiences and
+                                success stories with our expert services.
                             </p>
                         </div>
                         <button className="h-14 px-6 py-3.5 bg-[#ffa726] rounded-lg justify-center items-center gap-2 inline-flex">
@@ -60,61 +55,46 @@ export default function WhatClientThinkAboutUS() {
                         </button>
                     </div>
 
-                    <div className="w-full lg:w-[527px] h-auto lg:h-[489px] relative flex flex-col gap-4 overflow-hidden">
-                        {testimonials.map((testimonial, index) => (
-                            <div
-                                key={testimonial.id}
-                                className={`w-full lg:w-[463px] h-auto lg:h-[147px] relative flex-col justify-start items-start gap-2 inline-flex ${
-                                    index === 0
-                                        ? 'lg:absolute lg:top-[171px] lg:left-0'
-                                        : ''
-                                } ${
-                                    index === 1
-                                        ? 'lg:absolute lg:top-[342px] lg:left-[64px]'
-                                        : ''
-                                } ${
-                                    index === 2
-                                        ? 'lg:absolute lg:top-0 lg:left-[64px]'
-                                        : ''
-                                }`}
-                            >
+                    <div className="flex flex-col gap-4">
+                        {/* {testimonials.map((testimonial) => {
+                            const { id, name, feedback, position, image } =
+                                testimonial;
+
+                            return (
                                 <div
-                                    className={`w-full lg:w-[463px] h-auto lg:h-[147px] bg-white rounded-2xl border ${
-                                        testimonial.highlight
-                                            ? 'border-[#ff8f20]/25'
-                                            : 'border-[#ebebeb]'
-                                    } justify-start items-center gap-2 inline-flex`}
-                                />
-                                <div className="w-full lg:w-[461px] justify-start items-center gap-4 inline-flex">
-                                    <div
-                                        className={`w-[15px] h-auto lg:h-[147px] ${
-                                            testimonial.highlight
-                                                ? 'bg-[#ffa726]'
-                                                : 'bg-[#ebebeb]'
-                                        } rounded-tl-2xl rounded-bl-2xl`}
-                                    />
-                                    <div className="w-[406px] flex-col justify-start items-start inline-flex">
-                                        <div className="self-stretch justify-start items-center gap-4 inline-flex">
+                                    key={id}
+                                    className={`flex justify-start items-center gap-4 border border-l-0 rounded-2xl transform transition-all duration-300 ease-in-out hover:-translate-x-10 hover:shadow hover:scale-105 hover:border-[#ff8f20] group`}
+                                >
+                                    <div className="w-[50px] h-[147px] rounded-l-2xl bg-[#ebebeb] group-hover:bg-[#ff8f20]" />
+                                    <div className="flex-col justify-start items-start inline-flex">
+                                        <div className="self-stretch justify-start items-center gap-4 inline-flex flex-col ">
                                             <Image
-                                                src={testimonial.image}
-                                                alt={testimonial.name}
+                                                src={image}
+                                                alt="user image"
                                                 width={92}
                                                 height={92}
-                                                className="rounded-full"
+                                                className="rounded-full object-cover bg-center"
                                             />
-                                            <div className="w-[298px] flex-col justify-start items-start gap-2 inline-flex">
-                                                <h3 className="self-stretch text-[#2b2121] text-2xl font-medium leading-[28.80px]">
-                                                    {testimonial.name}
-                                                </h3>
-                                                <p className="self-stretch text-[#444444] text-base font-normal leading-tight">
-                                                    {testimonial.feedback}
-                                                </p>
+                                            <div className="flex-col justify-start items-start gap-2 inline-flex">
+                                                <div className="self-stretch text-[#2b2121] text-lg font-medium leading-[28.80px] flex items-center gap-1">
+                                                    {name}
+                                                    <span className="text-sm italic">
+                                                        {`(${position})`}
+                                                    </span>
+                                                </div>
+                                                <div className="self-stretch text-[#444444] text-sm font-normal leading-tight italic pr-4">
+                                                    {`"${feedback}"`}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })} */}
+                        <AnimatedTestimonials
+                            testimonials={testimonials}
+                            autoplay
+                        />
                     </div>
                 </div>
             </div>

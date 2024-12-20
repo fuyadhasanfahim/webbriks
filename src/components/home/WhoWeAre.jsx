@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { FiArrowUpRight } from 'react-icons/fi';
 
@@ -22,7 +23,7 @@ export default function WhoWeAre() {
                 </div>
 
                 <div className="md:w-1/2 space-y-10">
-                    <h2 className="lg:text-5xl md:text-4xl text-3xl text-[#2B2121] font-semibold">
+                    <h2 className="lg:text-5xl text-4xl text-[#2B2121] lg:leading-[58px] font-semibold lg:my-5 my-3">
                         Who We Are
                     </h2>
                     <div className="text-[#444444] space-y-5">
@@ -33,8 +34,8 @@ export default function WhoWeAre() {
                             {`Our founders bring a wealth of experience and vision to our company. They lead a passionate team dedicated to helping clients succeed. We prioritize tailored solutions that meet each client's unique needs.`}
                         </p>
                     </div>
-                    <button className="">
-                        <a
+                    {/* <button className="">
+                        <Link
                             href="/about"
                             className="bg-[#FFA726] text-[#2B2121] px-4 py-2 rounded hover:bg-[#2B2121] hover:text-white transition flex items-center gap-2"
                         >
@@ -42,8 +43,8 @@ export default function WhoWeAre() {
                             <span>
                                 <FiArrowUpRight />
                             </span>
-                        </a>
-                    </button>
+                        </Link>
+                    </button> */}
                 </div>
             </div>
         </div>

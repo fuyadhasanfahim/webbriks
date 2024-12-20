@@ -20,7 +20,7 @@ const TeamMember = ({ imgSrc, title, position, fb, twitter, instagram }) => {
         setSocial(!false);
     };
     const handleMouseLeave = () => {
-        setSocial(false); // Hide the social icons when the mouse leaves
+        setSocial(false);
     };
 
     return (
@@ -30,7 +30,12 @@ const TeamMember = ({ imgSrc, title, position, fb, twitter, instagram }) => {
             onMouseLeave={handleMouseLeave}
         >
             <CardHeader floated={false} className="">
-                <Image src={imgSrc} alt="profile-picture" />
+                <Image
+                    src={imgSrc}
+                    alt="profile-picture"
+                    width={540}
+                    height={628}
+                />
             </CardHeader>
             <CardBody className="text-center">
                 <Typography variant="h4" color="blue-gray" className="mb-2">

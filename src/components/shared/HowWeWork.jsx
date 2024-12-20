@@ -62,7 +62,7 @@ export default function HowWeWork() {
         >
             <div className="w-[90%] mx-auto max-w-screen-2xl">
                 <div className="space-y-6">
-                    <h1 className="text-center text-[#2b2121] text-5xl font-semibold leading-[57.60px]">
+                    <h1 className="lg:text-5xl text-4xl text-[#2B2121] lg:leading-[58px] font-semibold lg:my-5 my-3">
                         How We Work
                     </h1>
                     <p className="text-center w-full max-w-[760px] text-[#2b2121] text-lg font-normal leading-snug mx-auto">
@@ -113,13 +113,13 @@ export default function HowWeWork() {
                                     </p>
                                 </div>
                                 <div className="">
-                                    <Link href={step.link}>
+                                    {/* <Link href={step.link}>
                                         <span
                                             className={`flex gap-1 items-center hover:underline ${step.textColor}`}
                                         >
                                             Learn More <FiArrowUpRight />
                                         </span>
-                                    </Link>
+                                    </Link> */}
                                 </div>
                             </div>
                         </div>

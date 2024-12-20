@@ -60,9 +60,12 @@ export default function ServicesHome() {
                             assistance and web design.`}
                             </div>
                             <div>
-                                <button className="font-semibold underline mt-3 flex items-center gap-1">
+                                <a
+                                    href="/services"
+                                    className="font-semibold underline mt-3 flex items-center gap-1"
+                                >
                                     Our Works <FiArrowUpRight />
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -99,7 +102,7 @@ export default function ServicesHome() {
                                             <div className="text-[#444444] text-base font-normal leading-tight hover:underline mt-3">
                                                 <Link href={service.link}>
                                                     <span className="flex items-center gap-1">
-                                                        Explore More{' '}
+                                                        Explore More
                                                         <FiArrowUpRight />
                                                     </span>
                                                 </Link>

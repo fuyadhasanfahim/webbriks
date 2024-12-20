@@ -35,17 +35,17 @@ export default function RootGraphicsDesign() {
                         Service Pages
                     </h1>
                     <div className="text-center flex items-center gap-1">
-                        <span class="text-[#ffa726] text-xl font-medium leading-normal">
-                            Home
+                        <span className="text-[#ffa726] text-xl font-medium leading-normal">
+                            <a href={`/`}>Home</a>
                         </span>
-                        <span class="text-white text-xl font-medium leading-normal">
-                            /
-                        </span>
-                        <span class="text-[#ffa726] text-xl font-medium leading-normal">
-                            Service
+                        <span className="text-white text-xl font-medium leading-normal">
+                            / <a href={`/services`}>Services</a>
                         </span>
                         <span class="text-white text-xl font-medium leading-normal">
                             / Graphic Design
+                            <a href={`/services/graphic-design`}>
+                                Graphic Design
+                            </a>
                         </span>
                     </div>
                 </div>

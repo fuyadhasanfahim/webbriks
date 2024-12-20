@@ -48,7 +48,7 @@ export default function MeetOurTeamMate() {
         >
             <div className="w-[90%] mx-auto max-w-screen-2xl">
                 <div className="space-y-6 mb-12">
-                    <h1 className="text-center text-[#2b2121] text-5xl font-semibold leading-[57.60px]">
+                    <h1 className="lg:text-5xl text-4xl text-[#2B2121] lg:leading-[58px] font-semibold lg:my-5 my-3">
                         Meet Our Team Mate
                     </h1>
                     <div className="text-center space-y-3">

@@ -35,10 +35,10 @@ export default function RootServicesPage() {
                     </h1>
                     <div className="flex justify-center items-center gap-1 mt-2">
                         <span className="text-[#ffa726] text-xl font-medium leading-normal">
-                            Home
+                            <a href={`/`}>Home</a>
                         </span>
                         <span className="text-white text-xl font-medium leading-normal">
-                            / Service
+                            / <a href={`/services`}>Services</a>
                         </span>
                     </div>
                 </div>

@@ -51,7 +51,7 @@ export default function ServicesHeroSection() {
                                                 brand stand out.
                                             </div>
                                         </div>
-                                        <Link
+                                        {/* <Link
                                             href={'/services/graphics-design'}
                                             className="justify-start items-center gap-1 inline-flex hover:underline"
                                         >
@@ -59,7 +59,7 @@ export default function ServicesHeroSection() {
                                                 Explore More
                                             </div>
                                             <FiArrowUpRight className="text-[#444444]" />
-                                        </Link>
+                                        </Link> */}
                                     </div>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@ export default function ServicesHeroSection() {
                                                 to perfection.
                                             </div>
                                         </div>
-                                        <Link
+                                        {/* <Link
                                             href={'/services/photo-editing'}
                                             className="justify-start items-center gap-1 inline-flex hover:underline"
                                         >
@@ -96,7 +96,7 @@ export default function ServicesHeroSection() {
                                                 Explore More
                                             </div>
                                             <FiArrowUpRight className="text-[#444444]" />
-                                        </Link>
+                                        </Link> */}
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +131,7 @@ export default function ServicesHeroSection() {
                                                 content stand out.
                                             </div>
                                         </div>
-                                        <Link
+                                        {/* <Link
                                             href={'/services/video-editing'}
                                             className="justify-start items-center gap-1 inline-flex hover:underline"
                                         >
@@ -139,7 +139,7 @@ export default function ServicesHeroSection() {
                                                 Explore More
                                             </div>
                                             <FiArrowUpRight className="text-[#444444]" />
-                                        </Link>
+                                        </Link> */}
                                     </div>
                                 </div>
                             </div>
@@ -170,7 +170,7 @@ export default function ServicesHeroSection() {
                                                 presence.
                                             </div>
                                         </div>
-                                        <Link
+                                        {/* <Link
                                             href={
                                                 '/services/web-design-and-development'
                                             }
@@ -180,7 +180,7 @@ export default function ServicesHeroSection() {
                                                 Explore More
                                             </div>
                                             <FiArrowUpRight className="text-[#444444]" />
-                                        </Link>
+                                        </Link> */}
                                     </div>
                                 </div>
                             </div>
