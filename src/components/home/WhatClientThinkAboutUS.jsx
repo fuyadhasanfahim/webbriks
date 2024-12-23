@@ -33,8 +33,8 @@ export default function WhatClientThinkAboutUS() {
             data-aos-duration="1000"
         >
             <div className="w-[90%] mx-auto max-w-screen-2xl">
-                <div className="h-auto overflow-hidden flex flex-col xl:flex-row justify-between items-start gap-10">
-                    <div className="w-full xl:w-[562px] flex-col justify-start items-start gap-12 inline-flex overflow-hidden ">
+                <div className="h-auto flex flex-col lg:flex-row justify-around items-center gap-10">
+                    <div className="w-full xl:w-[562px] flex-col justify-start items-start gap-12 inline-flex">
                         <div className="self-stretch flex-col justify-start items-start gap-8 flex">
                             <div className="w-full h-auto flex-col justify-start items-start gap-4 flex">
                                 <h2 className="lg:text-5xl text-4xl text-[#2B2121] lg:leading-[58px] font-semibold lg:my-5 my-3">
@@ -56,45 +56,46 @@ export default function WhatClientThinkAboutUS() {
                     </div>
 
                     <div className="flex flex-col gap-4">
-                        {/* {testimonials.map((testimonial) => {
+                        {testimonials.map((testimonial) => {
                             const { id, name, feedback, position, image } =
                                 testimonial;
+
+                            const truncatedFeedback = feedback
+                                .split(' ')
+                                .slice(0, 15)
+                                .join(' ')
+                                .concat(
+                                    feedback.split(' ').length > 15 ? '...' : ''
+                                );
 
                             return (
                                 <div
                                     key={id}
-                                    className={`flex justify-start items-center gap-4 border border-l-0 rounded-2xl transform transition-all duration-300 ease-in-out hover:-translate-x-10 hover:shadow hover:scale-105 hover:border-[#ff8f20] group`}
+                                    className="bg-white w-full min-w-96 lg:max-w-lg rounded-lg shadow p-6 flex flex-col gap-6 transform transition duration-300 hover:scale-105"
                                 >
-                                    <div className="w-[50px] h-[147px] rounded-l-2xl bg-[#ebebeb] group-hover:bg-[#ff8f20]" />
-                                    <div className="flex-col justify-start items-start inline-flex">
-                                        <div className="self-stretch justify-start items-center gap-4 inline-flex flex-col ">
-                                            <Image
-                                                src={image}
-                                                alt="user image"
-                                                width={92}
-                                                height={92}
-                                                className="rounded-full object-cover bg-center"
-                                            />
-                                            <div className="flex-col justify-start items-start gap-2 inline-flex">
-                                                <div className="self-stretch text-[#2b2121] text-lg font-medium leading-[28.80px] flex items-center gap-1">
-                                                    {name}
-                                                    <span className="text-sm italic">
-                                                        {`(${position})`}
-                                                    </span>
-                                                </div>
-                                                <div className="self-stretch text-[#444444] text-sm font-normal leading-tight italic pr-4">
-                                                    {`"${feedback}"`}
-                                                </div>
-                                            </div>
+                                    <div className="flex items-center gap-4">
+                                        <Image
+                                            src={image}
+                                            alt={name}
+                                            width={70}
+                                            height={70}
+                                            className="rounded-full object-cover"
+                                        />
+                                        <div className="flex items-start flex-col">
+                                            <h3 className="text-lg font-semibold text-[#2B2121]">
+                                                {name}
+                                            </h3>
+                                            <p className="text-sm text-[#FF914D]">
+                                                {position}
+                                            </p>
+                                            <p className="text-[#444444] text-sm mt-2">
+                                                {truncatedFeedback}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                             );
-                        })} */}
-                        <AnimatedTestimonials
-                            testimonials={testimonials}
-                            autoplay
-                        />
+                        })}
                     </div>
                 </div>
             </div>
