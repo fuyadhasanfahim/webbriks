@@ -2,8 +2,9 @@ import './globals.css';
 import 'aos/dist/aos.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import 'react-toastify/dist/ReactToastify.css';
-import RootLayout from './MainApp';
+import 'react-toastify/dist/ReactToastify.min.css';
+import { NavigationbarWithDropdownMultilevelMenu } from '@/components/shared/Navbar';
+import FooterGlobal from '@/components/shared/FooterGlobal';
 
 export const metadata = {
     title: 'Home | Webbriks',
@@ -22,7 +23,13 @@ export default function MyFunc({ children }) {
             </head>
 
             <body className="bg-[#FFFBF4]">
-                <RootLayout>{children}</RootLayout>
+                <header className="lg:sticky lg:-top-2 z-50 shadow-sm">
+                    <NavigationbarWithDropdownMultilevelMenu />
+                </header>
+                <main className="z-0">{children}</main>
+                <footer>
+                    <FooterGlobal />
+                </footer>
             </body>
         </html>
     );
