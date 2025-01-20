@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+html,
+body,
+navbar {
+    font-family: 'Lato', sans-serif;
+}
+
+.container {
+    @apply max-w-7xl mx-auto px-4 md:px-6 lg:px-8;
+}
+
+.bg-black {
+    background-color: #121212;
+}
+
+.text-black {
+    color: #121212;
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.bg-white {
+    background-color: #ffffff;
+}
+
+.space-x {
+    @apply py-10 md:py-20 lg:py-32;
+}
+
+.space-y {
+    @apply space-y-10 md:space-y-20 lg:space-y-32;
+}
+
+.heading {
+    @apply text-4xl md:text-6xl lg:text-7xl font-semibold leading-[50px];
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
