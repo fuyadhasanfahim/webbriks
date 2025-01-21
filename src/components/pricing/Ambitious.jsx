@@ -45,8 +45,8 @@ const Ambitious = () => {
     };
 
     return (
-        <section className="w-full space-x space-y">
-            <div className="max-w-lg mx-auto">
+        <section className="w-full space-x space-y overflow-hidden">
+            <div className="max-w-lg mx-auto px-4">
                 <h3 className="text-xl font-semibold text-center">
                     More than 200+ ambitious startups from different industries
                     count on us!

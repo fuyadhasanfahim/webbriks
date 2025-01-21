@@ -39,10 +39,10 @@ export default function WhatMakesUsDifferent() {
             <div className="w-[90%] mx-auto max-w-screen-2xl">
                 <div className="flex flex-col lg:flex-row justify-between items-start gap-10">
                     <div className="lg:w-1/3">
-                        <h2 className="lg:text-5xl text-4xl text-[#2B2121] lg:leading-[58px] font-semibold lg:my-5 my-3">
+                        <h2 className="text-center md:text-start lg:text-5xl text-4xl text-[#2B2121] lg:leading-[58px] font-semibold lg:my-5 my-3">
                             What makes us different?
                         </h2>
-                        <p className="text-[#444444] text-base font-normal mt-4 leading-relaxed">
+                        <p className="text-center md:text-start text-[#444444] text-base font-normal mt-4 leading-relaxed">
                             We will take care of all your creative needs. No
                             inefficient freelancers. No lengthy hiring
                             procedures. No contracts. Just your work getting

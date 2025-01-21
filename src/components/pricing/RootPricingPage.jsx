@@ -11,7 +11,7 @@ import WhyPickingWebbriks from './WhyPickingWebbriks';
 
 export default async function RootPricingPage() {
     return (
-        <>
+        <section className="overflow-hidden">
             <CallToAction />
             <Ambitious />
             <StickyScrollRevealDemo />
@@ -20,6 +20,6 @@ export default async function RootPricingPage() {
             <TestimonialSlider />
             <ReadyToPartnerWithUs />
             <FAQS />
-        </>
+        </section>
     );
 }

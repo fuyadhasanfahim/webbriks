@@ -6,24 +6,24 @@ import 'keen-slider/keen-slider.min.css';
 
 const testimonials = [
     {
-        title: "Stayin' Alive",
+        title: 'Excellent Service',
         content:
-            'No, Rose, they are not breathing. And they have no arms or legs … Where are they? You know what? If we come across somebody with no arms or legs, do we bother resuscitating them? I mean, what quality of life do we have there?',
+            'Webbriks LLC has been a game-changer for our e-commerce business. Their photo editing services are...',
         author: 'Michael Scott',
         rating: 5,
     },
     {
         title: 'Great Experience',
         content:
-            'No, Rose, they are not breathing. And they have no arms or legs … Where are they? You know what? If we come across somebody with no arms or legs, do we bother resuscitating them? I mean, what quality of life do we have there?',
-        author: 'Michael Scott',
+            'The graphic design team at Webbriks LLC exceeded our expectations! They brought our ideas to...',
+        author: 'David Brown',
         rating: 5,
     },
     {
         title: 'Excellent Service',
         content:
-            'No, Rose, they are not breathing. And they have no arms or legs … Where are they? You know what? If we come across somebody with no arms or legs, do we bother resuscitating them? I mean, what quality of life do we have there?',
-        author: 'Michael Scott',
+            'Working with Webbriks LLC on our website redesign was an absolute pleasure. Their team created...',
+        author: 'Emily Johnson',
         rating: 5,
     },
 ];
@@ -87,7 +87,7 @@ export default function TestimonialSlider() {
     };
 
     return (
-        <section className="bg-black text-white space-y space-x overflow-hidden">
+        <section className="bg-white text-black space-y space-x overflow-hidden">
             <div className="container space-x">
                 <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:items-center lg:gap-16">
                     <div className="max-w-xl text-start ltr:sm:text-left rtl:sm:text-right">
@@ -143,21 +143,21 @@ export default function TestimonialSlider() {
                         <div ref={sliderRef} className="keen-slider">
                             {testimonials.map((testimonial, index) => (
                                 <div key={index} className="keen-slider__slide">
-                                    <blockquote className="flex h-full flex-col justify-between bg-white p-6 shadow-sm sm:p-8 lg:p-12">
+                                    <blockquote className="flex h-full flex-col justify-between bg-black text-white p-6 shadow-sm sm:p-8 lg:p-12">
                                         <div>
                                             <StarRating
                                                 rating={testimonial.rating}
                                             />
                                             <div className="mt-4">
-                                                <p className="text-2xl font-bold text-rose-600 sm:text-3xl">
+                                                <p className="text-2xl font-bold text-white sm:text-3xl">
                                                     {testimonial.title}
                                                 </p>
-                                                <p className="mt-4 leading-relaxed text-gray-700">
+                                                <p className="mt-4 leading-relaxed text-gray-400">
                                                     {testimonial.content}
                                                 </p>
                                             </div>
                                         </div>
-                                        <footer className="mt-4 text-sm font-medium text-gray-700 sm:mt-6">
+                                        <footer className="mt-4 text-sm font-medium text-white sm:mt-6">
                                             &mdash; {testimonial.author}
                                         </footer>
                                     </blockquote>

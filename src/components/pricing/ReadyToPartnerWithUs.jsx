@@ -2,7 +2,7 @@ import BookingSection from './BookingSection';
 
 export default async function ReadyToPartnerWithUs() {
     return (
-        <section className="bg-gray-300 text-black space-x">
+        <section className="bg-gray-300 text-black space-x overflow-hidden">
             <div className="container space-y">
                 <div className="max-w-4xl">
                     <h1 className="heading">
@@ -10,7 +10,7 @@ export default async function ReadyToPartnerWithUs() {
                     </h1>
                 </div>
 
-                <div className="bg-black text-white p-10 md:p-16 lg:p-20 flex flex-col lg:flex-row items-center justify-between gap-10 rounded-3xl">
+                <div className="bg-black text-white p-10 md:p-16 lg:p-20 flex flex-col lg:flex-row items-center justify-between gap-10 rounded-3xl overflow-hidden">
                     <div className="space-y-6">
                         <h3 className="text-lx md:text-2xl lg:text-3xl xl:text-4xl">
                             Book a call

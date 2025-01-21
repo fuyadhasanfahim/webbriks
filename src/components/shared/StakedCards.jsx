@@ -44,7 +44,7 @@ const content = [
 
 export function StickyScrollRevealDemo() {
     return (
-        <section className="w-full bg-white space-x">
+        <section className="w-full bg-white space-x overflow-hidden">
             <StickyScroll content={content} />
         </section>
     );

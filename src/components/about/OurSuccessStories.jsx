@@ -31,21 +31,22 @@ export default function OurSuccessStories() {
         offset: ['start end', 'end start'],
     });
 
-    const empoweringX = useTransform(scrollYProgress, [0, 1], [-100, 100]);
-    const successStoriesX = useTransform(scrollYProgress, [0, 1], [100, -100]);
+    // Responsive Transform Animations
+    const empoweringX = useTransform(scrollYProgress, [0, 1], [-30, 50]);
+    const successStoriesX = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
     return (
         <section ref={sectionRef} className="bg-white overflow-hidden">
             <div className="container mx-auto py-10 md:py-20 lg:py-32 xl:py-44">
                 <div className="space-y-4 md:space-y-6">
                     <motion.h1
-                        className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-[50px] text-gray-900"
+                        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight text-gray-900"
                         style={{ x: empoweringX }}
                     >
                         Inspiring Progress
                     </motion.h1>
                     <motion.h1
-                        className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-[50px] text-gray-500 pl-10 md:pl-20 lg:pl-32"
+                        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight text-gray-500 pl-4 sm:pl-10 md:pl-20 lg:pl-32"
                         style={{ x: successStoriesX }}
                     >
                         Achieving Excellence
@@ -57,7 +58,8 @@ export default function OurSuccessStories() {
                     <motion.div
                         className="flex-1"
                         initial="hidden"
-                        animate="visible"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.5 }}
                         variants={contentVariants}
                     >
                         <Image
@@ -71,13 +73,14 @@ export default function OurSuccessStories() {
 
                     {/* Text and Counters */}
                     <motion.div
-                        className="flex-1 p-8 md:p-12 lg:p-16"
+                        className="flex-1 p-4 sm:p-8 md:p-12 lg:p-16"
                         initial="hidden"
-                        animate="visible"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.5 }}
                         variants={contentVariants}
                     >
                         <motion.p
-                            className="text-lg md:text-xl leading-relaxed text-gray-700 mb-12"
+                            className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-700 mb-12"
                             variants={contentVariants}
                         >
                             {`In early 2018, we started our journey as a small photo editing company called "Cut Out Expert." Back then, our focus was simple—providing high-quality photo editing services to clients around the world. As more clients discovered our work, we realized there was a chance to grow and offer even more. So, we decided to take the next big step and created "Web Briks LLC." This new chapter will allow us to expand our services beyond photo editing, reaching more businesses globally.`}
@@ -99,13 +102,13 @@ export default function OurSuccessStories() {
                                 className="text-center md:text-start"
                                 variants={counterVariants}
                             >
-                                <div className="text-6xl md:text-7xl font-bold text-orange-500">
+                                <div className="text-5xl sm:text-6xl md:text-7xl font-bold text-orange-500">
                                     250<span className="text-gray-700">+</span>
                                 </div>
-                                <div className="text-xl md:text-2xl font-medium mt-2">
+                                <div className="text-lg sm:text-xl md:text-2xl font-medium mt-2">
                                     Businesses Thrived
                                 </div>
-                                <p className="mt-4 text-gray-600 text-base md:text-lg max-w-xl">
+                                <p className="mt-4 text-gray-600 text-base sm:text-lg max-w-xl">
                                     We helped more than 250 businesses reach
                                     their goals with our innovative solutions.
                                 </p>
@@ -116,14 +119,14 @@ export default function OurSuccessStories() {
                                 className="text-center md:text-start"
                                 variants={counterVariants}
                             >
-                                <div className="text-6xl md:text-7xl font-bold text-orange-500 flex items-center justify-center md:justify-start mx-auto">
+                                <div className="text-5xl sm:text-6xl md:text-7xl font-bold text-orange-500 flex items-center justify-center md:justify-start mx-auto">
                                     <span className="text-gray-700">$</span>10
                                     <span className="text-gray-700">M+</span>
                                 </div>
-                                <div className="text-xl md:text-2xl font-medium mt-2">
+                                <div className="text-lg sm:text-xl md:text-2xl font-medium mt-2">
                                     Accumulated over $10M
                                 </div>
-                                <p className="mt-4 text-gray-600 text-base md:text-lg">
+                                <p className="mt-4 text-gray-600 text-base sm:text-lg">
                                     Over time, working with businesses of all
                                     sizes, we have accumulated over $1B.
                                 </p>

@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { AnimatedTestimonials } from '../ui/animated-testimonials';
 
 const testimonials = [
     {

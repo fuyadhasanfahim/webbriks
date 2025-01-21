@@ -54,7 +54,7 @@ const itemVariants = {
 
 export default function WhyPickingWebbriks() {
     return (
-        <section className="w-full bg-black space-x space-y">
+        <section className="w-full bg-black space-x space-y overflow-hidden">
             <div className="container mx-auto max-w-7xl">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}

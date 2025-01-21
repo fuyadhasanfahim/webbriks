@@ -115,31 +115,22 @@ function AccordionTrigger({ children, className, ...props }) {
 }
 
 function AccordionContent({ children, className, ...props }) {
-    const { expandedValue, variants } = useAccordion();
+    const { expandedValue } = useAccordion();
     const value = props.value;
     const isExpanded = value === expandedValue;
-
-    const BASE_VARIANTS = {
-        expanded: { height: 'auto', opacity: 1 },
-        collapsed: { height: 0, opacity: 0 },
-    };
-
-    const combinedVariants = {
-        expanded: { ...BASE_VARIANTS.expanded, ...variants?.expanded },
-        collapsed: { ...BASE_VARIANTS.collapsed, ...variants?.collapsed },
-    };
 
     return (
         <AnimatePresence initial={false}>
             {isExpanded && (
                 <motion.div
-                    initial="collapsed"
-                    animate="expanded"
-                    exit="collapsed"
-                    variants={combinedVariants}
+                    initial={{ height: 0 }}
+                    animate={{ height: 'auto' }}
+                    exit={{ height: 0 }}
+                    style={{ overflow: 'hidden' }} // Ensure no content overflows
                     className={className}
                 >
-                    {children}
+                    <div>{children}</div>{' '}
+                    {/* Wrap content for better height calculation */}
                 </motion.div>
             )}
         </AnimatePresence>

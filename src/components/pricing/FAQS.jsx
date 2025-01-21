@@ -54,7 +54,7 @@ const FAQ_DATA = [
 
 export default async function FAQS() {
     return (
-        <section className="bg-black text-white space-x">
+        <section className="bg-black text-white space-x overflow-hidden">
             <div className="container space-y">
                 <div>
                     <h1 className="text-center text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold">
@@ -75,8 +75,8 @@ export default async function FAQS() {
                                     {item.question}
                                 </div>
                                 <div>
-                                    <FiPlus className="w-6 h-6 group-data-[expanded]:hidden" />
-                                    <FiMinus className="w-6 h-6 hidden group-data-[expanded]:block" />
+                                    <FiPlus className="w-6 h-6 text-black group-data-[expanded]:hidden" />
+                                    <FiMinus className="w-6 h-6 text-black hidden group-data-[expanded]:block" />
                                 </div>
                             </AccordionTrigger>
                             <AccordionContent className="mt-4 text-[#666666] text-base p-4 bg-white rounded-lg border">

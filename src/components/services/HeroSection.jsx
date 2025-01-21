@@ -4,9 +4,9 @@ import { motion } from 'framer-motion';
 
 export default function ServicesHeroSection() {
     return (
-        <section className="h-[calc(100vh-80px)] bg-black px-6">
+        <section className="h-full bg-black px-6 overflow-hidden">
             <motion.div
-                className="w-full max-w-6xl mx-auto flex items-start flex-col justify-center h-full"
+                className="container space-x flex items-start flex-col justify-center h-full"
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -18,7 +18,7 @@ export default function ServicesHeroSection() {
                     transition={{ delay: 0.2, duration: 1 }}
                 >
                     <motion.h1
-                        className="text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-10 flex flex-col gap-6 md:gap-10 w-full lg:max-w-3xl"
+                        className="text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-tight md:leading-snug lg:leading-normal xl:leading-relaxed flex flex-col gap-6 md:gap-10 w-full lg:max-w-3xl"
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.4, duration: 0.8 }}
@@ -27,7 +27,7 @@ export default function ServicesHeroSection() {
                         Design & Development Services
                     </motion.h1>
                     <motion.p
-                        className="text-[#727271] text-2xl max-w-4xl text-start"
+                        className="text-[#727271] text-lg md:text-xl lg:text-2xl max-w-4xl text-start"
                         initial={{ x: -50, opacity: 0 }}
                         animate={{ x: 0, opacity: 1 }}
                         transition={{ delay: 0.6, duration: 0.8 }}
@@ -41,14 +41,18 @@ export default function ServicesHeroSection() {
                         collaborate to grow your business with expert services.`}
                     </motion.p>
                     <motion.div
-                        className="w-96"
+                        className="w-full md:w-96"
                         initial={{ scale: 0.9, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ delay: 0.8, duration: 0.8 }}
                     >
                         <div className="flex items-center justify-center flex-col bg-orange-500 rounded-full w-full">
-                            <a rel="nofollow" href="/contact" className="">
-                                <button className="px-4 py-2 text-lg font-medium text-black w-full">
+                            <a
+                                rel="nofollow"
+                                href="/contact"
+                                className="w-full"
+                            >
+                                <button className="px-4 py-2 text-lg font-medium text-black bg-orange-500 rounded-full w-full">
                                     Help My Business Growing Now
                                 </button>
                             </a>
