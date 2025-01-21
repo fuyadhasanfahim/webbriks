@@ -75,7 +75,7 @@ export default function ServicesHeroSection() {
                 >
                     {/* Typewriter Effect */}
                     <motion.h1
-                        className="text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-tight md:leading-snug lg:leading-normal xl:leading-relaxed w-full lg:max-w-3xl min-h-[64px]"
+                        className="text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-tight md:leading-snug lg:leading-normal xl:leading-relaxed w-full min-h-[64px]"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1 }}
