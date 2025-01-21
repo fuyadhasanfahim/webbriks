@@ -62,7 +62,7 @@ export default function HowWeWork() {
         >
             <div className="w-[90%] mx-auto max-w-screen-2xl">
                 <div className="space-y-6">
-                    <h1 className="lg:text-5xl text-center md:text-start text-4xl text-[#2B2121] lg:leading-[58px] font-semibold lg:my-5 my-3">
+                    <h1 className="lg:text-5xl text-center text-4xl text-[#2B2121] lg:leading-[58px] font-semibold lg:my-5 my-3">
                         How We Work
                     </h1>
                     <p className="text-center w-full max-w-[760px] text-[#2b2121] text-lg font-normal leading-snug mx-auto">

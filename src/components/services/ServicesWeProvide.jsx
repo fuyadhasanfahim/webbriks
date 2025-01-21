@@ -15,7 +15,7 @@ const services = [
             'Corporate Identity',
             'Shadow Creation',
             'Invisible Mannequin Effect',
-            'Ecommerce Product Photo Editing',
+            'Product Photo Editing',
             'Photo Retouching',
         ],
         image: 'https://i.ibb.co.com/QFVwv8y/clipping-path-gif.gif',
@@ -119,16 +119,13 @@ export default function ServicesWeProvide() {
                                         {service.weProvide.map((item, i) => (
                                             <li
                                                 key={i}
-                                                className={`text-lg font-semibold ${
+                                                className={`text-lg font-semibold underline list-disc list-outside ${
                                                     index % 2 === 0
-                                                        ? 'text-[#02CA5F]'
-                                                        : 'text-[#84f5c7]'
+                                                        ? 'text-orange-500'
+                                                        : 'text-orange-200'
                                                 }`}
                                             >
-                                                -{' '}
-                                                <span className="underline">
-                                                    {item}
-                                                </span>
+                                                {item}
                                             </li>
                                         ))}
                                     </ul>

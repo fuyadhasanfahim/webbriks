@@ -27,10 +27,10 @@ const content = [
         title: 'Video Editing',
         description:
             "Bring your vision to life with our expert video editing services. We craft videos that tell your story and leave a lasting impression. Let us help you achieve the professional, engaging videos you've always wanted. Start transforming your footage today!",
-        image: '/video.mp4',
+        image: 'https://i.ibb.co.com/d46syC8/web-dev.png',
     },
     {
-        title: 'B2B Lead Generation',
+        title: 'Lead Generation',
         description:
             'Boost your sales pipeline with our B2B lead collection services. We leverage search engines, LinkedIn, and other trusted platforms to connect you with decision-makers and potential clients. We always deliver qualified leads that help to grow business. Get started today!',
         image: 'https://i.ibb.co.com/DWMhz9y/lead-generation.jpg',
