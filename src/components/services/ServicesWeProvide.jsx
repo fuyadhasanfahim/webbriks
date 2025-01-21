@@ -32,9 +32,9 @@ const services = [
             'Website Redesign',
             'Corporate Website Design',
             'Startup Website Design',
-            'SSaaS Website',
+            'SaaS Website',
         ],
-        image: 'https://i.ibb.co.com/d46syC8/web-dev.png',
+        image: 'https://i.ibb.co.com/rvTS03m/natural-craft.png',
     },
     {
         id: 3,
@@ -144,14 +144,28 @@ export default function ServicesWeProvide() {
                                         ease: 'easeOut',
                                     }}
                                 >
-                                    <Image
-                                        src={service.image}
-                                        alt={service.title}
-                                        width={600}
-                                        height={400}
-                                        priority
-                                        className="aspect-auto"
-                                    />
+                                    {service.title ===
+                                    'Web Design & Development' ? (
+                                        <div className="overflow-scroll overflow-x-hidden h-[400px]">
+                                            <Image
+                                                src={service.image}
+                                                alt={service.title}
+                                                width={600}
+                                                height={400}
+                                                priority
+                                                className="aspect-auto"
+                                            />
+                                        </div>
+                                    ) : (
+                                        <Image
+                                            src={service.image}
+                                            alt={service.title}
+                                            width={600}
+                                            height={400}
+                                            priority
+                                            className="aspect-auto"
+                                        />
+                                    )}
                                 </motion.div>
                             </div>
                         </div>

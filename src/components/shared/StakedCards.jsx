@@ -15,7 +15,7 @@ const content = [
         title: 'Web Design & Development',
         description:
             'A website works as a connector between service providers and their audiences. So, it should be designed perfectly to achieve its best output. Our skilled team combines creativity and functionality to craft websites that stand out. We will design websites that will help to grow your business.',
-        image: 'https://i.ibb.co.com/d46syC8/web-dev.png',
+        image: 'https://i.ibb.co.com/rvTS03m/natural-craft.png',
     },
     {
         title: 'Graphic Design',
@@ -27,7 +27,7 @@ const content = [
         title: 'Video Editing',
         description:
             "Bring your vision to life with our expert video editing services. We craft videos that tell your story and leave a lasting impression. Let us help you achieve the professional, engaging videos you've always wanted. Start transforming your footage today!",
-        image: 'https://i.ibb.co.com/d46syC8/web-dev.png',
+        image: 'https://i.ibb.co.com/BGGzh5z/video-editing.jpg',
     },
     {
         title: 'Lead Generation',

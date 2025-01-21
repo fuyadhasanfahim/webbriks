@@ -2,41 +2,40 @@ import Image from 'next/image';
 
 const graphicsProjects = [
     {
-        imgSrc: 'https://iili.io/ds6qTdX.jpg',
+        imgSrc: 'https://i.ibb.co.com/vCWQNb2/business-card-design.jpg',
         title: 'colorful letter',
         description: 'colorful letter with colorful orange blue design',
         link: '/portfolio/ecommerce-photo-editing',
     },
     {
-        imgSrc: 'https://iili.io/ds6qoqN.jpg',
+        imgSrc: 'https://i.ibb.co.com/ySCxxbw/packaging-design.jpg',
         title: 'black white logo cog company',
         description: 'black white logo cog company',
     },
     {
-        imgSrc: 'https://iili.io/ds6qBXR.jpg',
+        imgSrc: 'https://i.ibb.co.com/py9fCcJ/book-cover-design.png',
         title: 'Flyer design',
         description: 'Custom website design and development.',
         link: '/portfolio/abc-store-website',
     },
     {
-        imgSrc: 'https://iili.io/ds6q35g.png',
+        imgSrc: 'https://i.ibb.co.com/sgrLHC1/advertisement-design.png',
         title: 'Flyer design',
         description: 'Custom website design and development.',
         link: '/portfolio/abc-store-website',
     },
     {
-        imgSrc: 'https://iili.io/ds6UkPt.jpg',
+        imgSrc: 'https://i.ibb.co.com/zJKC61T/t-shirt-design.jpg',
         title: 'Flyer design',
         description: 'Custom website design and development.',
         link: '/portfolio/abc-store-website',
     },
     {
-        imgSrc: 'https://iili.io/ds6Uwtp.jpg',
+        imgSrc: 'https://i.ibb.co.com/5Yv59S8/stationery-design.jpg',
         title: 'Flyer design',
         description: 'Custom website design and development.',
         link: '/portfolio/abc-store-website',
     },
-    // Add more projects here
 ];
 
 export default async function FullProjectGallerySection() {
@@ -58,9 +57,9 @@ export default async function FullProjectGallerySection() {
                                 layout="responsive"
                                 width={700}
                                 height={475}
-                                className="object-cover w-full h-full"
+                                className="object-cover object-center bg-center bg-cover w-full h-full"
                             />
-                            <div className="p-5 flex flex-col flex-grow">
+                            {/* <div className="p-5 flex flex-col flex-grow">
                                 <h3 className="text-xl font-bold text-gray-800 mb-3">
                                     {project.title}
                                 </h3>
@@ -74,7 +73,7 @@ export default async function FullProjectGallerySection() {
                                         </span>
                                     </a>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     ))}
                 </div>

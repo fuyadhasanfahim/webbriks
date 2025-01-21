@@ -71,14 +71,16 @@ export const StickyScroll = ({ content, contentClassName }) => {
                 <div className="absolute inset-0 z-0" />
                 {content[activeCard].image && (
                     <div className="relative h-full w-full">
-                        {content[activeCard].image.endsWith('.mp4') ? (
-                            <video
-                                src={content[activeCard].image}
-                                autoPlay
-                                loop
-                                muted
-                                className="object-cover h-full w-full"
-                            />
+                        {content[activeCard].image.includes('natural-craft') ? (
+                            <div className="overflow-scroll overflow-x-hidden h-[552px]">
+                                <Image
+                                    src={`https://i.ibb.co.com/xmR3V02/book-haven.webp`}
+                                    alt="computer image"
+                                    width={348}
+                                    height={552}
+                                    className="rounded-2xl"
+                                />
+                            </div>
                         ) : (
                             <Image
                                 src={content[activeCard].image}

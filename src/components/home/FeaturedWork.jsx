@@ -11,13 +11,15 @@ export default function FeaturedWork() {
         >
             <div className="w-[90%] mx-auto max-w-screen-2xl">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full mx-auto justify-items-center">
-                    <Image
-                        src={`/images/computer.png`}
-                        alt="computer image"
-                        width={348}
-                        height={552}
-                        className="rounded-2xl"
-                    />
+                    <div className="overflow-scroll overflow-x-hidden h-[552px]">
+                        <Image
+                            src={`https://i.ibb.co.com/xmR3V02/book-haven.webp`}
+                            alt="computer image"
+                            width={348}
+                            height={552}
+                            className="rounded-2xl"
+                        />
+                    </div>
                     <div className="w-full max-w-[402px]">
                         <Image
                             src={`/images/books.png`}
@@ -44,13 +46,15 @@ export default function FeaturedWork() {
                             </div>
                         </div>
                     </div>
-                    <Image
-                        src={`/images/airplane.png`}
-                        alt="airplane image"
-                        width={348}
-                        height={552}
-                        className="rounded-2xl"
-                    />
+                    <div className="overflow-scroll overflow-x-hidden h-[552px]">
+                        <Image
+                            src={`https://i.ibb.co.com/rvTS03m/natural-craft.png`}
+                            alt="airplane image"
+                            width={348}
+                            height={552}
+                            className="rounded-2xl"
+                        />
+                    </div>
                     <div className="w-full max-w-[348px] bg-[#ffa726] rounded-2xl px-6 flex items-center justify-center flex-col gap-3 mx-auto py-10">
                         <h3 className="text-center text-[#2b2121] text-2xl font-semibold leading-[28.80px]">
                             Logo Branding

@@ -19,14 +19,6 @@ export default function RootPortfolio() {
 
     return (
         <>
-          
-          
-          
-          
-          
-          
-          
-          
             <HeroSection />
             <FullProjectGallerySection />
             <PhotoEditingPortfolio />

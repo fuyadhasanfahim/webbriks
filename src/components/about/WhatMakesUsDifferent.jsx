@@ -11,10 +11,6 @@ export default async function WhatMakesUsDifferent() {
                             The Web Briks Advantage
                         </span>
                     </h1>
-                    <h1>
-                        <span className="text-black/50">Different</span> from
-                        Others
-                    </h1>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10 md:gap-y-16 items-center justify-between">

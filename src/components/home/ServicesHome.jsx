@@ -49,8 +49,7 @@ export default function ServicesHome() {
                 <div className="space-y-12 w-full mx-auto">
                     <div className="flex flex-col gap-5 lg:flex-row items-center justify-between">
                         <div className="w-auto max-w-[522px] text-[#2b2121] text-4xl md:text-5xl font-semibold leading-10 md:leading-[57.60px]">
-                            Our Comprehensive Suite Of Digital Marketing
-                            Services
+                            Our Comprehensive Suite Of Creative Design Services
                         </div>
 
                         <div>
@@ -98,7 +97,7 @@ export default function ServicesHome() {
                                                 {service.description}
                                             </div>
                                         </div>
-                                        <div className="justify-start items-center gap-1 inline-flex">
+                                        {/* <div className="justify-start items-center gap-1 inline-flex">
                                             <div className="text-[#444444] text-base font-normal leading-tight hover:underline mt-3">
                                                 <Link href={service.link}>
                                                     <span className="flex items-center gap-1">
@@ -107,7 +106,7 @@ export default function ServicesHome() {
                                                     </span>
                                                 </Link>
                                             </div>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>

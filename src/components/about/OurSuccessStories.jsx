@@ -37,7 +37,7 @@ export default function OurSuccessStories() {
 
     return (
         <section ref={sectionRef} className="bg-white overflow-hidden">
-            <div className="container mx-auto py-10 md:py-20 lg:py-32 xl:py-44">
+            <div className="container pt-10 md:pt-20">
                 <div className="space-y-4 md:space-y-6">
                     <motion.h1
                         className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight text-gray-900"
@@ -53,7 +53,7 @@ export default function OurSuccessStories() {
                     </motion.h1>
                 </div>
 
-                <div className="flex flex-col md:flex-row items-center gap-12 mt-16">
+                <div className="flex flex-col md:flex-row items-center gap-12">
                     {/* Image */}
                     <motion.div
                         className="flex-1"
@@ -95,43 +95,6 @@ export default function OurSuccessStories() {
                             <br />
                             {`From the beginning, we've focused on delivering high-quality solutions that adapt to our clients' changing needs. With each step forward, we've worked to improve what we do, build strong relationships, and help our clients' businesses thrive. Our journey shows that with hard work, new ideas, and always putting our clients first, we can truly make a difference.`}
                         </motion.p>
-
-                        <div className="space-y-8">
-                            {/* Counter Item 1 */}
-                            <motion.div
-                                className="text-center md:text-start"
-                                variants={counterVariants}
-                            >
-                                <div className="text-5xl sm:text-6xl md:text-7xl font-bold text-orange-500">
-                                    250<span className="text-gray-700">+</span>
-                                </div>
-                                <div className="text-lg sm:text-xl md:text-2xl font-medium mt-2">
-                                    Businesses Thrived
-                                </div>
-                                <p className="mt-4 text-gray-600 text-base sm:text-lg max-w-xl">
-                                    We helped more than 250 businesses reach
-                                    their goals with our innovative solutions.
-                                </p>
-                            </motion.div>
-
-                            {/* Counter Item 2 */}
-                            <motion.div
-                                className="text-center md:text-start"
-                                variants={counterVariants}
-                            >
-                                <div className="text-5xl sm:text-6xl md:text-7xl font-bold text-orange-500 flex items-center justify-center md:justify-start mx-auto">
-                                    <span className="text-gray-700">$</span>10
-                                    <span className="text-gray-700">M+</span>
-                                </div>
-                                <div className="text-lg sm:text-xl md:text-2xl font-medium mt-2">
-                                    Accumulated over $10M
-                                </div>
-                                <p className="mt-4 text-gray-600 text-base sm:text-lg">
-                                    Over time, working with businesses of all
-                                    sizes, we have accumulated over $1B.
-                                </p>
-                            </motion.div>
-                        </div>
                     </motion.div>
                 </div>
             </div>

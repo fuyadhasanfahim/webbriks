@@ -36,9 +36,9 @@ const Home = () => {
             <section className="lg:py-10 py-5">
                 <ServicesHome />
             </section>
-            <section className="lg:py-10 py-5">
+            {/* <section className="lg:py-10 py-5">
                 <FeaturedWork />
-            </section>
+            </section> */}
             <section className="lg:py-10 py-5">
                 <HowWeWork />
             </section>
