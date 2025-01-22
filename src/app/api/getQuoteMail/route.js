@@ -42,7 +42,7 @@ export async function POST(req) {
         const mailOptions = {
             from: `"${fullName}" <${email}>`,
             to: process.env.EMAIL_USER,
-            subject: 'New Quote Request',
+            subject: `Quote Request from ${fullName}`,
             text: mailMessage,
         };
 
