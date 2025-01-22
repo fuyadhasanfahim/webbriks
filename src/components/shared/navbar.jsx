@@ -38,7 +38,7 @@ export function Navbar() {
     const path = usePathname();
 
     return (
-        <nav className="backdrop-blur py-4 z-50 bg-white/70">
+        <nav className="backdrop-blur py-4 bg-white/50">
             <div className="container mx-auto px-4 flex items-center justify-between">
                 <a href="/" className="text-xl font-bold text-primary">
                     <Image

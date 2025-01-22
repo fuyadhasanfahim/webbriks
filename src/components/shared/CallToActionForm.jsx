@@ -1,183 +1,203 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import * as Form from 'react-hook-form';
 
 export default function CallToActionForm() {
-    const [formData, setFormData] = useState({
-        fullName: '',
-        companyName: '',
-        email: '',
-        budgetRange: '',
-        hearUs: '',
-        projectDetails: '',
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isLoading },
+        reset,
+    } = Form.useForm({
+        defaultValues: {
+            name: '',
+            email: '',
+            company: '',
+            country: '',
+            phoneNumber: '',
+            message: '',
+        },
     });
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-    };
+    const router = useRouter();
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Form Data Submitted:', formData);
+    const onSubmit = async (data) => {
+        try {
+            const response = await fetch('/api/get-contact-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                reset();
+
+                router.push('/');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
     };
 
     return (
-        <div className="bg-white rounded-xl flex-1 flex-grow flex-shrink basis-0 mb-6 p-4 sm:p-6 md:p-10 w-full lg:max-w-xl xl:max-w-2xl">
+        <section className="bg-white text-black rounded-xl flex-1 flex-grow flex-shrink basis-0 mb-6 p-4 sm:p-6 md:p-10 w-full max-w-2xl">
             <form
-                onSubmit={handleSubmit}
+                onSubmit={handleSubmit(onSubmit)}
                 className="space-y-6"
-                aria-label="MVP Contact Form"
+                aria-label="Contact Form"
+                method="POST"
             >
-                {/* Full Name */}
                 <div className="flex flex-col">
                     <label
-                        htmlFor="fullName"
-                        className="text-black font-medium text-lg md:text-xl"
+                        htmlFor="name"
+                        className="text-black font-medium text-sm"
                     >
-                        Full Name
+                        Name*
                     </label>
                     <input
-                        className="border-b-2 border-black bg-transparent h-11 mb-4 pl-0 text-lg md:text-xl leading-8 focus:outline-none focus:border-black w-full"
-                        maxLength="256"
-                        name="fullName"
+                        {...register('name', {
+                            required: 'Name is required',
+                        })}
+                        className="border-b-2 border-black border-x-0 border-t-0 rounded-none bg-transparent h-11 mb-4 pl-0 text-lg md:text-xl leading-8 focus:outline-none w-full focus-visible:ring-0"
                         placeholder="Enter your full name"
                         type="text"
-                        value={formData.fullName}
-                        onChange={handleChange}
-                        required
                     />
+                    {errors.name && (
+                        <span className="text-red-500 text-sm">
+                            {errors.name.message}
+                        </span>
+                    )}
                 </div>
 
-                {/* Company Name and Email */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div className="flex flex-col">
                         <label
-                            htmlFor="companyName"
-                            className="text-black font-medium text-lg md:text-xl"
-                        >
-                            Company name
-                        </label>
-                        <input
-                            className="border-b-2 border-black bg-transparent h-11 mb-4 pl-0 text-lg md:text-xl leading-8 focus:outline-none focus:border-black w-full"
-                            maxLength="256"
-                            name="Enter your company name"
-                            placeholder="Ex. Tesla Inc"
-                            type="text"
-                            value={formData.companyName}
-                            onChange={handleChange}
-                        />
-                    </div>
-                    <div className="flex flex-col">
-                        <label
                             htmlFor="email"
-                            className="text-black font-medium text-lg md:text-xl"
+                            className="text-black font-medium text-sm"
                         >
                             Email*
                         </label>
                         <input
-                            className="border-b-2 border-black bg-transparent h-11 mb-4 pl-0 text-lg md:text-xl leading-8 focus:outline-none focus:border-black w-full"
-                            maxLength="256"
-                            name="email"
+                            {...register('email', {
+                                required: 'Email is required',
+                                pattern: {
+                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                    message: 'Invalid email address',
+                                },
+                            })}
+                            className="border-b-2 border-black border-x-0 border-t-0 rounded-none bg-transparent h-11 mb-4 pl-0 text-lg md:text-xl leading-8 focus:outline-none w-full focus-visible:ring-0"
                             placeholder="Enter your email address"
                             type="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            required
+                        />
+                        {errors.email && (
+                            <span className="text-red-500 text-sm">
+                                {errors.email.message}
+                            </span>
+                        )}
+                    </div>
+
+                    <div className="flex flex-col">
+                        <label
+                            htmlFor="company"
+                            className="text-black font-medium text-sm"
+                        >
+                            Company
+                        </label>
+                        <input
+                            {...register('company')}
+                            className="border-b-2 border-black border-x-0 border-t-0 rounded-none bg-transparent h-11 mb-4 pl-0 text-lg md:text-xl leading-8 focus:outline-none w-full focus-visible:ring-0"
+                            placeholder="Enter your company name"
+                            type="text"
                         />
                     </div>
                 </div>
 
-                {/* Budget and Source */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div className="flex flex-col">
-                        {/* <label
-                            htmlFor="budgetRange"
-                            className="text-black font-medium text-lg md:text-xl"
+                        <label
+                            htmlFor="country"
+                            className="text-black font-medium text-sm"
                         >
-                            Service You Need*
-                        </label> */}
-                        <select
-                            name="budgetRange"
-                            value={formData.budgetRange}
-                            onChange={handleChange}
-                            className="border-b-2 border-black bg-transparent h-11 text-lg md:text-xl leading-8 w-full"
-                            required
-                        >
-                            <option value="">Select Your Service*</option>
-                            <option value="photo-editing">Photo Editing</option>
-                            <option value="web-design-&-development">
-                                Web Design & Development
-                            </option>
-                            <option value="video-editing">Video Editing</option>
-                            <option value="lead-generation">
-                                Lead Generation
-                            </option>
-                        </select>
+                            Country*
+                        </label>
+                        <input
+                            {...register('country', {
+                                required: 'Country is required',
+                            })}
+                            className="border-b-2 border-black border-x-0 border-t-0 rounded-none bg-transparent h-11 mb-4 pl-0 text-lg md:text-xl leading-8 focus:outline-none w-full focus-visible:ring-0"
+                            placeholder="Enter your country"
+                            type="text"
+                        />
+                        {errors.country && (
+                            <span className="text-red-500 text-sm">
+                                {errors.country.message}
+                            </span>
+                        )}
                     </div>
+
                     <div className="flex flex-col">
-                        {/* <label
-                            htmlFor="hearUs"
-                            className="text-black font-medium text-lg md:text-xl"
+                        <label
+                            htmlFor="phoneNumber"
+                            className="text-black font-medium text-sm"
                         >
-                            How did you find us*
-                        </label> */}
-                        <select
-                            name="hearUs"
-                            value={formData.hearUs}
-                            onChange={handleChange}
-                            className="border-b-2 border-black bg-transparent h-11 text-lg md:text-xl leading-8 w-full"
-                            required
-                        >
-                            <option value=""> How did you find us*</option>
-                            <option value="Google">Google</option>
-                            <option value="Bing">Bing</option>
-                            <option value="Dribbble">Dribbble</option>
-                            <option value="Behance">Behance</option>
-                            <option value="Clutch">Clutch</option>
-                            <option value="Instagram">Instagram</option>
-                            <option value="Twitter">Twitter / X</option>
-                            <option value="Linkedin">Linkedin</option>
-                            <option value="Facebook">Facebook</option>
-                            <option value="Youtube">Youtube</option>
-                            <option value="Tiktok">Tiktok</option>
-                            <option value="Referral">Referral</option>
-                            <option value="Other">Other</option>
-                        </select>
+                            Phone Number*
+                        </label>
+                        <input
+                            {...register('phoneNumber', {
+                                required: 'Phone number is required',
+                                pattern: {
+                                    value: /^[0-9]+$/,
+                                    message: 'Phone number must be numeric',
+                                },
+                            })}
+                            className="border-b-2 border-black border-x-0 border-t-0 rounded-none bg-transparent h-11 mb-4 pl-0 text-lg md:text-xl leading-8 focus:outline-none w-full focus-visible:ring-0"
+                            placeholder="Enter your phone number"
+                            type="text"
+                        />
+                        {errors.phoneNumber && (
+                            <span className="text-red-500 text-sm">
+                                {errors.phoneNumber.message}
+                            </span>
+                        )}
                     </div>
                 </div>
 
-                {/* Project Details */}
                 <div className="flex flex-col">
                     <label
-                        htmlFor="projectDetails"
-                        className="text-black font-medium text-lg md:text-xl"
+                        htmlFor="message"
+                        className="text-black font-medium text-sm"
                     >
-                        Project details*
+                        Your Message*
                     </label>
                     <textarea
-                        name="projectDetails"
-                        maxLength="5000"
+                        {...register('message', {
+                            required: 'Message is required',
+                        })}
+                        className="border-b-2 border-black border-x-0 border-t-0 rounded-none bg-transparent h-32 mb-4 pl-0 text-lg md:text-xl leading-8 focus:outline-none w-full focus-visible:ring-0"
                         placeholder="Tell us more about your idea"
-                        value={formData.projectDetails}
-                        onChange={handleChange}
-                        className="border-b-2 border-black bg-transparent min-h-20 h-auto mb-6 text-lg md:text-xl leading-8 focus:outline-none focus:border-black w-full"
-                        required
                     />
+                    {errors.message && (
+                        <span className="text-red-500 text-sm">
+                            {errors.message.message}
+                        </span>
+                    )}
                 </div>
 
-                {/* Submit Button */}
-                <div className="text-center">
-                    <input
+                <div className="text-start">
+                    <button
                         type="submit"
-                        className="bg-black rounded-full py-3 px-8 md:py-4 md:px-12 text-white text-base md:text-lg font-medium cursor-pointer hover:bg-gray-800"
-                        value="Send inquiry"
-                    />
+                        className="rounded-full h-[40px] md:h-[50px] lg:h-[60px] py-3 px-8 md:py-4 md:px-12 text-base md:text-lg font-medium cursor-pointer hover:bg-gray-800 bg-black text-white"
+                        disabled={isLoading}
+                    >
+                        Send Inquiry
+                    </button>
                 </div>
             </form>
-        </div>
+        </section>
     );
 }
