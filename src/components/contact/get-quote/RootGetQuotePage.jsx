@@ -132,7 +132,7 @@ export default function RootGetQuotePage() {
                     message: '',
                 });
                 toast.success('Thank you. Your info has been submitted.');
-                // router.push("/");
+                router.push('/');
             } else {
                 toast.error('Failed to send email.');
             }
