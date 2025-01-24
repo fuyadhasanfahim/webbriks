@@ -44,3 +44,39 @@ navbar {
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
+
+.container {
+    @apply w-full max-w-7xl mx-auto;
+}
+
+.padding-x {
+    @apply px-6 md:px-10;
+}
+
+.padding-y {
+    @apply py-10 md:py-20 lg:py-32;
+}
+
+.heading-one {
+    @apply text-3xl md:text-5xl lg:text-6xl font-medium tracking-wide;
+}
+
+.heading-two {
+    @apply text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide;
+}
+
+.heading-three {
+    @apply text-xl md:text-2xl lg:text-3xl font-medium tracking-wide;
+}
+
+.description {
+    @apply text-lg md:text-xl lg:text-2xl font-light tracking-wide leading-8;
+}
+
+.description-small {
+    @apply text-base md:text-lg lg:text-xl font-light tracking-wide leading-8;
+}
+
+.button {
+    @apply rounded-full h-[40px] md:h-[50px] lg:h-[60px] py-3 px-8 md:py-4 md:px-12 text-base md:text-lg font-medium cursor-pointer hover:bg-gray-800;
+}

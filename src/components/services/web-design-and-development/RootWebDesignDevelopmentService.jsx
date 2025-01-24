@@ -1,35 +1,17 @@
-'use client';
-
-import aos from 'aos';
-import { useEffect } from 'react';
-import HeroSection from './HeroSection';
-import Introduction from './Introduction';
-import CustomWebDesignAndDevelopment from './CustomWebDesignAndDevelopment';
-import OurWebDesignServices from './OurWebDesignServices';
-import WhyChooseWebBricksForYourWebDesignAndDevelopmentNeeds from './WhyChooseWebBricksForYourWebDesignAndDevelopmentNeeds';
-import FrequentlyAskedQuestions from './FrequentlyAskedQuestions';
-import OurProcess from './OurProcess';
 import CallToAction from '@/components/shared/CallToAction';
+import Faq from '../../shared/Faq';
+import HeroSection from './HeroSection';
+import WebDesignAndDevelopmentStats from './WebDesignAndDevelopmentStats';
+import WebDesignServices from './WebDesignServices';
 
-export default function RootWebDesignDevelopmentService() {
-    useEffect(() => {
-        aos.init({
-            duration: 1000,
-            easing: 'ease-in-out',
-            once: true,
-        });
-    }, []);
-
+export default async function RootWebDesignDevelopmentService() {
     return (
-        <>
+        <section className="w-full">
             <HeroSection />
-            <Introduction />
-            <CustomWebDesignAndDevelopment />
-            <OurWebDesignServices />
-            <WhyChooseWebBricksForYourWebDesignAndDevelopmentNeeds />
-            <OurProcess />
-            <FrequentlyAskedQuestions />
+            <WebDesignServices />
+            <WebDesignAndDevelopmentStats />
+            <Faq />
             <CallToAction />
-        </>
+        </section>
     );
 }
