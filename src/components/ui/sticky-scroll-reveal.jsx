@@ -71,13 +71,16 @@ export const StickyScroll = ({ content, contentClassName }) => {
                 <div className="absolute inset-0 z-0" />
                 {content[activeCard].image && (
                     <div className="relative h-full w-full">
-                        {content[activeCard].image.includes('natural-craft') ? (
+                        {content[activeCard].image.includes(
+                            'mennl8ixaydsfcvueyae'
+                        ) ? (
                             <div className="overflow-scroll overflow-x-hidden h-[552px]">
                                 <Image
-                                    src={`https://i.ibb.co.com/xmR3V02/book-haven.webp`}
+                                    src={`https://res.cloudinary.com/dny7zfbg9/image/upload/v1737712762/mennl8ixaydsfcvueyae.png`}
                                     alt="computer image"
                                     width={348}
                                     height={552}
+                                    priority
                                     className="rounded-2xl"
                                 />
                             </div>
@@ -86,8 +89,8 @@ export const StickyScroll = ({ content, contentClassName }) => {
                                 src={content[activeCard].image}
                                 alt={content[activeCard].title}
                                 fill
-                                className="object-cover"
                                 priority
+                                className="object-cover"
                             />
                         )}
                     </div>

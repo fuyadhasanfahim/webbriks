@@ -23,14 +23,14 @@ const navItems = [
         title: 'Graphics Design',
         href: '/services/graphics-design',
     },
-    {
-        title: 'Video Editing',
-        href: '/services/video-editing',
-    },
-    {
-        title: 'Lead Generation',
-        href: '/services/lead-generation',
-    },
+    // {
+    //     title: 'Video Editing',
+    //     href: '/services/video-editing',
+    // },
+    // {
+    //     title: 'Lead Generation',
+    //     href: '/services/lead-generation',
+    // },
 ];
 
 export function Navbar() {
@@ -38,7 +38,7 @@ export function Navbar() {
     const path = usePathname();
 
     return (
-        <nav className="backdrop-blur py-4 bg-white/50">
+        <nav className="backdrop-blur py-4 bg-white/70">
             <div className="container mx-auto px-4 flex items-center justify-between">
                 <a href="/" className="text-xl font-bold text-primary">
                     <Image
@@ -67,7 +67,7 @@ export function Navbar() {
                     >
                         Services
                     </a>
-                    {/* <div className="relative group">
+                    <div className="relative group">
                         <button
                             className={`flex items-center gap-2 py-3 hover:bg-transparent hover:text-orange-500 font-medium bg-transparent group-hover:text-orange-500 ${
                                 (path.startsWith('/services') ||
@@ -91,7 +91,7 @@ export function Navbar() {
                                 </a>
                             ))}
                         </div>
-                    </div> */}
+                    </div>
                     <a
                         href="/pricing"
                         className={`hover:text-orange-500 transition ${
@@ -169,7 +169,7 @@ export function Navbar() {
                         >
                             Services
                         </a>
-                        {/* <div className="relative group">
+                        <div className="relative group">
                             <button
                                 className={`flex items-center gap-5 py-2 pr-4 hover:bg-transparent hover:text-orange-500 font-medium bg-transparent group-hover:text-orange-500 ${
                                     (path.startsWith('/services') ||
@@ -194,7 +194,7 @@ export function Navbar() {
                                     </a>
                                 ))}
                             </div>
-                        </div> */}
+                        </div>
                         <a
                             href="/pricing"
                             className={`block py-2 hover:text-orange-500 ${

@@ -1,19 +1,17 @@
+import Faq from '@/components/shared/Faq';
+import GraphicsDesignServices from './GraphicsDesignServices';
+import GraphicsDesignStats from './GraphicsDesignStats';
+import HeroSection from './HeroSection';
 import CallToAction from '@/components/shared/CallToAction';
-import BannerSection from './BannerSection';
-import Introduction from './Introduction';
-import OurGraphicsDesignServices from './OurGraphicsDesignServices';
-import IndustriesWeServe from './IndustriesWeServe';
-import OurDesigningProcess from './OurDesigningProcess';
 
 export default async function RootGraphicsDesign() {
     return (
-        <>
-            <BannerSection />
-            <Introduction />
-            <OurGraphicsDesignServices />
-            <IndustriesWeServe />
-            <OurDesigningProcess />
+        <section className="w-full">
+            <HeroSection />
+            <GraphicsDesignServices />
+            <GraphicsDesignStats />
+            <Faq />
             <CallToAction />
-        </>
+        </section>
     );
 }

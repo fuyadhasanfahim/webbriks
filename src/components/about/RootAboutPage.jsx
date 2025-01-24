@@ -11,6 +11,7 @@ import WhatMakesUsDifferent from './WhatMakesUsDifferent';
 import ArchivedAwards from './ArchivedAwards';
 import OurMostValuableClients from './OurMostValueableClients';
 import { GlobeDemo } from './Example';
+import Ambitious from './Ambitious';
 
 export default function RootAboutPage() {
     useEffect(() => {
@@ -25,6 +26,7 @@ export default function RootAboutPage() {
         <>
             <HeroSection />
             <CompanyOverview />
+            <Ambitious />
             {/* <GlobeDemo /> */}
             <OurSuccessStories />
             <HowWeWork />
