@@ -59,14 +59,6 @@ export function Navbar() {
                     >
                         Home
                     </a>
-                    <a
-                        href="/services"
-                        className={`hover:text-orange-500 transition ${
-                            path === '/services' && 'text-orange-500'
-                        }`}
-                    >
-                        Services
-                    </a>
                     <div className="relative group">
                         <button
                             className={`flex items-center gap-2 py-3 hover:bg-transparent hover:text-orange-500 font-medium bg-transparent group-hover:text-orange-500 ${
@@ -161,14 +153,7 @@ export function Navbar() {
                         >
                             Home
                         </a>
-                        <a
-                            href="/services"
-                            className={`block py-2 hover:text-orange-500 ${
-                                path === '/services' && 'text-orange-500'
-                            }`}
-                        >
-                            Services
-                        </a>
+
                         <div className="relative group">
                             <button
                                 className={`flex items-center gap-5 py-2 pr-4 hover:bg-transparent hover:text-orange-500 font-medium bg-transparent group-hover:text-orange-500 ${
