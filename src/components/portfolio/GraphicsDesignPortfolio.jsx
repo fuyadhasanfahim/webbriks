@@ -5,26 +5,26 @@ import Image from 'next/image';
 
 const images = [
     {
-        image: 'https://iili.io/dsQhoNV.png',
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737711109/ngkpdwxusa43ycleumts.jpg',
     },
     {
-        image: 'https://iili.io/dsQhxDB.png',
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737711099/wwwxqyz4stxlbhokpcyd.jpg',
     },
     {
-        image: 'https://iili.io/dsQhTV1.png',
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737711109/v8toq1bbc4hfe4otygyp.jpg',
     },
     {
-        image: 'https://iili.io/dsQhIoP.png',
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737711106/dlozgtxdh1dkohh0jj4c.jpg',
     },
     {
-        image: 'https://iili.io/dsQhuiF.png',
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737711123/bj7cbprxnbyrpx2e7q6y.png',
     },
     {
-        image: 'https://iili.io/dsQhRKg.png',
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737711102/lyuwa7xguk1t6c0yvccb.png',
     },
 ];
 
-export default function WebDesignEditingPortfolio() {
+export default function GraphicsDesignPortfolio() {
     const sectionVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -36,7 +36,7 @@ export default function WebDesignEditingPortfolio() {
     };
 
     return (
-        <section className="padding-x padding-y !py-10 bg-gray-100">
+        <section className="padding-x padding-y !py-10 bg-white">
             <div className="container">
                 <motion.section
                     initial="hidden"
@@ -52,10 +52,7 @@ export default function WebDesignEditingPortfolio() {
                             <motion.div
                                 key={index}
                                 variants={imageVariants}
-                                className="overflow-y-scroll w-[400px] h-[400px] rounded-lg shadow"
-                                style={{
-                                    scrollbarWidth: 'thin',
-                                }}
+                                className="overflow-hidden rounded-lg shadow"
                             >
                                 <Image
                                     src={image}
@@ -63,7 +60,6 @@ export default function WebDesignEditingPortfolio() {
                                     width={400}
                                     height={400}
                                     priority
-                                    className=""
                                 />
                             </motion.div>
                         ))}

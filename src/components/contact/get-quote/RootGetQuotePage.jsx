@@ -4,7 +4,6 @@ import { useState } from 'react';
 import Image from 'next/legacy/image';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
-import Head from 'next/head';
 
 export default function RootGetQuotePage() {
     const router = useRouter();
@@ -13,9 +12,6 @@ export default function RootGetQuotePage() {
             graphicsDesign: false,
             photoEditing: false,
             webDevelopment: false,
-            virtualAssistant: false,
-            videoEditing: false,
-            digitalMarketing: false,
         },
         files: [],
         driveLink: '',
@@ -51,7 +47,7 @@ export default function RootGetQuotePage() {
         } else {
             setFormData((prevFormData) => ({
                 ...prevFormData,
-                files: validFiles.slice(0, 5), // Limit to 5 files
+                files: validFiles.slice(0, 5),
             }));
         }
     };
@@ -65,9 +61,10 @@ export default function RootGetQuotePage() {
     };
 
     const handleInputChange = (e) => {
+        const { name, value } = e.target;
         setFormData((prevFormData) => ({
             ...prevFormData,
-            [e.target.name]: e.target.value,
+            [name]: value,
         }));
     };
 
@@ -142,219 +139,172 @@ export default function RootGetQuotePage() {
     };
 
     return (
-        <>
-            <div className="container mx-auto p-5">
-                <h1 className="text-4xl font-bold text-center mb-8">
-                    Get a Quote
-                </h1>
-                <form
-                    className="w-full lg:w-3/4 mx-auto"
-                    onSubmit={handleSubmit}
-                >
-                    {/* Services Section */}
-                    <h2 className="text-2xl font-semibold mb-4">
-                        Services You Need
-                    </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                        <label className="flex items-center">
+        <div className="container mx-auto p-5">
+            <h1 className="text-4xl font-bold text-center mb-8 text-gray-900">
+                Get a Quote
+            </h1>
+            <form
+                className="w-full lg:w-3/4 mx-auto bg-white p-8 rounded-lg shadow-lg"
+                onSubmit={handleSubmit}
+            >
+                {/* Services Section */}
+                <h2 className="text-2xl font-semibold mb-6 text-gray-800">
+                    Services You Need
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                    {Object.keys(formData.services).map((service) => (
+                        <label
+                            key={service}
+                            className="flex items-center bg-gray-200 p-4 rounded-lg hover:bg-gray-300 transition-colors"
+                        >
                             <input
                                 type="checkbox"
-                                className="mr-2"
-                                checked={formData.services.graphicsDesign}
-                                onChange={() =>
-                                    handleCheckboxChange('graphicsDesign')
-                                }
+                                className="form-checkbox h-5 w-5 text-orange-500 rounded focus:ring-orange-400"
+                                checked={formData.services[service]}
+                                onChange={() => handleCheckboxChange(service)}
                             />
-                            Graphics Design
+                            <span className="ml-3 text-gray-700 capitalize">
+                                {service.replace(/([A-Z])/g, ' $1').trim()}
+                            </span>
                         </label>
-                        <label className="flex items-center">
-                            <input
-                                type="checkbox"
-                                className="mr-2"
-                                checked={formData.services.photoEditing}
-                                onChange={() =>
-                                    handleCheckboxChange('photoEditing')
-                                }
-                            />
-                            Photo Editing
-                        </label>
-                        <label className="flex items-center">
-                            <input
-                                type="checkbox"
-                                className="mr-2"
-                                checked={formData.services.webDevelopment}
-                                onChange={() =>
-                                    handleCheckboxChange('webDevelopment')
-                                }
-                            />
-                            Web Development
-                        </label>
-                        <label className="flex items-center">
-                            <input
-                                type="checkbox"
-                                className="mr-2"
-                                checked={formData.services.virtualAssistant}
-                                onChange={() =>
-                                    handleCheckboxChange('virtualAssistant')
-                                }
-                            />
-                            Virtual Assistance
-                        </label>
-                        <label className="flex items-center">
-                            <input
-                                type="checkbox"
-                                className="mr-2"
-                                checked={formData.services.videoEditing}
-                                onChange={() =>
-                                    handleCheckboxChange('videoEditing')
-                                }
-                            />
-                            Video Editing
-                        </label>
-                        <label className="flex items-center">
-                            <input
-                                type="checkbox"
-                                className="mr-2"
-                                checked={formData.services.digitalMarketing}
-                                onChange={() =>
-                                    handleCheckboxChange('digitalMarketing')
-                                }
-                            />
-                            Digital Marketing
-                        </label>
-                    </div>
+                    ))}
+                </div>
 
-                    {/* File Upload Section */}
-                    <h2 className="text-2xl font-semibold mb-4">
-                        Upload Files or Enter Drive Link
-                    </h2>
-                    <div className="mb-8">
-                        <div className="w-full h-36 p-3 border-dotted border-2 border-gray-400 mb-4 flex justify-center items-center text-center relative">
-                            <input
-                                type="file"
-                                multiple
-                                accept=".png, .jpg, .jpeg, .gif, .zip"
-                                className="absolute inset-0 opacity-0 cursor-pointer"
-                                onChange={handleFileChange}
+                {/* Upload Files Section */}
+                <h2 className="text-2xl font-semibold mb-6 text-gray-800">
+                    Upload Files or Enter Drive Link
+                </h2>
+                <div className="mb-8">
+                    <div className="w-full h-36 p-3 border-dashed border-2 border-gray-300 rounded-lg flex justify-center items-center text-center bg-gray-50 hover:bg-gray-100 transition-colors relative">
+                        <input
+                            type="file"
+                            multiple
+                            accept=".png, .jpg, .jpeg, .gif, .zip"
+                            className="absolute inset-0 opacity-0 cursor-pointer"
+                            onChange={handleFileChange}
+                        />
+                        <div>
+                            <Image
+                                src="https://iili.io/d6qpdR2.png"
+                                alt="upload icon"
+                                width={32}
+                                height={32}
+                                className="mx-auto"
                             />
-                            <div>
-                                <Image
-                                    width={30}
-                                    height={30}
-                                    src="https://iili.io/d6qpdR2.png"
-                                    alt="upload icon"
-                                />
-                                <p className="text-green-600 font-semibold">
-                                    Upload up to 5 files
-                                </p>
-                                <p className="text-gray-600 text-sm">
-                                    or drag and drop
-                                </p>
-                                <p className="text-gray-600 text-sm">
-                                    PNG, JPG, GIF, ZIP up to 10MB
-                                </p>
-                            </div>
+                            <p className="text-green-600 font-semibold mt-2">
+                                Upload up to 5 files
+                            </p>
+                            <p className="text-gray-600 text-sm">
+                                or drag and drop
+                            </p>
+                            <p className="text-gray-600 text-sm">
+                                PNG, JPG, GIF, ZIP up to 10MB
+                            </p>
                         </div>
+                    </div>
 
-                        {/* Display uploaded files */}
-                        {formData.files.length > 0 && (
-                            <ul className="mb-4">
-                                {formData.files.map((file, index) => (
-                                    <li
-                                        key={index}
-                                        className="flex items-center gap-1 mb-2"
+                    {/* Display uploaded files */}
+                    {formData.files.length > 0 && (
+                        <ul className="mt-4 space-y-2">
+                            {formData.files.map((file, index) => (
+                                <li
+                                    key={index}
+                                    className="flex items-center justify-between bg-gray-50 p-3 rounded-lg"
+                                >
+                                    <span className="text-gray-700">
+                                        {file.name}
+                                    </span>
+                                    <button
+                                        type="button"
+                                        className="text-red-600 hover:text-red-800 transition-colors"
+                                        onClick={() => handleFileRemove(index)}
                                     >
-                                        <span>{file.name}</span>
-                                        <button
-                                            type="button"
-                                            className="text-red-600 hover:text-red-800 border px-1 rounded-sm bg-gray-200"
-                                            onClick={() =>
-                                                handleFileRemove(index)
-                                            }
-                                        >
-                                            x
-                                        </button>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-                    </div>
+                                        &times;
+                                    </button>
+                                </li>
+                            ))}
+                        </ul>
+                    )}
+                </div>
 
-                    <div className="mb-8">
-                        <p className="text-sm font-semibold mb-2">
-                            Or enter drive link:
-                        </p>
-                        <input
-                            type="text"
-                            name="driveLink"
-                            placeholder="Google Drive / Dropbox / OneDrive"
-                            className="w-full p-3 border rounded-md"
-                            value={formData.driveLink}
-                            onChange={handleInputChange}
-                        />
-                    </div>
+                {/* Drive Link Section */}
+                <div className="mb-8">
+                    <p className="text-sm font-semibold mb-2 text-gray-700">
+                        Or enter drive link:
+                    </p>
+                    <input
+                        type="text"
+                        name="driveLink"
+                        placeholder="Google Drive / Dropbox / OneDrive"
+                        className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
+                        value={formData.driveLink}
+                        onChange={handleInputChange}
+                    />
+                </div>
 
-                    {/* User Information Section */}
-                    <h2 className="text-2xl font-semibold mb-4">Your Info</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                        <input
-                            type="text"
-                            name="fullName"
-                            placeholder="Full Name"
-                            className="w-full p-3 border rounded-md"
-                            value={formData.fullName}
-                            onChange={handleInputChange}
-                            required
-                        />
-                        <input
-                            type="email"
-                            name="email"
-                            placeholder="Email Address"
-                            className="w-full p-3 border rounded-md"
-                            value={formData.email}
-                            onChange={handleInputChange}
-                            required
-                        />
-                        <input
-                            type="text"
-                            name="phone"
-                            placeholder="Phone"
-                            className="w-full p-3 border rounded-md"
-                            value={formData.phone}
-                            onChange={handleInputChange}
-                            required
-                        />
-                        <input
-                            type="text"
-                            name="website"
-                            placeholder="Website (optional)"
-                            className="w-full p-3 border rounded-md"
-                            value={formData.website}
-                            onChange={handleInputChange}
-                        />
-                    </div>
+                {/* User Information Section */}
+                <h2 className="text-2xl font-semibold mb-6 text-gray-800">
+                    Your Info
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                    <input
+                        type="text"
+                        name="fullName"
+                        placeholder="Full Name"
+                        className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
+                        value={formData.fullName}
+                        onChange={handleInputChange}
+                        required
+                    />
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email Address"
+                        className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="phone"
+                        placeholder="Phone"
+                        className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="website"
+                        placeholder="Website (optional)"
+                        className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
+                        value={formData.website}
+                        onChange={handleInputChange}
+                    />
+                </div>
 
-                    {/* Message Section */}
-                    <div className="mb-8">
-                        <textarea
-                            name="message"
-                            placeholder="Message"
-                            className="w-full p-3 border rounded-md"
-                            value={formData.message}
-                            onChange={handleInputChange}
-                            required
-                        ></textarea>
-                    </div>
+                {/* Message Section */}
+                <div className="mb-8">
+                    <textarea
+                        name="message"
+                        placeholder="Message"
+                        className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
+                        rows="4"
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        required
+                    ></textarea>
+                </div>
 
-                    {/* Submit Button */}
-                    <button
-                        type="submit"
-                        className="w-full bg-orange-400 text-gray-900 py-3 px-3 rounded-lg hover:bg-orange-600 transition-colors"
-                    >
-                        Submit Quote Request
-                    </button>
-                </form>
-            </div>
-        </>
+                {/* Submit Button */}
+                <button
+                    type="submit"
+                    className="w-full bg-orange-500 text-white py-3 px-6 rounded-lg hover:bg-orange-600 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2"
+                >
+                    Submit Quote Request
+                </button>
+            </form>
+        </div>
     );
 }
