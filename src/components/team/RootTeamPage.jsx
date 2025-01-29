@@ -51,7 +51,10 @@ export default async function RootTeamPage() {
                 <div className="container">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
                         {teamMembers.map(
-                            ({ bg, designation, image, name }, index) => (
+                            (
+                                { designation, image, name, description },
+                                index
+                            ) => (
                                 <div
                                     key={index}
                                     className="flex items-center md:items-start flex-col gap-3"
@@ -74,11 +77,7 @@ export default async function RootTeamPage() {
                                         </p>
                                     </div>
                                     <p className="text-center md:text-start">
-                                        Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit. Eum nostrum fugit
-                                        facilis fuga atque quibusdam alias
-                                        eveniet, saepe voluptate, est maxime
-                                        quisquam, nesciunt nulla. Nihil?
+                                        {description}
                                     </p>
                                 </div>
                             )

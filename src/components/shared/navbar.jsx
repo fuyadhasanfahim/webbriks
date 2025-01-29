@@ -129,7 +129,7 @@ export function Navbar() {
                 <div className="hidden lg:block">
                     <a
                         href="/get-quote"
-                        className="bg-[#2B2121] text-white px-4 py-2 rounded hover:bg-orange-500 transition flex items-center gap-2"
+                        className="text-white px-4 py-2 rounded bg-orange-500 hover:bg-orange-600 transition flex items-center gap-2"
                     >
                         <span>Get a Quote</span>
                         <span>
