@@ -32,7 +32,7 @@ export default function NavbarWrapper() {
 
     return (
         <header
-            className={`sticky top-0 transition-transform duration-300 z-50 ${
+            className={`sticky top-0 transition-transform duration-300 z-50 bg-white/70 ${
                 hideNavbar ? '-translate-y-full' : 'translate-y-0'
             }`}
         >

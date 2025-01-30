@@ -59,7 +59,7 @@ export default async function RootTeamPage() {
                                     key={index}
                                     className="flex items-center md:items-start flex-col gap-3"
                                 >
-                                    <figure>
+                                    <figure className="w-[192px] h-auto">
                                         <Image
                                             src={image}
                                             alt={`${name}'s image`}
@@ -83,16 +83,11 @@ export default async function RootTeamPage() {
                             )
                         )}
                         <div className="flex items-center md:items-start">
-                            <div className="flex items-center justify-center text-center mx-auto md:mx-0 flex-col gap-3 p-4 bg-gray-200 w-[300px] h-[300px]">
+                            <div className="flex items-center justify-center text-center mx-auto md:mx-0 flex-col gap-3 p-4 bg-gray-200 w-[300px] h-auto">
                                 <div>
                                     <h3 className="text-lg md:text-xl font-semibold">
                                         Join our team and make a difference!
                                     </h3>
-                                    <p className="text-sm md:text-base">
-                                        We are always looking for talented
-                                        individuals who are passionate about
-                                        technology and innovation.
-                                    </p>
                                 </div>
                                 <button className="mt-6 px-6 py-3 bg-orange-500 text-white rounded-lg">
                                     View Open Positions
