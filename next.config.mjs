@@ -37,6 +37,11 @@ const nextConfig = {
                 hostname: 'cdn.colorexpertsbd.com',
                 pathname: '**',
             },
+            {
+                protocol: 'https',
+                hostname: 'assets.aceternity.com',
+                pathname: '**',
+            },
         ],
     },
 };
