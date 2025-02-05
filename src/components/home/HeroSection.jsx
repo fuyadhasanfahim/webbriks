@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -9,29 +9,39 @@ export default function HeroSection() {
         {
             icon: <ImageIcon className="w-8 h-8" />,
             title: 'Photo Editing',
-            href: '/services/photo-editing',
+            href: '#services-we-provide',
         },
         {
             icon: <Code className="w-8 h-8" />,
             title: 'Web Design & Development',
-            href: '/services/web-design-and-development',
+            href: '#services-we-provide',
         },
         {
             icon: <Paintbrush className="w-8 h-8" />,
             title: 'Graphics Design',
-            href: '/services/graphics-design',
+            href: '#services-we-provide',
         },
         {
             icon: <Video className="w-8 h-8" />,
             title: 'Video Editing',
-            href: '/services/video-editing',
+            href: '#services-we-provide',
+        },
+        {
+            icon: <Video className="w-8 h-8" />,
+            title: 'Digital Marketing',
+            href: '#services-we-provide',
+        },
+        {
+            icon: <Video className="w-8 h-8" />,
+            title: 'UI/UX Design',
+            href: '#services-we-provide',
         },
     ];
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-orange-50 via-gray-50 to-orange-100 overflow-hidden padding-x padding-y">
             <div className="container">
-                <div className="grid grid-cols-1 items-center md:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 items-start md:grid-cols-2 gap-12">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -110,9 +120,8 @@ export default function HeroSection() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 * (index + 1) }}
-                                className="backdrop-blur p-6 rounded-xl shadow-md
-                                         hover:shadow-xl transition-all duration-300 transform 
-                                         hover:-translate-y-1 bg-white group"
+                                className="backdrop-blur p-6 rounded-xl shadow
+                                         hover:scale-105 transition-all duration-300 bg-white group"
                             >
                                 <a href={service.href} className="block">
                                     <div className="flex flex-col items-center text-center gap-4">

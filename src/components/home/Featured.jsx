@@ -75,9 +75,17 @@ export default function Featured() {
 
     return (
         <section className="bg-gradient-to-b from-gray-100 to-gray-200 padding-x padding-y relative overflow-hidden">
-            {/* Background decoration */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.8)_0%,_transparent_70%)]" />
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-orange-500/10 rounded-full filter blur-3xl opacity-30" />
+            <div className="z-10 mb-6 md:mb-10 mx-auto max-w-5xl space-y-6">
+                <h1 className="heading-one text-center !font-semibold">
+                    Beyond Limits, Everything You Need and More
+                </h1>
+                <p className="description text-center">
+                    Web Briks goes beyond the basics, delivering top-tier
+                    services in web development, virtual assistance, and design.
+                    From seamless execution to innovative solutions, we ensure
+                    you have everything you need—and more.
+                </p>
+            </div>
 
             <div className="container relative z-10">
                 <motion.div

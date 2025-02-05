@@ -4,6 +4,7 @@ import Faq from '../shared/Faq';
 import Featured from './Featured';
 import HeroSection from './HeroSection';
 import OurPartners from './OurPartners';
+import OurPortfolio from './OurPortfolio';
 import OurWorldwidePresence from './OurWorldwidePresence';
 import ServicesWeProvide from './ServicesWeProvide';
 import Stats from './Stats';
@@ -17,6 +18,7 @@ export default function RootHomePage() {
             <ServicesWeProvide />
             <OurPartners />
             <TestimonialSlider />
+            <OurPortfolio />
             <OurWorldwidePresence />
             <Faq />
             <CallToAction />
