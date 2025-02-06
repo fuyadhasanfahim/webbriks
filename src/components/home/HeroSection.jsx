@@ -68,9 +68,9 @@ export default function HeroSection() {
                             transition={{ delay: 0.4 }}
                         >
                             We specialize in creating stunning digital
-                            experiences through expert web development,
-                            professional photo editing, and creative graphic
-                            design services.
+                            experiences through expert web design & development,
+                            professional photo editing & video editing, and
+                            creative graphic design services.
                         </motion.p>
 
                         <motion.div

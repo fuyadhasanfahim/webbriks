@@ -107,10 +107,6 @@ const data = [
 export default function ServicesWeProvide() {
     const [selectedService, setSelectedService] = useState(data[0].title);
 
-    const handleSelect = (title) => {
-        setSelect(title);
-    };
-
     return (
         <section className="bg-gray-200 padding-x padding-y">
             <div className="container">
@@ -118,14 +114,16 @@ export default function ServicesWeProvide() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="max-w-2xl mx-auto text-center mb-20"
+                    className="max-w-5xl mx-auto text-center mb-20"
                 >
                     <h2 className="text-4xl md:text-5xl font-bold mb-6">
                         Our Services
                     </h2>
                     <p className="text-neutral-600 text-lg">
-                        Transforming visions into reality through creative
-                        excellence and technical innovation
+                        Our services are designed to enhance your business with
+                        innovative and customized solutions. We ensure secure,
+                        efficient, and high-quality results to support your
+                        success.
                     </p>
                 </motion.div>
 
@@ -230,7 +228,7 @@ export default function ServicesWeProvide() {
                                                 whileTap={{ scale: 0.95 }}
                                                 className="inline-block bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-300"
                                             >
-                                                Learn More
+                                                View Details
                                             </motion.a>
                                         </motion.div>
                                     );

@@ -36,10 +36,10 @@ const AnimatedNumber = ({ value }) => {
 
 export default function Stats() {
     const stats = [
-        { value: 40, label: 'Happy Clients', suffix: '+' },
-        { value: 540, label: 'Projects Completed', suffix: '+' },
-        { value: 300, label: 'Dedicated Members', suffix: '' },
-        { value: 25, label: 'Awards Won', suffix: '+' },
+        { value: 2000, label: 'Happy Clients', suffix: '+' },
+        { value: 10000, label: 'Projects Completed', suffix: '+' },
+        { value: 42, label: 'Dedicated Members', suffix: '' },
+        { value: 5, label: 'Awards Won', suffix: '+' },
     ];
 
     return (
@@ -72,8 +72,8 @@ export default function Stats() {
                             viewport={{ once: true }}
                         >
                             <p className="lg:text-lg md:text-base leading-6 text-sm text-white">
-                                5 years, consistent quality and you get results.
-                                No matter what
+                                10 years, consistent quality and you get
+                                results. No matter what
                             </p>
                         </motion.div>
                     </div>

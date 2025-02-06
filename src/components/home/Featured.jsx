@@ -1,66 +1,47 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import {
-    IconAdjustmentsBolt,
-    IconCloud,
-    IconCurrencyDollar,
-    IconEaseInOut,
-    IconHeart,
-    IconHelp,
-    IconRouteAltLeft,
-    IconTerminal2,
-} from '@tabler/icons-react';
+import { IconAdjustmentsBolt, IconHeart, IconHelp } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
+import { BadgePlus, DollarSign, ShieldCheck, UsersRound } from 'lucide-react';
 
 export default function Featured() {
     const features = [
         {
-            title: 'Built for developers',
+            title: '24/7 customer support',
             description:
-                'Built for engineers, developers, dreamers, thinkers and doers.',
-            icon: <IconTerminal2 />,
+                'Our customer support team is always ready to provide top notch support. We are available in live chat, email, skype and over phone support. You will experience the best support every day, every hour.',
+            icon: <IconHelp />,
         },
         {
-            title: 'Ease of use',
+            title: 'Faster Service',
             description:
-                "It's as easy as using an Apple, and as expensive as buying one.",
-            icon: <IconEaseInOut />,
+                'We pride ourselves on delivering faster services to keep your business moving forward. Our streamlined approach ensures rapid and efficient solutions. Experience the perfect blend of speed and quality with Web Briks',
+            icon: <IconAdjustmentsBolt />,
         },
         {
             title: 'Pricing like no other',
             description:
-                'Our prices are best in the market. No cap, no lock, no credit card required.',
-            icon: <IconCurrencyDollar />,
+                'We offer pricing like no other and ensure you receive exceptional value for every service.Our rates are designed to empower your business without breaking the bank.',
+            icon: <DollarSign />,
         },
         {
-            title: '100% Uptime guarantee',
-            description: 'We just cannot be taken down by anyone.',
-            icon: <IconCloud />,
-        },
-        {
-            title: 'Multi-tenant Architecture',
+            title: 'Expert team',
             description:
-                'You can simply share passwords instead of buying new seats',
-            icon: <IconRouteAltLeft />,
+                'We have experienced professionals with diverse skill sets. With years of industry expertise, the team ensures delivering top-quality results with continuous learning.',
+            icon: <UsersRound />,
         },
         {
-            title: '24/7 Customer Support',
+            title: 'Customer centric approach',
             description:
-                'We are available a 100% of the time. Atleast our AI Agents are.',
-            icon: <IconHelp />,
-        },
-        {
-            title: 'Money back guarantee',
-            description:
-                'If you donot like EveryAI, we will convince you to like us.',
-            icon: <IconAdjustmentsBolt />,
+                'We know every customer has unique needs. We actively listen to your feedback and continuously refine our services to ensure they align perfectly with your business goals.',
+            icon: <IconHeart />,
         },
         {
             title: 'And everything else',
             description:
-                'I just ran out of copy ideas. Accept my sincere apologies',
-            icon: <IconHeart />,
+                'Customer satisfaction is our top priority. We do everything to satisfy our clients. It means if you work with us, your final delivery will satisfy you and help to grow your business.',
+            icon: <BadgePlus />,
         },
     ];
 
@@ -80,10 +61,9 @@ export default function Featured() {
                     Beyond Limits, Everything You Need and More
                 </h1>
                 <p className="description text-center">
-                    Web Briks goes beyond the basics, delivering top-tier
-                    services in web development, virtual assistance, and design.
-                    From seamless execution to innovative solutions, we ensure
-                    you have everything you need—and more.
+                    Web Briks goes beyond the basics and delivers top-tier
+                    services. From seamless execution to innovative solutions,
+                    we ensure you have everything you need—and more.
                 </p>
             </div>
 
@@ -93,7 +73,7 @@ export default function Featured() {
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 rounded-xl bg-white/80 backdrop-blur-sm shadow"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative z-10 rounded-xl bg-white/80 backdrop-blur-sm shadow"
                 >
                     {features.map((feature, index) => (
                         <Feature

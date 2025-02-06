@@ -99,7 +99,7 @@ export const InfiniteMovingCards = ({
                             <div className="p-3 bg-[#FFA726] rounded-full text-white">
                                 {item.icon}
                             </div>
-                            <h3 className="text-2xl font-semibold text-gray-800">
+                            <h3 className="text-xl font-semibold text-gray-800">
                                 {item.name}
                             </h3>
                         </div>

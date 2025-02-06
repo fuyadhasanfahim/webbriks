@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
 import { InfiniteMovingCards } from '../ui/infinite-moving-cards';
+import { Quote } from 'lucide-react';
 
 const testimonials = [
     {
+        icon: <Quote />,
         title: 'Excellent Service',
         description:
             'Webbriks LLC has been a game-changer for our e-commerce business. Their photo editing services are top-notch, and the turnaround time is impressive.',
@@ -12,6 +13,7 @@ const testimonials = [
         rating: 5,
     },
     {
+        icon: <Quote />,
         title: 'Great Experience',
         description:
             'The graphic design team at Webbriks LLC exceeded our expectations! They brought our ideas to life with stunning visuals and professional quality.',
@@ -19,6 +21,7 @@ const testimonials = [
         rating: 5,
     },
     {
+        icon: <Quote />,
         title: 'Highly Recommend',
         description:
             'Working with Webbriks LLC on our website redesign was an absolute pleasure. Their team created a visually appealing and user-friendly experience.',
@@ -26,6 +29,7 @@ const testimonials = [
         rating: 5,
     },
     {
+        icon: <Quote />,
         title: 'Outstanding Support',
         description:
             'Their customer service is fantastic! Any questions or concerns we had were addressed promptly. Highly recommended!',
@@ -33,6 +37,7 @@ const testimonials = [
         rating: 5,
     },
     {
+        icon: <Quote />,
         title: 'Creative and Professional',
         description:
             'I was blown away by the creativity and professionalism of Webbriks LLC. Their designs helped boost our brand identity significantly.',
@@ -40,6 +45,7 @@ const testimonials = [
         rating: 5,
     },
     {
+        icon: <Quote />,
         title: 'Fast and Reliable',
         description:
             'The turnaround time was incredibly fast, and the quality exceeded our expectations. Thank you, Webbriks LLC!',

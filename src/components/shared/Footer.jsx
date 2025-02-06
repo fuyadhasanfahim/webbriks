@@ -22,7 +22,7 @@ export default function Footer() {
                                 href="https://www.facebook.com/webbriks"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-10 h-10 border border-orange-500 rounded-full flex items-center justify-center group hover:bg-orange-500 transition-all duration-300"
+                                className="w-10 h-10 border-2 border-orange-500 rounded-full flex items-center justify-center group hover:bg-orange-500 transition-all duration-300"
                             >
                                 <FaFacebookF className="text-xl text-orange-500 group-hover:text-white transition-colors" />
                             </Link>
@@ -30,7 +30,7 @@ export default function Footer() {
                                 href="https://www.linkedin.com/company/webbriks"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-10 h-10 border border-orange-500 rounded-full flex items-center justify-center group hover:bg-orange-500 transition-all duration-300"
+                                className="w-10 h-10 border-2 border-orange-500 rounded-full flex items-center justify-center group hover:bg-orange-500 transition-all duration-300"
                             >
                                 <FaLinkedinIn className="text-xl text-orange-500 group-hover:text-white transition-colors" />
                             </Link>
@@ -104,7 +104,12 @@ export default function Footer() {
                             </p>
                             <p className="text-gray-300 flex items-start">
                                 <span className="mr-2">📞</span>
-                                +1 718 577 1232
+                                <a
+                                    href="tel:+17185771232"
+                                    className="text-orange-500 hover:underline"
+                                >
+                                    +1 718 577 1232
+                                </a>
                             </p>
                             <p className="text-gray-300 flex items-start">
                                 <span className="mr-2">📍</span>
