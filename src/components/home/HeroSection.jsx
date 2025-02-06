@@ -26,22 +26,12 @@ export default function HeroSection() {
             title: 'Video Editing',
             href: '#services-we-provide',
         },
-        {
-            icon: <Video className="w-8 h-8" />,
-            title: 'Digital Marketing',
-            href: '#services-we-provide',
-        },
-        {
-            icon: <Video className="w-8 h-8" />,
-            title: 'UI/UX Design',
-            href: '#services-we-provide',
-        },
     ];
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-orange-50 via-gray-50 to-orange-100 overflow-hidden padding-x padding-y">
+        <div className="min-h-screen bg-gradient-to-br from-orange-50 via-gray-50 to-orange-100 overflow-hidden padding-x padding-y md:!py-20">
             <div className="container">
-                <div className="grid grid-cols-1 items-start md:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 items-center md:grid-cols-2 gap-12">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         animate={{ opacity: 1, x: 0 }}
