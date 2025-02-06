@@ -53,20 +53,18 @@ export default function WebDesignServices() {
     return (
         <>
             <motion.section
-                className="bg-white padding-x padding-y"
+                className="bg-white px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-20"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true, amount: 0.5 }}
             >
-                <div className="container">
+                <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 justify-between">
                         <div className="flex-1">
                             <Image
-                                src={
-                                    'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737624746/wenbven6b27bc6omqaqr.svg'
-                                }
+                                src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1737624746/wenbven6b27bc6omqaqr.svg"
                                 alt="responsive design"
                                 width={600}
                                 height={500}
@@ -77,37 +75,40 @@ export default function WebDesignServices() {
 
                         <div className="w-full max-w-2xl space-y-6 md:space-y-10 flex-1">
                             <div className="space-y-6 md:space-y-10">
-                                <h3 className="heading-two !font-semibold lg:max-w-lg lg:leading-snug">
+                                <h3 className="text-3xl md:text-4xl font-semibold lg:max-w-lg lg:leading-snug">
                                     Ready to reach more and make a bigger
                                     impact? Go responsive now!
                                 </h3>
-                                <p className="description">
-                                    If your website doesn’t adapt to any device
-                                    or screen size, you’re losing a huge
+                                <p className="text-lg text-gray-600">
+                                    {`If your website doesn't adapt to any device
+                                    or screen size, you're losing a huge
                                     audience. We guarantee your design fits
-                                    perfectly, every time, on every display.
+                                    perfectly, every time, on every display.`}
                                 </p>
                             </div>
 
-                            <button className="button bg-orange-500 text-white">
-                                <Link href={'/contact-us'}>Contact Us</Link>
-                            </button>
+                            <Link
+                                href="/contact-us"
+                                className="inline-block px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+                            >
+                                Contact Us
+                            </Link>
                         </div>
                     </div>
                 </div>
             </motion.section>
 
             <motion.section
-                className="bg-black text-white padding-x padding-y overflow-hidden"
+                className="bg-black text-white px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-20 overflow-hidden"
                 initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true, amount: 0.5 }}
             >
-                <div className="container space-y">
+                <div className="max-w-7xl mx-auto space-y-12">
                     <div className="mx-auto max-w-4xl">
-                        <h1 className="heading-one text-center">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center">
                             Achieve success with our all-in-one web design and
                             development services
                         </h1>
@@ -131,12 +132,9 @@ export default function WebDesignServices() {
                                     height={400}
                                     priority
                                 />
-                                <h3 className="heading-three">
+                                <h3 className="text-2xl font-semibold">
                                     {service.title}
                                 </h3>
-                                {/* <p className="description-small text-gray-400">
-                                    {service.description}
-                                </p> */}
                             </motion.div>
                         ))}
                     </div>
@@ -144,39 +142,40 @@ export default function WebDesignServices() {
             </motion.section>
 
             <motion.section
-                className="bg-gray-200 padding-x padding-y"
+                className="bg-gray-200 px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-20"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 50 }}
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true, amount: 0.5 }}
             >
-                <div className="container">
+                <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 justify-between">
                         <div className="w-full max-w-2xl space-y-6 md:space-y-10 flex-1">
                             <div className="space-y-6 md:space-y-10">
-                                <h3 className="heading-two lg:max-w-lg !font-semibold lg:leading-snug">
+                                <h3 className="text-3xl md:text-4xl font-semibold lg:max-w-lg lg:leading-snug">
                                     Eye-catching visuals, seamless experience –
                                     we design your path to success!
                                 </h3>
-                                <p className="description">
-                                    We deliver the exact visuals your users want
-                                    to see. With stunning designs, you’ll
+                                <p className="text-lg text-gray-600">
+                                    {`We deliver the exact visuals your users want
+                                    to see. With stunning designs, you'll
                                     capture attention and boost engagement with
-                                    less effort.
+                                    less effort.`}
                                 </p>
                             </div>
 
-                            <button className="button bg-orange-500 text-white">
-                                <Link href={'/contact-us'}>Contact Us</Link>
-                            </button>
+                            <Link
+                                href="/contact-us"
+                                className="inline-block px-6 py-3 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+                            >
+                                Contact Us
+                            </Link>
                         </div>
 
                         <div className="flex-1 w-full">
                             <Image
-                                src={
-                                    'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737625315/tru9uqobvfbmdjymjnql.svg'
-                                }
+                                src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1737625315/tru9uqobvfbmdjymjnql.svg"
                                 alt="responsive design"
                                 width={600}
                                 height={450}
