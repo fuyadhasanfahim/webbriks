@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-const faqs = [
+const defaultFaqs = [
     {
         id: 'faq-1',
         question: 'What makes your web design unique?',
@@ -32,36 +32,34 @@ const faqs = [
     },
 ];
 
-export default function Faq() {
+export default function Faq({ data }) {
     const [selectedIndex, setSelectedIndex] = useState(null);
+    const faqs = data && data.length > 0 ? data : defaultFaqs;
 
     return (
         <motion.section
             className="w-full bg-white padding-x padding-y"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-                duration: 0.6,
-                ease: 'easeOut',
-            }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
             viewport={{ once: true, amount: 0.2 }}
         >
             <div className="space-y">
                 <div className="w-full mx-auto heading-one text-center">
                     <h1>Frequently</h1>
-                    <h1>Asked Question</h1>
+                    <h1>Asked Questions</h1>
                 </div>
 
                 <div className="container select-none">
-                    {faqs.map(({ question, answer }, index) => (
+                    {faqs.map(({ id, question, answer }, index) => (
                         <div
-                            key={index}
+                            key={id}
                             className="border-t border-gray-400 border-dotted last:border-b py-6 md:py-8 lg:py-10 relative isolate group/faq"
-                            onClick={() => {
+                            onClick={() =>
                                 setSelectedIndex(
                                     selectedIndex === index ? null : index
-                                );
-                            }}
+                                )
+                            }
                         >
                             <div
                                 className={twMerge(
@@ -76,7 +74,11 @@ export default function Faq() {
                                 )}
                             >
                                 <div className="text-2xl md:text-3xl lg:text-4xl">
-                                    {question}
+                                    {typeof question === 'string' ? (
+                                        <span>{question}</span>
+                                    ) : (
+                                        question
+                                    )}
                                 </div>
                                 <div
                                     className={twMerge(
@@ -114,7 +116,13 @@ export default function Faq() {
                                         }}
                                         className="overflow-hidden lg:px-8"
                                     >
-                                        <p className="text-xl mt-4">{answer}</p>
+                                        {typeof answer === 'string' ? (
+                                            <p className="text-xl mt-4">
+                                                {answer}
+                                            </p>
+                                        ) : (
+                                            answer
+                                        )}
                                     </motion.div>
                                 )}
                             </AnimatePresence>

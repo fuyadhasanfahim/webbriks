@@ -93,17 +93,20 @@ export default function GraphicsDesignStats() {
                 viewport={{ once: true, amount: 0.2 }}
             >
                 <div className="container">
-                    <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-20 justify-between">
+                    <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 justify-between">
                         <div className="w-full max-w-2xl space-y-6 md:space-y-10 flex-1">
                             <div className="space-y-6 md:space-y-10">
                                 <h3 className="heading-two text-white lg:max-w-lg !font-semibold lg:leading-relaxed">
-                                    Ready to build a website that commands
-                                    attention? Let’s make it happen!
+                                    Ready to create designs that grab attention?
+                                    Let’s bring your vision to life!
                                 </h3>
                                 <p className="description text-gray-300">
-                                    We design with heart. It’s not just about
-                                    looks—it’s about creating an emotional spark
-                                    that turns visitors into loyal fans.
+                                    We believe great design goes beyond
+                                    aesthetics. Our goal is to create
+                                    meaningful, impactful visuals that connect
+                                    with your audience on a deeper level,
+                                    inspire trust, and build lasting
+                                    relationships with your brand.
                                 </p>
                             </div>
 
@@ -115,7 +118,7 @@ export default function GraphicsDesignStats() {
                         <div className="flex-1 w-full">
                             <Image
                                 src={
-                                    'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737626130/badkcn4avxx8dboiiawf.svg'
+                                    'https://res.cloudinary.com/dny7zfbg9/image/upload/v1738906741/yovsgeghoqaryjsvnnno.svg'
                                 }
                                 alt="responsive design"
                                 width={600}

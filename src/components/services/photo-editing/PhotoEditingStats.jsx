@@ -11,7 +11,7 @@ export default function PhotoEditingStats() {
                 <div className="container space-y">
                     <div className="max-w-4xl mx-auto">
                         <h1 className="heading-one text-center">
-                            Numbers that define our web design capabilities!
+                            Numbers that define our Photo Editing capabilities!
                         </h1>
                     </div>
 
@@ -27,23 +27,23 @@ export default function PhotoEditingStats() {
                             {
                                 id: 1,
                                 bg: 'bg-yellow-300',
-                                text: '120 M',
+                                text: '10 M+ Images',
                                 description:
-                                    'Funds were raised in series A and B, which exceeds expectations!',
+                                    'We have successfully edited 10m+ images globally for our clients.',
                             },
                             {
                                 id: 2,
                                 bg: 'bg-gray-200',
-                                text: '25 %',
+                                text: '2000+ happy clients',
                                 description:
-                                    'Funds were raised in series A and B, which exceeds expectations!',
+                                    'We have worked with 2000+ clients globally. All are happy with us.',
                             },
                             {
                                 id: 3,
                                 bg: 'bg-green-400',
-                                text: '+ 40 %',
+                                text: '10000+ project',
                                 description:
-                                    'Funds were raised in series A and B, which exceeds expectations!',
+                                    'We successfully completed 10000+ photo editing projects',
                             },
                             {
                                 id: 4,
@@ -93,17 +93,18 @@ export default function PhotoEditingStats() {
                 viewport={{ once: true, amount: 0.2 }}
             >
                 <div className="container">
-                    <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10 lg:gap-20 justify-between">
+                    <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 justify-between">
                         <div className="w-full max-w-2xl space-y-6 md:space-y-10 flex-1">
                             <div className="space-y-6 md:space-y-10">
                                 <h3 className="heading-two text-white lg:max-w-lg !font-semibold lg:leading-relaxed">
-                                    Ready to build a website that commands
-                                    attention? Let’s make it happen!
+                                    Ready to edit photos that grabs attention?
+                                    Let’s make it happen!
                                 </h3>
                                 <p className="description text-gray-300">
-                                    We design with heart. It’s not just about
-                                    looks—it’s about creating an emotional spark
-                                    that turns visitors into loyal fans.
+                                    We edit with passion. It’s not just about
+                                    enhancing images—it’s about creating a
+                                    visual impact that captivates viewers and
+                                    turns them into loyal customers.
                                 </p>
                             </div>
 
@@ -115,11 +116,11 @@ export default function PhotoEditingStats() {
                         <div className="flex-1 w-full">
                             <Image
                                 src={
-                                    'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737626130/badkcn4avxx8dboiiawf.svg'
+                                    'https://res.cloudinary.com/dny7zfbg9/image/upload/v1738302569/g3rlnky31lvqoxvp5o05.jpg'
                                 }
                                 alt="responsive design"
                                 width={600}
-                                height={450}
+                                height={400}
                                 priority
                                 className="w-full h-full"
                             />

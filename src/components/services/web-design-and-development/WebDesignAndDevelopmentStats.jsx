@@ -27,23 +27,23 @@ export default function WebDesignAndDevelopmentStats() {
                             {
                                 id: 1,
                                 bg: 'bg-yellow-300',
-                                text: '120 M',
+                                text: '100+ Web design',
                                 description:
-                                    'Funds were raised in series A and B, which exceeds expectations!',
+                                    'We have successfully completed 100+ web design globally for our clients.',
                             },
                             {
                                 id: 2,
                                 bg: 'bg-gray-200',
-                                text: '25 %',
+                                text: '30+ happy clients',
                                 description:
-                                    'Funds were raised in series A and B, which exceeds expectations!',
+                                    'We have worked with 30+ clients globally. All are happy with us.',
                             },
                             {
                                 id: 3,
                                 bg: 'bg-green-400',
-                                text: '+ 40 %',
+                                text: '80+ project',
                                 description:
-                                    'Funds were raised in series A and B, which exceeds expectations!',
+                                    'We successfully completed 80+ web design projects.',
                             },
                             {
                                 id: 4,
@@ -61,7 +61,7 @@ export default function WebDesignAndDevelopmentStats() {
                                     className={`text-2xl ${
                                         item.isButton
                                             ? ''
-                                            : 'md:text-4xl lg:text-6xl'
+                                            : 'text-2xl md:text-4xl lg:text-6xl'
                                     } font-semibold font-montserrat leading-relaxed`}
                                 >
                                     {item.text}
