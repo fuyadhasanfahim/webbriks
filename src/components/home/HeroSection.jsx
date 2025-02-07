@@ -29,7 +29,7 @@ export default function HeroSection() {
     ];
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-orange-50 via-gray-50 to-orange-100 overflow-hidden padding-x padding-y md:!py-20">
+        <div className="min-h-screen bg-black overflow-hidden padding-x padding-y md:!py-20">
             <div className="container">
                 <div className="grid grid-cols-1 items-center md:grid-cols-2 gap-12">
                     <motion.div
@@ -48,7 +48,7 @@ export default function HeroSection() {
                         </motion.div>
 
                         <motion.h1
-                            className="text-4xl lg:text-6xl font-bold text-gray-900 leading-relaxed"
+                            className="text-4xl lg:text-6xl font-bold text-white leading-relaxed"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2 }}
@@ -62,7 +62,7 @@ export default function HeroSection() {
                         </motion.h1>
 
                         <motion.p
-                            className="text-lg text-gray-600 max-w-xl"
+                            className="text-lg text-gray-300 max-w-xl"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.4 }}
@@ -115,11 +115,7 @@ export default function HeroSection() {
                             >
                                 <a href={service.href} className="block">
                                     <div className="flex flex-col items-center text-center gap-4">
-                                        <div
-                                            className="p-4 bg-orange-100 rounded-lg text-orange-500 
-                                                      group-hover:bg-orange-500 group-hover:text-white 
-                                                      transition-colors duration-300"
-                                        >
+                                        <div className="p-4 rounded-lg group-hover:bg-orange-100 bg-orange-500 group-hover:text-orange-500 text-white transition-colors duration-300">
                                             {service.icon}
                                         </div>
                                         <h3 className="text-lg font-semibold text-gray-900">

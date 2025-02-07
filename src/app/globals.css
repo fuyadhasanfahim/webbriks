@@ -55,7 +55,7 @@ navbar {
 }
 
 .padding-y {
-    @apply py-10 md:py-20 lg:py-32;
+    @apply py-10 md:py-20;
 }
 
 .heading-one {
