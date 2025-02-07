@@ -37,12 +37,12 @@ const faqs = [
             <p className="text-xl mt-4">
                 The cost of a website depends on its complexity, features, and
                 customization requirements. We offer flexible pricing based on
-                project scope, starting from
+                project scope, starting from{' '}
                 <strong>
                     affordable small-business websites to advanced custom
-                    solutions
-                </strong>
-                . Contact us for a free consultation and a personalized quote.
+                    solutions.
+                </strong>{' '}
+                Contact us for a free consultation and a personalized quote.
             </p>
         ),
     },

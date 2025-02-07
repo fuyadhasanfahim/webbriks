@@ -96,7 +96,7 @@ export default function PhotoEditingStats() {
                     <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-20 justify-between">
                         <div className="w-full max-w-2xl space-y-6 md:space-y-10 flex-1">
                             <div className="space-y-6 md:space-y-10">
-                                <h3 className="heading-two text-white lg:max-w-lg !font-semibold lg:leading-relaxed">
+                                <h3 className="heading-two text-white lg:max-w-lg !font-semibold">
                                     Ready to edit photos that grabs attention?
                                     Let’s make it happen!
                                 </h3>
@@ -116,11 +116,11 @@ export default function PhotoEditingStats() {
                         <div className="flex-1 w-full">
                             <Image
                                 src={
-                                    'https://res.cloudinary.com/dny7zfbg9/image/upload/v1738302569/g3rlnky31lvqoxvp5o05.jpg'
+                                    'https://res.cloudinary.com/dny7zfbg9/image/upload/v1738907958/wlbdavejurkai3npvsqc.png'
                                 }
                                 alt="responsive design"
                                 width={600}
-                                height={400}
+                                height={450}
                                 priority
                                 className="w-full h-full"
                             />

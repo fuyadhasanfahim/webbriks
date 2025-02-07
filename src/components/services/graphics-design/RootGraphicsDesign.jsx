@@ -96,7 +96,7 @@ export default async function RootGraphicsDesign() {
         <section className="w-full">
             <HeroSection />
             <GraphicsDesignServices />
-            <GraphicsDesignStats />
+            {/* <GraphicsDesignStats /> */}
             <Faq data={faqs} />
             <CallToAction />
         </section>
