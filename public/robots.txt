@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://webbriks.com
+
+# Sitemaps
+Sitemap: https://webbriks.com/sitemap.xml
