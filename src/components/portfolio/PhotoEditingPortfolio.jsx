@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { ChevronRight } from 'lucide-react';
 
 import {
     ReactCompareSlider,
@@ -82,6 +83,14 @@ export default function PhotoEditingPortfolio() {
                                 />
                             </motion.div>
                         ))}
+                    </div>
+                    <div className="mx-auto w-full flex flex-col items-center justify-center mt-6 md:mt-10">
+                        <a href="/portfolio/photo-editing-service">
+                            <button className="button flex items-center gap-2 hover:gap-6 transition-all duration-200 ease-linear">
+                                <span>View More</span>
+                                <ChevronRight />
+                            </button>
+                        </a>
                     </div>
                 </motion.section>
             </div>
