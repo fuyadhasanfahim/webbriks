@@ -126,12 +126,23 @@ export function Navbar() {
                     </a>
                 </div>
 
-                <div className="hidden lg:block">
+                {/* <div className="hidden lg:block">
                     <a
                         href="/get-quote"
                         className="text-white px-4 py-2 rounded bg-orange-500 hover:bg-orange-600 transition flex items-center gap-2"
                     >
                         <span>Get a Quote</span>
+                        <span>
+                            <ArrowUpRight className="size-5" />
+                        </span>
+                    </a>
+                </div> */}
+                <div className="hidden lg:block">
+                    <a
+                        href="/free-trail"
+                        className="text-white px-4 py-2 rounded bg-orange-500 hover:bg-orange-600 transition flex items-center gap-2"
+                    >
+                        <span>Free Trail</span>
                         <span>
                             <ArrowUpRight className="size-5" />
                         </span>
@@ -230,12 +241,23 @@ export function Navbar() {
                         </a>
                     </div>
 
-                    <button className="px-4 py-2">
+                    {/* <button className="px-4 py-2">
                         <a
                             href="/get-quote"
                             className="bg-[#2B2121] text-white px-4 py-2 rounded hover:bg-orange-500 transition flex items-center gap-2"
                         >
                             <span>Get a Quote</span>
+                            <span>
+                                <ArrowUpRight className="size-5" />
+                            </span>
+                        </a>
+                    </button> */}
+                    <button className="px-4 py-2">
+                        <a
+                            href="/free-trail"
+                            className="bg-[#2B2121] text-white px-4 py-2 rounded hover:bg-orange-500 transition flex items-center gap-2"
+                        >
+                            <span>Free Trail</span>
                             <span>
                                 <ArrowUpRight className="size-5" />
                             </span>

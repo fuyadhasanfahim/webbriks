@@ -4,6 +4,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { Livvic } from 'next/font/google';
+import { ToastContainer } from 'react-toastify';
 
 const livvic = Livvic({
     subsets: ['latin'],
@@ -29,6 +30,7 @@ export default function MyFunc({ children }) {
 
             <body className={`${livvic.className} antialiased`}>
                 {children}
+                <ToastContainer position="bottom-right" />
             </body>
         </html>
     );
