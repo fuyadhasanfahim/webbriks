@@ -3,36 +3,39 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import { ChevronRight } from 'lucide-react';
 
 const data = [
     {
         title: 'Photo Editing Service',
         images: [
             {
-                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701986/a7ed5jxnxak8loftxg1t.jpg',
+                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811590/ekqwnjentkzagpfhfctt.jpg',
                 alt: 'photo editing example 1',
             },
             {
-                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701986/m54ehpgiylrscmgiq30w.jpg',
+                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811580/kzfvehfvvcmaxmpg4pq1.jpg',
                 alt: 'photo editing example 2',
             },
             {
-                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701984/bhwwtdnt1fl3pzu2minp.jpg',
+                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811586/ynhakbqvusd112n9jart.jpg',
                 alt: 'photo editing example 5',
             },
             {
-                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701984/tdonqqtr0fbgjtkjel0y.jpg',
+                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811571/kbeqj3qqzdqjgeuphp0m.jpg',
                 alt: 'photo editing example 6',
             },
             {
-                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701985/olhxiczax99okzqxqhka.gif',
+                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811569/aikvlrpsmbdj9wpgmsh7.jpg',
                 alt: 'photo editing example 4',
             },
             {
-                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701985/ilykcbydx8dqrsnsglu7.jpg',
+                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811560/oz5tr4nchqlcoeeculyt.jpg',
                 alt: 'photo editing example 3',
             },
         ],
+        isRedirectable: true,
+        link: '/portfolio/photo-editing-service',
     },
     {
         title: 'Web Design & Development Service',
@@ -62,6 +65,8 @@ const data = [
                 alt: 'photo editing example 5',
             },
         ],
+        isRedirectable: false,
+        link: '/portfolio/',
     },
     {
         title: 'Graphic Design Service',
@@ -91,6 +96,8 @@ const data = [
                 alt: 'graphic design example 6',
             },
         ],
+        isRedirectable: false,
+        link: '/portfolio/',
     },
 ];
 
@@ -117,8 +124,9 @@ export default function OurPortfolio() {
                     </h1>
                 </div>
 
+                {/* Category Buttons */}
                 <div className="flex justify-center gap-4 mb-8">
-                    {data.map(({ title }, index) => (
+                    {data.map((service, index) => (
                         <motion.button
                             key={index}
                             onClick={() => setSelectedIndex(index)}
@@ -127,16 +135,14 @@ export default function OurPortfolio() {
                                     ? 'bg-orange-500 text-white'
                                     : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
                             }`}
-                            variants={buttonVariants}
-                            initial="initial"
-                            animate="animate"
-                            whileHover="hover"
+                            whileHover={{ scale: 1.05 }}
                         >
-                            {title}
+                            {service.title}
                         </motion.button>
                     ))}
                 </div>
 
+                {/* Service Images */}
                 <div className="mt-8">
                     <h2 className="heading-two text-center mb-6">
                         {data[selectedIndex].title}
@@ -147,9 +153,12 @@ export default function OurPortfolio() {
                                 <motion.figure
                                     key={index}
                                     className="aspect-auto"
-                                    variants={imageVariants}
-                                    initial="initial"
-                                    animate="animate"
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{
+                                        opacity: 1,
+                                        scale: 1,
+                                        transition: { duration: 0.5 },
+                                    }}
                                 >
                                     <Image
                                         src={src}
@@ -163,6 +172,21 @@ export default function OurPortfolio() {
                             )
                         )}
                     </div>
+
+                    {/* View More Button */}
+                    {data[selectedIndex].isRedirectable && (
+                        <div className="flex justify-center mt-6 md:mt-10">
+                            <a href={data[selectedIndex].link}>
+                                <motion.button
+                                    className="flex items-center gap-2 bg-orange-500 text-white px-5 py-3 rounded-lg hover:bg-orange-600 transition-all duration-200"
+                                    whileHover={{ scale: 1.05 }}
+                                >
+                                    <span>View More</span>
+                                    <ChevronRight />
+                                </motion.button>
+                            </a>
+                        </div>
+                    )}
                 </div>
             </div>
         </section>
