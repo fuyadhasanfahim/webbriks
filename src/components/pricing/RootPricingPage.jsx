@@ -1,3 +1,4 @@
+import { Sparkles } from 'lucide-react';
 import CallToAction from '../shared/CallToAction';
 import Faq from '../shared/Faq';
 import Ambitious from './Ambitious';

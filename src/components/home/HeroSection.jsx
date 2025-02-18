@@ -29,7 +29,7 @@ export default function HeroSection() {
     ];
 
     return (
-        <div className="min-h-screen bg-black overflow-hidden padding-x padding-y md:!py-20">
+        <div className="bg-black overflow-hidden padding-x padding-y">
             <div className="container">
                 <div className="grid grid-cols-1 items-center md:grid-cols-2 gap-12">
                     <motion.div

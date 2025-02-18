@@ -2,6 +2,35 @@ import Link from 'next/link';
 import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import Image from 'next/legacy/image';
 
+const paymentMethods = [
+    { name: 'Visa', src: 'https://iili.io/dsIkOsR.png' },
+    { name: 'Mastercard', src: 'https://iili.io/dsIkkfp.png' },
+    {
+        name: 'American Express',
+        src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739862435/hklpute6ezasekoxnv8z.png',
+    },
+    {
+        name: 'PayPal',
+        src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739862435/lmorky7yushlhpe5kcwb.png',
+    },
+    {
+        name: 'Apple Pay',
+        src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739862435/dn8keqailjnb0oxzjawf.png',
+    },
+    {
+        name: 'Google Pay',
+        src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739862435/jhn5oz8xrxwcdky4rtyo.png',
+    },
+    {
+        name: 'Citibank',
+        src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739862435/k78aul6ejngfooeg4bz4.png',
+    },
+    {
+        name: 'Bank Transfer',
+        src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739862435/kjhd2naribxi2wquwjq2.png',
+    },
+];
+
 export default function Footer() {
     return (
         <footer className="bg-black text-white pt-16 pb-8">
@@ -121,27 +150,37 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t border-gray-800 pt-8 mt-8">
-                    <div className="text-center space-y-6">
-                        <div className="space-y-4">
-                            <h4 className="text-xl font-bold text-orange-500">
+                    <div className="text-center space-y-6 max-w-4xl mx-auto">
+                        <div className="bg-gray-300 backdrop-blur p-6 rounded-xl shadow-md">
+                            <h4 className="text-xl font-bold text-orange-500 text-center mb-6">
                                 We Accept
                             </h4>
-                            <div className="flex justify-center gap-4">
-                                <Image
-                                    src="https://iili.io/dsIkOsR.png"
-                                    alt="Visa"
-                                    width={50}
-                                    height={50}
-                                    className="hover:opacity-80 transition-opacity"
-                                />
-                                <Image
-                                    src="https://iili.io/dsIkkfp.png"
-                                    alt="Mastercard"
-                                    width={50}
-                                    height={50}
-                                    className="hover:opacity-80 transition-opacity"
-                                />
+
+                            <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4 items-center justify-center mx-auto">
+                                {paymentMethods.map((method) => (
+                                    <div
+                                        key={method.name}
+                                        className="group relative w-20 h-20 flex items-center justify-center"
+                                    >
+                                        <div className="absolute inset-0 bg-gray-100 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                                        <Image
+                                            src={method.src}
+                                            alt={method.name}
+                                            width={50}
+                                            height={50}
+                                            className="relative transform transition-transform duration-200 group-hover:scale-105"
+                                        />
+                                        <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
+                                            {method.name}
+                                        </span>
+                                    </div>
+                                ))}
                             </div>
+
+                            <p className="text-center text-sm text-gray-500 mt-6">
+                                Secure payments powered by industry-leading
+                                encryption
+                            </p>
                         </div>
 
                         <p className="text-gray-400">

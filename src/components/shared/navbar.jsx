@@ -126,29 +126,16 @@ export function Navbar() {
                     </a>
                 </div>
 
-                <div className="flex items-center gap-2">
-                    <div className="hidden lg:block">
-                        <a
-                            href="/get-quote"
-                            className="text-white px-4 py-2 rounded bg-orange-500 hover:bg-orange-600 transition flex items-center gap-2"
-                        >
-                            <span>Get a Quote</span>
-                            <span>
-                                <ClipboardList className="size-5" />
-                            </span>
-                        </a>
-                    </div>
-                    <div className="hidden lg:block">
-                        <a
-                            href="/free-trail"
-                            className="text-white px-4 py-2 rounded bg-orange-500 hover:bg-orange-600 transition flex items-center gap-2"
-                        >
-                            <span>Free Trail</span>
-                            <span>
-                                <ArrowUpRight className="size-5" />
-                            </span>
-                        </a>
-                    </div>
+                <div className="hidden lg:block">
+                    <a
+                        href="/get-quote"
+                        className="text-white px-4 py-2 rounded bg-orange-500 hover:bg-orange-600 transition flex items-center gap-2"
+                    >
+                        <span>Get a Quote</span>
+                        <span>
+                            <ClipboardList className="size-5" />
+                        </span>
+                    </a>
                 </div>
 
                 <button
@@ -251,17 +238,6 @@ export function Navbar() {
                             <span>Get a Quote</span>
                             <span>
                                 <ClipboardList className="size-5" />
-                            </span>
-                        </a>
-                    </button>
-                    <button className="px-4 py-2">
-                        <a
-                            href="/free-trail"
-                            className="button !px-4 !py-2 !rounded flex items-center gap-2"
-                        >
-                            <span>Free Trail</span>
-                            <span>
-                                <ArrowUpRight className="size-5" />
                             </span>
                         </a>
                     </button>

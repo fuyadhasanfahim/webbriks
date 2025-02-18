@@ -4,36 +4,44 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
+import ReactCompareImage from 'react-compare-image';
 
 const data = [
     {
         title: 'Photo Editing Service',
         images: [
             {
-                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811590/ekqwnjentkzagpfhfctt.jpg',
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811590/drc5yg51eqbei9yvhy9z.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811590/ekqwnjentkzagpfhfctt.jpg',
                 alt: 'photo editing example 1',
             },
             {
-                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811580/kzfvehfvvcmaxmpg4pq1.jpg',
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811586/vrjl4cwjfwqqkhc59rnq.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811586/ynhakbqvusd112n9jart.jpg',
                 alt: 'photo editing example 2',
             },
             {
-                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811586/ynhakbqvusd112n9jart.jpg',
-                alt: 'photo editing example 5',
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811582/kmsezrwg9oi9k2bakire.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811582/ed9blee6tbs2mtjyxehs.jpg',
+                alt: 'photo editing example 3',
             },
             {
-                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811571/kbeqj3qqzdqjgeuphp0m.jpg',
-                alt: 'photo editing example 6',
-            },
-            {
-                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811569/aikvlrpsmbdj9wpgmsh7.jpg',
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811572/vwd7yoyy21zz0kvvlorq.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811571/kbeqj3qqzdqjgeuphp0m.jpg',
                 alt: 'photo editing example 4',
             },
             {
-                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811560/oz5tr4nchqlcoeeculyt.jpg',
-                alt: 'photo editing example 3',
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811571/bmrldgsgzcd5455uzsfb.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811570/t70gmxqiiikwspvaetj4.jpg',
+                alt: 'photo editing example 5',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811570/su0phmt3s26l1cshmzow.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811570/su0phmt3s26l1cshmzow.jpg',
+                alt: 'photo editing example 6',
             },
         ],
+        isComparing: true,
         isRedirectable: true,
         link: '/portfolio/photo-editing-service',
     },
@@ -65,6 +73,7 @@ const data = [
                 alt: 'photo editing example 5',
             },
         ],
+        isComparing: false,
         isRedirectable: false,
         link: '/portfolio/',
     },
@@ -96,6 +105,7 @@ const data = [
                 alt: 'graphic design example 6',
             },
         ],
+        isComparing: false,
         isRedirectable: false,
         link: '/portfolio/',
     },
@@ -103,17 +113,6 @@ const data = [
 
 export default function OurPortfolio() {
     const [selectedIndex, setSelectedIndex] = useState(0);
-
-    const buttonVariants = {
-        initial: { opacity: 0.5, scale: 0.95 },
-        animate: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
-        hover: { scale: 1.05, transition: { duration: 0.2 } },
-    };
-
-    const imageVariants = {
-        initial: { opacity: 0, scale: 0.9 },
-        animate: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-    };
 
     return (
         <section className="bg-white padding-x padding-y">
@@ -124,7 +123,6 @@ export default function OurPortfolio() {
                     </h1>
                 </div>
 
-                {/* Category Buttons */}
                 <div className="flex justify-center gap-4 mb-8">
                     {data.map((service, index) => (
                         <motion.button
@@ -142,40 +140,59 @@ export default function OurPortfolio() {
                     ))}
                 </div>
 
-                {/* Service Images */}
                 <div className="mt-8">
                     <h2 className="heading-two text-center mb-6">
                         {data[selectedIndex].title}
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
-                        {data[selectedIndex].images.map(
-                            ({ src, alt }, index) => (
-                                <motion.figure
-                                    key={index}
-                                    className="aspect-auto"
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{
-                                        opacity: 1,
-                                        scale: 1,
-                                        transition: { duration: 0.5 },
-                                    }}
-                                >
-                                    <Image
-                                        src={src}
-                                        alt={alt}
-                                        width={400}
-                                        height={400}
-                                        priority
-                                        className="rounded-lg shadow-md hover:scale-105 transition-all duration-300 ring-1 ring-black/5"
-                                    />
-                                </motion.figure>
-                            )
-                        )}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {data[selectedIndex].isComparing
+                            ? data[selectedIndex].images.map(
+                                  ({ before, after, alt }, index) => (
+                                      <motion.div
+                                          key={index}
+                                          className="rounded-lg shadow-md"
+                                          initial={{ opacity: 0, scale: 0.9 }}
+                                          animate={{
+                                              opacity: 1,
+                                              scale: 1,
+                                              transition: { duration: 0.5 },
+                                          }}
+                                      >
+                                          <ReactCompareImage
+                                              leftImage={before}
+                                              rightImage={after}
+                                              hover={true}
+                                          />
+                                      </motion.div>
+                                  )
+                              )
+                            : data[selectedIndex].images.map(
+                                  ({ src, alt }, index) => (
+                                      <motion.figure
+                                          key={index}
+                                          className="rounded-lg shadow-md"
+                                          initial={{ opacity: 0, scale: 0.9 }}
+                                          animate={{
+                                              opacity: 1,
+                                              scale: 1,
+                                              transition: { duration: 0.5 },
+                                          }}
+                                      >
+                                          <Image
+                                              src={src}
+                                              alt={alt}
+                                              width={400}
+                                              height={400}
+                                              priority
+                                              className="rounded-lg shadow-md"
+                                          />
+                                      </motion.figure>
+                                  )
+                              )}
                     </div>
 
-                    {/* View More Button */}
                     {data[selectedIndex].isRedirectable && (
-                        <div className="flex justify-center mt-6 md:mt-10">
+                        <div className="flex justify-center mt-6">
                             <a href={data[selectedIndex].link}>
                                 <motion.button
                                     className="flex items-center gap-2 bg-orange-500 text-white px-5 py-3 rounded-lg hover:bg-orange-600 transition-all duration-200"

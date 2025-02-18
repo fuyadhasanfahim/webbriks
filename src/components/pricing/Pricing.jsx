@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { ArrowRight, Check } from 'lucide-react';
+import { ArrowRight, Check, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import {
     ReactCompareSlider,
@@ -254,6 +254,36 @@ const Pricing = () => {
                         <ServiceCard key={index} {...service} />
                     ))}
                 </div>
+
+                <section className="pt-10">
+                    <div className="relative p-8 bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 rounded-2xl shadow-xl container">
+                        <div className="absolute -top-4 -left-4 w-16 h-16 bg-white/10 rounded-full blur-lg" />
+                        <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-white/10 rounded-full blur-lg" />
+
+                        <div className="relative backdrop-blur-sm bg-white/10 p-8 rounded-xl border border-white/20">
+                            <h3 className="text-3xl font-bold mb-8 text-white text-center animate-pulse">
+                                {`Don't find the service you want?`}
+                                <Sparkles className="inline-block ml-2 w-6 h-6" />
+                            </h3>
+
+                            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                                <button className="group relative w-48 h-14 overflow-hidden rounded-xl bg-white/90 text-orange-600 font-bold shadow-lg transition-all hover:scale-105">
+                                    <div className="absolute inset-0 w-3 bg-orange-500 transition-all duration-[250ms] ease-out group-hover:w-full" />
+                                    <span className="relative group-hover:text-white transition-colors duration-200">
+                                        Get a Quote
+                                    </span>
+                                </button>
+
+                                <button className="group relative w-48 h-14 overflow-hidden rounded-xl bg-orange-600 text-white font-bold shadow-lg transition-all hover:scale-105">
+                                    <div className="absolute inset-0 w-3 bg-white/90 transition-all duration-[250ms] ease-out group-hover:w-full" />
+                                    <span className="relative group-hover:text-orange-600 transition-colors duration-200">
+                                        Free Trial
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </section>
     );

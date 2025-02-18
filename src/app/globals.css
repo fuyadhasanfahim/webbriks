@@ -81,3 +81,13 @@ navbar {
 .button {
     @apply rounded-lg h-[40px] md:h-[50px] lg:h-[60px] py-3 px-8 md:py-4 md:px-12 text-base md:text-lg font-medium cursor-pointer hover:bg-gray-800 bg-orange-500 text-white;
 }
+
+@keyframes gradient-x {
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}

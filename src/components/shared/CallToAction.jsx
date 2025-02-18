@@ -28,7 +28,7 @@ export default function CallToAction({ title, className }) {
                         </p>
                     </div>
 
-                    <div className="relative">
+                    <div className="relative w-full max-w-2xl">
                         <CallToActionForm />
                     </div>
                 </div>
