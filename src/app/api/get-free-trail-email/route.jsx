@@ -2,10 +2,8 @@ import nodemailer from 'nodemailer';
 
 export async function POST(req) {
     try {
-        // Handle multipart/form-data using Next.js built-in `FormData` API
         const formData = await req.formData();
 
-        // Extract fields from the formData
         const fullName = formData.get('fullName') || 'N/A';
         const email = formData.get('email') || 'N/A';
         const phone = formData.get('phone') || 'N/A';
@@ -13,11 +11,8 @@ export async function POST(req) {
         const message = formData.get('message') || 'N/A';
         const driveLink = formData.get('driveLink') || 'N/A';
         const services = formData.getAll('services[]');
+        const files = formData.getAll('files');
 
-        // Extract files
-        const files = formData.getAll('files'); // File list (if any)
-
-        // Setup Nodemailer transporter
         const transporter = nodemailer.createTransport({
             host: 'smtp.gmail.com',
             port: 465,
@@ -27,7 +22,6 @@ export async function POST(req) {
             },
         });
 
-        // Build the email content
         const mailMessage = `
       Full Name: ${fullName}
       Email: ${email}
@@ -38,41 +32,74 @@ export async function POST(req) {
       Message: ${message}
     `;
 
-        // Define the email options
         const mailOptions = {
             from: `"${fullName}" <${email}>`,
             to: process.env.EMAIL_USER,
-            subject: `Quote Request from ${fullName}`,
+            subject: `Free Trial Request from ${fullName}`,
             text: mailMessage,
         };
 
-        // If files were uploaded, attach them to the email
         if (files.length > 0) {
             const attachments = await Promise.all(
                 files.map(async (file) => {
-                    const buffer = Buffer.from(await file.arrayBuffer()); // Convert file to buffer asynchronously
+                    const buffer = Buffer.from(await file.arrayBuffer());
                     return {
-                        filename: file.name, // Use the original filename
-                        content: buffer, // Attach the file content
-                        contentDisposition: 'attachment', // Ensure it's treated as an attachment
-                        contentType: file.type, // Use the file's MIME type
+                        filename: file.name,
+                        content: buffer,
+                        contentDisposition: 'attachment',
+                        contentType: file.type,
                     };
                 })
             );
-
-            mailOptions.attachments = attachments; // Attach the files
+            mailOptions.attachments = attachments;
         }
 
-        // Send the email
         await transporter.sendMail(mailOptions);
 
-        // Return a success response
+        await addToMailchimp(fullName, email, phone);
+
         return new Response(JSON.stringify({ success: true }), { status: 200 });
     } catch (error) {
-        console.error('Failed to send email:', error);
+        console.error('Failed to process request:', error);
         return new Response(
-            JSON.stringify({ success: false, error: 'Failed to send email' }),
+            JSON.stringify({
+                success: false,
+                error: 'Failed to process request',
+            }),
             { status: 500 }
+        );
+    }
+}
+
+async function addToMailchimp(name, email, phone) {
+    const API_KEY = process.env.MAILCHIMP_API_KEY;
+    const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
+    const DATA_CENTER = API_KEY.split('-')[1];
+
+    const url = `https://${DATA_CENTER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`;
+
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Basic ${Buffer.from(
+                `anystring:${API_KEY}`
+            ).toString('base64')}`,
+        },
+        body: JSON.stringify({
+            email_address: email,
+            status: 'subscribed',
+            merge_fields: {
+                FNAME: name,
+                PHONE: phone,
+            },
+        }),
+    });
+
+    if (!response.ok) {
+        console.error(
+            'Failed to add subscriber to Mailchimp:',
+            await response.json()
         );
     }
 }

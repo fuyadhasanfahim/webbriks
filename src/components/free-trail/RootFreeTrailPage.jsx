@@ -309,7 +309,11 @@ export default function RootFreeTrailPage() {
                 {/* Submit Button */}
                 <button
                     type="submit"
-                    className="w-full bg-orange-500 text-white py-3 px-6 rounded-lg hover:bg-orange-600 transition-colors focus:outline-none focus:ring-2 focus:ring-orange-400 focus:ring-offset-2"
+                    className={`w-full py-3 px-6 rounded-lg transition-colors focus:outline-none ${
+                        isLoading
+                            ? 'cursor-not-allowed bg-gray-200 text-black focus:ring-2 focus:ring-orange-400 focus:ring-offset-2'
+                            : 'bg-orange-500 text-white hover:bg-orange-600'
+                    }`}
                     disabled={isLoading}
                 >
                     {isLoading
