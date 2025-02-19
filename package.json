@@ -26,6 +26,7 @@
     "keen-slider": "^6.8.6",
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.469.0",
+    "mailchimp": "^1.2.1",
     "motion": "^11.16.1",
     "multer": "^1.4.5-lts.1",
     "next": "^14.2.20",

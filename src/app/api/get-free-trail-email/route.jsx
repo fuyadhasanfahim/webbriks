@@ -56,7 +56,11 @@ export async function POST(req) {
 
         await transporter.sendMail(mailOptions);
 
-        await addToMailchimp(fullName, email, phone);
+        // Add to Mailchimp
+        const mailchimpResponse = await addToMailchimp(fullName, email, phone);
+        if (!mailchimpResponse.success) {
+            console.error('Failed to add to Mailchimp:', mailchimpResponse.error);
+        }
 
         return new Response(JSON.stringify({ success: true }), { status: 200 });
     } catch (error) {
@@ -72,34 +76,49 @@ export async function POST(req) {
 }
 
 async function addToMailchimp(name, email, phone) {
-    const API_KEY = process.env.MAILCHIMP_API_KEY;
-    const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
-    const DATA_CENTER = API_KEY.split('-')[1];
+    try {
+        const API_KEY = process.env.MAILCHIMP_API_KEY;
+        const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
 
-    const url = `https://${DATA_CENTER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`;
+        if (!API_KEY || !AUDIENCE_ID) {
+            throw new Error('Mailchimp API key or audience ID is missing');
+        }
 
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Basic ${Buffer.from(
-                `anystring:${API_KEY}`
-            ).toString('base64')}`,
-        },
-        body: JSON.stringify({
-            email_address: email,
-            status: 'subscribed',
-            merge_fields: {
-                FNAME: name,
-                PHONE: phone,
+        const DATA_CENTER = API_KEY.split('-')[1];
+        if (!DATA_CENTER) {
+            throw new Error('Invalid Mailchimp API key format');
+        }
+
+        const url = `https://${DATA_CENTER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`;
+
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Basic ${Buffer.from(
+                    `anystring:${API_KEY}`
+                ).toString('base64')}`,
             },
-        }),
-    });
+            body: JSON.stringify({
+                email_address: email,
+                status: 'subscribed',
+                merge_fields: {
+                    FNAME: name,
+                    PHONE: phone,
+                },
+            }),
+        });
 
-    if (!response.ok) {
-        console.error(
-            'Failed to add subscriber to Mailchimp:',
-            await response.json()
-        );
+        const responseData = await response.json();
+
+        if (!response.ok) {
+            throw new Error(
+                `Mailchimp API error: ${response.status} - ${JSON.stringify(responseData)}`
+            );
+        }
+
+        return { success: true };
+    } catch (error) {
+        return { success: false, error: error.message };
     }
 }
