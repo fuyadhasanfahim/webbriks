@@ -1,4 +1,4 @@
-import RootGetQuotePage from '@/components/contact/get-quote/RootGetQuotePage';
+import RootGetQuotePage from '@/components/get-quote/RootGetQuotePage';
 import RootFreeTrailPage from '@/components/free-trail/RootFreeTrailPage';
 
 export const metadata = {

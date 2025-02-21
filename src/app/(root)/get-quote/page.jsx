@@ -1,4 +1,4 @@
-import RootGetQuotePage from '@/components/contact/get-quote/RootGetQuotePage';
+import RootGetQuotePage from '@/components/get-quote/RootGetQuotePage';
 
 export const metadata = {
     title: 'Get a Quote | Webbriks',

@@ -25,7 +25,7 @@ export default function FloatingButton() {
 
     return (
         <div
-            className={`fixed bottom-8 right-8 z-50 flex flex-col items-end gap-6 transform transition-all duration-700 
+            className={`fixed bottom-8 left-8 md:right-8 z-50 flex flex-col items-end gap-6 transform transition-all duration-700 
                 ${
                     isVisible
                         ? 'opacity-100 translate-y-0'
@@ -33,7 +33,7 @@ export default function FloatingButton() {
                 }`}
         >
             <div
-                className="group relative"
+                className="group relative hidden md:block"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
@@ -59,13 +59,10 @@ export default function FloatingButton() {
                 </a>
             </div>
 
-            {/* WhatsApp Button */}
             <div className="relative group">
-                {/* Multiple pulse rings */}
                 <div className="absolute inset-0 rounded-full animate-ping bg-orange-500 opacity-20 duration-1000" />
                 <div className="absolute inset-0 rounded-full animate-ping bg-orange-400 opacity-10 duration-2000 delay-200" />
 
-                {/* Floating tooltip */}
                 <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 pointer-events-none">
                     <div
                         className="bg-white/90 backdrop-blur-sm text-orange-600 px-4 py-2 rounded-xl shadow-lg
@@ -87,7 +84,6 @@ export default function FloatingButton() {
                              flex items-center justify-center group"
                     aria-label="Chat on WhatsApp"
                 >
-                    {/* Inner glow effect */}
                     <div
                         className="absolute inset-0 rounded-full bg-gradient-to-r from-white/20 to-transparent 
                                   opacity-0 group-hover:opacity-100 transition-opacity duration-300"

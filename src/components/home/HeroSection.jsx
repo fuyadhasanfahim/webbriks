@@ -74,15 +74,42 @@ export default function HeroSection() {
                         </motion.p>
 
                         <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.6 }}
+                            className="grid md:hidden grid-cols-2 gap-4"
+                        >
+                            {services.map((service, index) => (
+                                <motion.div
+                                    key={service.title}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.2 * (index + 1) }}
+                                    className="backdrop-blur p-2 rounded-lg shadow
+                                         hover:scale-105 transition-all duration-300 bg-white group border-2 border-orange-500 h-[80px] flex flex-col items-center justify-center"
+                                >
+                                    <a href={service.href} className="block">
+                                        <div className="flex flex-col items-center text-center gap-4">
+                                            <h3 className="text font-semibold text-gray-900">
+                                                {service.title}
+                                            </h3>
+                                        </div>
+                                    </a>
+                                </motion.div>
+                            ))}
+                        </motion.div>
+
+                        <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6 }}
+                            className="w-full"
                         >
                             <a
                                 href="/portfolio"
-                                className="px-8 py-4 bg-orange-500 text-white rounded-lg hover:bg-orange-600 
+                                className="px-6 md;px-8 py-2 md:py-4 bg-orange-500 text-white rounded-lg hover:bg-orange-600 
                                          transition-colors duration-300 inline-flex items-center justify-center gap-2 
-                                         shadow-lg hover:shadow-orange-200"
+                                         shadow-lg hover:shadow-orange-200 w-full md:w-auto"
                             >
                                 View Portfolio
                                 <motion.span
@@ -102,7 +129,7 @@ export default function HeroSection() {
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="grid grid-cols-2 gap-4"
+                        className="hidden md:grid grid-cols-2 gap-4"
                     >
                         {services.map((service, index) => (
                             <motion.div

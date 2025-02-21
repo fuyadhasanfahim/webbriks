@@ -5,17 +5,25 @@ export async function POST(req) {
         // Handle multipart/form-data using Next.js built-in `FormData` API
         const formData = await req.formData();
 
-        // Extract fields from the formData
+        // Extract basic fields from the formData
         const fullName = formData.get('fullName') || 'N/A';
         const email = formData.get('email') || 'N/A';
         const phone = formData.get('phone') || 'N/A';
         const website = formData.get('website') || 'N/A';
         const message = formData.get('message') || 'N/A';
         const driveLink = formData.get('driveLink') || 'N/A';
-        const services = formData.getAll('services[]'); // Array of services
+
+        // Extract main services and photo editing specific services
+        const services = formData.getAll('services[]');
+        const photoEditingServices = formData.getAll('photoEditingServices[]');
+
+        // Extract new dropdown selections
+        const fileFormat = formData.get('fileFormat') || 'N/A';
+        const referralSource = formData.get('referralSource') || 'N/A';
+        const quoteInterest = formData.get('quoteInterest') || 'N/A';
 
         // Extract files
-        const files = formData.getAll('files'); // File list (if any)
+        const files = formData.getAll('files');
 
         // Setup Nodemailer transporter
         const transporter = nodemailer.createTransport({
@@ -27,14 +35,45 @@ export async function POST(req) {
             },
         });
 
-        // Build the email content
+        // Build the email content with new fields
         const mailMessage = `
+      CONTACT INFORMATION
+      ------------------
       Full Name: ${fullName}
       Email: ${email}
       Phone: ${phone}
       Website: ${website}
+      
+      SERVICES REQUESTED
+      -----------------
+      Main Services: ${services.length ? services.join(', ') : 'N/A'}
+      
+      ${
+          services.includes('photoEditing')
+              ? `
+      PHOTO EDITING DETAILS
+      --------------------
+      Selected Services: ${
+          photoEditingServices.length ? photoEditingServices.join(', ') : 'None'
+      }
+      Preferred File Format: ${fileFormat}
+      Referral Source: ${referralSource}
+      Quote Interest Level: ${quoteInterest}
+      `
+              : ''
+      }
+      
+      FILE SHARING
+      ------------
       Drive Link: ${driveLink}
-      Services Requested: ${services.length ? services.join(', ') : 'N/A'}
+      Attached Files: ${
+          files.length
+              ? files.map((f) => f.name).join(', ')
+              : 'No files attached'
+      }
+      
+      ADDITIONAL INFORMATION
+      ---------------------
       Message: ${message}
     `;
 
@@ -42,7 +81,7 @@ export async function POST(req) {
         const mailOptions = {
             from: `"${fullName}" <${email}>`,
             to: process.env.EMAIL_USER,
-            subject: `Quote Request from ${fullName}`,
+            subject: `Quote Request from ${fullName} - ${services.join(', ')}`,
             text: mailMessage,
         };
 
@@ -50,17 +89,17 @@ export async function POST(req) {
         if (files.length > 0) {
             const attachments = await Promise.all(
                 files.map(async (file) => {
-                    const buffer = Buffer.from(await file.arrayBuffer()); // Convert file to buffer asynchronously
+                    const buffer = Buffer.from(await file.arrayBuffer());
                     return {
-                        filename: file.name, // Use the original filename
-                        content: buffer, // Attach the file content
-                        contentDisposition: 'attachment', // Ensure it's treated as an attachment
-                        contentType: file.type, // Use the file's MIME type
+                        filename: file.name,
+                        content: buffer,
+                        contentDisposition: 'attachment',
+                        contentType: file.type,
                     };
                 })
             );
 
-            mailOptions.attachments = attachments; // Attach the files
+            mailOptions.attachments = attachments;
         }
 
         // Send the email
