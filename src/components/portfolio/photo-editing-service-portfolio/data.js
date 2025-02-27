@@ -1,8 +1,8 @@
 export const photoEditingPortfolioData = [
-    {
-        servicename: 'Clipping Path Service',
-        images: [],
-    },
+    // {
+    //     servicename: 'Clipping Path Service',
+    //     images: [],
+    // },
     {
         servicename: 'Background Editing Service',
         images: [
@@ -321,8 +321,8 @@ export const photoEditingPortfolioData = [
             },
         ],
     },
-    {
-        servicename: 'Raster To Vector',
-        images: [],
-    },
+    // {
+    //     servicename: 'Raster To Vector',
+    //     images: [],
+    // },
 ];
