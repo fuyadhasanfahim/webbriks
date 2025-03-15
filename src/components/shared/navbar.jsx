@@ -117,6 +117,14 @@ export function Navbar() {
                         Team
                     </a>
                     <a
+                        href="/blogs"
+                        className={`hover:text-orange-500 transition ${
+                            path === '/blogs' && 'text-orange-500'
+                        }`}
+                    >
+                        Blogs
+                    </a>
+                    <a
                         href="/contact"
                         className={`hover:text-orange-500 transition ${
                             path === '/contact' && 'text-orange-500'
@@ -219,6 +227,14 @@ export function Navbar() {
                             }`}
                         >
                             Team
+                        </a>
+                        <a
+                            href="/blogs"
+                            className={`block py-2 hover:text-orange-500 ${
+                                path === '/blogs' && 'text-orange-500'
+                            }`}
+                        >
+                            Blogs
                         </a>
                         <a
                             href="/contact"
