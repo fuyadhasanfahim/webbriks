@@ -36,9 +36,9 @@ export default function Footer() {
         <footer className="bg-black text-white pt-16 pb-8">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                    <div className="space-y-4">
+                    {/* <div className="space-y-4">
                         <h3 className="text-xl font-bold text-orange-500 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-orange-500">
-                            About Us
+                            Our Other Consern
                         </h3>
                         <p className="text-gray-300 leading-relaxed">
                             We offer a range of services to help your business
@@ -64,6 +64,43 @@ export default function Footer() {
                                 <FaLinkedinIn className="text-xl text-orange-500 group-hover:text-white transition-colors" />
                             </Link>
                         </div>
+                    </div> */}
+
+                    <div className="space-y-4">
+                        <h3 className="text-xl font-bold text-orange-500 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-orange-500">
+                            Our Other Concern
+                        </h3>
+                        <ul className="space-y-3">
+                            {[
+                                {
+                                    title: 'Graphics Action',
+                                    link: 'https://www.graphicsaction.com',
+                                },
+                                {
+                                    title: 'Clipping Path Action',
+                                    link: 'https://www.clippingpath.com',
+                                },
+                                {
+                                    title: 'Cut Out Expert',
+                                    link: 'https://www.cutoutexport.com',
+                                },
+                                {
+                                    title: 'The Clipping Path Services',
+                                    link: 'https://www.theclippingpathservices.com',
+                                },
+                            ].map(({ title, link }, index) => (
+                                <li key={index}>
+                                    <a
+                                        href={link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-gray-300 hover:text-orange-500 transition-colors duration-300 flex items-center"
+                                    >
+                                        <span className="mr-2">›</span> {title}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
 
                     <div className="space-y-4">
