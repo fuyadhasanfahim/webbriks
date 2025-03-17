@@ -1,10 +1,10 @@
 [
     {
-        "id": 1,
+        "id": "the-ultimate-guide-to-reducing-high-cart-abandonment-rates-in-ecommerce",
         "title": "The Ultimate Guide to Reducing High Cart Abandonment Rates in Ecommerce",
-        "image": "https://res.cloudinary.com/dny7zfbg9/image/upload/dnl7ygd9drmttn9om1ic.jpg",
+        "image": "https://res.cloudinary.com/dny7zfbg9/image/upload/npmpsjvyxmnpc6wpidzr.webp",
         "excerpt": "Imagine this: a customer spends 20 minutes browsing your online store, adds products to their cart, and...",
-        "introduction": "Imagine this: a customer spends 20 minutes browsing your online store, adds products to their cart, and then—poof!—they disappear without completing the purchase. Frustrating, right? You're not alone. Baymard Institute’s Studies show that the average cart abandonment rate across all industries is about 70%. That means 7 out of 10 shoppers leave before buying, costing businesses billions in lost revenue. But here's the good news: cart abandonment is fixable. In this guide, we'll explain why customers abandon carts and provide proven strategies to help you recover lost sales and boost conversions.",
+        "introduction": "Imagine this: A customer spends 20 minutes browsing your online store, adds products to their cart, and then—poof!—they disappear without completing the purchase. Frustrating, right? You're not alone. Baymard Institute’s Studies show that the average cart abandonment rate across all industries is about 70%. That means 7 out of 10 shoppers leave before buying, costing businesses billions in lost revenue. But here's the good news: cart abandonment is fixable. In this guide, we'll explain why customers abandon carts and provide proven strategies to help you recover lost sales and boost conversions.",
         "publishAt": "2025-03-14T18:00:00.000+00:00",
         "sections": [
             {
@@ -138,16 +138,6 @@
                         ]
                     }
                 ]
-            },
-            {
-                "title": "Final Thoughts & Next Steps",
-                "content": "Cart abandonment is a big problem but also a huge opportunity. You can recover lost sales and boost conversions by improving the checkout experience, offering multiple payment options, and using reminders.",
-                "next_steps": [
-                    "Analyzing your cart abandonment rate.",
-                    "Testing small changes (guest checkout, free shipping, etc.).",
-                    "Implementing abandoned cart emails and remarketing ads."
-                ],
-                "conclusion": "The goal is to make buying seamless and effortless. Apply these strategies today, and watch your revenue grow! 🚀"
             }
         ]
     }

@@ -2,10 +2,14 @@
 
 import { useEffect, useState } from 'react';
 import { ArrowUpRight, MessageCircle } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 export default function FloatingButton() {
     const [isVisible, setIsVisible] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
+    const pathName = usePathname();
+    const hideFreeTrail = pathName.startsWith('/blogs');
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -32,32 +36,34 @@ export default function FloatingButton() {
                         : 'opacity-0 translate-y-20'
                 }`}
         >
-            <div
-                className="group relative hidden md:block"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-            >
-                <a
-                    href="/free-trail"
-                    className="relative px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 
+            {!hideFreeTrail && (
+                <div
+                    className={cn('group relative hidden md:block')}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                >
+                    <a
+                        href="/free-trail"
+                        className="relative px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 
                              text-white font-medium overflow-hidden group flex items-center gap-2 
                              shadow-lg hover:shadow-orange-500/30 transition-all duration-500"
-                >
-                    <div
-                        className="absolute inset-0 bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600 
+                    >
+                        <div
+                            className="absolute inset-0 bg-gradient-to-r from-orange-600 via-orange-500 to-orange-600 
                                   opacity-0 group-hover:opacity-100 transition-opacity duration-500 
                                   animate-gradient-x"
-                    />
-
-                    <div className="relative flex items-center gap-2">
-                        <span className="font-semibold">Free Trial</span>
-                        <ArrowUpRight
-                            className={`w-5 h-5 transition-all duration-300 
-                            ${isHovered ? 'translate-x-1 -translate-y-1' : ''}`}
                         />
-                    </div>
-                </a>
-            </div>
+
+                        <div className="relative flex items-center gap-2">
+                            <span className="font-semibold">Free Trial</span>
+                            <ArrowUpRight
+                                className={`w-5 h-5 transition-all duration-300 
+                            ${isHovered ? 'translate-x-1 -translate-y-1' : ''}`}
+                            />
+                        </div>
+                    </a>
+                </div>
+            )}
 
             <div className="relative group">
                 <div className="absolute inset-0 rounded-full animate-ping bg-orange-500 opacity-20 duration-1000" />

@@ -34,7 +34,7 @@ export default function BlogsPage() {
     return (
         <div className="bg-gradient-to-b from-gray-50 to-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
-                {/* <div className="text-center mb-16">
+                <div className="text-center mb-16">
                     <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
                         <span className="block">Our Latest</span>
                         <span className="block text-orange-600">
@@ -45,7 +45,7 @@ export default function BlogsPage() {
                         Discover insights, tutorials, and stories from our team
                         of experts.
                     </p>
-                </div> */}
+                </div>
 
                 <motion.div
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
