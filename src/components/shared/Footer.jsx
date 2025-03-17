@@ -68,7 +68,7 @@ export default function Footer() {
 
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold text-orange-500 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-orange-500">
-                            Our Other Concern
+                            Our Sister Concern
                         </h3>
                         <ul className="space-y-3">
                             {[
@@ -78,11 +78,11 @@ export default function Footer() {
                                 },
                                 {
                                     title: 'Clipping Path Action',
-                                    link: 'https://www.clippingpath.com',
+                                    link: 'https://www.clippingpathaction.com',
                                 },
                                 {
                                     title: 'Cut Out Expert',
-                                    link: 'https://www.cutoutexport.com',
+                                    link: 'https://www.cutoutexpert.com',
                                 },
                                 {
                                     title: 'The Clipping Path Services',

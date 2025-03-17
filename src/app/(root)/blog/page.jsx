@@ -56,7 +56,7 @@ export default function BlogsPage() {
                     {Blogs?.map((blog, index) => (
                         <Link
                             key={index}
-                            href={`/blogs/details/${blog.id}`}
+                            href={`/blog/details/${blog.id}`}
                             className="mt-auto"
                         >
                             <motion.div

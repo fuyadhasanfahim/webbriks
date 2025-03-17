@@ -50,7 +50,6 @@ export default function BlogsDetailsPage() {
                             src={blog.image}
                             alt={blog.title}
                             fill
-                            priority
                             className="transition-transform duration-500 hover:scale-105"
                         />
                     </div>

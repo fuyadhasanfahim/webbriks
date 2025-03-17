@@ -8,6 +8,8 @@ import CallToAction from '../shared/CallToAction';
 import OurSuccessStories from './OurSuccessStories';
 import HowWeWork from './HowWeWork';
 import WhatMakesUsDifferent from './WhatMakesUsDifferent';
+import ArchivedAwards from './ArchivedAwards';
+import SisterConcern from './SisterConcern';
 
 export default function RootAboutPage() {
     useEffect(() => {
@@ -25,6 +27,7 @@ export default function RootAboutPage() {
             <OurSuccessStories />
             <HowWeWork />
             <WhatMakesUsDifferent />
+            <SisterConcern />
             {/* <ArchivedAwards /> */}
             <CallToAction
                 title={'Have a Project Idea?'}
