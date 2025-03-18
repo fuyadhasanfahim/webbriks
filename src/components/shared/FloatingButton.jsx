@@ -9,7 +9,7 @@ export default function FloatingButton() {
     const [isVisible, setIsVisible] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const pathName = usePathname();
-    const hideFreeTrail = pathName.startsWith('/blogs');
+    const hideFreeTrail = pathName.startsWith('/blog');
 
     useEffect(() => {
         const timer = setTimeout(() => {
