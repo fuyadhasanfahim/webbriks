@@ -1,48 +1,67 @@
 export const photoEditingPortfolioData = [
-    // {
-    //     servicename: 'Clipping Path Service',
-    //     images: [],
-    // },
+    {
+        servicename: 'Clipping Path Service',
+        images: [
+            {
+                image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744279515/zkivp6uwrobaaevnemfl.gif',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744279515/k4e46efowd2bmhahs6kl.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744279514/cchmc50iw08mxbdsp5iy.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744279515/ansjvqsla2xm6rgb9klp.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744279515/cn9boziu02dmtityapx4.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744279513/gt4by3uypsqowxl1ybym.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744279514/k4csnfeekjtil5hiakss.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744279514/j0loqxaxchtcr0rusbub.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744279513/vaxjcgpp33bu9oe0uof2.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744279513/mpfqbscovbtptkchvxkq.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744279513/znw4vekdlvtr22gpe02y.jpg',
+            },
+        ],
+    },
+    {
+        servicename: 'Jewelry Photo Editing Service',
+        images: [
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852877/kjhen3wqeqetz7f4njsn.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852932/xpk2miokrky77azzoy54.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852877/gska0cgvmilolkttek9h.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852907/o9zj3zf8bd2canesullu.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852878/axo39au7ovqhkhi5qmud.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852878/h6djvpdzpqb880zffyq7.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852877/nm1kpl6lvlgmkvsubjaj.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852877/nwzdfqifyghgow8fso4b.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852877/zhepi8lhmaqklv6ij3kw.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852877/d84ptr06qxupmne5ngbz.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740111061/ovn78c7qwsf5tukvlpak.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740111060/jibsrozdqajejv4haw62.jpg',
+            },
+        ],
+    },
     {
         servicename: 'Background Editing Service',
         images: [
             {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811594/rdeml3ipuwhwlkqevba6.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811594/ijt7fydbux7mwzismt5c.jpg',
-            },
-            {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811579/xqnxcnihsqvcewrq0qkp.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811580/kzfvehfvvcmaxmpg4pq1.jpg',
-            },
-            {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811579/wyilj8pdmirsoc6xo5g9.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811579/vognhqm9ifdwaytwibsi.jpg',
-            },
-            {
                 before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811571/bmrldgsgzcd5455uzsfb.jpg',
                 after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811570/t70gmxqiiikwspvaetj4.jpg',
-            },
-            {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811562/xckxocd8s4m7dsqobmq0.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811561/knf4sgesbfoigr87abuz.jpg',
-            },
-            {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811570/su0phmt3s26l1cshmzow.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811569/aikvlrpsmbdj9wpgmsh7.jpg',
-            },
-            {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811545/ztkszcj0wrua64vlxqbo.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811604/tvasbwjzedvk7j4kl8lc.jpg',
-            },
-
-            {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811575/tw7gxleby8cjupj7ildr.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811574/t1tabgwvajfg5kptuvet.jpg',
-            },
-
-            {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811603/ktpsyev5hvipiq1yafa7.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811602/nyqo71bsluztn1uqemrr.jpg',
             },
             {
                 before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740111189/jblcvd03bsffolsqqnzh.jpg',
@@ -53,8 +72,28 @@ export const photoEditingPortfolioData = [
                 after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740111188/ieeznkykojf9d4w9o7wa.jpg',
             },
             {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740111188/llyvsjodqiu11rsp1fvm.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740111189/at7rknmwk5kkbnself0u.jpg',
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740111189/at7rknmwk5kkbnself0u.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740111188/llyvsjodqiu11rsp1fvm.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811594/ijt7fydbux7mwzismt5c.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811594/rdeml3ipuwhwlkqevba6.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811545/ztkszcj0wrua64vlxqbo.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811604/tvasbwjzedvk7j4kl8lc.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811603/ktpsyev5hvipiq1yafa7.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811602/nyqo71bsluztn1uqemrr.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811579/xqnxcnihsqvcewrq0qkp.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811580/kzfvehfvvcmaxmpg4pq1.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811579/wyilj8pdmirsoc6xo5g9.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811579/vognhqm9ifdwaytwibsi.jpg',
             },
         ],
     },
@@ -97,22 +136,18 @@ export const photoEditingPortfolioData = [
                 before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739853111/vljcttvrbkx9ubyc8tvd.jpg',
                 after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852878/eduntw1ofiolbgnlwg7n.jpg',
             },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811575/tw7gxleby8cjupj7ildr.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811574/t1tabgwvajfg5kptuvet.jpg',
+            },
         ],
     },
     {
         servicename: 'Hair Masking Service',
         images: [
             {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811597/pfywxqyevj6ldb4hluvi.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811596/hle3jkmeiptzwrpudylr.jpg',
-            },
-            {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811577/avuoheyvtw6c47t1vqz9.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811578/blagnldc5nn2epzytz6q.jpg',
-            },
-            {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811584/gufkg2sikj9zfaemfui4.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811583/p0zeempz5lvlvahldqci.jpg',
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811558/zwmtmoiybbw0jtkj8eio.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811556/lfdql6awwb1smj2wmqak.jpg',
             },
             {
                 before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811581/s8wrkt6psfhznoxjtjmq.jpg',
@@ -122,21 +157,30 @@ export const photoEditingPortfolioData = [
                 before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811576/duu2f8obmgq68najzrss.jpg',
                 after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811575/togmcxgvp0xxxezotjwj.jpg',
             },
-            {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811567/blqhquthotvx9m8syqam.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811566/xsonsdxzgtquehrlv861.jpg',
-            },
+
             {
                 before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811566/o5x2yroe4btutpvcnsgl.jpg',
                 after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811565/donpes74u9v46dts7kb5.jpg',
             },
             {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811558/zwmtmoiybbw0jtkj8eio.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811556/lfdql6awwb1smj2wmqak.jpg',
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811597/pfywxqyevj6ldb4hluvi.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811596/hle3jkmeiptzwrpudylr.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811567/blqhquthotvx9m8syqam.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811566/xsonsdxzgtquehrlv861.jpg',
             },
             {
                 before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811545/yxxbawvcdcmlfl6vzw7u.jpg',
                 after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811545/woi2gfdei9l6dbysf9pg.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811577/avuoheyvtw6c47t1vqz9.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811578/blagnldc5nn2epzytz6q.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811584/gufkg2sikj9zfaemfui4.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811583/p0zeempz5lvlvahldqci.jpg',
             },
         ],
     },
@@ -150,6 +194,10 @@ export const photoEditingPortfolioData = [
             {
                 before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811602/fu50qo3onhnkm0y9d756.jpg',
                 after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811602/hoyuhtfzqjrhc5kksfz7.jpg',
+            },
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744274807/wdn8ziakqrzmsieelug5.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744274807/j8xn0hgtr6gqkrzk5y7u.jpg',
             },
             {
                 before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740125554/s8bsaktcqpsedrqg3ym4.jpg',
@@ -193,8 +241,8 @@ export const photoEditingPortfolioData = [
                 after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811582/ed9blee6tbs2mtjyxehs.jpg',
             },
             {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811591/w9uorwkdwz4xizzbjl4z.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811591/yjgtupu2j8swlw53hqtq.jpg',
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811591/yjgtupu2j8swlw53hqtq.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811591/w9uorwkdwz4xizzbjl4z.jpg',
             },
             {
                 before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811578/rilybdukgrhwftflx6ho.jpg',
@@ -234,8 +282,8 @@ export const photoEditingPortfolioData = [
                 after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811564/gxxufgnkqcb3cs4u4vkv.jpg',
             },
             {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740111321/jxowog3nykbitkzys548.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740111320/es2aqm0qwxxoweez624e.jpg',
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740111320/es2aqm0qwxxoweez624e.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740111321/jxowog3nykbitkzys548.jpg',
             },
             {
                 before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740111320/tyvtzarrekqjgc0t2cpg.jpg',
@@ -254,6 +302,10 @@ export const photoEditingPortfolioData = [
     {
         servicename: 'eCommerce Product Photo Editing Service',
         images: [
+            {
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811562/xckxocd8s4m7dsqobmq0.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811561/knf4sgesbfoigr87abuz.jpg',
+            },
             {
                 before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811554/abqludzmyv17le2zx3b3.jpg',
                 after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739811555/hst8xqfpyhd7qse9kgav.jpg',
@@ -293,36 +345,20 @@ export const photoEditingPortfolioData = [
         ],
     },
     {
-        servicename: 'Jewelry Photo Editing Service',
+        servicename: 'Raster To Vector',
         images: [
             {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852877/kjhen3wqeqetz7f4njsn.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852932/xpk2miokrky77azzoy54.jpg',
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744283556/ucuvglqbfevyebbipmbe.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744283556/ct3crsvq2dyf5asi7bo8.jpg',
             },
             {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852877/gska0cgvmilolkttek9h.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852907/o9zj3zf8bd2canesullu.jpg',
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744280102/cgiw1ohlaprccosqxfc0.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744280101/sgqqwiotunqrobrm3lap.jpg',
             },
             {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852878/axo39au7ovqhkhi5qmud.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852878/h6djvpdzpqb880zffyq7.jpg',
-            },
-            {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852877/nm1kpl6lvlgmkvsubjaj.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852877/nwzdfqifyghgow8fso4b.jpg',
-            },
-            {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852877/zhepi8lhmaqklv6ij3kw.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852877/d84ptr06qxupmne5ngbz.jpg',
-            },
-            {
-                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740111061/ovn78c7qwsf5tukvlpak.jpg',
-                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740111060/jibsrozdqajejv4haw62.jpg',
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744280098/ldfftufwhf7w6nromzij.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744280099/n71wdmnn6cp1mvuwhayc.jpg',
             },
         ],
     },
-    // {
-    //     servicename: 'Raster To Vector',
-    //     images: [],
-    // },
 ];

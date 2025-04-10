@@ -12,37 +12,35 @@ const data = [
         before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701983/egt1hz9ts2ngxapseg3p.jpg',
         after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701984/bhwwtdnt1fl3pzu2minp.jpg',
         title: 'Background Removal',
-        startingPrice: 0.49,
-        canDeliver: 500,
-        discount: 40,
+        startingPrice: 0.29,
+        canDeliver: 2500,
+        discount: 20,
         priceAccordingComplexities: [
             {
                 name: 'Basic Background Removal',
-                price: '$0.49',
+                price: '$0.29',
             },
-            {
-                name: 'Advanced Background Removal',
-                price: '$1.99',
-            },
-            {
-                name: 'Transparent Background',
-                price: '$0.99',
-            },
-            {
-                name: 'White Background',
-                price: '$0.49',
-            },
+
             {
                 name: 'Custom Background Replacement',
-                price: '$2.99',
+                price: '$1.49',
+            },
+            {
+                name: 'Medium Background Removal',
+                price: '$0.49',
             },
             {
                 name: 'Hair & Fur Background Removal',
-                price: '$4.99',
+                price: '$2.00',
             },
             {
+                name: 'Advanced Background Removal',
+                price: '$0.99',
+            },
+
+            {
                 name: 'Group Photo Background Removal',
-                price: '$5.99',
+                price: '$2.99',
             },
         ],
         href: '/services/photo-editing',
@@ -51,12 +49,21 @@ const data = [
         id: 2,
         image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701985/olhxiczax99okzqxqhka.gif',
         title: 'Clipping Path',
-        startingPrice: 0.49,
-        canDeliver: 500,
-        discount: 40,
+        startingPrice: 0.29,
+        canDeliver: 2500,
+        discount: 20,
         priceAccordingComplexities: [
             {
                 name: 'Basic Clipping Path',
+                price: '$0.29',
+            },
+            {
+                name: 'Extra Super Complex Clipping Path',
+                price: '$5.00',
+            },
+
+            {
+                name: 'Simple Clipping Path',
                 price: '$0.49',
             },
             {
@@ -64,32 +71,24 @@ const data = [
                 price: '$0.99',
             },
             {
-                name: 'Simple Clipping Path',
-                price: '$0.99',
-            },
-            {
                 name: 'Medium Clipping Path',
-                price: '$1.99',
-            },
-            {
-                name: 'Complex Clipping Path',
-                price: '$3.99',
-            },
-            {
-                name: 'Super Complex Clipping Path',
-                price: '$7.99',
+                price: '$0.99',
             },
             {
                 name: 'Clipping Path Flatness',
                 price: '$0.49',
             },
             {
-                name: 'Extra Super Complex Clipping Path',
-                price: '$14.99',
+                name: 'Complex Clipping Path',
+                price: '$1.49',
             },
             {
                 name: 'Remove Unwanted Objects',
                 price: '$1.25',
+            },
+            {
+                name: 'Super Complex Clipping Path',
+                price: '$3.00',
             },
         ],
         href: '/services/photo-editing',
@@ -101,11 +100,11 @@ const data = [
         title: 'Color Correction',
         startingPrice: 0.49,
         canDeliver: 500,
-        discount: 40,
+        discount: 20,
         priceAccordingComplexities: [
             {
                 name: 'Color Correction',
-                price: '$1.49',
+                price: '$0.99',
             },
             {
                 name: 'Exposure Correction',
@@ -113,15 +112,11 @@ const data = [
             },
             {
                 name: 'Color Conversion/Editing',
-                price: '$6.99',
-            },
-            {
-                name: 'Color Restoration For Damaged Photos',
-                price: '$18.99',
+                price: '$2.99',
             },
             {
                 name: 'Product Photography Color Editing',
-                price: '$4.99',
+                price: '$2.99',
             },
             {
                 name: 'Multi Path & Color Editing',
@@ -131,6 +126,10 @@ const data = [
                 name: 'Color Restoration',
                 price: '$2.25',
             },
+            {
+                name: 'Color Restoration For Damaged Photos',
+                price: '$9.99',
+            },
         ],
         href: '/services/photo-editing',
     },
@@ -139,33 +138,33 @@ const data = [
         before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701986/okfs8ndq0yz2rqoln9hc.jpg',
         after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701986/rsbdmhmyrvebwr0lzcok.jpg',
         title: 'Photo Retouching',
-        startingPrice: 1.49,
-        canDeliver: 2000,
-        discount: 40,
+        startingPrice: 0.99,
+        canDeliver: 1000,
+        discount: 20,
         priceAccordingComplexities: [
             {
                 name: 'Headshots & Face Retouching',
-                price: '$4.49',
+                price: '$1.49',
             },
             {
                 name: 'Beauty & Glamor Retouching',
-                price: '$8.99',
+                price: '$3.99',
             },
             {
                 name: 'Body Retouching & Reshaping',
-                price: '$8.99',
+                price: '$2.49',
             },
             {
                 name: 'Modeling Portrait Retouching',
-                price: '$6.49',
+                price: '$0.99',
             },
             {
                 name: 'Digital Airbrushing',
-                price: '$7.99',
+                price: '$1.99',
             },
             {
                 name: 'Portrait Cleaning & Enhancement',
-                price: '$8.99',
+                price: '$2.99',
             },
         ],
         href: '/services/photo-editing',
@@ -175,25 +174,25 @@ const data = [
         before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701985/rgkgiv9ovvmc3zvhqrsv.jpg',
         after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701986/m54ehpgiylrscmgiq30w.jpg',
         title: 'Ghost Mannequin',
-        startingPrice: 1.49,
-        canDeliver: 500,
-        discount: 40,
+        startingPrice: 0.49,
+        canDeliver: 1500,
+        discount: 20,
         priceAccordingComplexities: [
             {
                 name: 'Neck Joint On Ghost Mannequin',
-                price: '$1.49',
+                price: '$0.49',
             },
             {
                 name: 'Bottom Joint On Ghost Mannequin',
-                price: '$2.49',
+                price: '$0.75',
             },
             {
                 name: 'Sleeves Joint On Ghost Mannequin',
-                price: '$2.49',
+                price: '$0.99',
             },
             {
                 name: 'Packshot Ghost Mannequin Effects',
-                price: '$2.99',
+                price: '$1.99',
             },
         ],
         href: '/services/photo-editing',
@@ -203,25 +202,25 @@ const data = [
         before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701985/kdky0jkzedwhumwr6bsy.jpg',
         after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701984/tdonqqtr0fbgjtkjel0y.jpg',
         title: 'Shadow Creation',
-        startingPrice: 0.49,
-        canDeliver: 500,
-        discount: 40,
+        startingPrice: 0.25,
+        canDeliver: 2500,
+        discount: 20,
         priceAccordingComplexities: [
             {
                 name: 'Drop Shadow Creation',
-                price: '$0.49',
+                price: '$0.25',
             },
             {
                 name: 'Reflection Shadow Creation',
-                price: '$0.99',
+                price: '$0.49',
             },
             {
                 name: 'Realistic Shadow Creation',
-                price: '$1.49',
+                price: '$0.49',
             },
             {
                 name: 'Retain Original Shadow',
-                price: '$0.49',
+                price: '$0.39',
             },
             {
                 name: 'Shadow Removal Service',
@@ -229,7 +228,7 @@ const data = [
             },
             {
                 name: 'Highlight & Shadow on Portrait',
-                price: '$4.49',
+                price: '$1.99',
             },
         ],
         href: '/services/photo-editing',
@@ -342,7 +341,7 @@ const ServiceCard = ({
                         <img
                             src={image}
                             alt={title}
-                            className="w-full h-auto border border-black/5 rounded-lg"
+                            className="w-full h-72 border border-black/5 rounded-lg"
                         />
                     </div>
                 ) : (

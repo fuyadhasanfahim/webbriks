@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import ReactCompareImage from 'react-compare-image';
@@ -19,18 +20,32 @@ const RootPhotoEditingService = () => {
                                     {servicename}
                                 </h3>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
-                                    {images.map(({ before, after }, index) => (
-                                        <figure
-                                            key={index}
-                                            className="group relative overflow-hidden rounded-xl border border-black/5 h-fit"
-                                        >
-                                            <ReactCompareImage
-                                                leftImage={before}
-                                                rightImage={after}
-                                                hover={true}
-                                            />
-                                        </figure>
-                                    ))}
+                                    {images.map(
+                                        ({ before, after, image }, index) => (
+                                            <figure
+                                                key={index}
+                                                className="group relative overflow-hidden rounded-xl border border-black/5 h-fit"
+                                            >
+                                                {image ? (
+                                                    <div className="relative rounded-lg overflow-hidden">
+                                                        <img
+                                                            src={image}
+                                                            alt={`this is ${index} image`}
+                                                            className="w-full h-auto border border-black/5 rounded-lg"
+                                                        />
+                                                    </div>
+                                                ) : (
+                                                    <ReactCompareImage
+                                                        leftImage={before}
+                                                        rightImage={after}
+                                                        hover={true}
+                                                        leftImageLabel="Before"
+                                                        rightImageLabel="After"
+                                                    />
+                                                )}
+                                            </figure>
+                                        )
+                                    )}
                                 </div>
                             </section>
                         )
