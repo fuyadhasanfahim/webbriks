@@ -18,7 +18,7 @@ export default function HeroSection() {
                 className="container"
             >
                 <div className="max-w-2xl space-y-6 md:space-y-10">
-                    <h1 className="heading">Welcome to My Portfolio</h1>
+                    <h1 className="heading">Welcome to Portfolio</h1>
                     <p className="description text-gray-400">
                         Explore my work in Graphics Design, Photo Editing, and
                         Web Design & Development.
