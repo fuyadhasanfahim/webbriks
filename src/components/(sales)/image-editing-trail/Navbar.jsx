@@ -1,3 +1,5 @@
+'use client';
+
 import { ClipboardList } from 'lucide-react';
 import Image from 'next/image';
 
@@ -15,7 +17,12 @@ export default function ImageEditingTrailNavbar() {
                     />
                 </a>
 
-                <button className="bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center">
+                <button
+                    className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center"
+                    onClick={() =>
+                        document.getElementById('my_modal_3').showModal()
+                    }
+                >
                     <ClipboardList className="w-5 h-5 mr-2" />
                     <span>Start Free Trial</span>
                 </button>

@@ -277,7 +277,7 @@ export default function RootFreeTrailPage() {
                     <input
                         type="text"
                         name="phone"
-                        placeholder="Phone"
+                        placeholder="Phone (Optional)"
                         className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
                         value={formData.phone}
                         onChange={handleInputChange}
@@ -286,7 +286,7 @@ export default function RootFreeTrailPage() {
                     <input
                         type="text"
                         name="website"
-                        placeholder="Website (optional)"
+                        placeholder="Website"
                         className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent"
                         value={formData.website}
                         onChange={handleInputChange}

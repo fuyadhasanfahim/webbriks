@@ -1,156 +1,209 @@
 'use client';
 
-import { ClipboardList, Quote } from 'lucide-react';
+import { ClipboardList, Quote, Star } from 'lucide-react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import PopupModal from '@/components/(sales)/image-editing-trail/modal';
+
+const testimonials = [
+    {
+        name: 'hepworthalan',
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507051/b7o8r9mgcrtvfhfiaect.webp',
+        country: 'Jersey',
+        flag: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507317/ytdytzn6zhj9bp9dyzjm.png',
+        review: 'I’m very happy with the results of touching up 25 images. He was highly skilled, delivered exactly what I needed, and was easy to communicate with throughout the process. Turnaround time was quick, and he made sure I was satisfied with every detail. I’d definitely work with him again and highly recommend his services. Thanks',
+    },
+    {
+        name: 'karyn_clements',
+        image: null,
+        initial: 'K',
+        country: 'Australia',
+        flag: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507547/qhrsen615qhstpw5vywq.png',
+        review: 'Thank you so much! This saved me so much editing time and stress. Very happy with the super quick turn around and the images look great as a result. Highly recommend for professional Photoshop editing services. Thank you again! :D',
+    },
+    {
+        name: 'patick_martin',
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507742/p1hc0fhzf38ju7vet6ee.webp',
+        country: 'United States',
+        flag: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507816/umzkgugjnubwafi1ko3n.png',
+        review: 'Truly impressed with his exceptional image editing skills! Their CREATIVITY and attention to detail not only met but EXCEEDED expectations with stunning visual appeal. Plus, their quick responsiveness made communication a breeze. Highly recommend! 👏',
+    },
+    {
+        name: 'berqen',
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507944/nfjvc2ffrcj72m8xqv1g.webp',
+        country: 'Denmark',
+        flag: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507945/qwgyu3mpmz99osqtwqjg.png',
+        review: 'Great job once again. Had to have the background removed from several images - some harder than others, and the seller went above and beyond delivering results, that matched my branded guidelines. Would 10/10 recommend.',
+    },
+];
 
 export default function ImageEditingTrialPage() {
     return (
-        <>
-            <section className="bg-black">
-                <div className="padding-x padding-y container">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <section className="overflow-hidden">
+            <PopupModal />
+            {/* Hero Section */}
+            <section className="bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
+                <div className="container mx-auto px-4 py-20 md:py-28 lg:py-32">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="space-y-6"
+                            transition={{ duration: 0.8, ease: 'easeOut' }}
+                            className="relative z-10 space-y-6"
                         >
-                            <h1 className="heading-one text-white">
-                                5 Free Photo Edits to Prove Our Quality —{' '}
-                                <span className="text-orange-500">
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+                                3 Free Photo Edits to Prove Our Quality —{' '}
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
                                     No Commitment
                                 </span>
                             </h1>
 
-                            <p className="description !text-gray-400">
+                            <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
                                 With over 10 million images edited across
                                 60,000+ jobs, our quality speaks for itself. Try
                                 5 edits free — and see the difference.
                             </p>
 
-                            <button className="bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center">
+                            <button
+                                className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center"
+                                onClick={() =>
+                                    document
+                                        .getElementById('my_modal_3')
+                                        .showModal()
+                                }
+                            >
                                 <ClipboardList className="w-5 h-5 mr-2" />
                                 <span>Start Free Trial</span>
                             </button>
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="rounded-xl overflow-hidden shadow"
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            className="relative"
                         >
-                            <iframe
-                                width="100%"
-                                height="315"
-                                src="https://www.youtube-nocookie.com/embed/rAD6sKGxCVI?si=9SdyFPL7dUUJOVoc"
-                                title="YouTube video player"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerPolicy="strict-origin-when-cross-origin"
-                                allowFullScreen
-                                loading="lazy"
-                            ></iframe>
+                            <div className="absolute -top-6 -left-6 w-full h-full rounded-2xl border-2 border-orange-500/30 z-0"></div>
+                            <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video">
+                                <iframe
+                                    width="100%"
+                                    height="100%"
+                                    src="https://www.youtube-nocookie.com/embed/rAD6sKGxCVI?si=9SdyFPL7dUUJOVoc"
+                                    title="YouTube video player"
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerPolicy="strict-origin-when-cross-origin"
+                                    allowFullScreen
+                                    loading="lazy"
+                                    className="rounded-2xl"
+                                ></iframe>
+                            </div>
                         </motion.div>
                     </div>
-
-                    {/* <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 border-t border-gray-300"
-                    >
-                        {[
-                            {
-                                title: 'Proven Framework',
-                                description:
-                                    'A step-by-step client acquisition system that consistently delivers results',
-                            },
-                            {
-                                title: 'Expert Support',
-                                description:
-                                    'Get direct access to our team of marketing specialists',
-                            },
-                            {
-                                title: 'Guaranteed Results',
-                                description:
-                                    "If you don't see new clients in 60 days, we'll refund 100% of your investment",
-                            },
-                        ].map((feature, index) => (
-                            <div key={index} className="p-4">
-                                <h3 className="heading-three text-gray-200 mb-2">
-                                    {feature.title}
-                                </h3>
-                                <p className="description !text-gray-400">
-                                    {feature.description}
-                                </p>
-                            </div>
-                        ))}
-                    </motion.div> */}
                 </div>
             </section>
 
-            <section>
-                <div className="padding-x padding-y container space-y-6">
+            {/* Testimonials Section */}
+            <section className="py-16 md:py-24 bg-white">
+                <div className="container mx-auto px-4">
                     <motion.div
-                        initial={{ opacity: 0, x: -100 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="flex flex-col lg:flex-row gap-6 items-center"
+                        transition={{ duration: 0.6, staggerChildren: 0.2 }}
+                        className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
                     >
-                        {['Alisha Cooper', 'Henry Jack'].map((name, i) => (
-                            <div key={i} className="lg:w-1/2 w-full">
-                                <div className="bg-white border rounded-xl p-6">
-                                    <Quote className="size-10 text-orange-600" />
-                                    <p className="description mt-4">
-                                        When our designs need an expert opinion
-                                        or approval, I know I can rely on your
-                                        agency. Thank you for all your help—I
-                                        will be recommending you to everyone.
-                                    </p>
-                                </div>
-                                <div className="flex items-center mt-4">
-                                    <div className="w-14 h-14 border-2 border-orange-500 rounded-full overflow-hidden">
-                                        <Image
-                                            src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1738220314/p1ljpnndchofo0w6whak.jpg"
-                                            width={60}
-                                            height={60}
-                                            className="rounded-full"
-                                            alt="profile"
-                                        />
+                        {testimonials.map((t, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6 }}
+                                viewport={{ once: true }}
+                                className="group"
+                            >
+                                <div className="border rounded-2xl p-6 shadow space-y-4 md:space-y-6">
+                                    <div className="flex items-center justify-between gap-6">
+                                        <div className="flex items-center gap-4">
+                                            {t.image ? (
+                                                <figure className="relative">
+                                                    <Image
+                                                        src={t.image}
+                                                        alt="Testimonial image"
+                                                        width={64}
+                                                        height={64}
+                                                        priority
+                                                        className="rounded-full ring-2 ring-orange-500 ring-offset-2"
+                                                    />
+                                                </figure>
+                                            ) : (
+                                                <div className="w-16 h-16 rounded-full bg-green-500 font-sans flex items-center justify-center text-2xl font-semibold ring-2 ring-orange-500 ring-offset-2">
+                                                    <span className="text-white">
+                                                        K
+                                                    </span>
+                                                </div>
+                                            )}
+
+                                            <div className="flex flex-col gap-1">
+                                                <h4 className="text-lg md:text-xl font-medium">
+                                                    {t.name}
+                                                </h4>
+                                                <div className="flex items-center gap-2">
+                                                    <figure className="relative">
+                                                        <Image
+                                                            src={t.flag}
+                                                            alt="Testimonial image"
+                                                            width={24}
+                                                            height={24}
+                                                            priority
+                                                            className="border"
+                                                        />
+                                                    </figure>
+
+                                                    <h6>{t.country}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex items-center">
+                                            {[...Array(5)].map((_, i) => (
+                                                <Star
+                                                    key={i}
+                                                    className="w-4 h-4 text-yellow-400 fill-yellow-400"
+                                                />
+                                            ))}
+                                        </div>
                                     </div>
-                                    <div className="ml-4">
-                                        <p className="text-base font-medium text-gray-800">
-                                            {name}
-                                        </p>
-                                        <p className="text-sm text-gray-600">
-                                            {i === 0
-                                                ? 'Developer'
-                                                : 'UI/UX Designer'}
-                                        </p>
+
+                                    <div>
+                                        <p>{t.review}</p>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="flex justify-center pt-6"
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                        className="flex justify-center pt-16"
                     >
-                        <div className="flex flex-col items-center gap-4">
-                            <h4 className="heading-three text-center">
+                        <div className="text-center">
+                            <h4 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
                                 Want this kind of result?
                             </h4>
-                            <button className="bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center">
+                            <button
+                                className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center mx-auto"
+                                onClick={() =>
+                                    document
+                                        .getElementById('my_modal_3')
+                                        .showModal()
+                                }
+                            >
                                 <ClipboardList className="w-5 h-5 mr-2" />
                                 <span>Start Free Trial</span>
                             </button>
@@ -159,27 +212,31 @@ export default function ImageEditingTrialPage() {
                 </div>
             </section>
 
-            <section className="padding-x padding-y bg-gray-200">
-                <div className="container space-y lg:!space-y-20">
+            {/* Features Section */}
+            <section className="py-16 md:py-24 bg-gray-50">
+                <div className="container mx-auto px-4">
                     <motion.div
-                        initial={{ opacity: 0, y: 50 }}
+                        initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 lg:gap-16 items-center"
+                        transition={{ duration: 0.8 }}
+                        className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
                     >
-                        <div className="space-y-4 md:space-y-6">
-                            <h3 className="heading-two !font-semibold !leading-normal">
-                                No More Guesswork. Flawless Photo Editing from
-                                Experts.
+                        <div className="space-y-6">
+                            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                                No More Guesswork.{' '}
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
+                                    Flawless Photo Editing
+                                </span>{' '}
+                                from Experts.
                             </h3>
-                            <div className="description-small space-y-2">
-                                <p>
-                                    In today’s fast-moving digital world,
-                                    high-quality visuals aren’t a luxury —
-                                    they’re a necessity.
+                            <div className="space-y-4 text-gray-600">
+                                <p className="text-lg leading-relaxed">
+                                    In today&apos;s fast-moving digital world,
+                                    high-quality visuals aren&apos;t a luxury —
+                                    they&apos;re a necessity.
                                 </p>
-                                <p>
+                                <p className="text-lg leading-relaxed">
                                     Whether you&apos;re an eCommerce manager
                                     juggling thousands of product images, a
                                     photographer aiming to focus more on
@@ -187,175 +244,302 @@ export default function ImageEditingTrialPage() {
                                     struggling to meet tight deadlines — we get
                                     it.
                                 </p>
-                                <p>
-                                    That’s why we built a scalable photo editing
-                                    system trusted by top brands and agencies,
-                                    with over 10 million images edited across
-                                    60,000+ projects.
+                                <p className="text-lg leading-relaxed">
+                                    That&apos;s why we built a scalable photo
+                                    editing system trusted by top brands and
+                                    agencies, with over 10 million images edited
+                                    across 60,000+ projects.
                                 </p>
-                                <p>
+                                <p className="text-lg leading-relaxed">
                                     Now, we want to show you what we can do —
                                     starting with 5 high-end edits, completely
                                     free.
                                 </p>
-                                <p>
+                                <p className="text-lg leading-relaxed">
                                     No commitments. No credit card. Just
                                     quality, speed, and consistency from day
                                     one.
                                 </p>
-                                <p>
+                                <p className="text-lg font-medium text-gray-700">
                                     Featured in Forbes, Inc, Entrepreneur and
                                     more
                                 </p>
                             </div>
                         </div>
 
-                        <figure className="relative aspect-square">
+                        <motion.figure
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            viewport={{ once: true }}
+                            className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl"
+                        >
                             <Image
-                                src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1744614858/kmgstakxkut8sq1qvxgb.jpg"
-                                alt=""
+                                src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1744614859/f7iqbgxhai50imrrdrdl.jpg"
+                                alt="Photo editing example"
                                 fill
-                                className="rounded-lg object-cover"
+                                priority
+                                className="object-cover hover:scale-105 transition-transform duration-700"
                             />
-                        </figure>
+                        </motion.figure>
                     </motion.div>
                 </div>
             </section>
 
-            <section className="padding-x padding-y">
-                <div className="container space-y lg:!space-y-20">
+            {/* Why Choose Us Section */}
+            <section className="py-16 md:py-24 bg-white">
+                <div className="container mx-auto px-4">
                     <motion.h2
-                        initial={{ opacity: 0, y: 50 }}
+                        initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="heading-one text-center"
+                        className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16"
                     >
-                        Why choose us?
+                        Why{' '}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
+                            choose Web Briks?
+                        </span>
                     </motion.h2>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 lg:gap-16 items-center"
+                        transition={{ duration: 0.8 }}
+                        className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
                     >
-                        <figure className="relative aspect-square">
+                        <motion.figure
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            viewport={{ once: true }}
+                            className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl"
+                        >
                             <Image
-                                src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1744614858/kmgstakxkut8sq1qvxgb.jpg"
-                                alt=""
+                                src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1744614859/f7iqbgxhai50imrrdrdl.jpg"
+                                alt="Photo editing example"
                                 fill
-                                className="rounded-full object-cover"
+                                priority
+                                className="object-cover hover:scale-105 transition-transform duration-700"
                             />
-                        </figure>
+                        </motion.figure>
 
-                        <div className="description-small !font-semibold space-y-4 text-center max-w-lg">
-                            <p>
-                                Trusted photo editing partner for 60,000+
-                                projects across the globe
-                            </p>
-                            <p>
-                                Edited over 10 million images for eCommerce
-                                brands, photographers, and agencies
-                            </p>
-                            <p>
-                                Powering photo workflows for top studios and
-                                fast-scaling retailers
-                            </p>
-                            <p>
-                                10+ years of experience delivering consistent,
-                                high-end results under tight deadlines
-                            </p>
-                            <p>
-                                Lightning-fast turnaround times without
-                                sacrificing quality
-                            </p>
-                            <p>
-                                Dedicated team of professional editors trained
-                                in eCommerce, fashion, product, and portrait
-                                retouching
-                            </p>
-                            <p>
-                                Flexible and scalable — from 5 images to 5,000+,
-                                we’ve got you covered
-                            </p>
-                            <p>
-                                Free trial available: 5 expertly edited images,
-                                100% free with no commitment
-                            </p>
-                        </div>
+                        <motion.div
+                            initial={{ opacity: 0, x: 40 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className="space-y-5 text-gray-700 max-w-lg mx-auto"
+                        >
+                            {[
+                                'Trusted photo editing partner for 60,000+ projects across the globe',
+                                'Edited over 10 million images for eCommerce brands, photographers, and agencies',
+                                'Powering photo workflows for top studios and fast-scaling retailers',
+                                '10+ years of experience delivering consistent, high-end results under tight deadlines',
+                                'Lightning-fast turnaround times without sacrificing quality',
+                                'Dedicated team of professional editors trained in eCommerce, fashion, product, and portrait retouching',
+                                "Flexible and scalable — from 5 images to 5,000+, we've got you covered",
+                                'Free trial available: 5 expertly edited images, 100% free with no commitment',
+                            ].map((item, index) => (
+                                <div key={index} className="flex items-start">
+                                    <div className="flex-shrink-0 mt-1">
+                                        <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center">
+                                            <svg
+                                                className="w-3 h-3 text-white"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke="currentColor"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={3}
+                                                    d="M5 13l4 4L19 7"
+                                                />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <p className="ml-3 text-lg">{item}</p>
+                                </div>
+                            ))}
+                        </motion.div>
                     </motion.div>
                 </div>
             </section>
 
-            <section>
-                <div className="padding-x padding-y bg-gray-200">
-                    <div className="container space-y-6">
+            {/* Testimonials Section */}
+            <section className="py-16 md:py-24 bg-white">
+                <div className="container mx-auto px-4">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, staggerChildren: 0.2 }}
+                        className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
+                    >
                         <motion.div
-                            initial={{ opacity: 0, x: -100 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
-                            className="flex flex-col lg:flex-row gap-6 items-center"
+                            viewport={{ once: true }}
+                            className="group"
                         >
-                            {['Alisha Cooper', 'Henry Jack'].map((name, i) => (
-                                <div key={i} className="lg:w-1/2 w-full">
-                                    <div className="bg-white border rounded-xl p-6">
-                                        <Quote className="size-10 text-orange-600" />
-                                        <p className="description mt-4">
-                                            When our designs need an expert
-                                            opinion or approval, I know I can
-                                            rely on your agency. Thank you for
-                                            all your help—I will be recommending
-                                            you to everyone.
-                                        </p>
-                                    </div>
-                                    <div className="flex items-center mt-4">
-                                        <div className="w-14 h-14 border-2 border-orange-500 rounded-full overflow-hidden">
+                            <div className="border rounded-2xl p-6 shadow space-y-4 md:space-y-6">
+                                <div className="flex items-center justify-between gap-6">
+                                    <div className="flex items-center gap-4">
+                                        <figure className="relative">
                                             <Image
-                                                src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1738220314/p1ljpnndchofo0w6whak.jpg"
-                                                width={60}
-                                                height={60}
-                                                className="rounded-full"
-                                                alt="profile"
+                                                src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1746508282/ozgqnyirjdqdcizqigym.webp"
+                                                alt="Testimonial image"
+                                                width={64}
+                                                height={64}
+                                                priority
+                                                className="rounded-full ring-2 ring-orange-500 ring-offset-2"
                                             />
+                                        </figure>
+
+                                        <div className="flex flex-col gap-1">
+                                            <h4 className="text-lg md:text-xl font-medium">
+                                                joshuaccomms
+                                            </h4>
+                                            <div className="flex items-center gap-2">
+                                                <figure className="relative">
+                                                    <Image
+                                                        src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507547/qhrsen615qhstpw5vywq.png"
+                                                        alt="Testimonial image"
+                                                        width={24}
+                                                        height={24}
+                                                        priority
+                                                        className="border"
+                                                    />
+                                                </figure>
+
+                                                <h6>Australia</h6>
+                                            </div>
                                         </div>
-                                        <div className="ml-4">
-                                            <p className="text-base font-medium text-gray-800">
-                                                {name}
-                                            </p>
-                                            <p className="text-sm text-gray-600">
-                                                {i === 0
-                                                    ? 'Developer'
-                                                    : 'UI/UX Designer'}
-                                            </p>
-                                        </div>
+                                    </div>
+
+                                    <div className="flex items-center">
+                                        {[...Array(5)].map((_, i) => (
+                                            <Star
+                                                key={i}
+                                                className="w-4 h-4 text-yellow-400 fill-yellow-400"
+                                            />
+                                        ))}
                                     </div>
                                 </div>
-                            ))}
+
+                                <div>
+                                    <p>
+                                        excellent once again highly recommend.
+                                        always goes above and beyond and is
+                                        patient kind and polite. appreciate all
+                                        the hard work and the fast turnaround -
+                                        like lightning
+                                    </p>
+                                </div>
+                            </div>
                         </motion.div>
 
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
-                            className="flex justify-center padding-x padding-y"
+                            viewport={{ once: true }}
+                            className="group"
                         >
-                            <div className="flex flex-col items-center gap-4">
-                                <h4 className="heading-three text-center">
-                                    Want this kind of result?
-                                </h4>
-                                <button className="bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center">
-                                    <ClipboardList className="w-5 h-5 mr-2" />
-                                    <span>Start Free Trial</span>
-                                </button>
+                            <div className="border rounded-2xl p-6 shadow space-y-4 md:space-y-6">
+                                <div className="flex items-center justify-between gap-6">
+                                    <div className="flex items-center gap-4">
+                                        <figure className="relative">
+                                            <Image
+                                                src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1746508418/vmn8mou9ymhwxxgpa3wl.webp"
+                                                alt="Testimonial image"
+                                                width={64}
+                                                height={64}
+                                                priority
+                                                className="rounded-full ring-2 ring-orange-500 ring-offset-2"
+                                            />
+                                        </figure>
+
+                                        <div className="flex flex-col gap-1">
+                                            <h4 className="text-lg md:text-xl font-medium">
+                                                raymes72
+                                            </h4>
+                                            <div className="flex items-center gap-2">
+                                                <figure className="relative">
+                                                    <Image
+                                                        src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507816/umzkgugjnubwafi1ko3n.png"
+                                                        alt="Testimonial image"
+                                                        width={24}
+                                                        height={24}
+                                                        priority
+                                                        className="border"
+                                                    />
+                                                </figure>
+
+                                                <h6> Australia</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="flex items-center">
+                                        {[...Array(5)].map((_, i) => (
+                                            <Star
+                                                key={i}
+                                                className="w-4 h-4 text-yellow-400 fill-yellow-400"
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <p>
+                                        Asad was very understanding of what I
+                                        wanted to have done to some photos and
+                                        was very quick in accomplishing edits
+                                        and revisions. Definitely recommend his
+                                        services and will be using his services
+                                        again!
+                                    </p>
+                                </div>
                             </div>
                         </motion.div>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
-        </>
+
+            {/* Final CTA Section */}
+            <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-gray-100">
+                <div className="container mx-auto px-4">
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="max-w-4xl mx-auto text-center"
+                    >
+                        <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                            Ready to experience professional photo editing?
+                        </h3>
+                        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                            Get started with 3 free edits today — no credit card
+                            required.
+                        </p>
+                        <button
+                            className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center mx-auto"
+                            onClick={() =>
+                                document
+                                    .getElementById('my_modal_3')
+                                    .showModal()
+                            }
+                        >
+                            <ClipboardList className="w-5 h-5 mr-2" />
+                            <span>Start Free Trial</span>
+                        </button>
+                    </motion.div>
+                </div>
+            </section>
+        </section>
     );
 }
