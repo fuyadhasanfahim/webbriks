@@ -12,7 +12,7 @@ const testimonials = [
         image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507051/b7o8r9mgcrtvfhfiaect.webp',
         country: 'Jersey',
         flag: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507317/ytdytzn6zhj9bp9dyzjm.png',
-        review: 'I’m very happy with the results of touching up 25 images. He was highly skilled, delivered exactly what I needed, and was easy to communicate with throughout the process. Turnaround time was quick, and he made sure I was satisfied with every detail. I’d definitely work with him again and highly recommend his services. Thanks',
+        review: 'I’m very happy with the results of touching up 25 images. They were highly skilled, delivered exactly what I needed, and was easy to communicate with throughout the process. Turnaround time was quick, and they made sure I was satisfied with every detail. I’d definitely work with them again and highly recommend their services. Thanks',
     },
     {
         name: 'karyn_clements',
@@ -27,14 +27,14 @@ const testimonials = [
         image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507742/p1hc0fhzf38ju7vet6ee.webp',
         country: 'United States',
         flag: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507816/umzkgugjnubwafi1ko3n.png',
-        review: 'Truly impressed with his exceptional image editing skills! Their CREATIVITY and attention to detail not only met but EXCEEDED expectations with stunning visual appeal. Plus, their quick responsiveness made communication a breeze. Highly recommend! 👏',
+        review: 'Truly impressed with their exceptional image editing skills! Their CREATIVITY and attention to detail not only met but EXCEEDED expectations with stunning visual appeal. Plus, their quick responsiveness made communication a breeze. Highly recommend! 👏',
     },
     {
         name: 'berqen',
         image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507944/nfjvc2ffrcj72m8xqv1g.webp',
         country: 'Denmark',
         flag: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507945/qwgyu3mpmz99osqtwqjg.png',
-        review: 'Great job once again. Had to have the background removed from several images - some harder than others, and the seller went above and beyond delivering results, that matched my branded guidelines. Would 10/10 recommend.',
+        review: 'Great job once again. Had to have the background removed from several images - some harder than others, and they went above and beyond delivering results, that matched my branded guidelines. Would 10/10 recommend.',
     },
 ];
 
@@ -42,7 +42,7 @@ export default function ImageEditingTrialPage() {
     return (
         <section className="overflow-hidden">
             <PopupModal />
-            {/* Hero Section */}
+
             <section className="bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
                 <div className="container mx-auto px-4 py-20 md:py-28 lg:py-32">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -61,10 +61,11 @@ export default function ImageEditingTrialPage() {
                             </h1>
 
                             <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
-                                With over{' '}
-                                <b>
-                                    10 million images edited across 60,000+ jobs
-                                </b>
+                                With{' '}
+                                <span className="font-semibold">
+                                    over 10 million images edited across 60,000+
+                                    jobs
+                                </span>
                                 , our quality speaks for itself. Try 3 edits
                                 free — and see the difference.
                             </p>
@@ -109,7 +110,6 @@ export default function ImageEditingTrialPage() {
                 </div>
             </section>
 
-            {/* Testimonials Section */}
             <section className="py-16 md:py-24 bg-white">
                 <div className="container mx-auto px-4">
                     <motion.div
@@ -118,77 +118,8 @@ export default function ImageEditingTrialPage() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, staggerChildren: 0.2 }}
                         className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
-                    >
-                        {/* {testimonials.map((t, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6 }}
-                                viewport={{ once: true }}
-                                className="group"
-                            >
-                                <div className="border rounded-2xl p-6 shadow space-y-4 md:space-y-6">
-                                    <div className="flex items-center justify-between gap-6">
-                                        <div className="flex items-center gap-4">
-                                            {t.image ? (
-                                                <figure className="relative">
-                                                    <Image
-                                                        src={t.image}
-                                                        alt="Testimonial image"
-                                                        width={64}
-                                                        height={64}
-                                                        priority
-                                                        className="rounded-full ring-2 ring-orange-500 ring-offset-2"
-                                                    />
-                                                </figure>
-                                            ) : (
-                                                <div className="w-16 h-16 rounded-full bg-green-500 font-sans flex items-center justify-center text-2xl font-semibold ring-2 ring-orange-500 ring-offset-2">
-                                                    <span className="text-white">
-                                                        K
-                                                    </span>
-                                                </div>
-                                            )}
-
-                                            <div className="flex flex-col gap-1">
-                                                <h4 className="text-lg md:text-xl font-medium">
-                                                    {t.name}
-                                                </h4>
-                                                <div className="flex items-center gap-2">
-                                                    <figure className="relative">
-                                                        <Image
-                                                            src={t.flag}
-                                                            alt="Testimonial image"
-                                                            width={24}
-                                                            height={24}
-                                                            priority
-                                                            className="border"
-                                                        />
-                                                    </figure>
-
-                                                    <h6>{t.country}</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="flex items-center">
-                                            {[...Array(5)].map((_, i) => (
-                                                <Star
-                                                    key={i}
-                                                    className="w-4 h-4 text-yellow-400 fill-yellow-400"
-                                                />
-                                            ))}
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <p>{t.review}</p>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))} */}
-                    </motion.div>
-                        <MovingCard items={testimonials} speed='slow' />
+                    ></motion.div>
+                    <MovingCard items={testimonials} speed="slow" />
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -217,7 +148,6 @@ export default function ImageEditingTrialPage() {
                 </div>
             </section>
 
-            {/* Features Section */}
             <section className="py-16 md:py-24 bg-gray-50">
                 <div className="container mx-auto px-4">
                     <motion.div
@@ -252,12 +182,15 @@ export default function ImageEditingTrialPage() {
                                 <p className="text-lg leading-relaxed">
                                     That&apos;s why we built a scalable photo
                                     editing system trusted by top brands and
-                                    agencies, with over 10 million images edited
-                                    across 60,000+ projects.
+                                    agencies, with{' '}
+                                    <span className="font-semibold">
+                                        over 10 million images edited across
+                                        60,000+ jobs
+                                    </span>
                                 </p>
                                 <p className="text-lg leading-relaxed">
                                     Now, we want to show you what we can do —
-                                    starting with 5 high-end edits, completely
+                                    starting with 3 high-end edits, completely
                                     free.
                                 </p>
                                 <p className="text-lg leading-relaxed">
@@ -287,7 +220,6 @@ export default function ImageEditingTrialPage() {
                 </div>
             </section>
 
-            {/* Why Choose Us Section */}
             <section className="py-16 md:py-24 bg-white">
                 <div className="container mx-auto px-4">
                     <motion.h2
@@ -368,7 +300,6 @@ export default function ImageEditingTrialPage() {
                 </div>
             </section>
 
-            {/* Testimonials Section */}
             <section className="py-16 md:py-24 bg-white">
                 <div className="container mx-auto px-4">
                     <motion.div
@@ -432,11 +363,11 @@ export default function ImageEditingTrialPage() {
 
                                 <div>
                                     <p>
-                                        excellent once again highly recommend.
+                                        Excellent once again highly recommend.
                                         always goes above and beyond and is
                                         patient kind and polite. appreciate all
                                         the hard work and the fast turnaround -
-                                        like lightning
+                                        like lightning.
                                     </p>
                                 </div>
                             </div>
@@ -496,12 +427,12 @@ export default function ImageEditingTrialPage() {
 
                                 <div>
                                     <p>
-                                        Asad was very understanding of what I
-                                        wanted to have done to some photos and
-                                        was very quick in accomplishing edits
-                                        and revisions. Definitely recommend his
-                                        services and will be using his services
-                                        again!
+                                        Asad & his team members were very
+                                        understanding of what I wanted to have
+                                        done to some photos and was very quick
+                                        in accomplishing edits and revisions.
+                                        Definitely recommend his services and
+                                        will be using his services again!
                                     </p>
                                 </div>
                             </div>
@@ -510,7 +441,6 @@ export default function ImageEditingTrialPage() {
                 </div>
             </section>
 
-            {/* Final CTA Section */}
             <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-gray-100">
                 <div className="container mx-auto px-4">
                     <motion.div
