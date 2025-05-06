@@ -4,6 +4,7 @@ import { ClipboardList, Quote, Star } from 'lucide-react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import PopupModal from '@/components/(sales)/image-editing-trail/modal';
+import { MovingCard } from '@/components/(sales)/image-editing-trail/MovingCard';
 
 const testimonials = [
     {
@@ -118,7 +119,7 @@ export default function ImageEditingTrialPage() {
                         transition={{ duration: 0.6, staggerChildren: 0.2 }}
                         className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
                     >
-                        {testimonials.map((t, index) => (
+                        {/* {testimonials.map((t, index) => (
                             <motion.div
                                 key={index}
                                 initial={{ opacity: 0, y: 30 }}
@@ -185,8 +186,9 @@ export default function ImageEditingTrialPage() {
                                     </div>
                                 </div>
                             </motion.div>
-                        ))}
+                        ))} */}
                     </motion.div>
+                        <MovingCard items={testimonials} speed='slow' />
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
