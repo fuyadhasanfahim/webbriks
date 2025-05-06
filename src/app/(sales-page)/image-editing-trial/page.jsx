@@ -231,7 +231,7 @@ export default function ImageEditingTrialPage() {
                     >
                         Why{' '}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
-                            choose Web Briks?
+                            Choose Web Briks?
                         </span>
                     </motion.h2>
 
@@ -410,7 +410,7 @@ export default function ImageEditingTrialPage() {
                                                     />
                                                 </figure>
 
-                                                <h6> Australia</h6>
+                                                <h6>United States</h6>
                                             </div>
                                         </div>
                                     </div>
