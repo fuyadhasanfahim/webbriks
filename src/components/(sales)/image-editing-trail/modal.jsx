@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 export default function PopupModal() {
     const { register, handleSubmit, reset, formState } = useForm();
@@ -30,6 +31,11 @@ export default function PopupModal() {
             formData.append('files', file);
         });
 
+        if (files.length === 0 && !data.driveLink?.trim()) {
+            toast.error('Please upload a file or enter a drive link.');
+            return;
+        }
+
         const res = await fetch('/api/get-sels-free-trial', {
             method: 'POST',
             body: formData,
@@ -38,12 +44,11 @@ export default function PopupModal() {
         const result = await res.json();
         if (result.success) {
             reset();
-
-            console.log('first');
-
+            document.querySelector(`#my_modal_3`).close();
             router.push('/success-free-trial');
         } else {
-            toast.success('Something wen wrong!');
+            console.log(result);
+            toast.error('Something went wrong!');
         }
     };
 
@@ -130,6 +135,14 @@ export default function PopupModal() {
                                         className="p-2 rounded-md focus:outline-0 border border-orange-500 focus:ring-2 ring-orange-300 ring-offset-2 w-full"
                                     />
                                 </div>
+
+                                <div className="col-span-2">
+                                    <div className="border"></div>
+                                </div>
+
+                                <h3 className="col-span-2 text-lg md:text-xl">
+                                    Fill your info
+                                </h3>
 
                                 <input
                                     type="text"

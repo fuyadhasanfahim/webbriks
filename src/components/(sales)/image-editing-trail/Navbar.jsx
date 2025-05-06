@@ -24,7 +24,7 @@ export default function ImageEditingTrailNavbar() {
                     }
                 >
                     <ClipboardList className="w-5 h-5 mr-2" />
-                    <span>Start Free Trial</span>
+                    <span>Get My Free Edits</span>
                 </button>
             </div>
         </nav>

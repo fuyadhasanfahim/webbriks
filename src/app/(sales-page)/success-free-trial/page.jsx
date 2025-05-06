@@ -18,10 +18,10 @@ export default function SuccessFreeTrialPage() {
 
                 <div className="mt-6">
                     <Link
-                        href="/"
+                        href="/portfolio"
                         className="btn bg-orange-500 hover:bg-orange-600 text-white flex items-center w-full"
                     >
-                        Back to Home
+                        See our Portfolio
                     </Link>
                 </div>
             </div>

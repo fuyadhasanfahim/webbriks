@@ -74,7 +74,7 @@ export default function ImageEditingTrialPage() {
                                 }
                             >
                                 <ClipboardList className="w-5 h-5 mr-2" />
-                                <span>Start Free Trial</span>
+                                <span>Get My Free Edits</span>
                             </button>
                         </motion.div>
 
@@ -205,7 +205,7 @@ export default function ImageEditingTrialPage() {
                                 }
                             >
                                 <ClipboardList className="w-5 h-5 mr-2" />
-                                <span>Start Free Trial</span>
+                                <span>Get My Free Edits</span>
                             </button>
                         </div>
                     </motion.div>
@@ -259,10 +259,6 @@ export default function ImageEditingTrialPage() {
                                     No commitments. No credit card. Just
                                     quality, speed, and consistency from day
                                     one.
-                                </p>
-                                <p className="text-lg font-medium text-gray-700">
-                                    Featured in Forbes, Inc, Entrepreneur and
-                                    more
                                 </p>
                             </div>
                         </div>
@@ -338,8 +334,8 @@ export default function ImageEditingTrialPage() {
                                 '10+ years of experience delivering consistent, high-end results under tight deadlines',
                                 'Lightning-fast turnaround times without sacrificing quality',
                                 'Dedicated team of professional editors trained in eCommerce, fashion, product, and portrait retouching',
-                                "Flexible and scalable — from 5 images to 5,000+, we've got you covered",
-                                'Free trial available: 5 expertly edited images, 100% free with no commitment',
+                                "Flexible and scalable — from 3 images to 5,000+, we've got you covered",
+                                'Free trial available: 3 expertly edited images, 100% free with no commitment',
                             ].map((item, index) => (
                                 <div key={index} className="flex items-start">
                                     <div className="flex-shrink-0 mt-1">
@@ -535,7 +531,7 @@ export default function ImageEditingTrialPage() {
                             }
                         >
                             <ClipboardList className="w-5 h-5 mr-2" />
-                            <span>Start Free Trial</span>
+                            <span>Get My Free Edits</span>
                         </button>
                     </motion.div>
                 </div>

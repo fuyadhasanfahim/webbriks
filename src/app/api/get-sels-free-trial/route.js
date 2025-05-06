@@ -1,14 +1,31 @@
+import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
 export async function POST(req) {
     try {
         const formData = await req.formData();
 
+        console.log(formData);
+
         const name = formData.get('name') || 'N/A';
         const email = formData.get('email') || 'N/A';
         const message = formData.get('message') || 'N/A';
-        const driveLink = formData.get('driveLink') || 'N/A';
-        const files = formData.getAll('files');
+        const driveLink = formData.get('driveLink')?.trim();
+        const files = formData.getAll('files').filter((f) => f && f.name);
+
+        if ((!files || files.length === 0) && !driveLink) {
+            return NextResponse.json(
+                {
+                    success: false,
+                    message:
+                        'Please upload at least one file or provide a drive link.',
+                    error,
+                },
+                {
+                    status: 400,
+                }
+            );
+        }
 
         const transporter = nodemailer.createTransport({
             host: 'smtp.gmail.com',
@@ -21,13 +38,13 @@ export async function POST(req) {
         });
 
         const mailText = `
-📝 New Free Trial Request
+            📝 New Free Trial Request
 
-Name: ${name}
-Email: ${email}
-Drive Link: ${driveLink}
-Message:
-${message}
+            Name: ${name}
+            Email: ${email}
+            Drive Link: ${driveLink || 'N/A'}
+            Message:
+            ${message}
         `;
 
         const mailOptions = {
@@ -37,7 +54,7 @@ ${message}
             text: mailText,
         };
 
-        if (files && files.length > 0) {
+        if (files.length > 0) {
             const attachments = await Promise.all(
                 files.map(async (file) => {
                     const buffer = Buffer.from(await file.arrayBuffer());
@@ -54,14 +71,25 @@ ${message}
 
         await transporter.sendMail(mailOptions);
 
-        return new Response(JSON.stringify({ success: true }), {
-            status: 200,
-        });
-    } catch (err) {
-        console.error('Error sending trial request:', err);
-        return new Response(
-            JSON.stringify({ success: false, error: 'Something went wrong' }),
-            { status: 500 }
+        return NextResponse.json(
+            {
+                success: true,
+                message: 'Successfully send the message.',
+            },
+            {
+                status: 200,
+            }
+        );
+    } catch (error) {
+        return NextResponse.json(
+            {
+                success: false,
+                message: 'Something Went wrong!',
+                error,
+            },
+            {
+                status: 500,
+            }
         );
     }
 }
