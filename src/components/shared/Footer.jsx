@@ -109,7 +109,7 @@ export default function Footer() {
                         </h3>
                         <ul className="space-y-3">
                             {[
-                                'Terms & Conditions',
+                                'Terms and Conditions',
                                 'Privacy Policy',
                                 'Refund Policy',
                                 'Disclaimer Policy',
