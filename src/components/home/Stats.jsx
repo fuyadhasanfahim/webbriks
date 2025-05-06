@@ -45,7 +45,7 @@ export default function Stats() {
     return (
         <div className="pb-20">
             <motion.div
-                className="bg-orange-500 padding-x padding-y !pt-0"
+                className="bg-orange-500 padding-x padding-y !pt-0 mb-10 md:mb-16"
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -63,18 +63,6 @@ export default function Stats() {
                             <h2 className="lg:text-6xl md:text-5xl text-4xl font-black leading-10 text-white">
                                 By the numbers
                             </h2>
-                        </motion.div>
-                        <motion.div
-                            className="mt-6 mx-2 md:mx-0 text-center"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
-                            viewport={{ once: true }}
-                        >
-                            <p className="lg:text-lg md:text-base leading-6 text-sm text-white">
-                                10 years, consistent quality and you get
-                                results. No matter what
-                            </p>
                         </motion.div>
                     </div>
                 </div>

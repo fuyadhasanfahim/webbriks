@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 export default function PopupModal() {
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset, formState } = useForm();
     const [files, setFiles] = useState([]);
     const router = useRouter();
 
@@ -39,7 +39,9 @@ export default function PopupModal() {
         if (result.success) {
             reset();
 
-            router.push('/success');
+            console.log('first');
+
+            router.push('/success-free-trial');
         } else {
             toast.success('Something wen wrong!');
         }
@@ -152,9 +154,12 @@ export default function PopupModal() {
 
                                 <button
                                     type="submit"
-                                    className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center col-span-2"
+                                    className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-xl flex items-center col-span-2"
+                                    disabled={formState.isSubmitting}
                                 >
-                                    Submit
+                                    {formState.isSubmitting
+                                        ? 'Submitting...'
+                                        : 'Submit'}
                                 </button>
                             </div>
                         </form>

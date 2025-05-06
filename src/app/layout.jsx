@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { Livvic } from 'next/font/google';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const livvic = Livvic({
     subsets: ['latin'],
