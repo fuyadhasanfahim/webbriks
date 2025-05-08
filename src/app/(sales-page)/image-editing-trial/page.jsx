@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import PopupModal from '@/components/(sales)/image-editing-trail/modal';
 import { MovingCard } from '@/components/(sales)/image-editing-trail/MovingCard';
+import ReactCompareImage from 'react-compare-image';
 
 const testimonials = [
     {
@@ -206,14 +207,18 @@ export default function ImageEditingTrialPage() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
                             viewport={{ once: true }}
-                            className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl"
+                            className="relative rounded-2xl overflow-hidden"
                         >
-                            <Image
-                                src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1744614859/f7iqbgxhai50imrrdrdl.jpg"
-                                alt="Photo editing example"
-                                fill
-                                priority
-                                className="object-cover hover:scale-105 transition-transform duration-700"
+                            <ReactCompareImage
+                                leftImage={
+                                    'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746702381/gt6xyngs6eowplsorsmy.jpg'
+                                }
+                                rightImage={
+                                    'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746702380/pzhth6vtxzdvktqhosyp.jpg'
+                                }
+                                hover={true}
+                                leftImageLabel="Before"
+                                rightImageLabel="After"
                             />
                         </motion.figure>
                     </motion.div>
