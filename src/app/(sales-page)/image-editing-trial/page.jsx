@@ -245,21 +245,21 @@ export default function ImageEditingTrialPage() {
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+                        className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
                     >
                         <motion.figure
                             initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
                             viewport={{ once: true }}
-                            className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl"
+                            className="relative aspect-square rounded-2xl overflow-hidden"
                         >
                             <Image
-                                src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1744614859/f7iqbgxhai50imrrdrdl.jpg"
+                                src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1746764351/bqmbaxmxcvyacj483lbz.jpg"
                                 alt="Photo editing example"
                                 fill
                                 priority
-                                className="object-cover hover:scale-105 transition-transform duration-700"
+                                className="object-cover rounded-2xl"
                             />
                         </motion.figure>
 
@@ -267,6 +267,7 @@ export default function ImageEditingTrialPage() {
                             initial={{ opacity: 0, x: 40 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.8 }}
+                            viewport={{ once: true }}
                             className="space-y-5 text-gray-700 max-w-lg mx-auto"
                         >
                             {[
