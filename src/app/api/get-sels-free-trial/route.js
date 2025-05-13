@@ -4,23 +4,23 @@ import nodemailer from 'nodemailer';
 export async function POST(req) {
     try {
         const formData = await req.formData();
-        const name = formData.get('name') || 'N/A';
-        const email = formData.get('email') || 'N/A';
-        const message = formData.get('message') || 'N/A';
-        const driveLink = formData.get('driveLink')?.trim();
-        const files = formData.getAll('files').filter((f) => f && f.name);
 
-        if ((!files || files.length === 0) && !driveLink) {
+        const name = formData.get('name')?.toString() || 'N/A';
+        const email = formData.get('email')?.toString() || 'N/A';
+        const message = formData.get('message')?.toString() || 'N/A';
+        const driveLink = formData.get('driveLink')?.toString().trim() || '';
+        const files = formData
+            .getAll('files')
+            .filter((f) => typeof f === 'object' && 'name' in f && f.name);
+
+        if (files.length === 0 && !driveLink) {
             return NextResponse.json(
                 {
                     success: false,
                     message:
                         'Please upload at least one file or provide a drive link.',
-                    error,
                 },
-                {
-                    status: 400,
-                }
+                { status: 400 }
             );
         }
 
@@ -40,9 +40,10 @@ export async function POST(req) {
             Name: ${name}
             Email: ${email}
             Drive Link: ${driveLink || 'N/A'}
+
             Message:
             ${message}
-        `;
+            `;
 
         const mailOptions = {
             from: `"${name}" <${email}>`,
@@ -71,22 +72,19 @@ export async function POST(req) {
         return NextResponse.json(
             {
                 success: true,
-                message: 'Successfully send the message.',
+                message: 'Successfully sent the message.',
             },
-            {
-                status: 200,
-            }
+            { status: 200 }
         );
     } catch (error) {
+        console.log('Mail Error:', error.message);
         return NextResponse.json(
             {
                 success: false,
-                message: 'Something Went wrong!',
-                error,
+                message: 'Something went wrong while sending the message.',
+                error: error?.message || 'Internal error',
             },
-            {
-                status: 500,
-            }
+            { status: 500 }
         );
     }
 }
