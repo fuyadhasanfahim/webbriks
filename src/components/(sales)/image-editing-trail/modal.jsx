@@ -44,6 +44,7 @@ export default function PopupModal() {
         const result = await res.json();
         if (result.success) {
             reset();
+            toast.success('Successfully submitted the form.');
             document.querySelector(`#my_modal_3`).close();
             router.push('/free-trial-submitted');
         } else {

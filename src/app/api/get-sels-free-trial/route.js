@@ -4,9 +4,6 @@ import nodemailer from 'nodemailer';
 export async function POST(req) {
     try {
         const formData = await req.formData();
-
-        console.log(formData);
-
         const name = formData.get('name') || 'N/A';
         const email = formData.get('email') || 'N/A';
         const message = formData.get('message') || 'N/A';
