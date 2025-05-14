@@ -96,7 +96,7 @@ export default function ImageEditingTrialPage() {
                                 <iframe
                                     width="100%"
                                     height="100%"
-                                    src="https://www.youtube-nocookie.com/embed/rAD6sKGxCVI?si=9SdyFPL7dUUJOVoc"
+                                    src="https://www.youtube.com/embed/gR5GZFgC314?si=z2ibcbFqDtJdL2Fv"
                                     title="YouTube video player"
                                     frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
