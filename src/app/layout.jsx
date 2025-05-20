@@ -5,7 +5,6 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 import { Livvic } from 'next/font/google';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Script from 'next/script';
 
 const livvic = Livvic({
@@ -31,32 +30,32 @@ export default function MyFunc({ children }) {
                     name="google-site-verification"
                     content="fgq5zV3jb6OmFw6VzCx-sNQZT64LzgfYu4Qgi9nX6U0"
                 />
-            </head>
-
-            <body className={`${livvic.className} antialiased`}>
+                {/* Google Tag Manager */}
                 <Script
-                    id="gtm"
+                    id="gtm-init"
                     strategy="afterInteractive"
                     dangerouslySetInnerHTML={{
                         __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                        })(window,document,'script','dataLayer','GTM-W8KP5QPJ');`,
+                            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                            })(window,document,'script','dataLayer','GTM-W8KP5QPJ');`,
                     }}
                 />
-
-                {children}
-                <ToastContainer position="bottom-right" />
-
+            </head>
+            <body className={`${livvic.className} antialiased`}>
+                {/* Google Tag Manager (noscript) */}
                 <noscript>
                     <iframe
                         src="https://www.googletagmanager.com/ns.html?id=GTM-W8KP5QPJ"
                         height="0"
                         width="0"
                         style={{ display: 'none', visibility: 'hidden' }}
-                    />
+                    ></iframe>
                 </noscript>
+
+                {children}
+                <ToastContainer position="bottom-right" />
             </body>
         </html>
     );
