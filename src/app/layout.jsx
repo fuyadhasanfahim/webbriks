@@ -31,7 +31,9 @@ export default function MyFunc({ children }) {
                     name="google-site-verification"
                     content="fgq5zV3jb6OmFw6VzCx-sNQZT64LzgfYu4Qgi9nX6U0"
                 />
+            </head>
 
+            <body className={`${livvic.className} antialiased`}>
                 <Script
                     id="gtm"
                     strategy="afterInteractive"
@@ -43,9 +45,7 @@ export default function MyFunc({ children }) {
                         })(window,document,'script','dataLayer','GTM-W8KP5QPJ');`,
                     }}
                 />
-            </head>
 
-            <body className={`${livvic.className} antialiased`}>
                 {children}
                 <ToastContainer position="bottom-right" />
 
