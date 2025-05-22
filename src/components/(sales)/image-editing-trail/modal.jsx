@@ -24,6 +24,8 @@ export default function PopupModal() {
         const formData = new FormData();
         formData.append('name', data.name);
         formData.append('email', data.email);
+        formData.append('email', data.phone);
+        formData.append('email', data.website);
         formData.append('message', data.message);
         formData.append('driveLink', data.driveLink);
 
@@ -156,6 +158,20 @@ export default function PopupModal() {
                                     type="email"
                                     {...register('email', { required: true })}
                                     placeholder="Enter your email"
+                                    className="p-2 rounded-md focus:outline-0 border border-orange-500 focus:ring-2 ring-orange-300 ring-offset-2"
+                                />
+
+                                <input
+                                    type="tel"
+                                    {...register('phone', { required: false })}
+                                    placeholder="Enter your phone number (Optional)"
+                                    className="p-2 rounded-md focus:outline-0 border border-orange-500 focus:ring-2 ring-orange-300 ring-offset-2"
+                                />
+
+                                <input
+                                    type="url"
+                                    {...register('website', { required: true })}
+                                    placeholder="Enter your website url"
                                     className="p-2 rounded-md focus:outline-0 border border-orange-500 focus:ring-2 ring-orange-300 ring-offset-2"
                                 />
 

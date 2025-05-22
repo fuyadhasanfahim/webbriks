@@ -7,6 +7,8 @@ export async function POST(req) {
 
         const name = formData.get('name')?.toString() || 'N/A';
         const email = formData.get('email')?.toString() || 'N/A';
+        const phone = formData.get('phone')?.toString() || 'N/A';
+        const website = formData.get('website')?.toString() || 'N/A';
         const message = formData.get('message')?.toString() || 'N/A';
         const driveLink = formData.get('driveLink')?.toString().trim() || '';
         const files = formData
@@ -41,8 +43,9 @@ export async function POST(req) {
             Email: ${email}
             Drive Link: ${driveLink || 'N/A'}
 
-            Message:
-            ${message}
+            Phone: ${phone}
+            Website: ${website || 'N/A'}
+            Message: ${message}
             `;
 
         const mailOptions = {
