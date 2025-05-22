@@ -43,7 +43,7 @@ export default function FloatingButton() {
                     onMouseLeave={() => setIsHovered(false)}
                 >
                     <a
-                        href="/free-trail"
+                        href="/free-trial"
                         className="relative px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 
                              text-white font-medium overflow-hidden group flex items-center gap-2 
                              shadow-lg hover:shadow-orange-500/30 transition-all duration-500"

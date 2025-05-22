@@ -1,5 +1,5 @@
 import RootGetQuotePage from '@/components/get-quote/RootGetQuotePage';
-import RootFreeTrailPage from '@/components/free-trail/RootFreeTrailPage';
+import RootFreeTrailPage from '@/components/free-trial/RootFreeTrailPage';
 
 export const metadata = {
     title: 'Free Trail | Webbriks',

@@ -22,7 +22,7 @@ export default function BlogCallToAction() {
                         tools for your success.
                     </p>
                     <a
-                        href="/free-trail"
+                        href="/free-trial"
                         className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-lg text-lg shadow-md transition-all"
                     >
                         Start Free Trial

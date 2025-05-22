@@ -249,9 +249,9 @@ export default function BlogsDetailsPage() {
                                     <li>Shadow Creation</li>
                                     <li>Image Masking</li>
                                 </ul>
-                                <a href="/free-trail">
+                                <a href="/free-trial">
                                     <button className="w-full bg-orange-600 text-white py-2 px-6 rounded-lg hover:bg-orange-700 transition-colors flex-1">
-                                        Free Trail
+                                        Free Trial
                                     </button>
                                 </a>
                             </div>
