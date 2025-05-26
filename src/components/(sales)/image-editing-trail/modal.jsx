@@ -22,8 +22,9 @@ export default function PopupModal() {
 
     const onSubmit = async (data) => {
         window.dataLayer = window.dataLayer || [];
+        
         window.dataLayer.push({
-            event: 'image-editing-trial',
+            event: 'imageEditingTrial',
             name: data.name,
             email: data.email,
             phone: data.phone || '',

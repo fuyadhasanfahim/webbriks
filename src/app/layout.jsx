@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.min.css';
 import { Livvic } from 'next/font/google';
 import { ToastContainer } from 'react-toastify';
 import Script from 'next/script';
+import MainLayout from './MainLayout';
 
 const livvic = Livvic({
     subsets: ['latin'],
@@ -55,7 +56,7 @@ export default function MyFunc({ children }) {
                     ></iframe>
                 </noscript>
 
-                {children}
+                <MainLayout>{children}</MainLayout>
                 <ToastContainer position="bottom-right" />
             </body>
         </html>
