@@ -1,9 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useState } from 'react';
-import { PlayCircle, Youtube } from 'lucide-react';
+import { Youtube } from 'lucide-react';
 import Image from 'next/image';
-import { IconBrandYoutubeFilled } from '@tabler/icons-react';
 
 export default function YoutubeLite({ videoId }) {
     const [isPlaying, setIsPlaying] = useState(false);
@@ -19,15 +19,12 @@ export default function YoutubeLite({ videoId }) {
                     className="w-full h-full block relative"
                     aria-label="Play YouTube video"
                 >
-                    <Image
+                    <img
                         src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
                         alt="YouTube video thumbnail"
-                        fill
-                        className="object-cover"
-                        loading="lazy"
-                        sizes="(max-width: 768px) 100vw, 700px"
-                        priority={false}
-                        unoptimized
+                        className="w-full h-full object-cover"
+                        loading="eager"
+                        decoding="async"
                     />
                     <div className="absolute inset-0 flex items-center justify-center transition">
                         <Youtube className="w-16 h-16 text-red-500" />
@@ -39,6 +36,7 @@ export default function YoutubeLite({ videoId }) {
                     title="YouTube video player"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="eager"
                     className="w-full h-full"
                 />
             )}

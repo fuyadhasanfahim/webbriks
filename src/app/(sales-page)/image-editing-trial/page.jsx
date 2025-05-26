@@ -3,7 +3,6 @@
 import { ClipboardList, Star } from 'lucide-react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import { motion } from 'framer-motion';
 import PopupModal from '@/components/(sales)/image-editing-trail/modal';
 import { MovingCard } from '@/components/(sales)/image-editing-trail/MovingCard';
 import YoutubeLite from '@/components/(sales)/image-editing-trail/YoutubeLite';
@@ -52,11 +51,7 @@ export default function ImageEditingTrialPage() {
             <section className="bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
                 <div className="container mx-auto px-4 py-20 md:py-28 lg:py-32">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <motion.div
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, ease: 'easeOut' }}
+                        <div
                             className="relative z-10 space-y-6"
                         >
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
@@ -87,38 +82,23 @@ export default function ImageEditingTrialPage() {
                                 <ClipboardList className="w-5 h-5 mr-2" />
                                 <span>Get My Free Edits</span>
                             </button>
-                        </motion.div>
+                        </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
+                        <div
                             className="relative"
                         >
                             <div className="absolute -top-6 -left-6 w-full h-full rounded-2xl border-2 border-orange-500/30 z-0"></div>
                                 <YoutubeLite videoId="gR5GZFgC314" />
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section className="py-16 md:py-24 bg-white">
                 <div className="container mx-auto px-4">
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, staggerChildren: 0.2 }}
-                        className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
-                    ></motion.div>
                     <MovingCard items={testimonials} speed="slow" />
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
+                    <div
                         className="flex flex-col justify-center pt-16 text-center"
                     >
                         <h4 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
@@ -135,17 +115,13 @@ export default function ImageEditingTrialPage() {
                             <ClipboardList className="w-5 h-5 mr-2" />
                             <span>Get My Free Edits</span>
                         </button>
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
             <section className="py-16 md:py-24 bg-gray-50">
                 <div className="container mx-auto px-4">
-                    <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
+                    <div
                         className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
                     >
                         <div className="space-y-6">
@@ -192,11 +168,7 @@ export default function ImageEditingTrialPage() {
                             </div>
                         </div>
 
-                        <motion.figure
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            viewport={{ once: true }}
+                        <figure
                             className="relative rounded-2xl overflow-hidden"
                         >
                             <ReactCompareImage
@@ -210,38 +182,26 @@ export default function ImageEditingTrialPage() {
                                 leftImageLabel="Before"
                                 rightImageLabel="After"
                             />
-                        </motion.figure>
-                    </motion.div>
+                        </figure>
+                    </div>
                 </div>
             </section>
 
             <section className="py-16 md:py-24 bg-white">
                 <div className="container mx-auto px-4">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                    <h2
                         className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16"
                     >
                         Why{' '}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
                             Choose Web Briks?
                         </span>
-                    </motion.h2>
+                    </h2>
 
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
+                    <div
                         className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
                     >
-                        <motion.figure
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            viewport={{ once: true }}
+                        <figure
                             className="relative aspect-square rounded-2xl overflow-hidden"
                         >
                             <Image
@@ -251,13 +211,9 @@ export default function ImageEditingTrialPage() {
                                 loading="lazy"
                                 className="object-cover rounded-2xl"
                             />
-                        </motion.figure>
+                        </figure>
 
-                        <motion.div
-                            initial={{ opacity: 0, x: 40 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                            viewport={{ once: true }}
+                        <div
                             className="space-y-5 text-gray-700 max-w-lg mx-auto"
                         >
                             {[
@@ -291,25 +247,17 @@ export default function ImageEditingTrialPage() {
                                     <p className="ml-3 text-lg">{item}</p>
                                 </div>
                             ))}
-                        </motion.div>
-                    </motion.div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section className="py-16 md:py-24 bg-white">
                 <div className="container mx-auto px-4">
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, staggerChildren: 0.2 }}
+                    <div
                         className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
                     >
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
+                        <div
                             className="group"
                         >
                             <div className="border rounded-2xl p-6 shadow space-y-4 md:space-y-6">
@@ -367,13 +315,9 @@ export default function ImageEditingTrialPage() {
                                     </p>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
+                        <div
                             className="group"
                         >
                             <div className="border rounded-2xl p-6 shadow space-y-4 md:space-y-6">
@@ -432,18 +376,14 @@ export default function ImageEditingTrialPage() {
                                     </p>
                                 </div>
                             </div>
-                        </motion.div>
-                    </motion.div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-gray-100">
                 <div className="container mx-auto px-4">
-                    <motion.div
-                        initial={{ opacity: 0, y: 40 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
+                    <div
                         className="max-w-4xl mx-auto text-center"
                     >
                         <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
@@ -464,7 +404,7 @@ export default function ImageEditingTrialPage() {
                             <ClipboardList className="w-5 h-5 mr-2" />
                             <span>Get My Free Edits</span>
                         </button>
-                    </motion.div>
+                    </div>
                 </div>
             </section>
         </section>

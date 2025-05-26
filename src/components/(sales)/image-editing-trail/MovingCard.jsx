@@ -98,7 +98,7 @@ export const MovingCard = ({
                             <div className="flex items-center justify-between gap-6">
                                 <div className="flex items-center gap-4">
                                     {t.image ? (
-                                        <figure className="relative">
+                                        <div className="relative">
                                             <Image
                                                 src={t.image}
                                                 alt="Testimonial image"
@@ -107,7 +107,7 @@ export const MovingCard = ({
                                                 loading="lazy"
                                                 className="rounded-full ring-2 ring-orange-500 ring-offset-2"
                                             />
-                                        </figure>
+                                        </div>
                                     ) : (
                                         <div className="w-16 h-16 rounded-full bg-green-500 font-sans flex items-center justify-center text-2xl font-semibold ring-2 ring-orange-500 ring-offset-2">
                                             <span className="text-white">
@@ -121,16 +121,17 @@ export const MovingCard = ({
                                             {t.name}
                                         </h4>
                                         <div className="flex items-center gap-2">
-                                            <figure className="relative">
+                                            <div className="relative">
                                                 <Image
                                                     src={t.flag}
                                                     alt="Testimonial image"
                                                     width={24}
                                                     height={24}
                                                     loading="lazy"
+                                                    decoding='async'
                                                     className="border"
                                                 />
-                                            </figure>
+                                            </div>
 
                                             <h6>{t.country}</h6>
                                         </div>

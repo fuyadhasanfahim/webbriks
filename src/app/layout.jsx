@@ -26,6 +26,7 @@ export default function MyFunc({ children }) {
                     type="image/png"
                     href="https://iili.io/dj5tSSf.png"
                 />
+                <link rel="preconnect" href="https://img.youtube.com" />
                 <meta
                     name="google-site-verification"
                     content="fgq5zV3jb6OmFw6VzCx-sNQZT64LzgfYu4Qgi9nX6U0"
