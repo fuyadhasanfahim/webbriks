@@ -9,14 +9,14 @@ export default function MainLayout({ children }) {
 
             const visitorData = {
                 event: 'trackVisitors',
-                first_name: user?.firstName || 'Guest',
-                last_name: user?.lastName || '',
-                email: user?.email || '',
-                phone: user?.phone || '',
-                city: user?.city || '',
-                state: user?.state || '',
-                zip: user?.zip || '',
-                country: user?.country || '',
+                first_name: '',
+                last_name: '',
+                email: '',
+                phone: '',
+                city: '',
+                state: '',
+                zip: '',
+                country: '',
             };
 
             window.dataLayer.push(visitorData);
