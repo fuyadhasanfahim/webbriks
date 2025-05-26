@@ -93,10 +93,7 @@ export const MovingCard = ({
                 )}
             >
                 {items.map((t, index) => (
-                    <div
-                        key={index}
-                        className="group max-w-md w-full"
-                    >
+                    <div key={index} className="group max-w-md w-full">
                         <div className="border rounded-2xl p-6 shadow space-y-4 md:space-y-6">
                             <div className="flex items-center justify-between gap-6">
                                 <div className="flex items-center gap-4">
@@ -107,7 +104,7 @@ export const MovingCard = ({
                                                 alt="Testimonial image"
                                                 width={64}
                                                 height={64}
-                                                priority
+                                                loading="lazy"
                                                 className="rounded-full ring-2 ring-orange-500 ring-offset-2"
                                             />
                                         </figure>
@@ -130,7 +127,7 @@ export const MovingCard = ({
                                                     alt="Testimonial image"
                                                     width={24}
                                                     height={24}
-                                                    priority
+                                                    loading="lazy"
                                                     className="border"
                                                 />
                                             </figure>

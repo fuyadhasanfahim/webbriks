@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import PopupModal from '@/components/(sales)/image-editing-trail/modal';
 import { MovingCard } from '@/components/(sales)/image-editing-trail/MovingCard';
 import ReactCompareImage from 'react-compare-image';
+import YoutubeLite from '@/components/(sales)/image-editing-trail/YoutubeLite';
 
 const testimonials = [
     {
@@ -93,7 +94,8 @@ export default function ImageEditingTrialPage() {
                         >
                             <div className="absolute -top-6 -left-6 w-full h-full rounded-2xl border-2 border-orange-500/30 z-0"></div>
                             <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video">
-                                <iframe
+                                <YoutubeLite videoId="gR5GZFgC314" />
+                                {/* <iframe
                                     width="100%"
                                     height="100%"
                                     src="https://www.youtube.com/embed/gR5GZFgC314?si=z2ibcbFqDtJdL2Fv"
@@ -104,7 +106,7 @@ export default function ImageEditingTrialPage() {
                                     allowFullScreen
                                     loading="lazy"
                                     className="rounded-2xl"
-                                ></iframe>
+                                ></iframe> */}
                             </div>
                         </motion.div>
                     </div>
@@ -127,24 +129,22 @@ export default function ImageEditingTrialPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.4 }}
-                        className="flex justify-center pt-16"
+                        className="flex flex-col justify-center pt-16 text-center"
                     >
-                        <div className="text-center">
-                            <h4 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
-                                Want this kind of result?
-                            </h4>
-                            <button
-                                className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center mx-auto"
-                                onClick={() =>
-                                    document
-                                        .getElementById('my_modal_3')
-                                        .showModal()
-                                }
-                            >
-                                <ClipboardList className="w-5 h-5 mr-2" />
-                                <span>Get My Free Edits</span>
-                            </button>
-                        </div>
+                        <h4 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
+                            Want this kind of result?
+                        </h4>
+                        <button
+                            className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center mx-auto"
+                            onClick={() =>
+                                document
+                                    .getElementById('my_modal_3')
+                                    .showModal()
+                            }
+                        >
+                            <ClipboardList className="w-5 h-5 mr-2" />
+                            <span>Get My Free Edits</span>
+                        </button>
                     </motion.div>
                 </div>
             </section>
@@ -255,10 +255,10 @@ export default function ImageEditingTrialPage() {
                             className="relative aspect-square rounded-2xl overflow-hidden"
                         >
                             <Image
-                                src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1746764351/bqmbaxmxcvyacj483lbz.jpg"
+                                src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1748235825/mc5dxbuxvjhmvmviltdf.jpg"
                                 alt="Photo editing example"
                                 fill
-                                priority
+                                loading="lazy"
                                 className="object-cover rounded-2xl"
                             />
                         </motion.figure>
