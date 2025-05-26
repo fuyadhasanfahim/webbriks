@@ -21,6 +21,18 @@ export default function PopupModal() {
     };
 
     const onSubmit = async (data) => {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: 'image-editing-trial',
+            name: data.name,
+            email: data.email,
+            phone: data.phone || '',
+            website: data.website,
+            message: data.message,
+            driveLink: data.driveLink || '',
+            fileCount: files.length,
+        });
+
         const formData = new FormData();
         formData.append('name', data.name);
         formData.append('email', data.email);
@@ -69,7 +81,10 @@ export default function PopupModal() {
                     </form>
 
                     <div className="mt-6">
-                        <form onSubmit={handleSubmit(onSubmit)} id='free-trial-form'>
+                        <form
+                            onSubmit={handleSubmit(onSubmit)}
+                            id="free-trial-form"
+                        >
                             <div className="grid grid-cols-2 items-center gap-6">
                                 <div className="col-span-2">
                                     <div className="w-full h-36 p-3 border-dashed border-2 border-gray-300 rounded-lg flex justify-center items-center text-center bg-gray-50 hover:bg-gray-100 transition-colors relative">
