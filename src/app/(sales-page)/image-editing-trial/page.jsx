@@ -97,21 +97,7 @@ export default function ImageEditingTrialPage() {
                             className="relative"
                         >
                             <div className="absolute -top-6 -left-6 w-full h-full rounded-2xl border-2 border-orange-500/30 z-0"></div>
-                            <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video">
                                 <YoutubeLite videoId="gR5GZFgC314" />
-                                {/* <iframe
-                                    width="100%"
-                                    height="100%"
-                                    src="https://www.youtube.com/embed/gR5GZFgC314?si=z2ibcbFqDtJdL2Fv"
-                                    title="YouTube video player"
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerPolicy="strict-origin-when-cross-origin"
-                                    allowFullScreen
-                                    loading="lazy"
-                                    className="rounded-2xl"
-                                ></iframe> */}
-                            </div>
                         </motion.div>
                     </div>
                 </div>

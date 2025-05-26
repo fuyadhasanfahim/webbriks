@@ -69,7 +69,7 @@ export default function PopupModal() {
                     </form>
 
                     <div className="mt-6">
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleSubmit(onSubmit)} id='free-trial-form'>
                             <div className="grid grid-cols-2 items-center gap-6">
                                 <div className="col-span-2">
                                     <div className="w-full h-36 p-3 border-dashed border-2 border-gray-300 rounded-lg flex justify-center items-center text-center bg-gray-50 hover:bg-gray-100 transition-colors relative">
