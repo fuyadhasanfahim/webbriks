@@ -1,12 +1,16 @@
 'use client';
 
-import { ClipboardList, Quote, Star } from 'lucide-react';
+import { ClipboardList, Star } from 'lucide-react';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
 import PopupModal from '@/components/(sales)/image-editing-trail/modal';
 import { MovingCard } from '@/components/(sales)/image-editing-trail/MovingCard';
-import ReactCompareImage from 'react-compare-image';
 import YoutubeLite from '@/components/(sales)/image-editing-trail/YoutubeLite';
+
+const ReactCompareImage = dynamic(() => import('react-compare-image'), {
+    ssr: false,
+});
 
 const testimonials = [
     {
