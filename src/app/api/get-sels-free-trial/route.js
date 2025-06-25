@@ -80,7 +80,6 @@ export async function POST(req) {
             { status: 200 }
         );
     } catch (error) {
-        console.log('Mail Error:', error.message);
         return NextResponse.json(
             {
                 success: false,

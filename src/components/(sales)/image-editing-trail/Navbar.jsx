@@ -19,9 +19,12 @@ export default function ImageEditingTrailNavbar() {
 
                 <button
                     className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center"
-                    onClick={() =>
-                        document.getElementById('my_modal_3').showModal()
-                    }
+                    onClick={() => {
+                        const form = document.getElementById('trial-form');
+                        form?.scrollIntoView({
+                            behavior: 'smooth',
+                        });
+                    }}
                 >
                     <ClipboardList className="w-5 h-5 mr-2" />
                     <span>Get My Free Edits</span>

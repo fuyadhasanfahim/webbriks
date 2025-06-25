@@ -80,7 +80,7 @@ export const MovingCard = ({
         <div
             ref={containerRef}
             className={cn(
-                'scroller relative w-full z-20 max-w-[2000px] overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]',
+                'scroller relative w-full z-20 overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]',
                 className
             )}
         >

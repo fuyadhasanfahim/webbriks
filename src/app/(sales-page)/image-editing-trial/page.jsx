@@ -1,11 +1,12 @@
 'use client';
 
-import { ClipboardList, Star } from 'lucide-react';
+import { ClipboardList } from 'lucide-react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
-import PopupModal from '@/components/(sales)/image-editing-trail/modal';
 import { MovingCard } from '@/components/(sales)/image-editing-trail/MovingCard';
 import YoutubeLite from '@/components/(sales)/image-editing-trail/YoutubeLite';
+import { ImageEditingTrialData } from './data';
+import TrialForm from '@/components/(sales)/image-editing-trail/TrialForm';
 
 const ReactCompareImage = dynamic(() => import('react-compare-image'), {
     ssr: false,
@@ -41,13 +42,25 @@ const testimonials = [
         flag: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507945/qwgyu3mpmz99osqtwqjg.png',
         review: 'Great job once again. Had to have the background removed from several images - some harder than others, and they went above and beyond delivering results, that matched my branded guidelines. Would 10/10 recommend.',
     },
+    {
+        name: 'joshuaccomms',
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746508282/ozgqnyirjdqdcizqigym.webp',
+        country: 'Australia',
+        flag: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507547/qhrsen615qhstpw5vywq.png',
+        review: 'Excellent once again highly recommend. always goes above and beyond and is patient kind and polite. appreciate all the hard work and the fast turnaround - like lightning.',
+    },
+    {
+        name: 'raymes72',
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746508418/vmn8mou9ymhwxxgpa3wl.webp',
+        country: 'United States',
+        flag: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507816/umzkgugjnubwafi1ko3n.png',
+        review: 'Asad & his team members were very understanding of what I wanted to have done to some photos and was very quick in accomplishing edits and revisions. Definitely recommend his services and will be using his services again!',
+    },
 ];
 
 export default function ImageEditingTrialPage() {
     return (
         <section className="overflow-hidden">
-            <PopupModal />
-
             <section className="bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
                 <div className="container mx-auto px-4 py-20 md:py-28 lg:py-32">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -71,11 +84,13 @@ export default function ImageEditingTrialPage() {
 
                             <button
                                 className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center"
-                                onClick={() =>
-                                    document
-                                        .getElementById('my_modal_3')
-                                        .showModal()
-                                }
+                                onClick={() => {
+                                    const form =
+                                        document.getElementById('trial-form');
+                                    form?.scrollIntoView({
+                                        behavior: 'smooth',
+                                    });
+                                }}
                             >
                                 <ClipboardList className="w-5 h-5 mr-2" />
                                 <span>Get My Free Edits</span>
@@ -92,22 +107,47 @@ export default function ImageEditingTrialPage() {
 
             <section className="py-10 md:py-16 lg:py-24 bg-white">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl text-center font-bold text-gray-900 mb-6">
-                        What client says about us?
-                    </h2>
-                    <MovingCard items={testimonials} speed="slow" />
+                    <div>
+                        <h2 className="text-3xl md:text-4xl text-center font-bold text-gray-900 mb-6">
+                            What client says about us?
+                        </h2>
+                        <MovingCard items={testimonials} speed="slow" />
+                    </div>
+
+                    <div>
+                        <h2 className="text-3xl text-orange-500 md:text-4xl text-center font-bold mb-6">
+                            Our Portfolio
+                        </h2>
+                        <div className="mt-8 md:mt-12 space-y-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
+                            {ImageEditingTrialData.slice(0, 9).map(
+                                ({ before, after }, index) => (
+                                    <figure
+                                        key={index}
+                                        className="group relative overflow-hidden rounded-xl border border-black/5 h-fit"
+                                    >
+                                        <ReactCompareImage
+                                            leftImage={before}
+                                            rightImage={after}
+                                            hover={true}
+                                            leftImageLabel="Before"
+                                            rightImageLabel="After"
+                                        />
+                                    </figure>
+                                )
+                            )}
+                        </div>
+                    </div>
 
                     <div className="flex flex-col justify-center md:pt-16 text-center">
-                        <h4 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
-                            Want this kind of result?
-                        </h4>
                         <button
                             className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center mx-auto"
-                            onClick={() =>
-                                document
-                                    .getElementById('my_modal_3')
-                                    .showModal()
-                            }
+                            onClick={() => {
+                                const form =
+                                    document.getElementById('trial-form');
+                                form?.scrollIntoView({
+                                    behavior: 'smooth',
+                                });
+                            }}
                         >
                             <ClipboardList className="w-5 h-5 mr-2" />
                             <span>Get My Free Edits</span>
@@ -237,153 +277,35 @@ export default function ImageEditingTrialPage() {
                 </div>
             </section>
 
-            <section className="py-16 md:py-24 bg-white">
+            <section className="py-16 md:py-24 bg-gray-50">
                 <div className="container mx-auto px-4">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                        <div className="group">
-                            <div className="border rounded-2xl p-6 shadow space-y-4 md:space-y-6">
-                                <div className="flex items-center justify-between gap-6">
-                                    <div className="flex items-center gap-4">
-                                        <figure className="relative">
-                                            <Image
-                                                src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1746508282/ozgqnyirjdqdcizqigym.webp"
-                                                alt="Testimonial image"
-                                                width={64}
-                                                height={64}
-                                                priority
-                                                className="rounded-full ring-2 ring-orange-500 ring-offset-2"
-                                            />
-                                        </figure>
-
-                                        <div className="flex flex-col gap-1">
-                                            <h4 className="text-lg md:text-xl font-medium">
-                                                joshuaccomms
-                                            </h4>
-                                            <div className="flex items-center gap-2">
-                                                <figure className="relative">
-                                                    <Image
-                                                        src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507547/qhrsen615qhstpw5vywq.png"
-                                                        alt="Testimonial image"
-                                                        width={24}
-                                                        height={24}
-                                                        priority
-                                                        className="border"
-                                                    />
-                                                </figure>
-
-                                                <h6>Australia</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-center">
-                                        {[...Array(5)].map((_, i) => (
-                                            <Star
-                                                key={i}
-                                                className="w-4 h-4 text-yellow-400 fill-yellow-400"
-                                            />
-                                        ))}
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <p>
-                                        Excellent once again highly recommend.
-                                        always goes above and beyond and is
-                                        patient kind and polite. appreciate all
-                                        the hard work and the fast turnaround -
-                                        like lightning.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="group">
-                            <div className="border rounded-2xl p-6 shadow space-y-4 md:space-y-6">
-                                <div className="flex items-center justify-between gap-6">
-                                    <div className="flex items-center gap-4">
-                                        <figure className="relative">
-                                            <Image
-                                                src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1746508418/vmn8mou9ymhwxxgpa3wl.webp"
-                                                alt="Testimonial image"
-                                                width={64}
-                                                height={64}
-                                                priority
-                                                className="rounded-full ring-2 ring-orange-500 ring-offset-2"
-                                            />
-                                        </figure>
-
-                                        <div className="flex flex-col gap-1">
-                                            <h4 className="text-lg md:text-xl font-medium">
-                                                raymes72
-                                            </h4>
-                                            <div className="flex items-center gap-2">
-                                                <figure className="relative">
-                                                    <Image
-                                                        src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507816/umzkgugjnubwafi1ko3n.png"
-                                                        alt="Testimonial image"
-                                                        width={24}
-                                                        height={24}
-                                                        priority
-                                                        className="border"
-                                                    />
-                                                </figure>
-
-                                                <h6>United States</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-center">
-                                        {[...Array(5)].map((_, i) => (
-                                            <Star
-                                                key={i}
-                                                className="w-4 h-4 text-yellow-400 fill-yellow-400"
-                                            />
-                                        ))}
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <p>
-                                        Asad & his team members were very
-                                        understanding of what I wanted to have
-                                        done to some photos and was very quick
-                                        in accomplishing edits and revisions.
-                                        Definitely recommend his services and
-                                        will be using his services again!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
+                    <h2 className="text-3xl md:text-4xl text-center font-bold mb-6">
+                        <span className="text-orange-500">
+                            Need More Proof?
+                        </span>{' '}
+                        Here’s What We’ve Done for Others
+                    </h2>
+                    <div className="mt-8 md:mt-12 space-y-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
+                        {ImageEditingTrialData.slice(9, 19).map(
+                            ({ before, after }, index) => (
+                                <figure
+                                    key={index}
+                                    className="group relative overflow-hidden rounded-xl border border-black/5 h-fit"
+                                >
+                                    <ReactCompareImage
+                                        leftImage={before}
+                                        rightImage={after}
+                                        hover={true}
+                                        leftImageLabel="Before"
+                                        rightImageLabel="After"
+                                    />
+                                </figure>
+                            )
+                        )}
                     </div>
                 </div>
             </section>
-
-            <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-gray-100">
-                <div className="container mx-auto px-4">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                            Ready to experience professional photo editing?
-                        </h3>
-                        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                            Get started with 3 free edits today — no credit card
-                            required, no commitment.
-                        </p>
-                        <button
-                            className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center mx-auto"
-                            onClick={() =>
-                                document
-                                    .getElementById('my_modal_3')
-                                    .showModal()
-                            }
-                        >
-                            <ClipboardList className="w-5 h-5 mr-2" />
-                            <span>Get My Free Edits</span>
-                        </button>
-                    </div>
-                </div>
-            </section>
+            <TrialForm />
         </section>
     );
 }
