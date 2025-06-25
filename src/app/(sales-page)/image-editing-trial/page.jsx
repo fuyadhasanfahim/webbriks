@@ -51,13 +51,11 @@ export default function ImageEditingTrialPage() {
             <section className="bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
                 <div className="container mx-auto px-4 py-20 md:py-28 lg:py-32">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div
-                            className="relative z-10 space-y-6"
-                        >
+                        <div className="relative z-10 space-y-6">
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                                3 Free Photo Edits to Prove Our Quality —{' '}
+                                Upload 3 Photos with Instructions and{' '}
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
-                                    No Commitment
+                                    Get Free Editing
                                 </span>
                             </h1>
 
@@ -84,23 +82,22 @@ export default function ImageEditingTrialPage() {
                             </button>
                         </div>
 
-                        <div
-                            className="relative"
-                        >
+                        <div className="relative">
                             <div className="absolute -top-6 -left-6 w-full h-full rounded-2xl border-2 border-orange-500/30 z-0"></div>
-                                <YoutubeLite videoId="gR5GZFgC314" />
+                            <YoutubeLite videoId="gR5GZFgC314" />
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section className="py-16 md:py-24 bg-white">
+            <section className="py-10 md:py-16 lg:py-24 bg-white">
                 <div className="container mx-auto px-4">
+                    <h2 className="text-3xl md:text-4xl text-center font-bold text-gray-900 mb-6">
+                        What client says about us?
+                    </h2>
                     <MovingCard items={testimonials} speed="slow" />
 
-                    <div
-                        className="flex flex-col justify-center pt-16 text-center"
-                    >
+                    <div className="flex flex-col justify-center md:pt-16 text-center">
                         <h4 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
                             Want this kind of result?
                         </h4>
@@ -121,9 +118,7 @@ export default function ImageEditingTrialPage() {
 
             <section className="py-16 md:py-24 bg-gray-50">
                 <div className="container mx-auto px-4">
-                    <div
-                        className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
-                    >
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                         <div className="space-y-6">
                             <h3 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
                                 No More Guesswork.{' '}
@@ -168,9 +163,7 @@ export default function ImageEditingTrialPage() {
                             </div>
                         </div>
 
-                        <figure
-                            className="relative rounded-2xl overflow-hidden"
-                        >
+                        <figure className="relative rounded-2xl overflow-hidden">
                             <ReactCompareImage
                                 leftImage={
                                     'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746702381/gt6xyngs6eowplsorsmy.jpg'
@@ -189,21 +182,15 @@ export default function ImageEditingTrialPage() {
 
             <section className="py-16 md:py-24 bg-white">
                 <div className="container mx-auto px-4">
-                    <h2
-                        className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16"
-                    >
+                    <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
                         Why{' '}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
                             Choose Web Briks?
                         </span>
                     </h2>
 
-                    <div
-                        className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center"
-                    >
-                        <figure
-                            className="relative aspect-square rounded-2xl overflow-hidden"
-                        >
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                        <figure className="relative aspect-square rounded-2xl overflow-hidden">
                             <Image
                                 src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1748235825/mc5dxbuxvjhmvmviltdf.jpg"
                                 alt="Photo editing example"
@@ -213,9 +200,7 @@ export default function ImageEditingTrialPage() {
                             />
                         </figure>
 
-                        <div
-                            className="space-y-5 text-gray-700 max-w-lg mx-auto"
-                        >
+                        <div className="space-y-5 text-gray-700 max-w-lg mx-auto">
                             {[
                                 'Trusted photo editing partner for 60,000+ projects across the globe',
                                 'Edited over 10 million images for eCommerce brands, photographers, and agencies',
@@ -254,12 +239,8 @@ export default function ImageEditingTrialPage() {
 
             <section className="py-16 md:py-24 bg-white">
                 <div className="container mx-auto px-4">
-                    <div
-                        className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
-                    >
-                        <div
-                            className="group"
-                        >
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                        <div className="group">
                             <div className="border rounded-2xl p-6 shadow space-y-4 md:space-y-6">
                                 <div className="flex items-center justify-between gap-6">
                                     <div className="flex items-center gap-4">
@@ -317,9 +298,7 @@ export default function ImageEditingTrialPage() {
                             </div>
                         </div>
 
-                        <div
-                            className="group"
-                        >
+                        <div className="group">
                             <div className="border rounded-2xl p-6 shadow space-y-4 md:space-y-6">
                                 <div className="flex items-center justify-between gap-6">
                                     <div className="flex items-center gap-4">
@@ -383,9 +362,7 @@ export default function ImageEditingTrialPage() {
 
             <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-gray-100">
                 <div className="container mx-auto px-4">
-                    <div
-                        className="max-w-4xl mx-auto text-center"
-                    >
+                    <div className="max-w-4xl mx-auto text-center">
                         <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                             Ready to experience professional photo editing?
                         </h3>
