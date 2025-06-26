@@ -66,9 +66,9 @@ export default function ImageEditingTrialPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div className="relative z-10 space-y-6">
                             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                                Upload 3 Photos with Instructions and{' '}
+                                Upload upto 3 Photos &{' '}
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
-                                    Get Free Editing
+                                    Get Free Image Editing Service
                                 </span>
                             </h1>
 
@@ -242,14 +242,14 @@ export default function ImageEditingTrialPage() {
 
                         <div className="space-y-5 text-gray-700 max-w-lg mx-auto">
                             {[
-                                'Trusted photo editing partner for 60,000+ projects across the globe',
-                                'Edited over 10 million images for eCommerce brands, photographers, and agencies',
-                                'Powering photo workflows for top studios and fast-scaling retailers',
-                                '10+ years of experience delivering consistent, high-end results under tight deadlines',
-                                'Lightning-fast turnaround times without sacrificing quality',
-                                'Dedicated team of professional editors trained in eCommerce, fashion, product, and portrait retouching',
-                                "Flexible and scalable — from 5 images to 5,000+, we've got you covered",
-                                'Free trial available: 3 expertly edited images, 100% free with no commitment',
+                                'Successfully Completed 60000+ image editing projects.',
+                                'Successfully Delivered 10m+ images for eCommerce brands, photographers, and agencies.',
+                                'Deliver consistent, high-quality results with fast turnaround time.',
+                                '24/7 customer support ensures the best services.',
+                                'Flexible and scalable- Daily 2000+ image editing capacity.',
+                                '50+ High-skilled editing team deliver their best efforts for client satisfaction.',
+                                'We have been working in this industry for 10+ years.',
+                                '1000+ positive reviews on Fiverr, Upwork, and Google reviews ensure we can deliver precisely what the client wants.',
                             ].map((item, index) => (
                                 <div key={index} className="flex items-start">
                                     <div className="flex-shrink-0 mt-1">
