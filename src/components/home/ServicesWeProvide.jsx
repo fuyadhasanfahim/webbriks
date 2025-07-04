@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Code, Paintbrush, ImageIcon, Video } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import ReactCompareImage from 'react-compare-image';
 
 const data = [
     {
@@ -14,20 +15,20 @@ const data = [
             'Stunning visuals are essential for making a lasting impression. We specialize in photo editing solutions that breathe new life into your images.',
         images: [
             {
-                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701986/a7ed5jxnxak8loftxg1t.jpg',
-                alt: 'photo editing example 1',
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852878/axo39au7ovqhkhi5qmud.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852878/h6djvpdzpqb880zffyq7.jpg',
             },
             {
-                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701985/olhxiczax99okzqxqhka.gif',
-                alt: 'photo editing example 2',
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740111189/at7rknmwk5kkbnself0u.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1740111188/llyvsjodqiu11rsp1fvm.jpg',
             },
             {
-                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701984/tdonqqtr0fbgjtkjel0y.jpg',
-                alt: 'photo editing example 3',
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739853111/vljcttvrbkx9ubyc8tvd.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1739852878/eduntw1ofiolbgnlwg7n.jpg',
             },
             {
-                src: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1737701984/bhwwtdnt1fl3pzu2minp.jpg',
-                alt: 'photo editing example 4',
+                before: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744274807/wdn8ziakqrzmsieelug5.jpg',
+                after: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1744274807/j8xn0hgtr6gqkrzk5y7u.jpg',
             },
         ],
         href: '/services/photo-editing',
@@ -202,16 +203,35 @@ export default function ServicesWeProvide() {
                                                                     'col-span-2'
                                                             )}
                                                         >
-                                                            <Image
-                                                                src={image.src}
-                                                                alt={image.alt}
-                                                                width={500}
-                                                                height={500}
-                                                                priority
-                                                                className={cn(
-                                                                    'rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 object-cover w-full h-48'
-                                                                )}
-                                                            />
+                                                            {!image.before &&
+                                                            !image.after ? (
+                                                                <Image
+                                                                    src={
+                                                                        image.src
+                                                                    }
+                                                                    alt={
+                                                                        image.alt
+                                                                    }
+                                                                    width={500}
+                                                                    height={500}
+                                                                    priority
+                                                                    className={cn(
+                                                                        'rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 object-cover w-full h-48'
+                                                                    )}
+                                                                />
+                                                            ) : (
+                                                                <ReactCompareImage
+                                                                    leftImage={
+                                                                        image.before
+                                                                    }
+                                                                    rightImage={
+                                                                        image.after
+                                                                    }
+                                                                    hover={true}
+                                                                    leftImageLabel="Before"
+                                                                    rightImageLabel="After"
+                                                                />
+                                                            )}
                                                         </motion.div>
                                                     )
                                                 )}

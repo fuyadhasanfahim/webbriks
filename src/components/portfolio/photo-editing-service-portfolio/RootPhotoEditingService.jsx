@@ -6,7 +6,7 @@ import { photoEditingPortfolioData } from './data';
 
 const RootPhotoEditingService = () => {
     return (
-        <section className="padding-x padding-y bg-white">
+        <section className="padding-x padding-y bg-gray-200">
             <div className="container">
                 <h2 className="heading-one text-center">
                     Our Photo Editing Portfolio
