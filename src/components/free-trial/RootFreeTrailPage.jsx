@@ -47,8 +47,8 @@ export default function RootFreeTrailPage() {
                 file.type === 'application/zip'
         );
 
-        if (validFiles.length > 5) {
-            toast.error('You can upload up to 5 files only.');
+        if (validFiles.length > 3) {
+            toast.error('You can upload up to 3 files only.');
         } else {
             setFormData((prevFormData) => ({
                 ...prevFormData,
@@ -201,7 +201,7 @@ export default function RootFreeTrailPage() {
                                 className="mx-auto"
                             />
                             <p className="text-green-600 font-semibold mt-2">
-                                Upload up to 5 files
+                                Upload up to 3 files
                             </p>
                             <p className="text-gray-600 text-sm">
                                 or drag and drop
