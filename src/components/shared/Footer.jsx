@@ -197,6 +197,20 @@ export default function Footer() {
                                     </address>
                                 </div>
                             </div>
+                            <div className="flex items-start gap-3">
+                                <span className="inline-grid h-9 w-9 place-items-center rounded-lg bg-zinc-800 text-orange-500">
+                                    <MapPin className="h-4 w-4" />
+                                </span>
+                                <div className="min-w-0">
+                                    <p className="text-xs uppercase tracking-wide text-zinc-500">
+                                        Address — Gaibandha
+                                    </p>
+                                    <address className="not-italic text-sm text-zinc-300">
+                                        House: 106, 1/1 ZigZag Road, Gaibandha
+                                        5700
+                                    </address>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
