@@ -9,7 +9,7 @@ export default function ImageEditingTrailNavbar() {
             <div className="container mx-auto px-4 flex items-center justify-between">
                 <a href="/" className="text-xl font-bold text-primary">
                     <Image
-                        src="https://iili.io/2TW5PLb.png"
+                        src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1755954483/mqontecf1xao7znsh6cx.png"
                         alt="webbriks"
                         width={171}
                         height={30}

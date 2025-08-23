@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import Image from 'next/legacy/image';
+import { Mail, MapPin, Phone } from 'lucide-react';
 
 const paymentMethods = [
     { name: 'Visa', src: 'https://iili.io/dsIkOsR.png' },
@@ -36,36 +36,6 @@ export default function Footer() {
         <footer className="bg-black text-white pt-16 pb-8">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                    {/* <div className="space-y-4">
-                        <h3 className="text-xl font-bold text-orange-500 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-orange-500">
-                            Our Other Consern
-                        </h3>
-                        <p className="text-gray-300 leading-relaxed">
-                            We offer a range of services to help your business
-                            succeed, from design and development to digital
-                            marketing and more.
-                        </p>
-
-                        <div className="flex gap-4 mt-6">
-                            <Link
-                                href="https://www.facebook.com/webbriks"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 border-2 border-orange-500 rounded-full flex items-center justify-center group hover:bg-orange-500 transition-all duration-300"
-                            >
-                                <FaFacebookF className="text-xl text-orange-500 group-hover:text-white transition-colors" />
-                            </Link>
-                            <Link
-                                href="https://www.linkedin.com/company/webbriks"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 border-2 border-orange-500 rounded-full flex items-center justify-center group hover:bg-orange-500 transition-all duration-300"
-                            >
-                                <FaLinkedinIn className="text-xl text-orange-500 group-hover:text-white transition-colors" />
-                            </Link>
-                        </div>
-                    </div> */}
-
                     <div className="space-y-4">
                         <h3 className="text-xl font-bold text-orange-500 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-orange-500">
                             Our Sister Concern
@@ -158,30 +128,75 @@ export default function Footer() {
                         <h3 className="text-xl font-bold text-orange-500 relative after:content-[''] after:absolute after:-bottom-2 after:left-0 after:w-12 after:h-0.5 after:bg-orange-500">
                             Contact Us
                         </h3>
-                        <div className="space-y-3">
-                            <p className="text-gray-300 flex items-start">
-                                <span className="mr-2">📧</span>
-                                <a
-                                    href="mailto:info@webbriks.com"
-                                    className="text-orange-500 hover:underline"
-                                >
-                                    info@webbriks.com
-                                </a>
-                            </p>
-                            <p className="text-gray-300 flex items-start">
-                                <span className="mr-2">📞</span>
-                                <a
-                                    href="tel:+17185771232"
-                                    className="text-orange-500 hover:underline"
-                                >
-                                    +1 718 577 1232
-                                </a>
-                            </p>
-                            <p className="text-gray-300 flex items-start">
-                                <span className="mr-2">📍</span>
-                                Web briks, LLC. 1209, Mountain Road PL NE, STE
-                                R, ALBUQUERQUE, NM, 87110, US.
-                            </p>
+                        <div className="rounded-xl bg-zinc-900 space-y-4">
+                            {/* Email */}
+                            <div className="flex items-start gap-3 group">
+                                <span className="inline-grid h-9 w-9 place-items-center rounded-lg bg-zinc-800 text-orange-500">
+                                    <Mail className="h-4 w-4" />
+                                </span>
+                                <div>
+                                    <p className="text-xs uppercase tracking-wide text-zinc-500">
+                                        Email
+                                    </p>
+                                    <a
+                                        href="mailto:info@webbriks.com"
+                                        className="text-sm font-medium text-orange-500 hover:underline"
+                                    >
+                                        info@webbriks.com
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* Phone */}
+                            <div className="flex items-start gap-3 group">
+                                <span className="inline-grid h-9 w-9 place-items-center rounded-lg bg-zinc-800 text-orange-500">
+                                    <Phone className="h-4 w-4" />
+                                </span>
+                                <div>
+                                    <p className="text-xs uppercase tracking-wide text-zinc-500">
+                                        Phone
+                                    </p>
+                                    <a
+                                        href="tel:+17185771232"
+                                        className="text-sm font-medium text-orange-500 hover:underline"
+                                    >
+                                        +1 718 577 1232
+                                    </a>
+                                </div>
+                            </div>
+
+                            {/* US Address */}
+                            <div className="flex items-start gap-3">
+                                <span className="inline-grid h-9 w-9 place-items-center rounded-lg bg-zinc-800 text-orange-500">
+                                    <MapPin className="h-4 w-4" />
+                                </span>
+                                <div className="min-w-0">
+                                    <p className="text-xs uppercase tracking-wide text-zinc-500">
+                                        Address — USA
+                                    </p>
+                                    <address className="not-italic text-sm text-zinc-300">
+                                        Web briks, LLC. 1209 Mountain Road PL
+                                        NE, STE R, Albuquerque, NM 87110, US
+                                    </address>
+                                </div>
+                            </div>
+
+                            {/* BD Address */}
+                            <div className="flex items-start gap-3">
+                                <span className="inline-grid h-9 w-9 place-items-center rounded-lg bg-zinc-800 text-orange-500">
+                                    <MapPin className="h-4 w-4" />
+                                </span>
+                                <div className="min-w-0">
+                                    <p className="text-xs uppercase tracking-wide text-zinc-500">
+                                        Address — Dhaka
+                                    </p>
+                                    <address className="not-italic text-sm text-zinc-300">
+                                        115 Senpara Parbata (3rd floor of
+                                        Sheltech Rubynur), Begum Rokeya Avenue,
+                                        Mirpur, Dhaka 1216
+                                    </address>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

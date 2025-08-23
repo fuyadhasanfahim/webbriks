@@ -22,11 +22,6 @@ export default function MyFunc({ children }) {
     return (
         <html lang="en" data-theme="light">
             <head>
-                <link
-                    rel="icon"
-                    type="image/png"
-                    href="https://iili.io/dj5tSSf.png"
-                />
                 <link rel="preconnect" href="https://img.youtube.com" />
                 <meta
                     name="google-site-verification"
