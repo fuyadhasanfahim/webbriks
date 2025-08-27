@@ -133,7 +133,7 @@ export function Navbar() {
                         Contact
                     </a>
                 </div>
- 
+
                 <div className="hidden lg:block">
                     <a
                         href="/get-quote"
