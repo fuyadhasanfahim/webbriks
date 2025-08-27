@@ -2,100 +2,246 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
-const contentVariants = {
-    hidden: { opacity: 0, y: 20 },
+const timelineVariants = {
+    hidden: { opacity: 0 },
     visible: {
         opacity: 1,
-        y: 0,
-        transition: { duration: 0.8, ease: 'easeOut', staggerChildren: 0.3 },
+        transition: { staggerChildren: 0.2 },
     },
 };
 
-const counterVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
+const timelineItemVariants = {
+    hidden: { opacity: 0, x: -30 },
     visible: {
         opacity: 1,
-        scale: 1,
+        x: 0,
         transition: { duration: 0.5, ease: 'easeOut' },
     },
 };
 
 export default function OurSuccessStories() {
     const sectionRef = useRef(null);
+    const [countersVisible, setCountersVisible] = useState(false);
 
-    // Scroll progress for the section
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ['start end', 'end start'],
     });
 
-    // Responsive Transform Animations
-    const empoweringX = useTransform(scrollYProgress, [0, 1], [-30, 50]);
-    const successStoriesX = useTransform(scrollYProgress, [0, 1], [50, -50]);
+    const empoweringX = useTransform(scrollYProgress, [0, 1], [-30, 30]);
+    const successStoriesX = useTransform(scrollYProgress, [0, 1], [30, -30]);
 
     return (
-        <section ref={sectionRef} className="bg-white overflow-hidden">
-            <div className="container pt-10 md:pt-20">
-                <div className="space-y-4 md:space-y-6">
-                    <motion.h1
-                        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight text-gray-900"
-                        style={{ x: empoweringX }}
-                    >
-                        Inspiring Progress
-                    </motion.h1>
-                    <motion.h1
-                        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight text-gray-500 pl-4 sm:pl-10 md:pl-20 lg:pl-32"
-                        style={{ x: successStoriesX }}
-                    >
-                        Achieving Excellence
-                    </motion.h1>
+        <section
+            ref={sectionRef}
+            className="bg-white overflow-hidden py-16 md:py-24"
+        >
+            <div className="container mx-auto px-4">
+                {/* Header Section - Original Title Format */}
+                <div className="mb-16">
+                    <div className="space-y-4 md:space-y-6">
+                        <motion.h1
+                            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight text-gray-900"
+                            style={{ x: empoweringX }}
+                        >
+                            Inspiring Progress
+                        </motion.h1>
+                        <motion.h1
+                            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight text-orange-500 pl-4 sm:pl-10 md:pl-20 lg:pl-32"
+                            style={{ x: successStoriesX }}
+                        >
+                            Achieving Excellence
+                        </motion.h1>
+                    </div>
                 </div>
 
-                <div className="flex flex-col md:flex-row items-center gap-12">
-                    {/* Image */}
+                {/* Content with Sticky Image */}
+                <div className="relative flex flex-col lg:flex-row gap-12 items-start">
+                    {/* Sticky Image Container */}
                     <motion.div
-                        className="flex-1"
-                        initial="hidden"
-                        whileInView="visible"
+                        className="w-full lg:w-1/2 lg:sticky lg:top-24 self-start"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
                         viewport={{ once: true, amount: 0.5 }}
-                        variants={contentVariants}
+                        transition={{ duration: 0.7 }}
                     >
                         <Image
-                            src="https://i.ibb.co.com/84jNwG8/earth.webp"
-                            alt="Earth image"
+                            src="https://i.ibb.co/84jNwG8/earth.webp"
+                            alt="Global digital services"
                             width={765}
                             height={969}
-                            className="w-full h-auto"
+                            className="w-full h-auto rounded-xl"
+                            priority
                         />
                     </motion.div>
 
-                    {/* Text and Counters */}
-                    <motion.div
-                        className="flex-1 p-4 sm:p-8 md:p-12 lg:p-16"
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.5 }}
-                        variants={contentVariants}
-                    >
-                        <motion.p
-                            className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-700 mb-12"
-                            variants={contentVariants}
+                    {/* Content */}
+                    <div className="w-full lg:w-1/2">
+                        <motion.div
+                            className="bg-orange-50 p-6 md:p-8 rounded-xl border border-orange-100"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.3 }}
+                            variants={timelineVariants}
+                            onViewportEnter={() => setCountersVisible(true)}
                         >
-                            {`In early 2018, we started our journey as a small photo editing company called "Cut Out Expert." Back then, our focus was simple—providing high-quality photo editing services to clients around the world. As more clients discovered our work, we realized there was a chance to grow and offer even more. So, we decided to take the next big step and created "Web Briks LLC." This new chapter will allow us to expand our services beyond photo editing, reaching more businesses globally.`}
-                            <br />
-                            <br />
-                            {`Our story is one of steady growth, driven by a
-                            strong dedication to quality and a passion for
-                            helping our clients succeed through outsourcing. We
-                            started small, but over time, we've grown into a
-                            company that offers many different services.`}
-                            <br />
-                            <br />
-                            {`From the beginning, we've focused on delivering high-quality solutions that adapt to our clients' changing needs. With each step forward, we've worked to improve what we do, build strong relationships, and help our clients' businesses thrive. Our journey shows that with hard work, new ideas, and always putting our clients first, we can truly make a difference.`}
-                        </motion.p>
-                    </motion.div>
+                            <h3 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b border-orange-200">
+                                From Pixels to Progress – We Build Digital
+                                Success.
+                            </h3>
+
+                            <motion.div
+                                className="relative"
+                                variants={timelineItemVariants}
+                            >
+                                <div className="flex items-start mb-8">
+                                    <div className="bg-orange-500 rounded-full p-2 flex-shrink-0 mt-1 mr-4">
+                                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-lg font-semibold text-gray-900">
+                                            2014 – A Freelancer&apos;s Vision
+                                        </h4>
+                                        <p className="text-gray-700 mt-2">
+                                            Our journey began in 2014, when our
+                                            Founder & Managing Director, Md.
+                                            Ashaduzzaman, started as a
+                                            passionate freelancer offering
+                                            professional photo editing services
+                                            to clients worldwide. With an
+                                            unwavering commitment to quality and
+                                            client satisfaction, he quickly
+                                            built a reputation for delivering
+                                            exceptional results.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start mb-8">
+                                    <div className="bg-orange-500 rounded-full p-2 flex-shrink-0 mt-1 mr-4">
+                                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-lg font-semibold text-gray-900">
+                                            2018 – The Birth of Cut Out Expert
+                                        </h4>
+                                        <p className="text-gray-700 mt-2">
+                                            As demand grew, we transformed this
+                                            one-man effort into a dedicated
+                                            company called Cut Out Expert. This
+                                            marked our first major
+                                            milestone—serving global businesses
+                                            with high-end photo editing and
+                                            retouching services, building
+                                            long-term relationships, and
+                                            becoming a trusted outsourcing
+                                            partner in the creative industry.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start mb-8">
+                                    <div className="bg-orange-500 rounded-full p-2 flex-shrink-0 mt-1 mr-4">
+                                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-lg font-semibold text-gray-900">
+                                            2023 – Expanding Horizons & The
+                                            Birth of Web Briks LLC
+                                        </h4>
+                                        <div className="space-y-2">
+                                            <p className="text-gray-700 font-semibold">
+                                                Over time, our clients needs
+                                                evolved. They sought more than
+                                                just photo editing—they wanted
+                                                complete digital solutions to
+                                                grow their businesses. To meet
+                                                this demand, we expanded our
+                                                services to include:
+                                            </p>
+                                            <ul className="list-inside list-disc space-y-2 pl-4">
+                                                <li className="text-gray-700">
+                                                    Web Design & Development –
+                                                    Modern, responsive websites
+                                                    tailored for business
+                                                    success.
+                                                </li>
+                                                <li className="text-gray-700">
+                                                    Digital Marketing – SEO,
+                                                    social media campaigns, and
+                                                    data-driven strategies to
+                                                    increase visibility.
+                                                </li>
+                                                <li className="text-gray-700">
+                                                    Video Editing & Multimedia –
+                                                    Creative content that
+                                                    engages and converts.
+                                                </li>
+                                                <li className="text-gray-700">
+                                                    Lead Generation & Business
+                                                    Support – Helping clients
+                                                    reach new markets and
+                                                    customers.
+                                                </li>
+                                            </ul>
+                                            <p className="text-gray-700">
+                                                To reflect this evolution and
+                                                operate on a truly global scale,
+                                                we founded Web Briks LLC, a
+                                                U.S.-registered company. This
+                                                new identity represents who we
+                                                are today—a full-service digital
+                                                outsourcing partner empowering
+                                                businesses worldwide with
+                                                innovative, cost-effective
+                                                solutions.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start">
+                                    <div className="bg-orange-500 rounded-full p-2 flex-shrink-0 mt-1 mr-4">
+                                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-lg font-semibold text-gray-900">
+                                            Today – A Global Partner for Digital
+                                            Growth
+                                        </h4>
+                                        <p className="text-gray-700 mt-2">
+                                            From a freelancer in 2014 to a
+                                            global service provider, Web Briks
+                                            LLC continues to grow with the same
+                                            passion, innovation, and
+                                            client-first approach that fueled
+                                            our journey from the very start.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start mt-6">
+                                    <div className="bg-orange-500 rounded-full p-2 flex-shrink-0 mt-1 mr-4">
+                                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-lg font-semibold text-gray-900">
+                                            Mission Statement:
+                                        </h4>
+                                        <p className="text-gray-700 mt-2">
+                                            To empower businesses worldwide with
+                                            innovative digital
+                                            solutions—delivering quality,
+                                            reliability, and growth through
+                                            creativity and technology.
+                                        </p>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    </div>
                 </div>
             </div>
         </section>
