@@ -80,7 +80,7 @@ export default function Stats() {
                                 delay: index * 0.1,
                             }}
                             viewport={{ once: true }}
-                            whileHover={{ scale: 1.02 }}
+                            whilehover={{ scale: 1.02 }}
                         >
                             <h2 className="lg:text-5xl md:text-4xl text-2xl font-extrabold leading-10 text-center text-gray-800">
                                 <AnimatedNumber value={stat.value} />

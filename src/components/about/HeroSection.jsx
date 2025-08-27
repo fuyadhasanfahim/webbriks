@@ -42,7 +42,7 @@ export default function HeroSection() {
                     <motion.h1
                         className="text-4xl md:text-6xl lg:text-7xl font-semibold"
                         variants={textVariants}
-                        whileHover={{
+                        whilehover={{
                             scale: 1.05,
                             transition: { duration: 0.2 },
                         }}
@@ -52,7 +52,7 @@ export default function HeroSection() {
                     <motion.h1
                         className="text-4xl md:text-6xl lg:text-7xl font-semibold text-gray-600"
                         variants={textVariants}
-                        whileHover={{
+                        whilehover={{
                             scale: 1.05,
                             color: '#000000',
                             transition: { duration: 0.2 },
@@ -60,7 +60,7 @@ export default function HeroSection() {
                     >
                         <span
                             className="text-black"
-                            whileHover={{
+                            whilehover={{
                                 rotate: 360,
                                 transition: { duration: 0.5 },
                             }}

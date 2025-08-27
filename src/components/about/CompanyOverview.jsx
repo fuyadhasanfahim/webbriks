@@ -97,7 +97,7 @@ export default function CompanyOverview() {
                     <motion.div
                         className="px-10 py-4 mx-auto text-white bg-orange-500 rounded-full cursor-pointer"
                         variants={buttonVariants}
-                        whileHover="hover"
+                        whilehover="hover"
                     >
                         <motion.a
                             href="/contact"

@@ -53,7 +53,7 @@ export default function OurExpertise() {
                         </motion.p>
                         <motion.button
                             className="bg-orange-500 text-lg text-white px-8 py-2 rounded-xl"
-                            whileHover={{
+                            whilehover={{
                                 scale: 1.1,
                                 backgroundColor: '#FF7F50',
                             }}

@@ -57,7 +57,7 @@ export default function NotFound() {
             <motion.a
                 href="/"
                 variants={itemVariants}
-                whileHover={{
+                whilehover={{
                     scale: 1.1,
                     boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.2)',
                 }}

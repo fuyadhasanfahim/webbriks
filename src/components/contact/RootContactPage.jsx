@@ -43,7 +43,7 @@ export default function RootContactPage() {
                             <motion.a
                                 href="mailto:info@webbriks.com"
                                 className="inline-block"
-                                whileHover={{ scale: 1.05 }}
+                                whilehover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
                                 <div className="mb-4 text-2xl md:text-3xl font-medium leading-snug underline">
@@ -57,7 +57,7 @@ export default function RootContactPage() {
 
                         <motion.div
                             className="px-6 py-3 md:px-10 md:py-4 text-white bg-orange-500 rounded-full cursor-pointer flex items-center justify-center w-[200px]"
-                            whileHover={{ scale: 1.05 }}
+                            whilehover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
                             <a

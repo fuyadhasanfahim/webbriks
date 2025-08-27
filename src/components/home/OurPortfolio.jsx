@@ -133,7 +133,7 @@ export default function OurPortfolio() {
                                     ? 'bg-orange-500 text-white'
                                     : 'bg-gray-100 hover:bg-gray-200 text-gray-800'
                             }`}
-                            whileHover={{ scale: 1.05 }}
+                            whilehover={{ scale: 1.05 }}
                         >
                             {service.title}
                         </motion.button>
@@ -196,7 +196,7 @@ export default function OurPortfolio() {
                             <a href={data[selectedIndex].link}>
                                 <motion.button
                                     className="flex items-center gap-2 bg-orange-500 text-white px-5 py-3 rounded-lg hover:bg-orange-600 transition-all duration-200"
-                                    whileHover={{ scale: 1.05 }}
+                                    whilehover={{ scale: 1.05 }}
                                 >
                                     <span>View More</span>
                                     <ChevronRight />

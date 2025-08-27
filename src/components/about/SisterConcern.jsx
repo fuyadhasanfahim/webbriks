@@ -63,7 +63,7 @@ const SisterConcern = () => {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7 }}
-                        whileHover={{ scale: 1.1 }}
+                        whilehover={{ scale: 1.1 }}
                     >
                         Sister Concerns
                     </motion.h2>
@@ -96,7 +96,7 @@ const SisterConcern = () => {
                         <motion.div
                             key={index}
                             variants={itemVariants}
-                            whileHover={{
+                            whilehover={{
                                 scale: 1.03,
                                 transition: { duration: 0.3 },
                             }}

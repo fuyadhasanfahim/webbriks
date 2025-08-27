@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 
 const timelineVariants = {
     hidden: { opacity: 0 },
@@ -23,15 +23,13 @@ const timelineItemVariants = {
 
 export default function OurSuccessStories() {
     const sectionRef = useRef(null);
-    const [countersVisible, setCountersVisible] = useState(false);
-
     const { scrollYProgress } = useScroll({
         target: sectionRef,
         offset: ['start end', 'end start'],
     });
 
-    const empoweringX = useTransform(scrollYProgress, [0, 1], [-30, 30]);
-    const successStoriesX = useTransform(scrollYProgress, [0, 1], [30, -30]);
+    const empoweringX = useTransform(scrollYProgress, [0, 1], [-20, 20]);
+    const successStoriesX = useTransform(scrollYProgress, [0, 1], [20, -20]);
 
     return (
         <section
@@ -68,7 +66,7 @@ export default function OurSuccessStories() {
                         transition={{ duration: 0.7 }}
                     >
                         <Image
-                            src="https://i.ibb.co/84jNwG8/earth.webp"
+                            src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1756289296/okn58rlbdofznnkrsofm.png"
                             alt="Global digital services"
                             width={765}
                             height={969}
@@ -80,12 +78,10 @@ export default function OurSuccessStories() {
                     {/* Content */}
                     <div className="w-full lg:w-1/2">
                         <motion.div
-                            className="bg-orange-50 p-6 md:p-8 rounded-xl border border-orange-100"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.3 }}
                             variants={timelineVariants}
-                            onViewportEnter={() => setCountersVisible(true)}
                         >
                             <h3 className="text-2xl font-bold text-gray-900 mb-6 pb-3 border-b border-orange-200">
                                 From Pixels to Progress – We Build Digital

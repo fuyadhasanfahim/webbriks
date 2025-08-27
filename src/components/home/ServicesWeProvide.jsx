@@ -244,7 +244,7 @@ export default function ServicesWeProvide() {
                                             </p>
                                             <motion.a
                                                 href={service.href}
-                                                whileHover={{ scale: 1.05 }}
+                                                whilehover={{ scale: 1.05 }}
                                                 whileTap={{ scale: 0.95 }}
                                                 className="inline-block bg-gradient-to-r from-orange-500 to-orange-400 text-white px-6 py-3 rounded-lg font-medium hover:shadow-lg transition-all duration-300"
                                             >

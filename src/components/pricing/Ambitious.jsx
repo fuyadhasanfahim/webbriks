@@ -59,7 +59,7 @@ export default function Ambitious() {
                         <motion.div
                             key={index}
                             className="flex-shrink-0"
-                            whileHover={{ scale: 1.1 }}
+                            whilehover={{ scale: 1.1 }}
                             transition={{ duration: 0.2 }}
                         >
                             <img
