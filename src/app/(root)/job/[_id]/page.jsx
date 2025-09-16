@@ -1,0 +1,414 @@
+'use client';
+
+import React from 'react';
+import { Building2, ArrowLeft, Send } from 'lucide-react';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { useRouter } from 'next/navigation';
+import { jobs } from '@/components/career/jobsData';
+import ApplyNowBtn from '@/components/job/ApplyNowBtn';
+
+export default function JobDetailsPage({ params }) {
+    const router = useRouter();
+    const { _id } = params;
+    const job = jobs.find((job) => job._id === _id);
+
+    if (!job) {
+        return (
+            <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+                <div className="text-center">
+                    <h1 className="text-2xl font-bold text-gray-900 mb-4">
+                        Job Not Found
+                    </h1>
+                    <button
+                        onClick={() => router.back()}
+                        className="text-orange-500 hover:text-orange-600 font-medium"
+                    >
+                        Go back to jobs
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
+    return (
+        <div className="min-h-screen bg-gray-50">
+            {/* Header Banner */}
+            <div className="bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-500 relative overflow-hidden">
+                <div className="max-w-6xl mx-auto px-6 py-12">
+                    <div className="flex flex-col md:flex-row items-center justify-between">
+                        <div className="flex-1 mb-8 md:mb-0">
+                            <motion.div
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.6 }}
+                            >
+                                <Image
+                                    src={
+                                        'https://res.cloudinary.com/dny7zfbg9/image/upload/v1757952280/dswndmppltiswsqvxd7v.png'
+                                    }
+                                    alt="Hiring Illustration"
+                                    width={320}
+                                    height={256}
+                                />
+                            </motion.div>
+                        </div>
+                        <div className="flex-1 text-center md:text-right">
+                            <motion.h1
+                                className="text-white text-4xl font-bold mb-2"
+                                initial={{ opacity: 0, y: -20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                            >
+                                We&apos;re Hiring
+                            </motion.h1>
+                            <motion.h2
+                                className="text-white text-3xl font-bold mb-8"
+                                initial={{ opacity: 0, y: -20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.4 }}
+                            >
+                                {job.title}
+                            </motion.h2>
+                            <motion.div
+                                className="inline-flex items-center gap-2 bg-white rounded-full px-6 py-3"
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.6, delay: 0.6 }}
+                            >
+                                <div className="w-6 h-6 bg-gradient-to-r from-orange-400 to-pink-400 rounded"></div>
+                                <span className="font-bold text-gray-800">
+                                    {job.company}
+                                </span>
+                            </motion.div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Back Button */}
+            <div className="max-w-6xl mx-auto px-6 py-4">
+                <motion.button
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.8 }}
+                    onClick={() => router.back()}
+                    className="flex items-center gap-2 text-gray-600 hover:text-orange-600 mb-4 group"
+                    whileHover={{ x: -5 }}
+                >
+                    <ArrowLeft
+                        size={20}
+                        className="group-hover:-translate-x-1 transition-transform"
+                    />
+                    Back to Jobs
+                </motion.button>
+            </div>
+
+            {/* Main Content */}
+            <div className="max-w-6xl mx-auto px-6 pb-12">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {/* Left Sidebar */}
+                    <div className="lg:col-span-1">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.3 }}
+                            className="bg-white rounded-lg p-6 shadow-sm border sticky top-6"
+                        >
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="w-12 h-12 bg-gradient-to-r from-orange-400 to-pink-400 rounded-lg flex items-center justify-center">
+                                    <span className="text-white font-bold">
+                                        {job.company.charAt(0)}
+                                    </span>
+                                </div>
+                                <div>
+                                    <h3 className="font-bold text-gray-900">
+                                        {job.company}
+                                    </h3>
+                                    <p className="text-sm text-gray-500">
+                                        {job.location}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="space-y-4">
+                                <div>
+                                    <label className="text-sm font-medium text-gray-600">
+                                        Job Title
+                                    </label>
+                                    <p className="text-gray-900">{job.title}</p>
+                                </div>
+
+                                <div>
+                                    <label className="text-sm font-medium text-gray-600">
+                                        Experience
+                                    </label>
+                                    <p className="text-gray-900">
+                                        {job.experience}
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <label className="text-sm font-medium text-gray-600">
+                                        Vacancies
+                                    </label>
+                                    <p className="text-gray-900">
+                                        {job.vacancies}
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <label className="text-sm font-medium text-gray-600">
+                                        Salary
+                                    </label>
+                                    <p className="text-gray-900">
+                                        {job.salary}
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <label className="text-sm font-medium text-gray-600">
+                                        Office time
+                                    </label>
+                                    <p className="text-gray-900">
+                                        {job.employmentStatus}
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <label className="text-sm font-medium text-gray-600">
+                                        Location
+                                    </label>
+                                    <p className="text-gray-900">
+                                        {job.location}
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <label className="text-sm font-medium text-gray-600">
+                                        Job Type
+                                    </label>
+                                    <p className="text-gray-900">
+                                        Permanent{' '}
+                                        <span className="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs ml-2">
+                                            {job.workplace}
+                                        </span>
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <label className="text-sm font-medium text-gray-600">
+                                        Deadline
+                                    </label>
+                                    <p className="text-gray-900">
+                                        {job.datePosted}
+                                    </p>
+                                </div>
+
+                                {job.notes && (
+                                    <div>
+                                        <label className="text-sm font-medium text-gray-600">
+                                            Notes
+                                        </label>
+                                        <p className="text-gray-900">
+                                            {job.notes}
+                                        </p>
+                                    </div>
+                                )}
+                            </div>
+
+                            <ApplyNowBtn job={job} />
+                        </motion.div>
+                    </div>
+
+                    {/* Main Content */}
+                    <div className="lg:col-span-2">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.5 }}
+                            className="bg-white rounded-lg p-8 shadow-sm border"
+                        >
+                            {/* Company Description */}
+                            <div className="mb-8">
+                                <div className="flex items-center gap-2 mb-4">
+                                    <Building2
+                                        className="text-orange-500"
+                                        size={20}
+                                    />
+                                    <h2 className="text-xl font-bold text-gray-900">
+                                        Company Description
+                                    </h2>
+                                </div>
+                                <p className="text-gray-700 leading-relaxed">
+                                    <strong>{job.company}</strong> is a beacon
+                                    of innovation and the dynamic parent company
+                                    of WIDMorgan and many other subsidiaries.
+                                    With a diverse portfolio of brands, we are
+                                    committed to enriching our customers&apos;
+                                    experience to nation growth vision millions
+                                    growth locally and globally.
+                                </p>
+                            </div>
+
+                            {/* About You Section - Only for Content Marketing role */}
+                            {job.aboutYou && (
+                                <div className="mb-8">
+                                    <div className="flex items-center gap-2 mb-4">
+                                        <span className="text-xl">👤</span>
+                                        <h2 className="text-xl font-bold text-gray-900">
+                                            About You
+                                        </h2>
+                                    </div>
+                                    <ul className="space-y-3">
+                                        {job.aboutYou.map((item, index) => (
+                                            <li
+                                                key={index}
+                                                className="flex items-start gap-2"
+                                            >
+                                                <span className="text-orange-500 mt-2">
+                                                    •
+                                                </span>
+                                                <span
+                                                    className="text-gray-700"
+                                                    dangerouslySetInnerHTML={{
+                                                        __html: item,
+                                                    }}
+                                                />
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+
+                            {/* Responsibilities */}
+                            <div className="mb-8">
+                                <div className="flex items-center gap-2 mb-4">
+                                    <span className="text-xl">👨‍💼</span>
+                                    <h2 className="text-xl font-bold text-gray-900">
+                                        As {job.title.split('(')[0]}, You Will:
+                                    </h2>
+                                </div>
+                                <ul className="space-y-3">
+                                    {job.responsibilities.map((item, index) => (
+                                        <li
+                                            key={index}
+                                            className="flex items-start gap-2"
+                                        >
+                                            <span className="text-orange-500 mt-2">
+                                                •
+                                            </span>
+                                            <span className="text-gray-700">
+                                                {item}
+                                            </span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {/* Skills & Experience */}
+                            <div className="mb-8">
+                                <div className="flex items-center gap-2 mb-4">
+                                    <span className="text-xl">💡</span>
+                                    <h2 className="text-xl font-bold text-gray-900">
+                                        Skills & Experience That You Should
+                                        Have:
+                                    </h2>
+                                </div>
+                                <ul className="space-y-3">
+                                    {job.requirements.map((item, index) => (
+                                        <li
+                                            key={index}
+                                            className="flex items-start gap-2"
+                                        >
+                                            <span className="text-orange-500 mt-2">
+                                                •
+                                            </span>
+                                            <span className="text-gray-700">
+                                                {item}
+                                            </span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {/* Bonus Points - Only for Content Marketing role */}
+                            {job.bonusPoints && (
+                                <div className="mb-8">
+                                    <div className="flex items-center gap-2 mb-4">
+                                        <span className="text-xl">🎯</span>
+                                        <h2 className="text-xl font-bold text-gray-900">
+                                            Bonus Points If You Have:
+                                        </h2>
+                                    </div>
+                                    <ul className="space-y-3">
+                                        {job.bonusPoints.map((item, index) => (
+                                            <li
+                                                key={index}
+                                                className="flex items-start gap-2"
+                                            >
+                                                <span className="text-orange-500 mt-2">
+                                                    •
+                                                </span>
+                                                <span className="text-gray-700">
+                                                    {item}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            )}
+
+                            {/* Benefits */}
+                            <div className="mb-8">
+                                <div className="flex items-center gap-2 mb-4">
+                                    <span className="text-xl">🎁</span>
+                                    <h2 className="text-xl font-bold text-gray-900">
+                                        Benefits
+                                    </h2>
+                                </div>
+                                <h3 className="font-semibold text-gray-900 mb-4">
+                                    Perks & Benefits That You Will Get:
+                                </h3>
+                                <ul className="space-y-2 text-sm text-gray-700">
+                                    {job.compensation.map((item, index) => (
+                                        <li
+                                            key={index}
+                                            className="flex items-start gap-2"
+                                        >
+                                            <span className="text-orange-500 mt-1">
+                                                •
+                                            </span>
+                                            <span>{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {/* Apply Section */}
+                            {/* <div className="pt-6 border-t border-gray-200">
+                                <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                                    How to Apply
+                                </h3>
+                                <p className="text-gray-700 mb-4">
+                                    Send your resume to{' '}
+                                    <strong>{job.apply.email}</strong> with the
+                                    subject line:{' '}
+                                    <strong>{`"${job.apply.subject}"`}</strong>
+                                </p>
+                                <motion.button
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-lg flex items-center gap-2"
+                                >
+                                    <Send size={18} />
+                                    Apply Now
+                                </motion.button>
+                            </div> */}
+                        </motion.div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
