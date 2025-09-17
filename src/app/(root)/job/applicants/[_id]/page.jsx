@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { Loader2, FileText, Mail, Phone, User } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 export default function JobApplicantsPage() {
     const { _id } = useParams();
@@ -65,13 +66,20 @@ export default function JobApplicantsPage() {
                     <p className="text-gray-700">
                         <span className="font-semibold">Current Status:</span>{' '}
                         <span
-                            className={`px-3 py-1 rounded-full text-sm capitalize ${
-                                application.status === 'pending'
-                                    ? 'bg-yellow-50 text-yellow-600'
-                                    : application.status === 'accepted'
-                                    ? 'bg-green-50 text-green-600'
-                                    : 'bg-red-50 text-red-600'
-                            }`}
+                            className={cn(
+                                'px-3 py-1 rounded-full text-sm font-medium capitalize',
+                                application.status === 'applied'
+                                    ? 'bg-blue-100 text-blue-800 border border-blue-200'
+                                    : application.status === 'shortlisted'
+                                    ? 'bg-indigo-100 text-indigo-800 border border-indigo-200'
+                                    : application.status === 'hired'
+                                    ? 'bg-green-100 text-green-800 border border-green-200'
+                                    : application.status === 'rejected'
+                                    ? 'bg-red-100 text-red-800 border border-red-200'
+                                    : application.status === 'interview'
+                                    ? 'bg-yellow-100 text-yellow-800 border border-yellow-200'
+                                    : 'bg-gray-100 text-gray-800 border border-gray-200'
+                            )}
                         >
                             {application.status}
                         </span>
@@ -90,7 +98,7 @@ export default function JobApplicantsPage() {
                         <Phone className="w-4 h-4" /> {application.phone}
                     </p>
                     <a
-                        href={application.cvUrl}
+                        href={application.documentUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 text-blue-600 hover:underline"

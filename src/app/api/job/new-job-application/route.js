@@ -1,8 +1,8 @@
 import connectToDatabase from '@/lib/mongodb';
-import JobApplication from '@/models/JobApplication';
 import cloudinary from '@/lib/cloudinary';
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import ApplicantModel from '@/models/applicant.model';
 
 export async function POST(req) {
     try {
@@ -13,12 +13,13 @@ export async function POST(req) {
         const email = formData.get('email');
         const phone = formData.get('phone');
         const jobId = formData.get('jobId');
-        const jobTitle = formData.get('jobTitle');
-        const company = formData.get('company');
-        const hasExperience = formData.get('hasExperience') === 'true';
-        const experiences = formData.get('experiences');
         const coverLetter = formData.get('coverLetter') || '';
+        const portfolioUrl = formData.get('portfolioUrl') || '';
         const cvFile = formData.get('cv');
+
+        // Socials (optional)
+        const facebook = formData.get('facebook') || '';
+        const linkedin = formData.get('linkedin') || '';
 
         if (!cvFile) {
             return NextResponse.json(
@@ -47,7 +48,7 @@ export async function POST(req) {
 
         await connectToDatabase();
 
-        const existingApplication = await JobApplication.findOne({
+        const existingApplication = await ApplicantModel.findOne({
             email,
             jobId,
         });
@@ -73,41 +74,51 @@ export async function POST(req) {
             `data:${cvFile.type};base64,${buffer.toString('base64')}`,
             {
                 folder: `webbriks/job-applications/cvs/${firstName}_${lastName}`,
-                public_id: `${originalName}_${timestamp}.${fileExtension}`, // Includes extension
+                public_id: `${originalName}_${timestamp}.${fileExtension}`,
                 resource_type: 'raw',
                 use_filename: true,
                 unique_filename: false,
-                ty // Set to false to use your custom public_id
             }
         );
 
         // Parse experiences
-        let parsedExperiences = [];
-        if (hasExperience && experiences) {
+        let experiences = [];
+        const experiencesData = formData.get('experiences');
+        if (experiencesData) {
             try {
-                parsedExperiences = JSON.parse(experiences);
+                experiences = JSON.parse(experiencesData);
             } catch (err) {
                 console.error('Error parsing experiences:', err);
             }
         }
 
-        // Save to DB
-        const jobApplication = new JobApplication({
+        // Save to DB using ApplicantModel
+        const applicant = new ApplicantModel({
+            jobId,
             firstName,
             lastName,
             email,
             phone,
-            jobId,
-            jobTitle,
-            company,
-            cvUrl: cloudinaryResult.secure_url,
-            cvPublicId: cloudinaryResult.public_id,
-            hasExperience,
-            experiences: parsedExperiences,
+            documentUrl: cloudinaryResult.secure_url,
+            documentPublicID: cloudinaryResult.public_id,
             coverLetter,
+            portfolioUrl,
+            socials: {
+                facebook: facebook || undefined,
+                linkedin: linkedin || undefined,
+            },
+            experience: experiences.map((exp) => ({
+                company: exp.company,
+                role: exp.position,
+                startDate: exp.startDate,
+                endDate: exp.currentlyWorking ? undefined : exp.endDate,
+                currentlyWorking: exp.currentlyWorking,
+                description: exp.description,
+            })),
+            status: 'applied',
         });
 
-        const savedApplication = await jobApplication.save();
+        const savedApplicant = await applicant.save();
 
         // Email transporter
         const transporter = nodemailer.createTransport({
@@ -118,6 +129,10 @@ export async function POST(req) {
                 pass: process.env.EMAIL_PASS,
             },
         });
+
+        // Get job details for email
+        const jobTitle = formData.get('jobTitle');
+        const company = formData.get('company');
 
         // --- ADMIN EMAIL ---
         const adminMailOptions = {
@@ -131,13 +146,10 @@ export async function POST(req) {
                 <p><strong>Phone:</strong> ${phone}</p>
                 <p><strong>Position:</strong> ${jobTitle} (${jobId})</p>
                 <p><strong>Company:</strong> ${company}</p>
-                <p><strong>Has Experience:</strong> ${
-                    hasExperience ? 'Yes' : 'No'
-                }</p>
                 ${
-                    hasExperience
+                    experiences.length > 0
                         ? `<pre><strong>Experiences:</strong> ${JSON.stringify(
-                              parsedExperiences,
+                              experiences,
                               null,
                               2
                           )}</pre>`
@@ -149,11 +161,11 @@ export async function POST(req) {
                     cloudinaryResult.secure_url
                 }">📎 Download CV</a></p>
                 <hr />
-                <p>Submitted at: ${savedApplication.appliedAt}</p>
+                <p>Submitted at: ${savedApplicant.createdAt}</p>
             `,
         };
 
-        const applicationLink = `${process.env.NEXT_PUBLIC_APP_URL}/job/applicants/${savedApplication._id}`;
+        const applicationLink = `${process.env.NEXT_PUBLIC_APP_URL}/job/applicants/${savedApplicant._id}`;
         const userMailOptions = {
             from: `"${company} Careers" <${process.env.EMAIL_USER}>`,
             to: email,
@@ -163,7 +175,7 @@ export async function POST(req) {
                 <p>We have received your application for the position of <strong>${jobTitle}</strong> at <strong>${company}</strong>.</p>
                 <p>You can track your application status anytime here:</p>
                 <p><a href="${applicationLink}" style="color:#2563eb; text-decoration:underline;">View Application</a></p>
-                <p>Application Number: <strong>${savedApplication._id
+                <p>Application Number: <strong>${savedApplicant._id
                     .toString()
                     .slice(-8)
                     .toUpperCase()}</strong></p>
@@ -181,13 +193,13 @@ export async function POST(req) {
                 success: true,
                 message: 'Job application submitted successfully',
                 data: {
-                    id: savedApplication._id,
-                    applicationNumber: savedApplication._id
+                    id: savedApplicant._id,
+                    applicationNumber: savedApplicant._id
                         .toString()
                         .slice(-8)
                         .toUpperCase(),
-                    appliedAt: savedApplication.appliedAt,
-                    status: savedApplication.status,
+                    appliedAt: savedApplicant.createdAt,
+                    status: savedApplicant.status,
                 },
             },
             { status: 201 }

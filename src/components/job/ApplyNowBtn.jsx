@@ -15,6 +15,9 @@ import {
     Briefcase,
     Send,
     AlertCircle,
+    Link,
+    Facebook,
+    Linkedin,
 } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { DayPicker } from 'react-day-picker';
@@ -32,6 +35,9 @@ export default function ApplyNowBtn({ job }) {
         phone: '',
         cv: null,
         coverLetter: '',
+        portfolioUrl: '',
+        facebook: '',
+        linkedin: '',
         experiences: [
             {
                 company: '',
@@ -54,6 +60,9 @@ export default function ApplyNowBtn({ job }) {
             phone: '',
             cv: null,
             coverLetter: '',
+            portfolioUrl: '',
+            facebook: '',
+            linkedin: '',
             experiences: [
                 {
                     company: '',
@@ -146,7 +155,7 @@ export default function ApplyNowBtn({ job }) {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Prevent default form submission
+        e.preventDefault();
 
         try {
             setIsSubmitting(true);
@@ -162,9 +171,14 @@ export default function ApplyNowBtn({ job }) {
             submitData.append('company', job.company);
             submitData.append('hasExperience', hasExperience);
             submitData.append('coverLetter', formData.coverLetter || '');
+            submitData.append('portfolioUrl', formData.portfolioUrl || '');
+            submitData.append('facebook', formData.facebook || '');
+            submitData.append('linkedin', formData.linkedin || '');
 
             if (!formData.cv) {
-                toast.error('Upload your cv. This is required.');
+                toast.error('Upload your CV. This is required.');
+                setIsSubmitting(false);
+                return;
             }
 
             if (formData.cv) {
@@ -197,17 +211,14 @@ export default function ApplyNowBtn({ job }) {
             const result = await response.json();
 
             if (!response.ok) {
-                throw new Error(
+                toast.error(
                     result.message || 'Something went wrong. Try again later.'
                 );
+                return;
             }
 
-            toast.success(
-                result.message || 'Application submitted successfully!'
-            );
-
+            toast.success('Application submitted successfully!');
             closeModal();
-
             router.push('/job/success');
         } catch (error) {
             toast.error(
@@ -221,7 +232,6 @@ export default function ApplyNowBtn({ job }) {
     const handleExperienceSelection = (hasExp) => {
         setHasExperience(hasExp);
         if (!hasExp) {
-            // Reset experiences when user selects "No experience"
             setFormData((prev) => ({
                 ...prev,
                 experiences: [
@@ -238,7 +248,6 @@ export default function ApplyNowBtn({ job }) {
         }
     };
 
-    // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -358,54 +367,7 @@ export default function ApplyNowBtn({ job }) {
                                         </motion.button>
                                     </div>
                                 </motion.div>
-                            ) : hasExperience === false ? (
-                                // Show message for users without experience
-                                <motion.div
-                                    key="no-experience-message"
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.9 }}
-                                    transition={{ duration: 0.3 }}
-                                    className="text-center py-8"
-                                >
-                                    <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <AlertCircle
-                                            className="text-red-500"
-                                            size={28}
-                                        />
-                                    </div>
-                                    <h4 className="text-lg font-semibold mb-4 text-gray-800">
-                                        Experience Required
-                                    </h4>
-                                    <p className="text-gray-600 mb-6 max-w-md mx-auto">
-                                        Unfortunately, this position requires
-                                        relevant work experience. We encourage
-                                        you to gain some experience and apply to
-                                        similar positions in the future.
-                                    </p>
-                                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                        <motion.button
-                                            whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
-                                            onClick={() =>
-                                                setHasExperience(null)
-                                            }
-                                            className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-8 py-3 rounded-xl transition-colors shadow-md"
-                                        >
-                                            Go Back
-                                        </motion.button>
-                                        <motion.button
-                                            whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
-                                            onClick={closeModal}
-                                            className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-8 py-3 rounded-xl transition-colors border border-gray-200"
-                                        >
-                                            Close
-                                        </motion.button>
-                                    </div>
-                                </motion.div>
                             ) : (
-                                // Show application form for users with experience
                                 <motion.form
                                     key="application-form"
                                     variants={containerVariants}
@@ -507,6 +469,75 @@ export default function ApplyNowBtn({ job }) {
                                         </div>
                                     </motion.div>
 
+                                    {/* Social Links */}
+                                    <motion.div
+                                        variants={itemVariants}
+                                        className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                                    >
+                                        <div>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                Facebook (Optional)
+                                            </label>
+                                            <div className="relative">
+                                                <Facebook
+                                                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                                                    size={18}
+                                                />
+                                                <input
+                                                    type="url"
+                                                    name="facebook"
+                                                    value={formData.facebook}
+                                                    onChange={handleInputChange}
+                                                    placeholder="https://facebook.com/yourprofile"
+                                                    className="pl-10 input input-bordered w-full rounded-xl py-3.5"
+                                                    disabled={isSubmitting}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                LinkedIn (Optional)
+                                            </label>
+                                            <div className="relative">
+                                                <Linkedin
+                                                    className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                                                    size={18}
+                                                />
+                                                <input
+                                                    type="url"
+                                                    name="linkedin"
+                                                    value={formData.linkedin}
+                                                    onChange={handleInputChange}
+                                                    placeholder="https://linkedin.com/in/yourprofile"
+                                                    className="pl-10 input input-bordered w-full rounded-xl py-3.5"
+                                                    disabled={isSubmitting}
+                                                />
+                                            </div>
+                                        </div>
+                                    </motion.div>
+
+                                    {/* Portfolio URL */}
+                                    <motion.div variants={itemVariants}>
+                                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                                            Portfolio URL (Optional)
+                                        </label>
+                                        <div className="relative">
+                                            <Link
+                                                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                                                size={18}
+                                            />
+                                            <input
+                                                type="url"
+                                                name="portfolioUrl"
+                                                value={formData.portfolioUrl}
+                                                onChange={handleInputChange}
+                                                placeholder="https://yourportfolio.com"
+                                                className="pl-10 input input-bordered w-full rounded-xl py-3.5"
+                                                disabled={isSubmitting}
+                                            />
+                                        </div>
+                                    </motion.div>
+
                                     {/* CV Upload */}
                                     <motion.div variants={itemVariants}>
                                         <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -569,190 +600,146 @@ export default function ApplyNowBtn({ job }) {
                                     </motion.div>
 
                                     {/* Work Experience Section */}
-                                    <motion.div
-                                        variants={itemVariants}
-                                        className="border-t pt-6"
-                                    >
-                                        <h4 className="text-lg font-semibold mb-4 flex items-center gap-2 text-gray-800">
-                                            <Calendar
-                                                className="text-orange-500"
-                                                size={22}
-                                            />
-                                            Work Experience
-                                        </h4>
+                                    {hasExperience && (
+                                        <motion.div
+                                            variants={itemVariants}
+                                            className="border-t pt-6"
+                                        >
+                                            <h4 className="text-lg font-semibold mb-4 flex items-center gap-2 text-gray-800">
+                                                <Calendar
+                                                    className="text-orange-500"
+                                                    size={22}
+                                                />
+                                                Work Experience
+                                            </h4>
 
-                                        {formData.experiences.map(
-                                            (exp, index) => (
-                                                <motion.div
-                                                    key={index}
-                                                    initial={{
-                                                        opacity: 0,
-                                                        y: 20,
-                                                    }}
-                                                    animate={{
-                                                        opacity: 1,
-                                                        y: 0,
-                                                    }}
-                                                    transition={{
-                                                        delay: index * 0.1,
-                                                    }}
-                                                    className="bg-orange-50/30 p-5 rounded-2xl mb-4 relative border border-orange-100"
-                                                >
-                                                    {formData.experiences
-                                                        .length > 1 && (
-                                                        <motion.button
-                                                            whileHover={{
-                                                                scale: isSubmitting
-                                                                    ? 1
-                                                                    : 1.1,
-                                                                color: isSubmitting
-                                                                    ? undefined
-                                                                    : '#dc2626',
-                                                            }}
-                                                            whileTap={{
-                                                                scale: isSubmitting
-                                                                    ? 1
-                                                                    : 0.9,
-                                                            }}
-                                                            type="button"
-                                                            onClick={() =>
-                                                                removeExperience(
-                                                                    index
-                                                                )
-                                                            }
-                                                            className="absolute top-4 right-4 text-orange-500 hover:text-orange-700 bg-white p-1.5 rounded-full shadow-sm"
-                                                            disabled={
-                                                                isSubmitting
-                                                            }
-                                                        >
-                                                            <Trash2 size={16} />
-                                                        </motion.button>
-                                                    )}
-
-                                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                                        <div>
-                                                            <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                                Company Name *
-                                                            </label>
-                                                            <input
-                                                                type="text"
-                                                                name="company"
-                                                                value={
-                                                                    exp.company
-                                                                }
-                                                                onChange={(e) =>
-                                                                    handleExperienceChange(
-                                                                        index,
-                                                                        e
+                                            {formData.experiences.map(
+                                                (exp, index) => (
+                                                    <motion.div
+                                                        key={index}
+                                                        initial={{
+                                                            opacity: 0,
+                                                            y: 20,
+                                                        }}
+                                                        animate={{
+                                                            opacity: 1,
+                                                            y: 0,
+                                                        }}
+                                                        transition={{
+                                                            delay: index * 0.1,
+                                                        }}
+                                                        className="bg-orange-50/30 p-5 rounded-2xl mb-4 relative border border-orange-100"
+                                                    >
+                                                        {formData.experiences
+                                                            .length > 1 && (
+                                                            <motion.button
+                                                                whileHover={{
+                                                                    scale: isSubmitting
+                                                                        ? 1
+                                                                        : 1.1,
+                                                                    color: isSubmitting
+                                                                        ? undefined
+                                                                        : '#dc2626',
+                                                                }}
+                                                                whileTap={{
+                                                                    scale: isSubmitting
+                                                                        ? 1
+                                                                        : 0.9,
+                                                                }}
+                                                                type="button"
+                                                                onClick={() =>
+                                                                    removeExperience(
+                                                                        index
                                                                     )
                                                                 }
-                                                                className="input input-bordered w-full rounded-xl py-3"
-                                                                required
+                                                                className="absolute top-4 right-4 text-orange-500 hover:text-orange-700 bg-white p-1.5 rounded-full shadow-sm"
                                                                 disabled={
                                                                     isSubmitting
                                                                 }
-                                                            />
-                                                        </div>
-                                                        <div>
-                                                            <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                                Position *
-                                                            </label>
-                                                            <input
-                                                                type="text"
-                                                                name="position"
-                                                                value={
-                                                                    exp.position
-                                                                }
-                                                                onChange={(e) =>
-                                                                    handleExperienceChange(
-                                                                        index,
-                                                                        e
-                                                                    )
-                                                                }
-                                                                className="input input-bordered w-full rounded-xl py-3"
-                                                                required
-                                                                disabled={
-                                                                    isSubmitting
-                                                                }
-                                                            />
-                                                        </div>
-                                                    </div>
+                                                            >
+                                                                <Trash2
+                                                                    size={16}
+                                                                />
+                                                            </motion.button>
+                                                        )}
 
-                                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                                                        {/* Start Date */}
-                                                        <div>
-                                                            <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                                Start Date *
-                                                            </label>
-                                                            <div className="dropdown w-full">
-                                                                <label
-                                                                    tabIndex={0}
-                                                                    className="input input-bordered w-full rounded-xl py-3 flex justify-between items-center cursor-pointer"
-                                                                >
-                                                                    <span>
-                                                                        {exp.startDate
-                                                                            ? format(
-                                                                                  exp.startDate,
-                                                                                  'PPP'
-                                                                              )
-                                                                            : 'Select start date'}
-                                                                    </span>
-                                                                    <Calendar className="w-4 h-4 opacity-70" />
+                                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                                            <div>
+                                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                                    Company Name
+                                                                    *
                                                                 </label>
-                                                                <div
-                                                                    tabIndex={0}
-                                                                    className="dropdown-content z-[999] bg-white shadow-xl rounded-xl p-2 border mt-1"
-                                                                >
-                                                                    <DayPicker
-                                                                        mode="single"
-                                                                        selected={
-                                                                            exp.startDate
-                                                                                ? new Date(
-                                                                                      exp.startDate
-                                                                                  )
-                                                                                : undefined
-                                                                        }
-                                                                        onSelect={(
-                                                                            date
-                                                                        ) =>
-                                                                            handleExperienceChange(
-                                                                                index,
-                                                                                {
-                                                                                    target: {
-                                                                                        name: 'startDate',
-                                                                                        value: new Date(
-                                                                                            date
-                                                                                        ),
-                                                                                    },
-                                                                                }
-                                                                            )
-                                                                        }
-                                                                    />
-                                                                </div>
+                                                                <input
+                                                                    type="text"
+                                                                    name="company"
+                                                                    value={
+                                                                        exp.company
+                                                                    }
+                                                                    onChange={(
+                                                                        e
+                                                                    ) =>
+                                                                        handleExperienceChange(
+                                                                            index,
+                                                                            e
+                                                                        )
+                                                                    }
+                                                                    className="input input-bordered w-full rounded-xl py-3"
+                                                                    required
+                                                                    disabled={
+                                                                        isSubmitting
+                                                                    }
+                                                                />
+                                                            </div>
+                                                            <div>
+                                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                                    Position *
+                                                                </label>
+                                                                <input
+                                                                    type="text"
+                                                                    name="position"
+                                                                    value={
+                                                                        exp.position
+                                                                    }
+                                                                    onChange={(
+                                                                        e
+                                                                    ) =>
+                                                                        handleExperienceChange(
+                                                                            index,
+                                                                            e
+                                                                        )
+                                                                    }
+                                                                    className="input input-bordered w-full rounded-xl py-3"
+                                                                    required
+                                                                    disabled={
+                                                                        isSubmitting
+                                                                    }
+                                                                />
                                                             </div>
                                                         </div>
 
-                                                        {/* End Date */}
-                                                        <div>
-                                                            <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                                End Date
-                                                            </label>
-                                                            <div className="dropdown w-full">
-                                                                <label
-                                                                    tabIndex={0}
-                                                                    className="input input-bordered w-full rounded-xl py-3 flex justify-between items-center cursor-pointer disabled:opacity-50"
-                                                                >
-                                                                    <span>
-                                                                        {exp.endDate
-                                                                            ? format(
-                                                                                  exp.endDate,
-                                                                                  'PPP'
-                                                                              )
-                                                                            : 'Select end date'}
-                                                                    </span>
-                                                                    <Calendar className="w-4 h-4 opacity-70" />
+                                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                                            {/* Start Date */}
+                                                            <div>
+                                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                                    Start Date *
                                                                 </label>
-                                                                {!exp.currentlyWorking && (
+                                                                <div className="dropdown w-full">
+                                                                    <label
+                                                                        tabIndex={
+                                                                            0
+                                                                        }
+                                                                        className="input input-bordered w-full rounded-xl py-3 flex justify-between items-center cursor-pointer"
+                                                                    >
+                                                                        <span>
+                                                                            {exp.startDate
+                                                                                ? format(
+                                                                                      exp.startDate,
+                                                                                      'PPP'
+                                                                                  )
+                                                                                : 'Select start date'}
+                                                                        </span>
+                                                                        <Calendar className="w-4 h-4 opacity-70" />
+                                                                    </label>
                                                                     <div
                                                                         tabIndex={
                                                                             0
@@ -762,9 +749,9 @@ export default function ApplyNowBtn({ job }) {
                                                                         <DayPicker
                                                                             mode="single"
                                                                             selected={
-                                                                                exp.endDate
+                                                                                exp.startDate
                                                                                     ? new Date(
-                                                                                          exp.endDate
+                                                                                          exp.startDate
                                                                                       )
                                                                                     : undefined
                                                                             }
@@ -775,96 +762,157 @@ export default function ApplyNowBtn({ job }) {
                                                                                     index,
                                                                                     {
                                                                                         target: {
-                                                                                            name: 'endDate',
-                                                                                            value: new Date(
-                                                                                                date
-                                                                                            ),
+                                                                                            name: 'startDate',
+                                                                                            value: date,
                                                                                         },
                                                                                     }
                                                                                 )
                                                                             }
                                                                         />
                                                                     </div>
-                                                                )}
+                                                                </div>
                                                             </div>
 
-                                                            {/* Checkbox */}
-                                                            <label className="flex items-center gap-2 mt-3 cursor-pointer">
-                                                                <input
-                                                                    type="checkbox"
-                                                                    name="currentlyWorking"
-                                                                    checked={
-                                                                        exp.currentlyWorking
-                                                                    }
-                                                                    onChange={(
-                                                                        e
-                                                                    ) =>
-                                                                        handleExperienceChange(
-                                                                            index,
+                                                            {/* End Date */}
+                                                            <div>
+                                                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                                    End Date
+                                                                </label>
+                                                                <div className="dropdown w-full">
+                                                                    <label
+                                                                        tabIndex={
+                                                                            0
+                                                                        }
+                                                                        className="input input-bordered w-full rounded-xl py-3 flex justify-between items-center cursor-pointer disabled:opacity-50"
+                                                                    >
+                                                                        <span>
+                                                                            {exp.endDate
+                                                                                ? format(
+                                                                                      exp.endDate,
+                                                                                      'PPP'
+                                                                                  )
+                                                                                : 'Select end date'}
+                                                                        </span>
+                                                                        <Calendar className="w-4 h-4 opacity-70" />
+                                                                    </label>
+                                                                    {!exp.currentlyWorking && (
+                                                                        <div
+                                                                            tabIndex={
+                                                                                0
+                                                                            }
+                                                                            className="dropdown-content z-[999] bg-white shadow-xl rounded-xl p-2 border mt-1"
+                                                                        >
+                                                                            <DayPicker
+                                                                                mode="single"
+                                                                                selected={
+                                                                                    exp.endDate
+                                                                                        ? new Date(
+                                                                                              exp.endDate
+                                                                                          )
+                                                                                        : undefined
+                                                                                }
+                                                                                onSelect={(
+                                                                                    date
+                                                                                ) =>
+                                                                                    handleExperienceChange(
+                                                                                        index,
+                                                                                        {
+                                                                                            target: {
+                                                                                                name: 'endDate',
+                                                                                                value: date,
+                                                                                            },
+                                                                                        }
+                                                                                    )
+                                                                                }
+                                                                            />
+                                                                        </div>
+                                                                    )}
+                                                                </div>
+
+                                                                {/* Checkbox */}
+                                                                <label className="flex items-center gap-2 mt-3 cursor-pointer">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        name="currentlyWorking"
+                                                                        checked={
+                                                                            exp.currentlyWorking
+                                                                        }
+                                                                        onChange={(
                                                                             e
-                                                                        )
-                                                                    }
-                                                                    className="checkbox checkbox-sm checkbox-warning"
-                                                                    disabled={
-                                                                        isSubmitting
-                                                                    }
-                                                                />
-                                                                <span className="text-sm text-gray-700">
-                                                                    I currently
-                                                                    work here
-                                                                </span>
-                                                            </label>
+                                                                        ) =>
+                                                                            handleExperienceChange(
+                                                                                index,
+                                                                                e
+                                                                            )
+                                                                        }
+                                                                        className="checkbox checkbox-sm checkbox-warning"
+                                                                        disabled={
+                                                                            isSubmitting
+                                                                        }
+                                                                    />
+                                                                    <span className="text-sm text-gray-700">
+                                                                        I
+                                                                        currently
+                                                                        work
+                                                                        here
+                                                                    </span>
+                                                                </label>
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                    <div>
-                                                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                                                            Job Description
-                                                        </label>
-                                                        <textarea
-                                                            name="description"
-                                                            value={
-                                                                exp.description
-                                                            }
-                                                            onChange={(e) =>
-                                                                handleExperienceChange(
-                                                                    index,
-                                                                    e
-                                                                )
-                                                            }
-                                                            className="textarea textarea-bordered w-full rounded-xl"
-                                                            rows={3}
-                                                            placeholder="Describe your responsibilities and achievements..."
-                                                            disabled={
-                                                                isSubmitting
-                                                            }
-                                                        />
-                                                    </div>
-                                                </motion.div>
-                                            )
-                                        )}
+                                                        <div>
+                                                            <label className="block text-sm font-medium text-gray-700 mb-2">
+                                                                Job Description
+                                                            </label>
+                                                            <textarea
+                                                                name="description"
+                                                                value={
+                                                                    exp.description
+                                                                }
+                                                                onChange={(e) =>
+                                                                    handleExperienceChange(
+                                                                        index,
+                                                                        e
+                                                                    )
+                                                                }
+                                                                className="textarea textarea-bordered w-full rounded-xl"
+                                                                rows={3}
+                                                                placeholder="Describe your responsibilities and achievements..."
+                                                                disabled={
+                                                                    isSubmitting
+                                                                }
+                                                            />
+                                                        </div>
+                                                    </motion.div>
+                                                )
+                                            )}
 
-                                        <motion.button
-                                            type="button"
-                                            onClick={addExperience}
-                                            whileHover={{
-                                                scale: isSubmitting ? 1 : 1.05,
-                                            }}
-                                            whileTap={{
-                                                scale: isSubmitting ? 1 : 0.95,
-                                            }}
-                                            className="btn btn-outline border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white flex items-center gap-2 rounded-xl"
-                                            disabled={isSubmitting}
-                                        >
-                                            <Plus size={16} />
-                                            Add Another Experience
-                                        </motion.button>
-                                    </motion.div>
+                                            <motion.button
+                                                type="button"
+                                                onClick={addExperience}
+                                                whileHover={{
+                                                    scale: isSubmitting
+                                                        ? 1
+                                                        : 1.05,
+                                                }}
+                                                whileTap={{
+                                                    scale: isSubmitting
+                                                        ? 1
+                                                        : 0.95,
+                                                }}
+                                                className="btn btn-outline border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white flex items-center gap-2 rounded-xl"
+                                                disabled={isSubmitting}
+                                            >
+                                                <Plus size={16} />
+                                                Add Another Experience
+                                            </motion.button>
+                                        </motion.div>
+                                    )}
 
                                     {/* Cover Letter */}
                                     <motion.div variants={itemVariants}>
                                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                                            Cover Letter
+                                            Cover Letter (Optional)
                                         </label>
                                         <textarea
                                             name="coverLetter"

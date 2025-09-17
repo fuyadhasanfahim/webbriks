@@ -1,5 +1,5 @@
 import connectToDatabase from '@/lib/mongodb';
-import JobApplication from '@/models/JobApplication';
+import ApplicantModel from '@/models/applicant.model';
 import { NextResponse } from 'next/server';
 
 export async function GET(req) {
@@ -17,7 +17,7 @@ export async function GET(req) {
             );
         }
 
-        const application = await JobApplication.findById(_id).lean();
+        const application = await ApplicantModel.findById(_id).lean();
 
         if (!application) {
             return NextResponse.json(

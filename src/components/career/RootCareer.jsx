@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
     MapPin,
     Building2,
@@ -9,9 +9,12 @@ import {
     Users,
     NotepadText,
     Paperclip,
+    ChevronLeft,
+    ChevronRight,
+    Search,
+    Filter,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { jobs } from './jobsData';
 
 const JobCard = ({
     _id,
@@ -119,53 +122,64 @@ const JobCard = ({
                                 </div>
                                 <span>{vacancies} Openings</span>
                             </motion.div>
-                            <motion.div
-                                className="flex items-center gap-2"
-                                whileHover={{ scale: 1.05 }}
-                            >
-                                <div className="bg-green-100 rounded-full p-1">
-                                    <NotepadText
-                                        size={12}
-                                        className="text-cyan-600"
-                                    />
-                                </div>
-                                <span>{notes}</span>
-                            </motion.div>
+                            {notes && (
+                                <motion.div
+                                    className="flex items-center gap-2"
+                                    whileHover={{ scale: 1.05 }}
+                                >
+                                    <div className="bg-green-100 rounded-full p-1">
+                                        <NotepadText
+                                            size={12}
+                                            className="text-cyan-600"
+                                        />
+                                    </div>
+                                    <span>{notes}</span>
+                                </motion.div>
+                            )}
                         </div>
 
                         <div className="flex flex-wrap items-center gap-2">
-                            <motion.div
-                                className="text-xs text-gray-500 bg-gray-50 rounded-full px-3 py-1 inline-flex items-center gap-1"
-                                whileHover={{
-                                    backgroundColor: '#FFF7ED',
-                                    color: '#EA580C',
-                                }}
-                            >
-                                <Calendar size={12} />
-                                {salary}
-                            </motion.div>
-                            <motion.div
-                                className="text-xs text-gray-500 bg-gray-50 rounded-full px-3 py-1 inline-flex items-center gap-1"
-                                whileHover={{
-                                    backgroundColor: '#FFF7ED',
-                                    color: '#EA580C',
-                                }}
-                            >
-                                <Calendar size={12} />
-                                {employmentStatus}
-                            </motion.div>
+                            {salary && (
+                                <motion.div
+                                    className="text-xs text-gray-500 bg-gray-50 rounded-full px-3 py-1 inline-flex items-center gap-1"
+                                    whileHover={{
+                                        backgroundColor: '#FFF7ED',
+                                        color: '#EA580C',
+                                    }}
+                                >
+                                    <Calendar size={12} />
+                                    {salary}
+                                </motion.div>
+                            )}
+                            {employmentStatus && (
+                                <motion.div
+                                    className="text-xs text-gray-500 bg-gray-50 rounded-full px-3 py-1 inline-flex items-center gap-1"
+                                    whileHover={{
+                                        backgroundColor: '#FFF7ED',
+                                        color: '#EA580C',
+                                    }}
+                                >
+                                    <Calendar size={12} />
+                                    {employmentStatus}
+                                </motion.div>
+                            )}
                         </div>
                     </div>
                 </div>
 
                 <div className="text-right flex-shrink-0 flex flex-col items-end gap-4 ml-4">
-                    <motion.div
-                        className="text-sm text-gray-500 bg-gray-50 rounded-lg px-3 py-2 font-medium flex items-center gap-2"
-                        whileHover={{ backgroundColor: '#F3F4F6', scale: 1.05 }}
-                    >
-                        <Calendar size={14} />
-                        {datePosted}
-                    </motion.div>
+                    {datePosted && (
+                        <motion.div
+                            className="text-sm text-gray-500 bg-gray-50 rounded-lg px-3 py-2 font-medium flex items-center gap-2"
+                            whileHover={{
+                                backgroundColor: '#F3F4F6',
+                                scale: 1.05,
+                            }}
+                        >
+                            <Calendar size={14} />
+                            {new Date(datePosted).toLocaleDateString()}
+                        </motion.div>
+                    )}
 
                     <motion.button
                         whileHover={{
@@ -200,6 +214,203 @@ const JobCard = ({
 };
 
 export default function JobListings() {
+    const [jobs, setJobs] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [pagination, setPagination] = useState({
+        currentPage: 1,
+        totalPages: 1,
+        totalJobs: 0,
+        hasNext: false,
+        hasPrev: false,
+    });
+    const [filters, setFilters] = useState({
+        search: '',
+        page: 1,
+        limit: 10,
+        sort: 'createdAt',
+        sortOrder: 'desc',
+    });
+
+    const fetchJobs = async () => {
+        try {
+            setIsLoading(true);
+
+            // Build query string
+            const queryParams = new URLSearchParams();
+            Object.entries(filters).forEach(([key, value]) => {
+                if (value) queryParams.append(key, value.toString());
+            });
+
+            const res = await fetch(`/api/job/get-jobs?${queryParams}`);
+
+            if (!res.ok) {
+                throw new Error('Failed to fetch jobs');
+            }
+
+            const data = await res.json();
+
+            console.log(data);
+
+            if (data.success) {
+                setJobs(data.jobs || []);
+                setPagination(
+                    data.pagination || {
+                        currentPage: 1,
+                        totalPages: 1,
+                        totalJobs: 0,
+                        hasNext: false,
+                        hasPrev: false,
+                    }
+                );
+            }
+        } catch (error) {
+            console.error('Error fetching jobs:', error);
+            setJobs([]);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchJobs();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [filters]);
+
+    const handleSearch = (e) => {
+        setFilters((prev) => ({
+            ...prev,
+            search: e.target.value,
+            page: 1, // Reset to first page on new search
+        }));
+    };
+
+    const handlePageChange = (newPage) => {
+        setFilters((prev) => ({
+            ...prev,
+            page: newPage,
+        }));
+    };
+
+    const handleSortChange = (sortField, sortOrder) => {
+        setFilters((prev) => ({
+            ...prev,
+            sort: sortField,
+            sortOrder: sortOrder,
+            page: 1,
+        }));
+    };
+
+    const PaginationControls = () => (
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center justify-between mt-8 bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-white/50 shadow-lg"
+        >
+            <div className="text-sm text-gray-600">
+                Showing {(filters.page - 1) * filters.limit + 1} to{' '}
+                {Math.min(filters.page * filters.limit, pagination.total)}{' '}
+                of {pagination.total} jobs
+            </div>
+
+            <div className="flex items-center gap-2">
+                <motion.button
+                    whileHover={{ scale: 1.05, backgroundColor: '#F3F4F6' }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => handlePageChange(pagination.currentPage - 1)}
+                    disabled={!pagination.hasPrev}
+                    className="p-2 rounded-xl border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                    <ChevronLeft size={20} />
+                </motion.button>
+
+                {Array.from(
+                    { length: Math.min(5, pagination.totalPages) },
+                    (_, i) => {
+                        const pageNum = i + 1;
+                        return (
+                            <motion.button
+                                key={pageNum}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={() => handlePageChange(pageNum)}
+                                className={`px-3 py-2 rounded-xl font-medium ${
+                                    filters.page === pageNum
+                                        ? 'bg-orange-500 text-white'
+                                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                }`}
+                            >
+                                {pageNum}
+                            </motion.button>
+                        );
+                    }
+                )}
+
+                {pagination.totalPages > 5 && (
+                    <span className="px-2 text-gray-500">...</span>
+                )}
+
+                <motion.button
+                    whileHover={{ scale: 1.05, backgroundColor: '#F3F4F6' }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => handlePageChange(pagination.currentPage + 1)}
+                    disabled={!pagination.hasNext}
+                    className="p-2 rounded-xl border border-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                    <ChevronRight size={20} />
+                </motion.button>
+            </div>
+        </motion.div>
+    );
+
+    const SearchAndFilter = () => (
+        <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/50 shadow-lg mb-6"
+        >
+            <div className="flex flex-col md:flex-row gap-4 items-center">
+                <div className="relative flex-1">
+                    <Search
+                        className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                        size={20}
+                    />
+                    <input
+                        type="text"
+                        placeholder="Search jobs by title, company, or location..."
+                        value={filters.search}
+                        onChange={handleSearch}
+                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    />
+                </div>
+
+                <div className="flex gap-2">
+                    <motion.select
+                        whileHover={{ scale: 1.02 }}
+                        onChange={(e) =>
+                            handleSortChange('createdAt', e.target.value)
+                        }
+                        className="px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500"
+                    >
+                        <option value="desc">Newest First</option>
+                        <option value="asc">Oldest First</option>
+                    </motion.select>
+
+                    <motion.select
+                        whileHover={{ scale: 1.02 }}
+                        onChange={(e) =>
+                            handleSortChange('title', e.target.value)
+                        }
+                        className="px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-orange-500"
+                    >
+                        <option value="">Sort by Title</option>
+                        <option value="asc">A-Z</option>
+                        <option value="desc">Z-A</option>
+                    </motion.select>
+                </div>
+            </div>
+        </motion.div>
+    );
+
     return (
         <section className="bg-gradient-to-br from-gray-50 via-orange-50/30 to-cyan-50/30 min-h-screen relative overflow-hidden">
             {/* Background decoration */}
@@ -256,6 +467,8 @@ export default function JobListings() {
                         </div>
                     </motion.div>
 
+                    <SearchAndFilter />
+
                     {/* Animated Job Counter */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
@@ -271,7 +484,7 @@ export default function JobListings() {
                                     animate={{ opacity: 1 }}
                                     transition={{ delay: 0.8 }}
                                 >
-                                    {jobs.length} Available Positions
+                                    {pagination.totalJobs} Available Positions
                                 </motion.h2>
                                 <p className="text-gray-600">
                                     Join our growing team
@@ -291,45 +504,64 @@ export default function JobListings() {
                         </div>
                     </motion.div>
 
+                    {/* Loading State */}
+                    {isLoading && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            className="text-center py-12 bg-white rounded-2xl shadow-lg"
+                        >
+                            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
+                            <h3 className="text-xl font-bold text-gray-700">
+                                Loading jobs...
+                            </h3>
+                        </motion.div>
+                    )}
+
                     {/* Animated Job Cards */}
-                    <div className="space-y-6">
-                        <AnimatePresence mode="wait">
-                            {jobs.length > 0 ? (
-                                jobs.map((job, index) => (
-                                    <JobCard
-                                        key={index}
-                                        {...job}
-                                        index={index}
-                                    />
-                                ))
-                            ) : (
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.9 }}
-                                    className="text-center py-12 bg-white rounded-2xl shadow-lg"
-                                >
+                    {!isLoading && (
+                        <div className="space-y-6">
+                            <AnimatePresence mode="wait">
+                                {jobs.length > 0 ? (
+                                    <>
+                                        {jobs.map((job, index) => (
+                                            <JobCard
+                                                key={job._id || index}
+                                                {...job}
+                                                index={index}
+                                            />
+                                        ))}
+                                        <PaginationControls />
+                                    </>
+                                ) : (
                                     <motion.div
-                                        animate={{ rotate: 360 }}
-                                        transition={{
-                                            duration: 3,
-                                            repeat: Infinity,
-                                            ease: 'linear',
-                                        }}
-                                        className="text-6xl mb-4"
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0, scale: 0.9 }}
+                                        className="text-center py-12 bg-white rounded-2xl shadow-lg"
                                     >
-                                        🔍
+                                        <motion.div
+                                            animate={{ rotate: 360 }}
+                                            transition={{
+                                                duration: 3,
+                                                repeat: Infinity,
+                                                ease: 'linear',
+                                            }}
+                                            className="text-6xl mb-4"
+                                        >
+                                            🔍
+                                        </motion.div>
+                                        <h3 className="text-xl font-bold text-gray-700">
+                                            No jobs found
+                                        </h3>
+                                        <p className="text-gray-500 mt-2">
+                                            Try adjusting your search or filters
+                                        </p>
                                     </motion.div>
-                                    <h3 className="text-xl font-bold text-gray-700">
-                                        No jobs found
-                                    </h3>
-                                    <p className="text-gray-500 mt-2">
-                                        Try adjusting your search or filters
-                                    </p>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                    </div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+                    )}
                 </div>
             </div>
         </section>

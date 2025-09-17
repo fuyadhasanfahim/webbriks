@@ -1,17 +1,61 @@
 'use client';
 
-import React from 'react';
-import { Building2, ArrowLeft, Send } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { ArrowLeft, Loader2 } from 'lucide-react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
-import { jobs } from '@/components/career/jobsData';
 import ApplyNowBtn from '@/components/job/ApplyNowBtn';
 
 export default function JobDetailsPage({ params }) {
-    const router = useRouter();
     const { _id } = params;
-    const job = jobs.find((job) => job._id === _id);
+
+    const [loading, setLoading] = useState(false);
+    const [job, setJob] = useState({});
+
+    const router = useRouter();
+
+    useEffect(() => {
+        const fetchJobs = async () => {
+            try {
+                setLoading(true);
+
+                const res = await fetch(`/api/job/get-job/${_id}`, {
+                    cache: 'no-store',
+                });
+
+                if (!res.ok) {
+                    throw new Error('Failed to fetch job');
+                }
+
+                const data = await res.json();
+
+                if (data.success) {
+                    setJob(data.job || null);
+                } else {
+                    setJob(null);
+                }
+            } catch (error) {
+                console.error('Error fetching job:', error);
+                setJob(null);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchJobs();
+    }, [_id, setJob]);
+
+    if (loading) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-gray-50">
+                <Loader2 className="w-10 h-10 text-orange-500 animate-spin" />
+                <span className="ml-3 text-gray-600 font-medium">
+                    Loading job details...
+                </span>
+            </div>
+        );
+    }
 
     if (!job) {
         return (
@@ -44,9 +88,7 @@ export default function JobDetailsPage({ params }) {
                                 transition={{ duration: 0.6 }}
                             >
                                 <Image
-                                    src={
-                                        'https://res.cloudinary.com/dny7zfbg9/image/upload/v1757952280/dswndmppltiswsqvxd7v.png'
-                                    }
+                                    src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1757952280/dswndmppltiswsqvxd7v.png"
                                     alt="Hiring Illustration"
                                     width={320}
                                     height={256}
@@ -68,7 +110,7 @@ export default function JobDetailsPage({ params }) {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.4 }}
                             >
-                                {job.title}
+                                {job?.title || 'Untitled Job'}
                             </motion.h2>
                             <motion.div
                                 className="inline-flex items-center gap-2 bg-white rounded-full px-6 py-3"
@@ -78,7 +120,7 @@ export default function JobDetailsPage({ params }) {
                             >
                                 <div className="w-6 h-6 bg-gradient-to-r from-orange-400 to-pink-400 rounded"></div>
                                 <span className="font-bold text-gray-800">
-                                    {job.company}
+                                    {job?.company || 'Company Name'}
                                 </span>
                             </motion.div>
                         </div>
@@ -118,15 +160,15 @@ export default function JobDetailsPage({ params }) {
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-12 h-12 bg-gradient-to-r from-orange-400 to-pink-400 rounded-lg flex items-center justify-center">
                                     <span className="text-white font-bold">
-                                        {job.company.charAt(0)}
+                                        {job?.company?.charAt(0) || 'C'}
                                     </span>
                                 </div>
                                 <div>
                                     <h3 className="font-bold text-gray-900">
-                                        {job.company}
+                                        {job?.company || 'Company Name'}
                                     </h3>
                                     <p className="text-sm text-gray-500">
-                                        {job.location}
+                                        {job?.location || 'Location'}
                                     </p>
                                 </div>
                             </div>
@@ -136,7 +178,9 @@ export default function JobDetailsPage({ params }) {
                                     <label className="text-sm font-medium text-gray-600">
                                         Job Title
                                     </label>
-                                    <p className="text-gray-900">{job.title}</p>
+                                    <p className="text-gray-900">
+                                        {job?.title}
+                                    </p>
                                 </div>
 
                                 <div>
@@ -144,7 +188,7 @@ export default function JobDetailsPage({ params }) {
                                         Experience
                                     </label>
                                     <p className="text-gray-900">
-                                        {job.experience}
+                                        {job?.experience || 'N/A'}
                                     </p>
                                 </div>
 
@@ -153,7 +197,7 @@ export default function JobDetailsPage({ params }) {
                                         Vacancies
                                     </label>
                                     <p className="text-gray-900">
-                                        {job.vacancies}
+                                        {job?.vacancies || 'N/A'}
                                     </p>
                                 </div>
 
@@ -162,7 +206,7 @@ export default function JobDetailsPage({ params }) {
                                         Salary
                                     </label>
                                     <p className="text-gray-900">
-                                        {job.salary}
+                                        {job?.salary || 'Negotiable'}
                                     </p>
                                 </div>
 
@@ -171,7 +215,7 @@ export default function JobDetailsPage({ params }) {
                                         Office time
                                     </label>
                                     <p className="text-gray-900">
-                                        {job.employmentStatus}
+                                        {job?.employmentStatus || 'N/A'}
                                     </p>
                                 </div>
 
@@ -180,7 +224,7 @@ export default function JobDetailsPage({ params }) {
                                         Location
                                     </label>
                                     <p className="text-gray-900">
-                                        {job.location}
+                                        {job?.location || 'N/A'}
                                     </p>
                                 </div>
 
@@ -191,7 +235,7 @@ export default function JobDetailsPage({ params }) {
                                     <p className="text-gray-900">
                                         Permanent{' '}
                                         <span className="bg-blue-100 text-blue-600 px-2 py-1 rounded text-xs ml-2">
-                                            {job.workplace}
+                                            {job?.workplace || 'Office'}
                                         </span>
                                     </p>
                                 </div>
@@ -201,11 +245,11 @@ export default function JobDetailsPage({ params }) {
                                         Deadline
                                     </label>
                                     <p className="text-gray-900">
-                                        {job.datePosted}
+                                        {job?.datePosted || 'N/A'}
                                     </p>
                                 </div>
 
-                                {job.notes && (
+                                {job?.notes && (
                                     <div>
                                         <label className="text-sm font-medium text-gray-600">
                                             Notes
@@ -229,39 +273,20 @@ export default function JobDetailsPage({ params }) {
                             transition={{ duration: 0.6, delay: 0.5 }}
                             className="bg-white rounded-lg p-8 shadow-sm border"
                         >
-                            {/* Company Description */}
+                            {/* Responsibilities */}
                             <div className="mb-8">
                                 <div className="flex items-center gap-2 mb-4">
-                                    <Building2
-                                        className="text-orange-500"
-                                        size={20}
-                                    />
+                                    <span className="text-xl">👨‍💼</span>
                                     <h2 className="text-xl font-bold text-gray-900">
-                                        Company Description
+                                        As{' '}
+                                        {job?.title?.split('(')[0] ||
+                                            'Employee'}
+                                        , You Will:
                                     </h2>
                                 </div>
-                                <p className="text-gray-700 leading-relaxed">
-                                    <strong>{job.company}</strong> is a beacon
-                                    of innovation and the dynamic parent company
-                                    of WIDMorgan and many other subsidiaries.
-                                    With a diverse portfolio of brands, we are
-                                    committed to enriching our customers&apos;
-                                    experience to nation growth vision millions
-                                    growth locally and globally.
-                                </p>
-                            </div>
-
-                            {/* About You Section - Only for Content Marketing role */}
-                            {job.aboutYou && (
-                                <div className="mb-8">
-                                    <div className="flex items-center gap-2 mb-4">
-                                        <span className="text-xl">👤</span>
-                                        <h2 className="text-xl font-bold text-gray-900">
-                                            About You
-                                        </h2>
-                                    </div>
-                                    <ul className="space-y-3">
-                                        {job.aboutYou.map((item, index) => (
+                                <ul className="space-y-3">
+                                    {job?.responsibilities?.map(
+                                        (item, index) => (
                                             <li
                                                 key={index}
                                                 className="flex items-start gap-2"
@@ -269,40 +294,12 @@ export default function JobDetailsPage({ params }) {
                                                 <span className="text-orange-500 mt-2">
                                                     •
                                                 </span>
-                                                <span
-                                                    className="text-gray-700"
-                                                    dangerouslySetInnerHTML={{
-                                                        __html: item,
-                                                    }}
-                                                />
+                                                <span className="text-gray-700">
+                                                    {item}
+                                                </span>
                                             </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
-
-                            {/* Responsibilities */}
-                            <div className="mb-8">
-                                <div className="flex items-center gap-2 mb-4">
-                                    <span className="text-xl">👨‍💼</span>
-                                    <h2 className="text-xl font-bold text-gray-900">
-                                        As {job.title.split('(')[0]}, You Will:
-                                    </h2>
-                                </div>
-                                <ul className="space-y-3">
-                                    {job.responsibilities.map((item, index) => (
-                                        <li
-                                            key={index}
-                                            className="flex items-start gap-2"
-                                        >
-                                            <span className="text-orange-500 mt-2">
-                                                •
-                                            </span>
-                                            <span className="text-gray-700">
-                                                {item}
-                                            </span>
-                                        </li>
-                                    ))}
+                                        )
+                                    ) || <p>No responsibilities listed.</p>}
                                 </ul>
                             </div>
 
@@ -316,7 +313,7 @@ export default function JobDetailsPage({ params }) {
                                     </h2>
                                 </div>
                                 <ul className="space-y-3">
-                                    {job.requirements.map((item, index) => (
+                                    {job?.requirements?.map((item, index) => (
                                         <li
                                             key={index}
                                             className="flex items-start gap-2"
@@ -328,36 +325,9 @@ export default function JobDetailsPage({ params }) {
                                                 {item}
                                             </span>
                                         </li>
-                                    ))}
+                                    )) || <p>No requirements listed.</p>}
                                 </ul>
                             </div>
-
-                            {/* Bonus Points - Only for Content Marketing role */}
-                            {job.bonusPoints && (
-                                <div className="mb-8">
-                                    <div className="flex items-center gap-2 mb-4">
-                                        <span className="text-xl">🎯</span>
-                                        <h2 className="text-xl font-bold text-gray-900">
-                                            Bonus Points If You Have:
-                                        </h2>
-                                    </div>
-                                    <ul className="space-y-3">
-                                        {job.bonusPoints.map((item, index) => (
-                                            <li
-                                                key={index}
-                                                className="flex items-start gap-2"
-                                            >
-                                                <span className="text-orange-500 mt-2">
-                                                    •
-                                                </span>
-                                                <span className="text-gray-700">
-                                                    {item}
-                                                </span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
 
                             {/* Benefits */}
                             <div className="mb-8">
@@ -371,7 +341,7 @@ export default function JobDetailsPage({ params }) {
                                     Perks & Benefits That You Will Get:
                                 </h3>
                                 <ul className="space-y-2 text-sm text-gray-700">
-                                    {job.compensation.map((item, index) => (
+                                    {job?.compensation?.map((item, index) => (
                                         <li
                                             key={index}
                                             className="flex items-start gap-2"
@@ -381,30 +351,9 @@ export default function JobDetailsPage({ params }) {
                                             </span>
                                             <span>{item}</span>
                                         </li>
-                                    ))}
+                                    )) || <p>No benefits listed.</p>}
                                 </ul>
                             </div>
-
-                            {/* Apply Section */}
-                            {/* <div className="pt-6 border-t border-gray-200">
-                                <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                                    How to Apply
-                                </h3>
-                                <p className="text-gray-700 mb-4">
-                                    Send your resume to{' '}
-                                    <strong>{job.apply.email}</strong> with the
-                                    subject line:{' '}
-                                    <strong>{`"${job.apply.subject}"`}</strong>
-                                </p>
-                                <motion.button
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-lg flex items-center gap-2"
-                                >
-                                    <Send size={18} />
-                                    Apply Now
-                                </motion.button>
-                            </div> */}
                         </motion.div>
                     </div>
                 </div>
