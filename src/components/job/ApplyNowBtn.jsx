@@ -18,11 +18,12 @@ import {
     Link,
     Facebook,
     Linkedin,
+    CheckCircle,
+    XIcon,
 } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
-import { useRouter } from 'next/navigation';
 import { format } from 'date-fns';
 
 export default function ApplyNowBtn({ job }) {
@@ -49,8 +50,6 @@ export default function ApplyNowBtn({ job }) {
             },
         ],
     });
-
-    const router = useRouter();
 
     const resetForm = () => {
         setFormData({
@@ -81,6 +80,10 @@ export default function ApplyNowBtn({ job }) {
     const closeModal = () => {
         document.getElementById('apply-modal').close();
         resetForm();
+    };
+
+    const openModal = () => {
+        document.getElementById('success-modal').showModal();
     };
 
     const handleInputChange = (e) => {
@@ -219,7 +222,7 @@ export default function ApplyNowBtn({ job }) {
 
             toast.success('Application submitted successfully!');
             closeModal();
-            router.push('/job/success');
+            openModal();
         } catch (error) {
             toast.error(
                 error.message || 'Something went wrong. Try again later.'
@@ -1008,6 +1011,32 @@ export default function ApplyNowBtn({ job }) {
                 {/* Click outside to close */}
                 <form method="dialog" className="modal-backdrop">
                     <button onClick={closeModal}>close</button>
+                </form>
+            </dialog>
+
+            <dialog id="success-modal" class="modal">
+                <div className="modal-box text-center">
+                    <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+                    <h1 className="text-2xl font-semibold text-gray-800 mb-2">
+                        Application Submitted Successfully
+                    </h1>
+                    <p className="text-gray-600 mb-6">
+                        Thank you for applying! We’ve received your application.
+                        An email has been sent to you with a secure link where
+                        you can track the status of your application.
+                    </p>
+                    <p className="text-sm text-gray-500">
+                        Please check your inbox (and spam folder) for the
+                        confirmation email.
+                    </p>
+                    <form method="dialog">
+                        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                            <XIcon />
+                        </button>
+                    </form>
+                </div>
+                <form method="dialog" class="modal-backdrop">
+                    <button>close</button>
                 </form>
             </dialog>
         </div>

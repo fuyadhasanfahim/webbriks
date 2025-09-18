@@ -181,29 +181,35 @@ const JobCard = ({
                         </motion.div>
                     )}
 
-                    <motion.button
-                        whileHover={{
-                            scale: 1.05,
-                            backgroundColor: '#EA580C',
-                            boxShadow:
-                                '0 10px 25px -5px rgba(234, 88, 12, 0.4)',
-                        }}
-                        whileTap={{ scale: 0.98 }}
-                        className="bg-orange-500 text-white px-6 py-2.5 rounded-xl font-semibold relative overflow-hidden group/btn flex items-center gap-2 min-w-[100px]"
-                    >
-                        <span className="relative z-10">Apply</span>
-                        <ArrowRight
-                            size={16}
-                            className={`transition-all duration-300 ${
-                                showArrow
-                                    ? 'translate-x-0 opacity-100'
-                                    : 'translate-x-2 opacity-0'
-                            }`}
-                        />
+                    <div className="grid grid-cols-2 gap-3">
+                        <button className="text-gray-500 bg-gray-100 px-6 py-2.5 rounded-xl font-semibold relative">
+                            Details
+                        </button>
 
-                        {/* Button shine effect */}
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
-                    </motion.button>
+                        <motion.button
+                            whileHover={{
+                                scale: 1.05,
+                                backgroundColor: '#EA580C',
+                                boxShadow:
+                                    '0 10px 25px -5px rgba(234, 88, 12, 0.4)',
+                            }}
+                            whileTap={{ scale: 0.98 }}
+                            className="bg-orange-500 text-white px-6 py-2.5 rounded-xl font-semibold relative overflow-hidden group/btn flex items-center gap-2 min-w-[100px]"
+                        >
+                            <span className="relative z-10">Apply</span>
+                            <ArrowRight
+                                size={16}
+                                className={`transition-all duration-300 ${
+                                    showArrow
+                                        ? 'translate-x-0 opacity-100'
+                                        : 'translate-x-2 opacity-0'
+                                }`}
+                            />
+
+                            {/* Button shine effect */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
+                        </motion.button>
+                    </div>
                 </div>
             </div>
 
@@ -308,8 +314,8 @@ export default function JobListings() {
         >
             <div className="text-sm text-gray-600">
                 Showing {(filters.page - 1) * filters.limit + 1} to{' '}
-                {Math.min(filters.page * filters.limit, pagination.total)}{' '}
-                of {pagination.total} jobs
+                {Math.min(filters.page * filters.limit, pagination.total)} of{' '}
+                {pagination.total} jobs
             </div>
 
             <div className="flex items-center gap-2">
