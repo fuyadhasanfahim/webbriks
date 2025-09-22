@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
+import { format } from 'date-fns';
 
 const slugify = (text) =>
     text
@@ -50,7 +51,7 @@ const JobCard = ({ title, company, location, datePosted, vacancies }) => {
                 <div className="flex flex-col items-end text-sm text-gray-600">
                     <span className="flex items-center gap-1">
                         <Calendar size={14} className="text-gray-500" />
-                        {datePosted}
+                        {datePosted && format(datePosted, 'PPP')}
                     </span>
                     <span className="flex items-center gap-1">
                         <Users size={14} className="text-green-600" />
