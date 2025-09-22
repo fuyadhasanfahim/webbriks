@@ -280,7 +280,7 @@ export default function ApplyNowBtn({ job }) {
                     boxShadow: '0 10px 25px -5px rgba(249, 115, 22, 0.4)',
                 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3.5 rounded-xl mt-6 transition-all duration-300 shadow-md"
+                className="w-full btn bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 rounded-md mt-6 transition-all duration-300 shadow-md"
                 onClick={() =>
                     document.getElementById('apply-modal').showModal()
                 }
@@ -1014,7 +1014,7 @@ export default function ApplyNowBtn({ job }) {
                 </form>
             </dialog>
 
-            <dialog id="success-modal" class="modal">
+            <dialog id="success-modal" className="modal">
                 <div className="modal-box text-center">
                     <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
                     <h1 className="text-2xl font-semibold text-gray-800 mb-2">
@@ -1030,12 +1030,12 @@ export default function ApplyNowBtn({ job }) {
                         confirmation email.
                     </p>
                     <form method="dialog">
-                        <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
                             <XIcon />
                         </button>
                     </form>
                 </div>
-                <form method="dialog" class="modal-backdrop">
+                <form method="dialog" className="modal-backdrop">
                     <button>close</button>
                 </form>
             </dialog>

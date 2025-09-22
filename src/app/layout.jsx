@@ -10,7 +10,7 @@ import MainLayout from './MainLayout';
 
 const livvic = Livvic({
     subsets: ['latin'],
-    weight: ['400', '900'],
+    weight: ['400', '500'],
 });
 
 export const metadata = {

@@ -64,6 +64,14 @@ const jobSchema = new Schema(
             email: { type: String, required: true },
             subject: { type: String, required: true },
         },
+        expireAt: {
+            type: Date,
+            required: true,
+        },
+        slug: {
+            type: String,
+            required: true,
+        },
     },
     {
         timestamps: true,

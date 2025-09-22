@@ -83,6 +83,7 @@ export default function Footer() {
                                 'Privacy Policy',
                                 'Refund Policy',
                                 'Disclaimer Policy',
+                                'Career',
                             ].map((item) => (
                                 <li key={item}>
                                     <Link

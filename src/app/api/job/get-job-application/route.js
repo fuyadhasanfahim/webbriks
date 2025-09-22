@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import connectToDatabase from '@/lib/mongodb';
 import ApplicantModel from '@/models/applicant.model';
 import { NextResponse } from 'next/server';
@@ -6,9 +8,7 @@ export async function GET(req) {
     try {
         await connectToDatabase();
 
-        // Extract _id from query string
-        const { searchParams } = new URL(req.url);
-        const _id = searchParams.get('_id');
+        const _id = req.nextUrl.searchParams.get('_id');
 
         if (!_id) {
             return NextResponse.json(
@@ -31,7 +31,6 @@ export async function GET(req) {
             data: application,
         });
     } catch (error) {
-        console.error('Error fetching application:', error);
         return NextResponse.json(
             {
                 success: false,

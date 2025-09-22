@@ -1,7 +1,7 @@
-import FloatingButton from '@/components/shared/FloatingButton';
 import Footer from '@/components/shared/Footer';
 import NavbarWrapper from '@/components/shared/NavbarWrapper';
 import { Suspense } from 'react';
+import FloatingButtonWrapper from './FloatingButtonWrapper';
 
 export default function Layout({ children }) {
     return (
@@ -10,7 +10,7 @@ export default function Layout({ children }) {
                 <NavbarWrapper />
                 <main className="z-0">{children}</main>
                 <footer>
-                    <FloatingButton />
+                    <FloatingButtonWrapper />
                     <Footer />
                 </footer>
             </div>
