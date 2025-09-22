@@ -19,7 +19,7 @@ const slugify = (text) =>
         .replace(/[^a-z0-9]+/g, '-')
         .replace(/(^-|-$)+/g, '');
 
-const JobCard = ({ title, company, location, datePosted, vacancies }) => {
+const JobCard = ({ title, company, location, deadline, vacancies }) => {
     const safeTitle = slugify(title);
 
     return (
@@ -51,7 +51,7 @@ const JobCard = ({ title, company, location, datePosted, vacancies }) => {
                 <div className="flex flex-col items-end text-sm text-gray-600">
                     <span className="flex items-center gap-1">
                         <Calendar size={14} className="text-gray-500" />
-                        {datePosted && format(datePosted, 'PPP')}
+                        {deadline && format(deadline, 'PPP')}
                     </span>
                     <span className="flex items-center gap-1">
                         <Users size={14} className="text-green-600" />
