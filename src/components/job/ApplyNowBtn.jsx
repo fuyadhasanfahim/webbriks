@@ -276,11 +276,11 @@ export default function ApplyNowBtn({ job }) {
         <div>
             <motion.button
                 whileHover={{
-                    scale: 1.05,
+                    scale: 1,
                     boxShadow: '0 10px 25px -5px rgba(249, 115, 22, 0.4)',
                 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full btn bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 rounded-md mt-6 transition-all duration-300 shadow-md"
+                className="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-3.5 rounded-md transition-all duration-300 shadow-md"
                 onClick={() =>
                     document.getElementById('apply-modal').showModal()
                 }

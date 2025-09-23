@@ -122,12 +122,11 @@ Email: info@webbriks.com`;
                             {[
                                 ['Job Title', job?.title],
                                 ['Vacancies', job?.vacancies],
-                                ['Office Time', job?.employmentStatus || 'N/A'],
+                                ['Office Time', job?.officeTime || 'N/A'],
                                 ['Location', job?.location],
                                 [
                                     'Job Type',
                                     <>
-                                        {job?.jobType || 'Full Time'}
                                         <span className="ml-2 px-2 py-0.5 rounded-full text-xs bg-orange-100 text-orange-600">
                                             {job?.workplace || 'On-site'}
                                         </span>
@@ -242,19 +241,19 @@ Email: info@webbriks.com`;
                                 )}
                             </p>,
                         ],
-                        [
-                            '🛠 Skills',
-                            <div key="skills" className="flex flex-wrap gap-2">
-                                {job?.skills?.map((skill, idx) => (
-                                    <span
-                                        key={idx}
-                                        className="px-3 py-1 text-xs rounded-full bg-orange-100 text-orange-600 font-medium"
-                                    >
-                                        {skill}
-                                    </span>
-                                )) || <p>No skills listed.</p>}
-                            </div>,
-                        ],
+                        // [
+                        //     '🛠 Skills',
+                        //     <div key="skills" className="flex flex-wrap gap-2">
+                        //         {job?.skills?.map((skill, idx) => (
+                        //             <span
+                        //                 key={idx}
+                        //                 className="px-3 py-1 text-xs rounded-full bg-orange-100 text-orange-600 font-medium"
+                        //             >
+                        //                 {skill}
+                        //             </span>
+                        //         )) || <p>No skills listed.</p>}
+                        //     </div>,
+                        // ],
                         [
                             '📖 Description',
                             <p key="desc" className="text-gray-700 text-sm">

@@ -26,6 +26,7 @@ const navItems = [
 ];
 
 const resourceItems = [
+    { title: 'About', href: '/about' }, // ✅ Added About here
     { title: 'Team', href: '/team' },
     { title: 'Blog', href: '/blog' },
     { title: 'Career', href: '/career' },
@@ -35,6 +36,9 @@ const resourceItems = [
 export function Navbar() {
     const [isNavOpen, setIsNavOpen] = useState(false);
     const path = usePathname();
+
+    // ✅ Check if we should hide "Get a Quote"
+    const hideQuote = path.startsWith('/career') || path.startsWith('/job');
 
     return (
         <nav className="backdrop-blur py-4">
@@ -104,15 +108,6 @@ export function Navbar() {
                         Portfolio
                     </a>
 
-                    <a
-                        href="/about"
-                        className={`hover:text-orange-500 transition ${
-                            path === '/about' && 'text-orange-500'
-                        }`}
-                    >
-                        About
-                    </a>
-
                     {/* Resources Dropdown */}
                     <div className="relative group">
                         <button
@@ -141,17 +136,19 @@ export function Navbar() {
                 </div>
 
                 {/* Desktop CTA */}
-                <div className="hidden lg:block">
-                    <a
-                        href="/get-quote"
-                        className="text-white px-4 py-2 rounded bg-orange-500 hover:bg-orange-600 transition flex items-center gap-2"
-                    >
-                        <span>Get a Quote</span>
-                        <span>
-                            <ClipboardList className="size-5" />
-                        </span>
-                    </a>
-                </div>
+                {!hideQuote && (
+                    <div className="hidden lg:block">
+                        <a
+                            href="/get-quote"
+                            className="text-white px-4 py-2 rounded bg-orange-500 hover:bg-orange-600 transition flex items-center gap-2"
+                        >
+                            <span>Get a Quote</span>
+                            <span>
+                                <ClipboardList className="size-5" />
+                            </span>
+                        </a>
+                    </div>
+                )}
 
                 {/* Mobile Toggle */}
                 <button
@@ -222,14 +219,6 @@ export function Navbar() {
                         >
                             Portfolio
                         </a>
-                        <a
-                            href="/about"
-                            className={`block py-2 hover:text-orange-500 ${
-                                path === '/about' && 'text-orange-500'
-                            }`}
-                        >
-                            About
-                        </a>
 
                         {/* Resources dropdown */}
                         <div className="relative group">
@@ -261,17 +250,19 @@ export function Navbar() {
                     </div>
 
                     {/* Mobile CTA */}
-                    <button className="px-4 py-2">
-                        <a
-                            href="/get-quote"
-                            className="button !px-4 !py-2 !rounded flex items-center gap-2"
-                        >
-                            <span>Get a Quote</span>
-                            <span>
-                                <ClipboardList className="size-5" />
-                            </span>
-                        </a>
-                    </button>
+                    {!hideQuote && (
+                        <button className="px-4 py-2">
+                            <a
+                                href="/get-quote"
+                                className="button !px-4 !py-2 !rounded flex items-center gap-2"
+                            >
+                                <span>Get a Quote</span>
+                                <span>
+                                    <ClipboardList className="size-5" />
+                                </span>
+                            </a>
+                        </button>
+                    )}
                 </div>
             )}
         </nav>

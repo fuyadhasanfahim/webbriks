@@ -53,7 +53,7 @@
     "three": "^0.172.0",
     "three-globe": "^2.41.2",
     "typewriter-effect": "^2.21.0",
-    "vercel": "^32.3.0"
+    "vercel": "^48.1.1"
   },
   "devDependencies": {
     "@types/node": "22.10.2",
