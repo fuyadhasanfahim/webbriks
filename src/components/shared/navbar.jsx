@@ -26,7 +26,7 @@ const navItems = [
 ];
 
 const resourceItems = [
-    { title: 'About', href: '/about' }, // ✅ Added About here
+    { title: 'About', href: '/about' },
     { title: 'Team', href: '/team' },
     { title: 'Blog', href: '/blog' },
     { title: 'Career', href: '/career' },
