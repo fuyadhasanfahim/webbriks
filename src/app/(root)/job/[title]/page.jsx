@@ -78,7 +78,7 @@ Email: info@webbriks.com`;
         (companyDescription.length > 300 ? '...' : '');
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-50 via-orange-50/30 to-cyan-50/30">
+        <div className="min-h-screen">
             {/* Banner */}
             <div className="relative w-full h-72 md:h-96 shadow-md">
                 <Image
@@ -132,6 +132,7 @@ Email: info@webbriks.com`;
                                         </span>
                                     </>,
                                 ],
+                                ['Salary', job?.salary ?? 'N/A'],
                                 [
                                     'Deadline',
                                     job?.deadline

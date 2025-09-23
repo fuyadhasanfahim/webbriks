@@ -129,7 +129,7 @@ export default function JobListings() {
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-center justify-between mt-8 bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-white/50 shadow-lg"
+            className="flex items-center justify-between mt-8 bg-white/80 backdrop-blur rounded-2xl p-4 border border-white/50 shadow-lg"
         >
             <div className="text-sm text-gray-600">
                 Showing {(pagination.page - 1) * pagination.limit + 1} to{' '}
@@ -181,7 +181,7 @@ export default function JobListings() {
     );
 
     return (
-        <section className="bg-gradient-to-br from-gray-50 via-orange-50/30 to-cyan-50/30 min-h-screen relative overflow-hidden">
+        <section className="bg-[#FFFBF4] min-h-screen relative overflow-hidden">
             <div className="max-w-5xl mx-auto px-6 py-12 relative z-10">
                 <div className="space-y-8">
                     <motion.div

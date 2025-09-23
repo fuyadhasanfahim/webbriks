@@ -6,9 +6,9 @@ import FloatingButtonWrapper from './FloatingButtonWrapper';
 export default function Layout({ children }) {
     return (
         <Suspense fallback={<loading />}>
-            <div className="bg-[#FFFBF4]">
+            <div>
                 <NavbarWrapper />
-                <main className="z-0">{children}</main>
+                <main className="z-0 bg-[#FFFBF4]">{children}</main>
                 <footer>
                     <FloatingButtonWrapper />
                     <Footer />
