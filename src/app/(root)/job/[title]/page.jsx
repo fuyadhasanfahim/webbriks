@@ -242,19 +242,6 @@ Email: info@webbriks.com`;
                                 )}
                             </p>,
                         ],
-                        // [
-                        //     '🛠 Skills',
-                        //     <div key="skills" className="flex flex-wrap gap-2">
-                        //         {job?.skills?.map((skill, idx) => (
-                        //             <span
-                        //                 key={idx}
-                        //                 className="px-3 py-1 text-xs rounded-full bg-orange-100 text-orange-600 font-medium"
-                        //             >
-                        //                 {skill}
-                        //             </span>
-                        //         )) || <p>No skills listed.</p>}
-                        //     </div>,
-                        // ],
                         [
                             '📖 Description',
                             <p key="desc" className="text-gray-700 text-sm">
@@ -295,6 +282,22 @@ Email: info@webbriks.com`;
                                 )) || <li>No benefits listed.</li>}
                             </ul>,
                         ],
+                        // Conditionally show Read Before Apply section
+                        ...(job?.readBeforeApply
+                            ? [
+                                  [
+                                      '📝 Read Before Apply',
+                                      <div
+                                          key="read-before"
+                                          className="text-sm text-gray-700"
+                                      >
+                                          <div className="whitespace-pre-line leading-relaxed">
+                                              {job.readBeforeApply}
+                                          </div>
+                                      </div>,
+                                  ],
+                              ]
+                            : []),
                     ].map(([title, content], idx) => (
                         <div
                             key={idx}
