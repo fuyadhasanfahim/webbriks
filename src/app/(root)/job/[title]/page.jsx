@@ -67,7 +67,7 @@ export default function JobDetailsPage({ params }) {
     }
 
     // Company description (static text as per your request)
-    const companyDescription = `It was in 2017, Md Ashaduzzaman started his photo editing agency with naming "Cut Out Expert". At that time he had only dream to scale without big investment. After hard work and dedication, his agency became established in the global market by 2022. This company only serves international clients fixing their image issues. At 2024, the company was rebranded with name "Web Briks LLC". This time, they added software development services with image editing. Now, Web Briks has over 60 members serving proudly local and international clients.
+    const companyDescription = `It was in 2017, Md Ashaduzzaman started his photo editing agency with naming "Cut Out Expert". At that time he had only dream to scale without big investment. After hard work and dedication, his agency became established in the global market by 2022. This company only serves international clients fixing their image issues. At 2024, the company was rebranded with name "Web Briks LLC". This time, they added software development, web design & development, graphic design and video editing services with image editing. Now, Web Briks has over 60 members serving proudly local and international clients.
 
 Have questions or need assistance?
 Contact Us:
