@@ -60,13 +60,17 @@ const JobCard = ({ title, company, location, deadline, vacancies }) => {
                 </div>
 
                 <div className="border h-full min-h-14" />
-
-                <button
-                    type="button"
-                    className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-5 py-2 rounded-lg shadow-sm"
+                <Link
+                    href={`/job/${safeTitle}`}
+                    className="text-lg font-semibold text-gray-900 hover:text-orange-600 transition"
                 >
-                    Apply Now
-                </button>
+                    <button
+                        type="button"
+                        className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-5 py-2 rounded-lg shadow-sm"
+                    >
+                        Apply Now
+                    </button>
+                </Link>
             </div>
         </div>
     );
