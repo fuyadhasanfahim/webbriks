@@ -57,18 +57,11 @@ export default function TrialForm() {
     };
 
     return (
-        <section className="py-16 md:py-24 bg-gray-100">
+        <section className="py-16 md:py-24 bg-gray-100" id="trial-form">
             <h3 className="text-3xl md:text-4xl text-center font-bold text-gray-900 mb-6">
-                Upload{' '}
-                <span className="text-orange-500 capitalize">
-                    upto 3 photos
-                </span>{' '}
-                below
+                <span className="text-orange-500 capitalize">Free Trial</span>
             </h3>
-            <div
-                className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
-                id="trial-form"
-            >
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="bg-white rounded-xl shadow-md p-8">
                     <form
                         onSubmit={handleSubmit(onSubmit)}

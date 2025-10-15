@@ -1,12 +1,22 @@
 'use client';
 
-import { ClipboardList } from 'lucide-react';
+import {
+    ChevronDown,
+    ShieldCheck,
+    Zap,
+    ClipboardList,
+    Star,
+    CheckCircle,
+    Sparkles,
+} from 'lucide-react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import { MovingCard } from '@/components/(sales)/image-editing-trail/MovingCard';
 import YoutubeLite from '@/components/(sales)/image-editing-trail/YoutubeLite';
 import { ImageEditingTrialData } from './data';
 import TrialForm from '@/components/(sales)/image-editing-trail/TrialForm';
+import { useState, useEffect } from 'react';
 
 const ReactCompareImage = dynamic(() => import('react-compare-image'), {
     ssr: false,
@@ -19,6 +29,7 @@ const testimonials = [
         country: 'Jersey',
         flag: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507317/ytdytzn6zhj9bp9dyzjm.png',
         review: 'I’m very happy with the results of touching up 25 images. They were highly skilled, delivered exactly what I needed, and was easy to communicate with throughout the process. Turnaround time was quick, and they made sure I was satisfied with every detail. I’d definitely work with them again and highly recommend their services. Thanks',
+        rating: 5,
     },
     {
         name: 'karyn_clements',
@@ -27,6 +38,7 @@ const testimonials = [
         country: 'Australia',
         flag: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507547/qhrsen615qhstpw5vywq.png',
         review: 'Thank you so much! This saved me so much editing time and stress. Very happy with the super quick turn around and the images look great as a result. Highly recommend for professional Photoshop editing services. Thank you again!',
+        rating: 5,
     },
     {
         name: 'patick_martin',
@@ -34,6 +46,7 @@ const testimonials = [
         country: 'United States',
         flag: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507816/umzkgugjnubwafi1ko3n.png',
         review: 'Truly impressed with their exceptional image editing skills! Their CREATIVITY and attention to detail not only met but EXCEEDED expectations with stunning visual appeal. Plus, their quick responsiveness made communication a breeze. Highly recommend! 👏',
+        rating: 5,
     },
     {
         name: 'berqen',
@@ -41,6 +54,7 @@ const testimonials = [
         country: 'Denmark',
         flag: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507945/qwgyu3mpmz99osqtwqjg.png',
         review: 'Great job once again. Had to have the background removed from several images - some harder than others, and they went above and beyond delivering results, that matched my branded guidelines. Would 10/10 recommend.',
+        rating: 5,
     },
     {
         name: 'joshuaccomms',
@@ -48,6 +62,7 @@ const testimonials = [
         country: 'Australia',
         flag: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507547/qhrsen615qhstpw5vywq.png',
         review: 'Excellent once again highly recommend. always goes above and beyond and is patient kind and polite. appreciate all the hard work and the fast turnaround - like lightning.',
+        rating: 5,
     },
     {
         name: 'raymes72',
@@ -55,221 +70,410 @@ const testimonials = [
         country: 'United States',
         flag: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746507816/umzkgugjnubwafi1ko3n.png',
         review: 'Asad & his team members were very understanding of what I wanted to have done to some photos and was very quick in accomplishing edits and revisions. Definitely recommend his services and will be using his services again!',
+        rating: 5,
     },
 ];
 
+const services = [
+    {
+        id: 1,
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1760512208/eh1zxcl4opopi53it3p2.png',
+        name: 'Background Removal',
+        description:
+            'Clean, precise background removal for professional product images',
+        link: '/services/photo-editing',
+    },
+    {
+        id: 2,
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1760512208/qtmnbd8zyfd9awowkuua.png',
+        name: 'Clipping Path',
+        description:
+            'Perfect isolation with manual clipping paths for any shape',
+        link: '/services/photo-editing',
+    },
+    {
+        id: 3,
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1760512208/diav83mdlr4qfyfyoq0r.png',
+        name: 'Color Correction',
+        description:
+            'Professional color grading and correction for consistent branding',
+        link: '/services/photo-editing',
+    },
+    {
+        id: 4,
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1760512209/tj37rs0610n00yrnc2bj.png',
+        name: 'Photo Retouching',
+        description: 'Natural retouching that enhances without over-editing',
+        link: '/services/photo-editing',
+    },
+    {
+        id: 5,
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1760512208/yk42gwebflnnuuubtent.png',
+        name: 'Ghost Mannequin',
+        description:
+            'Professional ghost mannequin effects for apparel photography',
+        link: '/services/photo-editing',
+    },
+    {
+        id: 6,
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1760512209/v9z7hbreuntvee8ukmpv.png',
+        name: 'Shadow Creation',
+        description:
+            'Realistic natural and drop shadows for product presentation',
+        link: '/services/photo-editing',
+    },
+    {
+        id: 7,
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1760512209/rcmx81qrecv22l2zqh4t.png',
+        name: 'Product Photo Editing',
+        description: 'Complete product image optimization for eCommerce',
+        link: '/services/photo-editing',
+    },
+    {
+        id: 8,
+        image: 'https://res.cloudinary.com/dny7zfbg9/image/upload/v1760512208/n84rtjzcmt2amjydzhre.png',
+        name: 'Raster to Vector',
+        description: 'Precise vector conversion for logos and illustrations',
+        link: '/services/photo-editing',
+    },
+];
+
+function Reveal({ children, delay = 0 }) {
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.6, delay }}
+        >
+            {children}
+        </motion.div>
+    );
+}
+
 export default function ImageEditingTrialPage() {
+    const [showAll, setShowAll] = useState(false);
+
+    const visibleImages = showAll
+        ? ImageEditingTrialData
+        : ImageEditingTrialData.slice(0, 9);
+
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        element?.scrollIntoView({ behavior: 'smooth' });
+    };
+
     return (
         <section className="overflow-hidden">
-            <section className="bg-gradient-to-br from-gray-900 to-black relative overflow-hidden">
-                <div className="container mx-auto px-4 py-20 md:py-28 lg:py-32">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div className="relative z-10 space-y-6">
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                                Upload upto 3 Photos &{' '}
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
-                                    Get Free Image Editing Service
-                                </span>
-                            </h1>
-
-                            <p className="text-lg md:text-xl text-gray-300 max-w-2xl">
-                                With{' '}
-                                <span className="font-semibold">
-                                    over 10 million images edited across 60,000+
-                                    jobs
-                                </span>
-                                , our quality speaks for itself. Try 3 edits
-                                free — and see the difference.
-                            </p>
-
-                            <button
-                                className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center"
-                                onClick={() => {
-                                    const form =
-                                        document.getElementById('trial-form');
-                                    form?.scrollIntoView({
-                                        behavior: 'smooth',
-                                    });
-                                }}
-                            >
-                                <ClipboardList className="w-5 h-5 mr-2" />
-                                <span>Get My Free Edits</span>
-                            </button>
-                        </div>
-
-                        <div className="relative">
-                            <div className="absolute -top-6 -left-6 w-full h-full rounded-2xl border-2 border-orange-500/30 z-0"></div>
-                            <YoutubeLite videoId="gR5GZFgC314" />
-                        </div>
-                    </div>
+            {/* Hero Section */}
+            <section
+                className="relative text-white"
+                style={{
+                    background:
+                        'radial-gradient(1200px 600px at 10% 10%, rgba(0,166,166,0.25), transparent 60%), radial-gradient(900px 500px at 90% 20%, rgba(255,106,0,0.2), transparent 60%), linear-gradient(180deg,#0B0F12, #0B1115)',
+                }}
+            >
+                <div
+                    className="absolute inset-0 pointer-events-none"
+                    aria-hidden
+                >
+                    <div
+                        className="absolute -top-24 -left-24 h-[420px] w-[420px] rounded-full blur-3xl opacity-25"
+                        style={{ background: '#00A6A6' }}
+                    />
+                    <div
+                        className="absolute -bottom-24 -right-24 h-[420px] w-[420px] rounded-full blur-3xl opacity-25"
+                        style={{ background: '#FF6A00' }}
+                    />
+                    <div className="absolute inset-0 bg-[linear-gradient(0deg,transparent_0,rgba(255,255,255,0.03)_1px)] bg-[size:100%_40px]" />
                 </div>
-            </section>
 
-            <section className="py-10 md:py-16 lg:py-24 bg-white">
-                <div className="container mx-auto px-4">
-                    <div>
-                        <h2 className="text-3xl md:text-4xl text-center font-bold text-gray-900 mb-6">
-                            What client says about us?
-                        </h2>
-                        <MovingCard items={testimonials} speed="slow" />
-                    </div>
+                <div className="container mx-auto px-4 md:px-6 py-20 md:py-28 lg:py-32 relative">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <Reveal>
+                            <header className="space-y-6">
+                                <p className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-sm text-white/90 backdrop-blur">
+                                    <Sparkles className="h-4 w-4" /> 3 Free
+                                    Edits — No Credit Card
+                                </p>
+                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
+                                    Upload up to 3 Photos &{' '}
+                                    <span className="bg-gradient-to-r from-[#FF6A00] to-[#00A6A6] bg-clip-text text-transparent">
+                                        Get Free Image Editing
+                                    </span>
+                                </h1>
+                                <p className="text-lg md:text-xl text-white/80 max-w-2xl">
+                                    Trusted by brands and agencies worldwide.
+                                    Over <strong>10,000,000+</strong> images
+                                    edited across <strong>60,000+</strong> jobs.
+                                    See our quality — free.
+                                </p>
 
-                    <div>
-                        <h2 className="text-3xl text-orange-500 md:text-4xl text-center font-bold mb-6">
-                            Our Portfolio
-                        </h2>
-                        <div className="mt-8 md:mt-12 space-y-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
-                            {ImageEditingTrialData.slice(0, 9).map(
-                                ({ before, after }, index) => (
-                                    <figure
-                                        key={index}
-                                        className="group relative overflow-hidden rounded-xl border border-black/5 h-fit"
+                                <div className="flex flex-col sm:flex-row gap-4">
+                                    <button
+                                        className="rounded-2xl px-7 py-4 font-semibold border border-white/20 hover:border-white/40 transition-colors flex items-center gap-2 bg-[#FF6A00]"
+                                        onClick={() =>
+                                            scrollToSection('trial-form')
+                                        }
                                     >
-                                        <ReactCompareImage
-                                            leftImage={before}
-                                            rightImage={after}
-                                            hover={true}
-                                            leftImageLabel="Before"
-                                            rightImageLabel="After"
-                                        />
-                                    </figure>
-                                )
-                            )}
-                        </div>
+                                        <ClipboardList className="w-5 h-5" />
+                                        Get My Free Edits
+                                    </button>
+                                    <button
+                                        onClick={() =>
+                                            document
+                                                .getElementById('portfolio')
+                                                ?.scrollIntoView({
+                                                    behavior: 'smooth',
+                                                })
+                                        }
+                                        className="rounded-2xl px-7 py-4 font-semibold border border-white/20 hover:border-white/40 transition-colors bg-[#00A6A6]"
+                                    >
+                                        View Portfolio
+                                    </button>
+                                </div>
+
+                                {/* Trust row */}
+                                <div className="mt-4 flex flex-wrap items-center gap-4 text-white/75">
+                                    <span className="inline-flex items-center gap-1">
+                                        <Star className="h-4 w-4 text-yellow-400" />{' '}
+                                        1,000+ 5★ Reviews
+                                    </span>
+                                    <span className="inline-flex items-center gap-1">
+                                        <ShieldCheck className="h-4 w-4 text-emerald-300" />{' '}
+                                        24/7 Support
+                                    </span>
+                                    <span className="inline-flex items-center gap-1">
+                                        <Zap className="h-4 w-4 text-orange-300" />{' '}
+                                        Lightning Turnaround
+                                    </span>
+                                </div>
+                            </header>
+                        </Reveal>
+
+                        <Reveal delay={0.1}>
+                            <div className="relative">
+                                <div className="absolute -top-6 -left-6 w-full h-full rounded-2xl border-2 border-white/10" />
+                                <YoutubeLite videoId="gR5GZFgC314" />
+                            </div>
+                        </Reveal>
                     </div>
 
-                    <div className="flex flex-col justify-center md:pt-16 text-center">
+                    {/* Scroll hint */}
+                    <div className="mt-12 hidden md:flex justify-center">
                         <button
-                            className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center mx-auto"
-                            onClick={() => {
-                                const form =
-                                    document.getElementById('trial-form');
-                                form?.scrollIntoView({
-                                    behavior: 'smooth',
-                                });
-                            }}
+                            onClick={() =>
+                                document
+                                    .getElementById('why')
+                                    ?.scrollIntoView({ behavior: 'smooth' })
+                            }
+                            aria-label="Scroll down"
+                            className="group inline-flex items-center gap-2 text-white/70 hover:text-white"
                         >
-                            <ClipboardList className="w-5 h-5 mr-2" />
-                            <span>Get My Free Edits</span>
+                            <ChevronDown className="h-6 w-6 animate-bounce" />
+                            See why teams choose Web Briks
                         </button>
                     </div>
                 </div>
             </section>
 
-            <section className="py-16 md:py-24 bg-gray-50">
+            {/* Testimonials Section */}
+            <section className="py-20 bg-base-100">
                 <div className="container mx-auto px-4">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-                        <div className="space-y-6">
-                            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
-                                No More Guesswork.{' '}
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
-                                    Flawless Photo Editing
-                                </span>{' '}
-                                from Experts.
-                            </h3>
-                            <div className="space-y-4 text-gray-600">
-                                <p className="text-lg leading-relaxed">
-                                    In today&apos;s fast-moving digital world,
-                                    high-quality visuals aren&apos;t a luxury —
-                                    they&apos;re a necessity.
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-bold text-[#1E1E1E] mb-4">
+                            What Our{' '}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A6A6] to-[#FF6A00]">
+                                Clients Say
+                            </span>
+                        </h2>
+                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                            Don't just take our word for it. Here's what
+                            photographers, eCommerce brands, and agencies have
+                            to say about our service.
+                        </p>
+                    </div>
+                    <MovingCard items={testimonials} speed="slow" />
+                </div>
+            </section>
+
+            {/* Proof Section */}
+            <section className="py-20 bg-gradient-to-br from-[#F9FAFB] to-base-200">
+                <div className="container mx-auto px-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div className="space-y-8">
+                            <div className="space-y-4">
+                                <h3 className="text-4xl md:text-5xl font-bold text-[#1E1E1E] leading-tight">
+                                    No More Guesswork.{' '}
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A6A6] to-[#FF6A00]">
+                                        Flawless Results
+                                    </span>{' '}
+                                    Guaranteed.
+                                </h3>
+                                <p className="text-lg text-gray-600 leading-relaxed">
+                                    In today's competitive digital landscape,
+                                    professional visuals aren't optional —
+                                    they're essential for success.
                                 </p>
-                                <p className="text-lg leading-relaxed">
-                                    Whether you&apos;re an eCommerce manager
-                                    juggling thousands of product images, a
-                                    photographer aiming to focus more on
-                                    shooting than retouching, or an agency owner
-                                    struggling to meet tight deadlines — we get
-                                    it.
-                                </p>
-                                <p className="text-lg leading-relaxed">
-                                    That&apos;s why we built a scalable photo
-                                    editing system trusted by top brands and
-                                    agencies, with{' '}
+                            </div>
+
+                            <div className="space-y-6">
+                                {[
+                                    'eCommerce managers handling thousands of product images',
+                                    'Photographers wanting to focus on shooting, not editing',
+                                    'Agency owners facing tight deadlines and high standards',
+                                    'Marketing teams needing consistent, brand-aligned visuals',
+                                ].map((item, index) => (
+                                    <div
+                                        key={index}
+                                        className="flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
+                                    >
+                                        <div className="flex-shrink-0 w-8 h-8 bg-[#00A6A6] rounded-full flex items-center justify-center">
+                                            <CheckCircle className="w-5 h-5 text-white" />
+                                        </div>
+                                        <span className="text-gray-700 font-medium">
+                                            {item}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+
+                            <div className="bg-[#00A6A6]/10 border border-[#00A6A6]/20 rounded-2xl p-6">
+                                <p className="text-lg text-gray-700">
+                                    <span className="font-bold text-[#00A6A6]">
+                                        That's why we built a scalable system
+                                    </span>{' '}
+                                    trusted by top brands, delivering{' '}
                                     <span className="font-semibold">
-                                        over 10 million images edited across
-                                        60,000+ jobs
-                                    </span>
-                                </p>
-                                <p className="text-lg leading-relaxed">
-                                    Now, we want to show you what we can do —
-                                    starting with 3 high-end edits, completely
-                                    free.
-                                </p>
-                                <p className="text-lg leading-relaxed">
-                                    No commitments. No credit card. Just
-                                    quality, speed, and consistency from day
-                                    one.
+                                        over 10 million edited images
+                                    </span>{' '}
+                                    with consistent quality, speed, and
+                                    reliability.
                                 </p>
                             </div>
                         </div>
 
-                        <figure className="relative rounded-2xl overflow-hidden">
-                            <ReactCompareImage
-                                leftImage={
-                                    'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746702381/gt6xyngs6eowplsorsmy.jpg'
-                                }
-                                rightImage={
-                                    'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746702380/pzhth6vtxzdvktqhosyp.jpg'
-                                }
-                                hover={true}
-                                leftImageLabel="Before"
-                                rightImageLabel="After"
-                            />
-                        </figure>
+                        <div className="relative">
+                            <div className="absolute -inset-6 bg-gradient-to-r from-[#00A6A6] to-[#FF6A00] rounded-3xl opacity-10 blur-xl"></div>
+                            <figure className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
+                                <ReactCompareImage
+                                    leftImage={
+                                        'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746702381/gt6xyngs6eowplsorsmy.jpg'
+                                    }
+                                    rightImage={
+                                        'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746702380/pzhth6vtxzdvktqhosyp.jpg'
+                                    }
+                                    hover={true}
+                                    leftImageLabel="Before"
+                                    rightImageLabel="After"
+                                />
+                            </figure>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <section className="py-16 md:py-24 bg-white">
+            {/* Services Section */}
+            <section className="py-20 bg-base-100">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-bold text-[#1E1E1E] mb-4">
+                            Professional{' '}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A6A6] to-[#FF6A00]">
+                                Editing Services
+                            </span>
+                        </h2>
+                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                            Comprehensive image editing solutions tailored to
+                            meet your specific needs and elevate your visual
+                            content.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                        {services.map((service) => (
+                            <div
+                                key={service.id}
+                                className="card bg-base-100 border border-base-300 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 group"
+                            >
+                                <figure className="px-8 pt-8">
+                                    <div className="relative w-20 h-20 mx-auto group-hover:scale-110 transition-transform duration-500">
+                                        <Image
+                                            src={service.image}
+                                            alt={service.name}
+                                            fill
+                                            className="object-contain"
+                                        />
+                                    </div>
+                                </figure>
+
+                                <div className="card-body items-center text-center pt-6">
+                                    <h3 className="card-title text-xl font-bold text-[#1E1E1E] mb-2">
+                                        {service.name}
+                                    </h3>
+                                    <p className="text-gray-600 mb-4">
+                                        {service.description}
+                                    </p>
+                                    <div className="card-actions">
+                                        <button className="btn bg-[#00A6A6] hover:bg-[#008080] border-[#00A6A6] text-white rounded-xl px-6 transform group-hover:scale-105 transition-all duration-300">
+                                            Learn More →
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Why Choose Us Section */}
+            <section
+                className="py-20 bg-gradient-to-br from-[#1E1E1E] to-[#0A0A0A] text-white"
+                id="why"
+            >
+                <div className="container mx-auto px-4">
+                    <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
                         Why{' '}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A6A6] to-[#FF6A00]">
                             Choose Web Briks?
                         </span>
                     </h2>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                        <figure className="relative aspect-square rounded-2xl overflow-hidden">
-                            <Image
-                                src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1748235825/mc5dxbuxvjhmvmviltdf.jpg"
-                                alt="Photo editing example"
-                                fill
-                                loading="lazy"
-                                className="object-cover rounded-2xl"
-                            />
-                        </figure>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div className="relative">
+                            <div className="absolute -inset-6 bg-gradient-to-r from-[#00A6A6] to-[#FF6A00] rounded-3xl opacity-10 blur-xl"></div>
+                            <figure className="relative rounded-2xl overflow-hidden shadow-2xl">
+                                <Image
+                                    src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1748235825/mc5dxbuxvjhmvmviltdf.jpg"
+                                    alt="Professional photo editing team"
+                                    width={600}
+                                    height={600}
+                                    className="w-full h-auto rounded-2xl"
+                                />
+                            </figure>
+                        </div>
 
-                        <div className="space-y-5 text-gray-700 max-w-lg mx-auto">
+                        <div className="space-y-6">
                             {[
-                                'Successfully Completed 60000+ image editing projects.',
-                                'Successfully Delivered 10m+ images for eCommerce brands, photographers, and agencies.',
-                                'Deliver consistent, high-quality results with fast turnaround time.',
-                                '24/7 customer support ensures the best services.',
-                                'Flexible and scalable- Daily 2000+ image editing capacity.',
-                                '50+ High-skilled editing team deliver their best efforts for client satisfaction.',
-                                'We have been working in this industry for 10+ years.',
-                                '1000+ positive reviews on Fiverr, Upwork, and Google reviews ensure we can deliver precisely what the client wants.',
+                                'Successfully Completed 60,000+ image editing projects',
+                                'Delivered 10M+ images for eCommerce brands, photographers, and agencies',
+                                'Consistent high-quality results with fast turnaround time',
+                                '24/7 dedicated customer support',
+                                'Daily 2,000+ image editing capacity',
+                                '50+ high-skilled professional editors',
+                                '10+ years of industry experience',
+                                '1,000+ 5-star reviews across platforms',
                             ].map((item, index) => (
-                                <div key={index} className="flex items-start">
-                                    <div className="flex-shrink-0 mt-1">
-                                        <div className="w-5 h-5 rounded-full bg-orange-500 flex items-center justify-center">
-                                            <svg
-                                                className="w-3 h-3 text-white"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth={3}
-                                                    d="M5 13l4 4L19 7"
-                                                />
-                                            </svg>
-                                        </div>
+                                <div
+                                    key={index}
+                                    className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition-all duration-300 group"
+                                >
+                                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#00A6A6] to-[#FF6A00] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                        <CheckCircle className="w-6 h-6 text-white" />
                                     </div>
-                                    <p className="ml-3 text-lg">{item}</p>
+                                    <p className="text-lg font-medium">
+                                        {item}
+                                    </p>
                                 </div>
                             ))}
                         </div>
@@ -277,35 +481,56 @@ export default function ImageEditingTrialPage() {
                 </div>
             </section>
 
-            <section className="py-16 md:py-24 bg-gray-50">
+            {/* Portfolio Section */}
+            <section className="py-20 bg-base-100" id="portfolio">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl text-center font-bold mb-6">
-                        <span className="text-orange-500">
-                            Need More Proof?
-                        </span>{' '}
-                        Here’s What We’ve Done for Others
-                    </h2>
-                    <div className="mt-8 md:mt-12 space-y-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
-                        {ImageEditingTrialData.slice(9, 19).map(
-                            ({ before, after }, index) => (
-                                <figure
-                                    key={index}
-                                    className="group relative overflow-hidden rounded-xl border border-black/5 h-fit"
-                                >
-                                    <ReactCompareImage
-                                        leftImage={before}
-                                        rightImage={after}
-                                        hover={true}
-                                        leftImageLabel="Before"
-                                        rightImageLabel="After"
-                                    />
-                                </figure>
-                            )
-                        )}
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-bold text-[#1E1E1E] mb-4">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6A00] to-[#00A6A6]">
+                                Need More Proof?
+                            </span>{' '}
+                            See Our Work
+                        </h2>
+                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                            Browse through our portfolio of before-and-after
+                            transformations that speak louder than words.
+                        </p>
                     </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {visibleImages.map(({ before, after }, index) => (
+                            <figure
+                                key={index}
+                                className="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+                            >
+                                <div className="absolute -inset-4 bg-gradient-to-r from-[#00A6A6] to-[#FF6A00] rounded-2xl opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500"></div>
+                                <ReactCompareImage
+                                    leftImage={before}
+                                    rightImage={after}
+                                    hover={true}
+                                    leftImageLabel="Before"
+                                    rightImageLabel="After"
+                                />
+                            </figure>
+                        ))}
+                    </div>
+
+                    {!showAll && (
+                        <div className="flex justify-center mt-12">
+                            <button
+                                className="rounded-2xl px-7 py-4 font-semibold border border-white/20 hover:border-white/40 transition-colors flex items-center gap-2 bg-[#FF6A00] text-white"
+                                onClick={() => setShowAll(true)}
+                            >
+                                Load More Work Samples
+                            </button>
+                        </div>
+                    )}
                 </div>
             </section>
-            <TrialForm />
+
+            <div id="trial-form">
+                <TrialForm />
+            </div>
         </section>
     );
 }
