@@ -16,7 +16,7 @@ import { MovingCard } from '@/components/(sales)/image-editing-trail/MovingCard'
 import YoutubeLite from '@/components/(sales)/image-editing-trail/YoutubeLite';
 import { ImageEditingTrialData } from './data';
 import TrialForm from '@/components/(sales)/image-editing-trail/TrialForm';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const ReactCompareImage = dynamic(() => import('react-compare-image'), {
     ssr: false,
@@ -197,28 +197,30 @@ export default function ImageEditingTrialPage() {
                                     Edits — No Credit Card
                                 </p>
                                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight">
-                                    Upload up to 3 Photos &{' '}
-                                    <span className="bg-gradient-to-r from-[#FF6A00] to-[#00A6A6] bg-clip-text text-transparent">
-                                        Get Free Image Editing
-                                    </span>
+                                    Perfectly Edited{' '}
+                                    <span className="bg-[#FF6A00] bg-clip-text text-transparent">
+                                        Photo Editing Services
+                                    </span>{' '}
+                                    Within 6-12 Hours
                                 </h1>
-                                <p className="text-lg md:text-xl text-white/80 max-w-2xl">
-                                    Trusted by brands and agencies worldwide.
-                                    Over <strong>10,000,000+</strong> images
-                                    edited across <strong>60,000+</strong> jobs.
-                                    See our quality — free.
+                                <p className="md:text-lg text-gray-600 max-w-2xl">
+                                    We provide hand-drawn clipping path, Color
+                                    correction, image retouching, ghost
+                                    mannequin, and eCommerce image editing
+                                    services. Get pixel-perfect photo editing
+                                    services whenever you need.
                                 </p>
 
-                                <div className="flex flex-col sm:flex-row gap-4">
+                                <div className="flex items-center flex-col sm:flex-row gap-5">
                                     <button
-                                        className="rounded-2xl px-7 py-4 font-semibold border border-white/20 hover:border-white/40 transition-colors flex items-center gap-2 bg-[#FF6A00]"
                                         onClick={() =>
                                             scrollToSection('trial-form')
                                         }
+                                        className="btn-orange"
                                     >
-                                        <ClipboardList className="w-5 h-5" />
                                         Get My Free Edits
                                     </button>
+
                                     <button
                                         onClick={() =>
                                             document
@@ -227,7 +229,7 @@ export default function ImageEditingTrialPage() {
                                                     behavior: 'smooth',
                                                 })
                                         }
-                                        className="rounded-2xl px-7 py-4 font-semibold border border-white/20 hover:border-white/40 transition-colors bg-[#00A6A6]"
+                                        className="btn-teal"
                                     >
                                         View Portfolio
                                     </button>
@@ -281,16 +283,16 @@ export default function ImageEditingTrialPage() {
             <section className="py-20 bg-base-100">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-bold text-[#1E1E1E] mb-4">
+                        <h2 className="text-[#1E1E1E] mb-4 text-4xl md:text-5xl font-lato flex items-center gap-2 justify-center">
                             What Our{' '}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A6A6] to-[#FF6A00]">
+                            <span className="text-transparent bg-clip-text bg-pri font-normal">
                                 Clients Say
                             </span>
                         </h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                            Don't just take our word for it. Here's what
-                            photographers, eCommerce brands, and agencies have
-                            to say about our service.
+                        <p className="md:text-lg text-gray-600 max-w-2xl mx-auto">
+                            Don&apos;t just take our word for it. Here&apos;s
+                            what photographers, eCommerce brands, and agencies
+                            have to say about our service.
                         </p>
                     </div>
                     <MovingCard items={testimonials} speed="slow" />
@@ -302,35 +304,25 @@ export default function ImageEditingTrialPage() {
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="space-y-8">
-                            <div className="space-y-4">
-                                <h3 className="text-4xl md:text-5xl font-bold text-[#1E1E1E] leading-tight">
-                                    No More Guesswork.{' '}
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A6A6] to-[#FF6A00]">
-                                        Flawless Results
-                                    </span>{' '}
-                                    Guaranteed.
-                                </h3>
-                                <p className="text-lg text-gray-600 leading-relaxed">
-                                    In today's competitive digital landscape,
-                                    professional visuals aren't optional —
-                                    they're essential for success.
-                                </p>
-                            </div>
+                            <h3 className="text-4xl md:text-5xl font-bold text-[#1E1E1E] !leading-[1.1]">
+                                Stop Losing a Week to Image Editing. Start{' '}
+                                <span className="text-transparent bg-clip-text bg-pri">
+                                    Selling Faster
+                                </span>{' '}
+                                with Your Virtual Editing Studio
+                            </h3>
 
                             <div className="space-y-6">
                                 {[
-                                    'eCommerce managers handling thousands of product images',
-                                    'Photographers wanting to focus on shooting, not editing',
-                                    'Agency owners facing tight deadlines and high standards',
-                                    'Marketing teams needing consistent, brand-aligned visuals',
+                                    `A quick potshot shouldn't mean a week of tedious editing. We are your dedicated, virtual photo editing and design studio, built for speed and perfection.`,
+                                    `We handle everything from complex eCommerce product background removal to intricate sports, head shot, and portrait retouching. Our professional service is available 24/7, with guaranteed turnaround time.`,
+                                    `Don't just take our word for it. Send us your toughest image right now. We'll deliver the pixel-perfect edit for free, so you can see the quality and experience the speed before you ever spend a dollar.`,
                                 ].map((item, index) => (
                                     <div
                                         key={index}
                                         className="flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300"
                                     >
-                                        <div className="flex-shrink-0 w-8 h-8 bg-[#00A6A6] rounded-full flex items-center justify-center">
-                                            <CheckCircle className="w-5 h-5 text-white" />
-                                        </div>
+                                        {/* <CheckCircle className="w-5 h-5 text-pri" /> */}
                                         <span className="text-gray-700 font-medium">
                                             {item}
                                         </span>
@@ -340,8 +332,9 @@ export default function ImageEditingTrialPage() {
 
                             <div className="bg-[#00A6A6]/10 border border-[#00A6A6]/20 rounded-2xl p-6">
                                 <p className="text-lg text-gray-700">
-                                    <span className="font-bold text-[#00A6A6]">
-                                        That's why we built a scalable system
+                                    <span className="font-bold text-pri">
+                                        That&apos;s why we built a scalable
+                                        system
                                     </span>{' '}
                                     trusted by top brands, delivering{' '}
                                     <span className="font-semibold">
@@ -354,8 +347,8 @@ export default function ImageEditingTrialPage() {
                         </div>
 
                         <div className="relative">
-                            <div className="absolute -inset-6 bg-gradient-to-r from-[#00A6A6] to-[#FF6A00] rounded-3xl opacity-10 blur-xl"></div>
-                            <figure className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
+                            <div className="absolute -inset-6 rounded-3xl"></div>
+                            <figure className="relative rounded-2xl overflow-hidden border border-gray-200">
                                 <ReactCompareImage
                                     leftImage={
                                         'https://res.cloudinary.com/dny7zfbg9/image/upload/v1746702381/gt6xyngs6eowplsorsmy.jpg'
@@ -375,20 +368,13 @@ export default function ImageEditingTrialPage() {
 
             {/* Services Section */}
             <section className="py-20 bg-base-100">
-                <div className="container mx-auto px-4">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-bold text-[#1E1E1E] mb-4">
-                            Professional{' '}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A6A6] to-[#FF6A00]">
-                                Editing Services
-                            </span>
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                            Comprehensive image editing solutions tailored to
-                            meet your specific needs and elevate your visual
-                            content.
-                        </p>
-                    </div>
+                <div className="container mx-auto px-4 space-y-8">
+                    <h2 className="text-[#1E1E1E] mb-4 text-4xl md:text-5xl font-lato flex items-center gap-2 justify-center">
+                        Professional{' '}
+                        <span className="text-transparent bg-clip-text bg-pri font-normal">
+                            Photo Editing Services
+                        </span>
+                    </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                         {services.map((service) => (
@@ -407,15 +393,15 @@ export default function ImageEditingTrialPage() {
                                     </div>
                                 </figure>
 
-                                <div className="card-body items-center text-center pt-6">
-                                    <h3 className="card-title text-xl font-bold text-[#1E1E1E] mb-2">
+                                <div className="card-body items-center text-center">
+                                    <h3 className="card-title text-xl font-bold text-[#1E1E1E]">
                                         {service.name}
                                     </h3>
-                                    <p className="text-gray-600 mb-4">
+                                    <p className="text-gray-600">
                                         {service.description}
                                     </p>
                                     <div className="card-actions">
-                                        <button className="btn bg-[#00A6A6] hover:bg-[#008080] border-[#00A6A6] text-white rounded-xl px-6 transform group-hover:scale-105 transition-all duration-300">
+                                        <button className="btn-orange">
                                             Learn More →
                                         </button>
                                     </div>
@@ -433,69 +419,44 @@ export default function ImageEditingTrialPage() {
             >
                 <div className="container mx-auto px-4">
                     <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-                        Why{' '}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A6A6] to-[#FF6A00]">
-                            Choose Web Briks?
+                        Why Choose{' '}
+                        <span className="text-transparent bg-clip-text bg-[#FF6A00]">
+                            Web Briks?
                         </span>
                     </h2>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div className="relative">
-                            <div className="absolute -inset-6 bg-gradient-to-r from-[#00A6A6] to-[#FF6A00] rounded-3xl opacity-10 blur-xl"></div>
-                            <figure className="relative rounded-2xl overflow-hidden shadow-2xl">
-                                <Image
-                                    src="https://res.cloudinary.com/dny7zfbg9/image/upload/v1748235825/mc5dxbuxvjhmvmviltdf.jpg"
-                                    alt="Professional photo editing team"
-                                    width={600}
-                                    height={600}
-                                    className="w-full h-auto rounded-2xl"
-                                />
-                            </figure>
-                        </div>
-
-                        <div className="space-y-6">
-                            {[
-                                'Successfully Completed 60,000+ image editing projects',
-                                'Delivered 10M+ images for eCommerce brands, photographers, and agencies',
-                                'Consistent high-quality results with fast turnaround time',
-                                '24/7 dedicated customer support',
-                                'Daily 2,000+ image editing capacity',
-                                '50+ high-skilled professional editors',
-                                '10+ years of industry experience',
-                                '1,000+ 5-star reviews across platforms',
-                            ].map((item, index) => (
-                                <div
-                                    key={index}
-                                    className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition-all duration-300 group"
-                                >
-                                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-[#00A6A6] to-[#FF6A00] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                        <CheckCircle className="w-6 h-6 text-white" />
-                                    </div>
-                                    <p className="text-lg font-medium">
-                                        {item}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+                        {[
+                            'Successfully Completed 60,000+ image editing projects',
+                            '24/7 dedicated customer support',
+                            'Daily 2,000+ image editing capacity',
+                            '50+ high-skilled professional editors',
+                            '10+ years of industry experience',
+                            '1,000+ 5-star reviews across platforms',
+                            'Delivered 10M+ images for eCommerce brands, photographers, and agencies',
+                            'Consistent high-quality results with fast turnaround time',
+                        ].map((item, index) => (
+                            <div
+                                key={index}
+                                className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition-all duration-300 group"
+                            >
+                                <CheckCircle className="flex-shrink-0 w-8 h-8 text-[#FF6A00]" />
+                                <p className="text-lg font-medium">{item}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
             {/* Portfolio Section */}
             <section className="py-20 bg-base-100" id="portfolio">
-                <div className="container mx-auto px-4">
-                    <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-bold text-[#1E1E1E] mb-4">
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6A00] to-[#00A6A6]">
-                                Need More Proof?
-                            </span>{' '}
-                            See Our Work
-                        </h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                            Browse through our portfolio of before-and-after
-                            transformations that speak louder than words.
-                        </p>
-                    </div>
+                <div className="container mx-auto px-4 space-y-8">
+                    <h2 className="text-[#1E1E1E] mb-4 text-4xl md:text-5xl font-lato flex items-center gap-2 justify-center">
+                        Our{' '}
+                        <span className="text-transparent bg-clip-text bg-pri font-normal">
+                            Portfolio
+                        </span>
+                    </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {visibleImages.map(({ before, after }, index) => (
@@ -518,7 +479,7 @@ export default function ImageEditingTrialPage() {
                     {!showAll && (
                         <div className="flex justify-center mt-12">
                             <button
-                                className="rounded-2xl px-7 py-4 font-semibold border border-white/20 hover:border-white/40 transition-colors flex items-center gap-2 bg-[#FF6A00] text-white"
+                                className="btn-orange"
                                 onClick={() => setShowAll(true)}
                             >
                                 Load More Work Samples

@@ -3,12 +3,17 @@ import 'aos/dist/aos.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'react-toastify/dist/ReactToastify.min.css';
-import { Livvic } from 'next/font/google';
+import { Livvic, Poppins } from 'next/font/google';
 import { ToastContainer } from 'react-toastify';
 import Script from 'next/script';
 import MainLayout from './MainLayout';
 
 const livvic = Livvic({
+    subsets: ['latin'],
+    weight: ['400', '900'],
+});
+
+const poppins = Poppins({
     subsets: ['latin'],
     weight: ['400', '500'],
 });
@@ -40,7 +45,9 @@ export default function MyFunc({ children }) {
                     }}
                 />
             </head>
-            <body className={`${livvic.className} antialiased`}>
+            <body
+                className={`${livvic.className} ${poppins.className} antialiased`}
+            >
                 {/* Google Tag Manager (noscript) */}
                 <noscript>
                     <iframe

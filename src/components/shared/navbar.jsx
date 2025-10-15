@@ -37,9 +37,6 @@ export function Navbar() {
     const [isNavOpen, setIsNavOpen] = useState(false);
     const path = usePathname();
 
-    // ✅ Check if we should hide "Get a Quote"
-    const hideQuote = path.startsWith('/career') || path.startsWith('/job');
-
     return (
         <nav className="backdrop-blur py-4">
             <div className="container mx-auto px-4 flex items-center justify-between">
@@ -135,20 +132,25 @@ export function Navbar() {
                     </div>
                 </div>
 
-                {/* Desktop CTA */}
-                {!hideQuote && (
-                    <div className="hidden lg:block">
-                        <a
-                            href="/get-quote"
-                            className="text-white px-4 py-2 rounded bg-orange-500 hover:bg-orange-600 transition flex items-center gap-2"
-                        >
-                            <span>Get a Quote</span>
-                            <span>
-                                <ClipboardList className="size-5" />
-                            </span>
-                        </a>
-                    </div>
-                )}
+                {/* Desktop Buttons */}
+                <div className="hidden lg:flex items-center gap-2">
+                    <a
+                        href="https://portal.webbriks.com/quotes/new-quote"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-orange"
+                    >
+                        Get My Image Edits
+                    </a>
+                    <a
+                        href="https://portal.webbriks.com/sign-in"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-teal"
+                    >
+                        Sign In
+                    </a>
+                </div>
 
                 {/* Mobile Toggle */}
                 <button
@@ -166,7 +168,7 @@ export function Navbar() {
             {/* Mobile Menu */}
             {isNavOpen && (
                 <div className="lg:hidden bg-[#FEF9EF] shadow-md">
-                    <div className="px-4 py-2">
+                    <div className="px-4 py-2 space-y-1">
                         <a
                             href="/"
                             className={`block py-2 hover:text-orange-500 ${
@@ -249,20 +251,25 @@ export function Navbar() {
                         </div>
                     </div>
 
-                    {/* Mobile CTA */}
-                    {!hideQuote && (
-                        <button className="px-4 py-2">
-                            <a
-                                href="/get-quote"
-                                className="button !px-4 !py-2 !rounded flex items-center gap-2"
-                            >
-                                <span>Get a Quote</span>
-                                <span>
-                                    <ClipboardList className="size-5" />
-                                </span>
-                            </a>
-                        </button>
-                    )}
+                    {/* Mobile Buttons */}
+                    <div className="flex flex-col gap-3 px-4 py-4">
+                        <a
+                            href="https://portal.webbriks.com/quotes/new-quote"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-orange text-center"
+                        >
+                            Get My Image Edits
+                        </a>
+                        <a
+                            href="https://portal.webbriks.com/sign-in"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-teal text-center"
+                        >
+                            Sign In
+                        </a>
+                    </div>
                 </div>
             )}
         </nav>

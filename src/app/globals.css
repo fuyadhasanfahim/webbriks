@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 html,
 body,
@@ -79,7 +80,58 @@ navbar {
 }
 
 .button {
-    @apply rounded-lg h-[40px] md:h-[50px] lg:h-[60px] py-3 px-8 md:py-4 md:px-12 text-base md:text-lg font-medium cursor-pointer hover:bg-gray-800 bg-orange-500 text-white;
+    @apply rounded-lg h-[40px] md:h-[50px] lg:h-[60px] py-3 px-8 md:py-4 md:px-12 text-base md:text-lg font-medium cursor-pointer hover:bg-gray-800 bg-[#FF6A00] text-white;
+}
+
+.font-pop {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+
+.font-lato {
+    font-family: 'Lato', sans-serif;
+    font-weight: 800;
+    @apply tracking-wide
+}
+
+.bg-pri {
+    @apply bg-[#FF6A00];
+}
+
+.text-pri {
+    @apply text-[#FF6A00];
+}
+
+.bg-sec {
+    @apply bg-[#00A6A6];
+}
+
+.text-sec {
+    @apply text-[#00A6A6];
+}
+
+.btn-orange {
+    @apply relative flex items-center gap-2 px-8 py-4 font-semibold text-white 
+         bg-gradient-to-r from-[#FF6A00] to-[#FF8C32]
+         rounded-[12px] shadow-lg border border-white/10 
+         transition-all duration-300;
+    clip-path: polygon(10px 0%, 100% 0, calc(100% - 10px) 100%, 0% 100%);
+}
+
+.btn-orange:hover {
+    @apply from-[#FF8C32] to-[#FF6A00] shadow-xl;
+}
+
+.btn-teal {
+    @apply relative flex items-center gap-2 px-8 py-4 font-semibold text-white 
+         bg-gradient-to-r from-[#00A6A6] to-[#00CFCF]
+         rounded-[12px] shadow-lg border border-white/10 
+         transition-all duration-300;
+    clip-path: polygon(10px 0%, 100% 0, calc(100% - 10px) 100%, 0% 100%);
+}
+
+.btn-teal:hover {
+    @apply from-[#00CFCF] to-[#00A6A6] shadow-xl;
 }
 
 @keyframes gradient-x {
