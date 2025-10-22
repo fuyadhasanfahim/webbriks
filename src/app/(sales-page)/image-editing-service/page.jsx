@@ -17,6 +17,7 @@ import YoutubeLite from '@/components/(sales)/image-editing-trail/YoutubeLite';
 import { ImageEditingTrialData } from './data';
 import TrialForm from '@/components/(sales)/image-editing-trail/TrialForm';
 import { useState } from 'react';
+import Button from '@/components/ui/button';
 
 const ReactCompareImage = dynamic(() => import('react-compare-image'), {
     ssr: false,
@@ -212,16 +213,15 @@ export default function ImageEditingTrialPage() {
                                 </p>
 
                                 <div className="flex items-center flex-col sm:flex-row gap-5">
-                                    <button
+                                    <Button
                                         onClick={() =>
                                             scrollToSection('trial-form')
                                         }
-                                        className="btn-orange"
                                     >
                                         Get My Free Edits
-                                    </button>
+                                    </Button>
 
-                                    <button
+                                    <Button
                                         onClick={() =>
                                             document
                                                 .getElementById('portfolio')
@@ -229,10 +229,10 @@ export default function ImageEditingTrialPage() {
                                                     behavior: 'smooth',
                                                 })
                                         }
-                                        className="btn-teal"
+                                        variant="teal"
                                     >
                                         View Portfolio
-                                    </button>
+                                    </Button>
                                 </div>
 
                                 {/* Trust row */}
@@ -283,7 +283,7 @@ export default function ImageEditingTrialPage() {
             <section className="py-20 bg-base-100">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
-                        <h2 className="text-[#1E1E1E] mb-4 text-4xl md:text-5xl font-lato flex items-center gap-2 justify-center">
+                        <h2 className="text-[#1E1E1E] mb-4 text-4xl md:text-5xl font-lato">
                             What Our{' '}
                             <span className="text-transparent bg-clip-text bg-pri font-normal">
                                 Clients Say
@@ -368,8 +368,8 @@ export default function ImageEditingTrialPage() {
 
             {/* Services Section */}
             <section className="py-20 bg-base-100">
-                <div className="container mx-auto px-4 space-y-8">
-                    <h2 className="text-[#1E1E1E] mb-4 text-4xl md:text-5xl font-lato flex items-center gap-2 justify-center">
+                <div className="container mx-auto text-center px-4 space-y-8">
+                    <h2 className="text-[#1E1E1E] mb-4 text-4xl md:text-5xl font-lato">
                         Professional{' '}
                         <span className="text-transparent bg-clip-text bg-pri font-normal">
                             Photo Editing Services
@@ -400,14 +400,14 @@ export default function ImageEditingTrialPage() {
                                     <p className="text-gray-600">
                                         {service.description}
                                     </p>
-                                    <div className="card-actions">
-                                        <button className="btn-orange">
-                                            Learn More →
-                                        </button>
-                                    </div>
                                 </div>
                             </div>
                         ))}
+                    </div>
+                    <div className="card-actions flex items-center justify-center">
+                        <Button onClick={() => scrollToSection('trial-form')}>
+                            Get My Free Edits
+                        </Button>
                     </div>
                 </div>
             </section>
@@ -451,7 +451,7 @@ export default function ImageEditingTrialPage() {
             {/* Portfolio Section */}
             <section className="py-20 bg-base-100" id="portfolio">
                 <div className="container mx-auto px-4 space-y-8">
-                    <h2 className="text-[#1E1E1E] mb-4 text-4xl md:text-5xl font-lato flex items-center gap-2 justify-center">
+                    <h2 className="text-[#1E1E1E] mb-4 text-4xl md:text-5xl font-lato">
                         Our{' '}
                         <span className="text-transparent bg-clip-text bg-pri font-normal">
                             Portfolio
@@ -478,12 +478,9 @@ export default function ImageEditingTrialPage() {
 
                     {!showAll && (
                         <div className="flex justify-center mt-12">
-                            <button
-                                className="btn-orange"
-                                onClick={() => setShowAll(true)}
-                            >
-                                Load More Work Samples
-                            </button>
+                            <Button onClick={() => setShowAll(true)}>
+                                Get My Free Edits
+                            </Button>
                         </div>
                     )}
                 </div>

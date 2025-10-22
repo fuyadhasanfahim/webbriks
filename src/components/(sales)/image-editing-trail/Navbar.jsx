@@ -1,5 +1,6 @@
 'use client';
 
+import Button from '@/components/ui/button';
 import { ClipboardList } from 'lucide-react';
 import Image from 'next/image';
 
@@ -17,18 +18,17 @@ export default function ImageEditingTrailNavbar() {
                     />
                 </a>
 
-                <button
-                    className="btn bg-orange-500 hover:bg-orange-600 text-white rounded-xl px-6 py-3 flex items-center"
+                <Button
                     onClick={() => {
                         const form = document.getElementById('trial-form');
                         form?.scrollIntoView({
                             behavior: 'smooth',
                         });
                     }}
+                    leftIcon={<ClipboardList />}
                 >
-                    <ClipboardList className="w-5 h-5 mr-2" />
-                    <span>Get My Free Edits</span>
-                </button>
+                    Get My Free Edits
+                </Button>
             </div>
         </nav>
     );
