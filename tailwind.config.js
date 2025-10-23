@@ -29,6 +29,7 @@ module.exports = withMT({
         require('daisyui'),
         addVariablesForColors,
         require('tailwind-scrollbar-hide'),
+        require('@tailwindcss/line-clamp'),
     ],
 });
 

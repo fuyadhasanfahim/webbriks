@@ -168,7 +168,7 @@ export default function ImageEditingTrialPage() {
         <section className="overflow-hidden">
             {/* Hero Section */}
             <section
-                className="relative text-white"
+                className="relative text-white overflow-hidden"
                 style={{
                     background:
                         'radial-gradient(1200px 600px at 10% 10%, rgba(0,166,166,0.25), transparent 60%), radial-gradient(900px 500px at 90% 20%, rgba(255,106,0,0.2), transparent 60%), linear-gradient(180deg,#0B0F12, #0B1115)',
@@ -280,7 +280,7 @@ export default function ImageEditingTrialPage() {
             </section>
 
             {/* Testimonials Section */}
-            <section className="py-20 bg-base-100">
+            <section className="padding-y bg-base-100">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
                         <h2 className="text-[#1E1E1E] mb-4 text-4xl md:text-5xl font-lato">
@@ -300,7 +300,7 @@ export default function ImageEditingTrialPage() {
             </section>
 
             {/* Proof Section */}
-            <section className="py-20 bg-gradient-to-br from-[#F9FAFB] to-base-200">
+            <section className="padding-y bg-gradient-to-br from-[#F9FAFB] to-base-200">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div className="space-y-8">
@@ -367,7 +367,7 @@ export default function ImageEditingTrialPage() {
             </section>
 
             {/* Services Section */}
-            <section className="py-20 bg-base-100">
+            <section className="padding-y bg-base-100">
                 <div className="container mx-auto text-center px-4 space-y-8">
                     <h2 className="text-[#1E1E1E] mb-4 text-4xl md:text-5xl font-lato">
                         Professional{' '}
@@ -414,7 +414,7 @@ export default function ImageEditingTrialPage() {
 
             {/* Why Choose Us Section */}
             <section
-                className="py-20 bg-gradient-to-br from-[#1E1E1E] to-[#0A0A0A] text-white"
+                className="padding-y bg-gradient-to-br from-[#1E1E1E] to-[#0A0A0A] text-white"
                 id="why"
             >
                 <div className="container mx-auto px-4">
@@ -449,7 +449,7 @@ export default function ImageEditingTrialPage() {
             </section>
 
             {/* Portfolio Section */}
-            <section className="py-20 bg-base-100" id="portfolio">
+            <section className="padding-y bg-base-100" id="portfolio">
                 <div className="container mx-auto px-4 space-y-8">
                     <h2 className="text-[#1E1E1E] text-center mb-4 text-4xl md:text-5xl font-lato">
                         Our{' '}

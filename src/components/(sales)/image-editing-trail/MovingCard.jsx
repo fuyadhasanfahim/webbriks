@@ -15,12 +15,12 @@ export const MovingCard = ({
     const containerRef = React.useRef(null);
     const scrollerRef = React.useRef(null);
 
+    const [start, setStart] = useState(false);
+
     useEffect(() => {
         addAnimation();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
-    const [start, setStart] = useState(false);
 
     function addAnimation() {
         if (containerRef.current && scrollerRef.current) {
@@ -28,9 +28,7 @@ export const MovingCard = ({
 
             scrollerContent.forEach((item) => {
                 const duplicatedItem = item.cloneNode(true);
-                if (scrollerRef.current) {
-                    scrollerRef.current.appendChild(duplicatedItem);
-                }
+                scrollerRef.current.appendChild(duplicatedItem);
             });
 
             getDirection();
@@ -41,38 +39,23 @@ export const MovingCard = ({
 
     const getDirection = () => {
         if (containerRef.current) {
-            if (direction === 'left') {
-                containerRef.current.style.setProperty(
-                    '--animation-direction',
-                    'forwards'
-                );
-            } else {
-                containerRef.current.style.setProperty(
-                    '--animation-direction',
-                    'reverse'
-                );
-            }
+            containerRef.current.style.setProperty(
+                '--animation-direction',
+                direction === 'left' ? 'forwards' : 'reverse'
+            );
         }
     };
 
     const getSpeed = () => {
         if (containerRef.current) {
-            if (speed === 'fast') {
-                containerRef.current.style.setProperty(
-                    '--animation-duration',
-                    '20s'
-                );
-            } else if (speed === 'normal') {
-                containerRef.current.style.setProperty(
-                    '--animation-duration',
-                    '40s'
-                );
-            } else {
-                containerRef.current.style.setProperty(
-                    '--animation-duration',
-                    '80s'
-                );
-            }
+            let duration = '40s';
+            if (speed === 'fast') duration = '20s';
+            else if (speed === 'slow') duration = '80s';
+
+            containerRef.current.style.setProperty(
+                '--animation-duration',
+                duration
+            );
         }
     };
 
@@ -94,7 +77,14 @@ export const MovingCard = ({
             >
                 {items.map((t, index) => (
                     <div key={index} className="group max-w-md w-full">
-                        <div className="border rounded-2xl p-6 shadow space-y-4 md:space-y-6">
+                        <div
+                            className={cn(
+                                // fixed height + overflow hidden
+                                'border rounded-2xl p-6 shadow space-y-4 md:space-y-6 h-[230px] flex flex-col justify-between overflow-hidden transition-all duration-300'
+                                // uncomment next line if you want hover expand
+                                // 'hover:h-auto'
+                            )}
+                        >
                             <div className="flex items-center justify-between gap-6">
                                 <div className="flex items-center gap-4">
                                     {t.image ? (
@@ -121,19 +111,19 @@ export const MovingCard = ({
                                             {t.name}
                                         </h4>
                                         <div className="flex items-center gap-2">
-                                            <div className="relative">
+                                            {t.flag && (
                                                 <Image
                                                     src={t.flag}
-                                                    alt="Testimonial image"
+                                                    alt="Flag"
                                                     width={24}
                                                     height={24}
                                                     loading="lazy"
-                                                    decoding='async'
-                                                    className="border"
+                                                    className="border rounded-sm"
                                                 />
-                                            </div>
-
-                                            <h6>{t.country}</h6>
+                                            )}
+                                            <h6 className="text-gray-600 text-sm md:text-base">
+                                                {t.country}
+                                            </h6>
                                         </div>
                                     </div>
                                 </div>
@@ -148,9 +138,9 @@ export const MovingCard = ({
                                 </div>
                             </div>
 
-                            <div>
-                                <p>{t.review}</p>
-                            </div>
+                            <p className="text-gray-700 text-sm md:text-base overflow-hidden text-ellipsis line-clamp-4">
+                                {t.review}
+                            </p>
                         </div>
                     </div>
                 ))}
