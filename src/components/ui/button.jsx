@@ -13,9 +13,7 @@ export default function Button({
 
     // ⬇️ Reduced padding & height for each breakpoint
     const sizes =
-        'text-xs px-2.5 py-1.5 min-h-[30px] ' +
-        'xs:text-sm xs:px-3 xs:py-2 xs:min-h-[34px] ' +
-        'sm:text-sm sm:px-4 sm:py-2.5 sm:min-h-[38px] ' +
+        'text-sm px-4 py-2.5 min-h-[38px] ' +
         'md:text-base md:px-5 md:py-3 md:min-h-[42px]';
 
     const variants = {

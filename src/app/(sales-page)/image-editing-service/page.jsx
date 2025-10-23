@@ -212,7 +212,7 @@ export default function ImageEditingTrialPage() {
                                     services whenever you need.
                                 </p>
 
-                                <div className="flex items-center flex-col sm:flex-row gap-5">
+                                <div className="flex items-center gap-5">
                                     <Button
                                         onClick={() =>
                                             scrollToSection('trial-form')
@@ -451,7 +451,7 @@ export default function ImageEditingTrialPage() {
             {/* Portfolio Section */}
             <section className="py-20 bg-base-100" id="portfolio">
                 <div className="container mx-auto px-4 space-y-8">
-                    <h2 className="text-[#1E1E1E] mb-4 text-4xl md:text-5xl font-lato">
+                    <h2 className="text-[#1E1E1E] text-center mb-4 text-4xl md:text-5xl font-lato">
                         Our{' '}
                         <span className="text-transparent bg-clip-text bg-pri font-normal">
                             Portfolio
@@ -479,7 +479,7 @@ export default function ImageEditingTrialPage() {
                     {!showAll && (
                         <div className="flex justify-center mt-12">
                             <Button onClick={() => setShowAll(true)}>
-                                Get My Free Edits
+                                Load More Work Samples
                             </Button>
                         </div>
                     )}
